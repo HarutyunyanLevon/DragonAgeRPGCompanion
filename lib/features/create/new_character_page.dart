@@ -9,6 +9,10 @@ import 'background_picker.dart';
 import 'character_draft.dart';
 import 'class_picker.dart';
 
+/// The route that opens the creation wizard.
+Route<void> newCharacterRoute() =>
+    MaterialPageRoute<void>(builder: (_) => const NewCharacterPage());
+
 /// Wizard step 1 of 4: name, background (book or custom), race and caste when
 /// the background asks for them, and class.
 class NewCharacterPage extends ConsumerWidget {

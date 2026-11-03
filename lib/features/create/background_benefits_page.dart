@@ -3,12 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../character/providers.dart';
 import '../../l10n/app_localizations.dart';
+import '../../shared/row_picker.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
-import '../../shared/placeholder_page.dart';
 import 'background_benefits.dart';
 import 'benefit_results.dart';
 import 'character_draft.dart';
+import 'class_choices_page.dart';
+import 'rule_info.dart';
 
 /// Wizard step 3 of 4: what the background gives besides its +1 ability
 /// (that one is shown in step 2): a focus, the languages, and two table
@@ -26,14 +28,7 @@ class BackgroundBenefitsPage extends ConsumerWidget {
     // Steps 1 and 2 are done, so these are all set.
     final background = draft.background!;
     final benefits = draft.benefits;
-    final facts = BenefitFacts(
-      background: background,
-      race: draft.race!,
-      classRules: rules.classes.classById(draft.classId!),
-      startScores: draft.abilities.scores,
-      maxScore: rules.backgrounds.maxScore,
-      buy: rules.backgrounds.buyMethod,
-    );
+    final facts = draft.benefitFacts(rules);
     final languageChoice = background.languageChoice;
 
     return Scaffold(
@@ -42,39 +37,45 @@ class BackgroundBenefitsPage extends ConsumerWidget {
         Text(l10n.stepOf(3, 4), style: Theme.of(context).textTheme.labelLarge),
         const SizedBox(height: 16),
         SectionTitle(l10n.backgroundFocusTitle),
-        Wrap(spacing: 8, runSpacing: 4, children: [
-          for (var i = 0; i < background.focusChoices.length; i++)
-            ChoiceChip(
-              label: Text(l10n.focusLabel(
-                displayName(background.focusChoices[i].ability),
-                displayName(background.focusChoices[i].focus),
-              )),
-              selected: benefits.focusIndex == i,
-              onSelected: (_) => notifier.setBenefits(benefits.withFocus(i)),
-            ),
-        ]),
+        RowPicker(
+          options: [
+            for (var i = 0; i < background.focusChoices.length; i++)
+              (
+                '$i',
+                l10n.focusLabel(
+                  displayName(background.focusChoices[i].ability),
+                  displayName(background.focusChoices[i].focus),
+                ),
+              ),
+          ],
+          picked: [if (benefits.focusIndex != null) '${benefits.focusIndex}'],
+          limit: 1,
+          onChange: (ids) =>
+              notifier.setBenefits(benefits.withFocus(int.parse(ids.first))),
+          describe: (id) {
+            final focus = background.focusChoices[int.parse(id)];
+            return FocusInfo(
+                rules: rules, ability: focus.ability, focus: focus.focus);
+          },
+        ),
         const SizedBox(height: 24),
         Text(l10n.languagesKnown(
             background.languages.map(displayName).join(', '))),
         if (languageChoice != null) ...[
           const SizedBox(height: 12),
           SectionTitle(l10n.languageChoiceTitle(languageChoice.pick)),
-          Wrap(spacing: 8, runSpacing: 4, children: [
-            for (final language in languageChoice.from)
-              FilterChip(
-                label: Text(displayName(language)),
-                selected: benefits.languages.contains(language),
-                // Disabled once the limit is reached (unless already chosen).
-                onSelected: benefits.languages.contains(language) ||
-                        benefits.languages.length < languageChoice.pick
-                    ? (on) => notifier.setBenefits(benefits.withLanguages([
-                          for (final l in benefits.languages)
-                            if (l != language) l,
-                          if (on) language,
-                        ]))
-                    : null,
-              ),
-          ]),
+          RowPicker(
+            options: [
+              for (final language in languageChoice.from)
+                (language, displayName(language)),
+            ],
+            picked: benefits.languages,
+            limit: languageChoice.pick,
+            onChange: (languages) =>
+                notifier.setBenefits(benefits.withLanguages(languages)),
+            describe: (language) =>
+                LanguageInfo(rules: rules, language: language),
+          ),
         ],
         const SizedBox(height: 24),
         SectionTitle(l10n.tableResults),
@@ -96,9 +97,7 @@ class BackgroundBenefitsPage extends ConsumerWidget {
         FilledButton(
           onPressed: benefits.isComplete(facts)
               ? () => Navigator.of(context).push(MaterialPageRoute<void>(
-                    // Step 4 (class choices, health, mana, save) is not built yet.
-                    builder: (_) =>
-                        PlaceholderPage(title: l10n.stepClassChoices),
+                    builder: (_) => const ClassChoicesPage(),
                   ))
               : null,
           child: Text(l10n.next),

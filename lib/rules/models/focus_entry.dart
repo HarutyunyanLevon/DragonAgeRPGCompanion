@@ -9,11 +9,15 @@ class FocusEntry {
     required this.id,
     required this.ability,
     required this.name,
+    this.weaponGroup,
   });
 
   final String id; // "arcane-lore"
   final String ability; // "cunning"
   final String name; // "Arcane Lore"
+
+  /// Only weapon focuses have it: the group the focus applies to ("axes").
+  final String? weaponGroup;
 
   factory FocusEntry.fromJson(Map<String, dynamic> json) =>
       _$FocusEntryFromJson(json);

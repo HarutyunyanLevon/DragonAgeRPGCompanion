@@ -158,6 +158,10 @@ class BackgroundBenefits {
       ? [for (final row in rolled) if (row != null) row]
       : bought.toList();
 
+  /// What the chosen table rows give.
+  List<TableResult> results(BenefitFacts facts) =>
+      [for (final row in chosenRows) facts.resultAt(row)];
+
   int pointsLeft(BenefitFacts facts) =>
       facts.buy.backgroundBenefitPoints -
       bought.fold(0, (sum, row) => sum + facts.costOf(row));

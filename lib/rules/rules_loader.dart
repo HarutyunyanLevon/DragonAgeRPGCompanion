@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
+import 'models/gear.dart';
+import 'models/specializations.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
 import 'rules_data.dart';
@@ -29,6 +31,10 @@ class RulesLoader {
   Future<TalentsFile> loadTalents() async => TalentsFile.fromJson(
       await _json('talents.json') as Map<String, dynamic>);
 
+  Future<SpecializationsFile> loadSpecializations() async =>
+      SpecializationsFile.fromJson(
+          await _json('specializations.json') as Map<String, dynamic>);
+
   /// The focus list inside core.json (the rest of that file has no model yet).
   Future<List<FocusEntry>> loadFocuses() async {
     final core = await _json('core.json') as Map<String, dynamic>;
@@ -43,11 +49,37 @@ class RulesLoader {
     return [for (final s in list) Spell.fromJson(s as Map<String, dynamic>)];
   }
 
-  Future<RulesData> load() async => RulesData(
-        classes: await loadClasses(),
-        backgrounds: await loadBackgrounds(),
-        talents: await loadTalents(),
-        focuses: await loadFocuses(),
-        spells: await loadSpells(),
-      );
+  Future<List<StarterSpellSet>> loadStarterSets() async {
+    final list = await _json('starter_spells.json') as List<dynamic>;
+    return [
+      for (final s in list) StarterSpellSet.fromJson(s as Map<String, dynamic>)
+    ];
+  }
+
+  Future<Map<String, String>> loadAbilityDescriptions() async =>
+      (await _json('abilities.json') as Map<String, dynamic>)
+          .cast<String, String>();
+
+  /// Weapons, armor, shields and the item catalog (gear.json).
+  Future<GearFile> loadGear() async =>
+      GearFile.fromJson(await _json('gear.json') as Map<String, dynamic>);
+
+  Future<RulesData> load() async {
+    final gear = await loadGear();
+    return RulesData(
+      classes: await loadClasses(),
+      backgrounds: await loadBackgrounds(),
+      talents: await loadTalents(),
+      specializations: await loadSpecializations(),
+      focuses: await loadFocuses(),
+      spells: await loadSpells(),
+      starterSets: await loadStarterSets(),
+      abilityDescriptions: await loadAbilityDescriptions(),
+      weaponGroups: gear.weaponGroups,
+      weapons: gear.weapons,
+      armor: gear.armor,
+      shields: gear.shields,
+      catalog: gear.catalog,
+    );
+  }
 }

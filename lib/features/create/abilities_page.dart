@@ -13,6 +13,7 @@ import '../../shared/form_widgets.dart';
 import 'ability_generation.dart';
 import 'background_benefits_page.dart';
 import 'character_draft.dart';
+import 'rule_info.dart';
 
 /// Wizard step 2 of 4: the eight abilities, made by rolling, arranging,
 /// buying or typing them in (see [AbilityMethod]). The background's +1 is
@@ -27,6 +28,13 @@ class AbilitiesPage extends ConsumerStatefulWidget {
 class _AbilitiesPageState extends ConsumerState<AbilitiesPage> {
   /// First ability tapped for a swap.
   String? _swapFrom;
+
+  /// Abilities whose description is open.
+  final _infoOpen = <String>{};
+
+  void _toggleInfo(String ability) => setState(() {
+        if (!_infoOpen.remove(ability)) _infoOpen.add(ability);
+      });
 
   AbilityGeneration get _generation => ref.read(characterDraftProvider).abilities;
 
@@ -78,7 +86,8 @@ class _AbilitiesPageState extends ConsumerState<AbilitiesPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final file = ref.watch(rulesProvider).requireValue.backgrounds;
+    final rules = ref.watch(rulesProvider).requireValue;
+    final file = rules.backgrounds;
     final draft = ref.watch(characterDraftProvider);
     final generation = draft.abilities;
     final buy = file.buyMethod;
@@ -161,6 +170,10 @@ class _AbilitiesPageState extends ConsumerState<AbilitiesPage> {
             outOfRange: outOfRange.contains(ability),
             onTap: () => _tapForSwap(ability),
             onChange: _set,
+            info: _infoOpen.contains(ability)
+                ? AbilityInfo(rules: rules, ability: ability)
+                : null,
+            onInfo: () => _toggleInfo(ability),
           ),
         const SizedBox(height: 32),
         FilledButton(
@@ -183,6 +196,8 @@ class _AbilityRow extends StatelessWidget {
     required this.outOfRange,
     required this.onTap,
     required this.onChange,
+    required this.info,
+    required this.onInfo,
   });
 
   final String ability;
@@ -193,6 +208,10 @@ class _AbilityRow extends StatelessWidget {
   final bool outOfRange;
   final VoidCallback onTap;
   final ValueChanged<AbilityGeneration> onChange;
+
+  /// The description, or null while it is closed.
+  final Widget? info;
+  final VoidCallback onInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +276,11 @@ class _AbilityRow extends StatelessWidget {
     // Buying starts every ability at 0, so it always has a score.
     final start = generation.method == AbilityMethod.buy ? (score ?? 0) : score;
 
-    return ListTile(
+    final tile = ListTile(
+      leading: IconButton(
+        icon: const Icon(Icons.info_outline),
+        onPressed: onInfo,
+      ),
       title: Text(displayName(ability)),
       subtitle: gainsBackgroundBonus
           ? Text(start == null
@@ -271,5 +294,17 @@ class _AbilityRow extends StatelessWidget {
       onTap: onTap,
       trailing: trailing,
     );
+
+    return Column(children: [
+      tile,
+      if (info != null)
+        Card(
+          margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Align(alignment: Alignment.centerLeft, child: info),
+          ),
+        ),
+    ]);
   }
 }

@@ -50,11 +50,12 @@ class InventoryItem {
     this.itemId,
     this.quantity = 1,
     this.note = '',
+    this.equipped = false,
   });
 
   final String name;
 
-  /// Id in gear.json / weapons, or null for a custom item.
+  /// Id in gear.json (armor, shield, weapon, gear...), or null for a custom item.
   final String? itemId;
 
   @JsonKey(defaultValue: 1)
@@ -62,6 +63,18 @@ class InventoryItem {
 
   @JsonKey(defaultValue: '')
   final String note;
+
+  /// Worn armor, carried shield or wielded weapon.
+  @JsonKey(defaultValue: false)
+  final bool equipped;
+
+  InventoryItem copyWith({int? quantity, bool? equipped}) => InventoryItem(
+        name: name,
+        itemId: itemId,
+        quantity: quantity ?? this.quantity,
+        note: note,
+        equipped: equipped ?? this.equipped,
+      );
 
   factory InventoryItem.fromJson(Map<String, dynamic> json) =>
       _$InventoryItemFromJson(json);
@@ -75,6 +88,7 @@ class Character {
     required this.name,
     required this.backgroundId,
     required this.race,
+    this.caste,
     required this.classId,
     this.level = 1,
     this.xp = 0,
@@ -100,6 +114,7 @@ class Character {
   final String name;
   final String backgroundId;
   final String race; // "human", "elf", "dwarf", "qunari"
+  final String? caste; // dwarves only: "artisan", "miner", ...
   final String classId; // "mage", "rogue", "warrior"
 
   @JsonKey(defaultValue: 1)
@@ -155,6 +170,39 @@ class Character {
   final List<String> ties;
 
   int ability(String abilityId) => abilities[abilityId] ?? 0;
+
+  /// A copy with a different inventory or money. Add more parameters when
+  /// another screen needs to change something else.
+  Character copyWith({
+    List<InventoryItem>? inventory,
+    int? copper,
+  }) =>
+      Character(
+        id: id,
+        name: name,
+        backgroundId: backgroundId,
+        race: race,
+        caste: caste,
+        classId: classId,
+        level: level,
+        xp: xp,
+        abilities: abilities,
+        bankedAdvancements: bankedAdvancements,
+        focuses: focuses,
+        talents: talents,
+        specializations: specializations,
+        spellIds: spellIds,
+        weaponGroups: weaponGroups,
+        languages: languages,
+        maxHealth: maxHealth,
+        health: health,
+        maxMana: maxMana,
+        mana: mana,
+        copper: copper ?? this.copper,
+        inventory: inventory ?? this.inventory,
+        goals: goals,
+        ties: ties,
+      );
 
   factory Character.fromJson(Map<String, dynamic> json) =>
       _$CharacterFromJson(json);

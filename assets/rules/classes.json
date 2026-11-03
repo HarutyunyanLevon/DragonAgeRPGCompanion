@@ -88,6 +88,8 @@
       },
       "startingSpells": 3,
       "startingEquipment": "One weapon and a staff (for Arcane Lance).",
+      "startingWeapons": 1,
+      "startingExtraItem": "Staff",
       "levels": [
         {
           "level": 1,
@@ -318,6 +320,8 @@
         ]
       },
       "startingEquipment": "Light leather armor and two weapons.",
+      "startingArmor": "light-leather",
+      "startingWeapons": 2,
       "levels": [
         {
           "level": 1,
@@ -555,6 +559,8 @@
         ]
       },
       "startingEquipment": "Heavy leather armor and three weapons.",
+      "startingArmor": "heavy-leather",
+      "startingWeapons": 3,
       "levels": [
         {
           "level": 1,

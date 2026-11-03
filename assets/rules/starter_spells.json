@@ -1,0 +1,7 @@
+[
+  {"name": "Balanced", "spells": ["arcane-bolt", "heal", "rock-armor"]},
+  {"name": "Creation", "spells": ["glyph-of-paralysis", "heal", "heroic-offense"]},
+  {"name": "Entropy", "spells": ["daze", "drain-life", "weakness"]},
+  {"name": "Primal", "spells": ["flame-blast", "rock-armor", "winters-grasp"]},
+  {"name": "Spirit", "spells": ["mind-blast", "spell-shield", "walking-bomb"]}
+]

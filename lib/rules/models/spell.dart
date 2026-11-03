@@ -36,6 +36,25 @@ class Spell {
   /// Same id style as the other rules files ("winters-grasp").
   String get id => slug(name);
 
+  /// A level 1 mage may only start with spells that need nothing else.
+  bool get hasNoRequirement {
+    final text = requirement.trim().toLowerCase();
+    return text.isEmpty || text == 'none';
+  }
+
   factory Spell.fromJson(Map<String, dynamic> json) => _$SpellFromJson(json);
   Map<String, dynamic> toJson() => _$SpellToJson(this);
+}
+
+/// A suggested set of starting spells (assets/rules/starter_spells.json).
+@JsonSerializable()
+class StarterSpellSet {
+  const StarterSpellSet({required this.name, required this.spells});
+
+  final String name; // "Balanced"
+  final List<String> spells; // spell ids
+
+  factory StarterSpellSet.fromJson(Map<String, dynamic> json) =>
+      _$StarterSpellSetFromJson(json);
+  Map<String, dynamic> toJson() => _$StarterSpellSetToJson(this);
 }

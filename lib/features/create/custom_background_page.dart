@@ -10,10 +10,12 @@ import '../../rules/slug.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
 import 'custom_backgrounds.dart';
+import 'table_row_editor.dart';
 
 /// Same shape as a book background (strictly enforced): one ability bonus,
-/// two focus choices, 1-2 languages, at least one class. The 2d6 table is
-/// copied from a book background. Pops the finished [Background].
+/// two focus choices, 1-2 languages, at least one class, and a 2d6 table of
+/// 8 rows (set one by one, or started from a copy of a book table).
+/// Pops the finished [Background].
 class CustomBackgroundPage extends ConsumerStatefulWidget {
   const CustomBackgroundPage({super.key});
 
@@ -32,7 +34,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
   FocusEntry? _focus2;
   final _languages = <String>{};
   final _classes = <String>{};
-  Background? _tableSource;
+  final _results = List<TableResult?>.filled(tableRanges.length, null);
 
   @override
   void dispose() {
@@ -59,7 +61,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
       !_focusesClash &&
       _languages.isNotEmpty &&
       _classes.isNotEmpty &&
-      _tableSource != null;
+      _results.every((r) => r != null);
 
   void _toggle(Set<String> chosen, String id, bool on) {
     setState(() {
@@ -67,6 +69,18 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
         chosen.add(id);
       } else {
         chosen.remove(id);
+      }
+    });
+  }
+
+  /// Copies the rows of a book background's table into the editor.
+  void _startFrom(Background book) {
+    // A table written for one race still works: use the one that fits.
+    final tables = book.tables;
+    final table = tables['any'] ?? tables[_race] ?? tables.values.first;
+    setState(() {
+      for (var row = 0; row < _results.length; row++) {
+        _results[row] = table[row].result;
       }
     });
   }
@@ -153,11 +167,23 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
         ]),
         const SizedBox(height: 16),
         _Picker<Background>(
-          label: l10n.copyTableFrom,
+          label: l10n.startTableFrom,
           entries: [
             for (final b in book) DropdownMenuEntry(value: b, label: b.name),
           ],
-          onSelected: (v) => setState(() => _tableSource = v),
+          onSelected: (v) {
+            if (v != null) _startFrom(v);
+          },
+        ),
+        TableRowEditor(
+          results: _results,
+          choices: RowChoices(
+            abilities: rules.backgrounds.abilities,
+            focuses: rules.focuses,
+            languages: allLanguages,
+            weaponGroups: rules.classes.allWeaponGroups,
+          ),
+          onChanged: (row, result) => setState(() => _results[row] = result),
         ),
         const SizedBox(height: 16),
         FilledButton(
@@ -171,7 +197,6 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
 
   Background _build(RulesData rules) {
     final book = rules.backgrounds.backgrounds;
-    final table = _tableSource!.tables;
     final name = _name.text.trim();
     return Background(
       id: _id,
@@ -194,8 +219,16 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
           .map((b) => b.trait)
           .firstWhere((t) => t != null, orElse: () => null),
       casteChoices: const [],
-      // A table written for one race still works: use the one that fits.
-      tables: {'any': table['any'] ?? table[_race] ?? table.values.first},
+      tables: {
+        'any': [
+          for (var row = 0; row < tableRanges.length; row++)
+            BackgroundTableRow(
+              min: tableRanges[row].$1,
+              max: tableRanges[row].$2,
+              result: _results[row]!,
+            ),
+        ],
+      },
       notes: const [],
       homebrew: true,
     );

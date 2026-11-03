@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../features/play/play_page.dart';
+import '../features/sheet/sheet_page.dart';
 import '../l10n/app_localizations.dart';
 import 'placeholder_page.dart';
 
@@ -35,8 +36,7 @@ class _AppShellState extends State<AppShell> {
     final l10n = AppLocalizations.of(context);
     final tabs = [
       _AppTab(Icons.shield_outlined, l10n.tabPlay, const PlayPage()),
-      _AppTab(Icons.assignment_ind_outlined, l10n.tabSheet,
-          PlaceholderPage(title: l10n.tabSheet)),
+      _AppTab(Icons.assignment_ind_outlined, l10n.tabSheet, const SheetPage()),
       _AppTab(Icons.auto_awesome, l10n.tabSpells,
           PlaceholderPage(title: l10n.tabSpells)),
       _AppTab(Icons.menu_book_outlined, l10n.tabGlossary,

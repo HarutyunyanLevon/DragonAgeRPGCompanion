@@ -1,17 +1,25 @@
-# dragon_age_companion
+# Dragon Age Companion
 
-A new Flutter project.
+Companion app for the Dragon Age RPG (Green Ronin core rulebook). Flutter.
 
-## Getting Started
+## Building
 
-This project is a starting point for a Flutter application.
+Everything goes through one script (needs Python and Flutter on your PATH):
 
-A few resources to get you started if this is your first Flutter project:
+    python build.py              pub get + build_runner + gen-l10n
+    python build.py -g           only gen-l10n (after editing lib/l10n/app_en.arb)
+    python build.py -b           only build_runner (after editing a model with @JsonSerializable)
+    python build.py -t           prepare, then run the tests
+    python build.py -win         prepare, then run the app on Windows
+    python build.py -t -win      prepare, tests, then run the app
+    python build.py -a           prepare, then run the app on an Android device
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Steps run in that order and the script stops at the first failure.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Folders
+
+- `lib/rules/` loads the rules JSON from `assets/rules/` (all rulebook data lives there, not in code).
+- `lib/character/` the character model, saving, and rule calculations (pure functions).
+- `lib/features/<name>/` one folder per screen area (create, characters, play, sheet).
+- `lib/shared/` theme, app shell, small widgets used everywhere.
+- `lib/l10n/app_en.arb` every text shown on screen.

@@ -25,11 +25,13 @@ String resultText(AppLocalizations l10n, TableResult result) =>
       _ => l10n.resultWeaponGroup(displayName(result.group!)),
     };
 
+/// "7-8", or "12" when the range is a single number.
+String rangeText(int min, int max) => min == max ? '$min' : '$min-$max';
+
 /// "7-8: +1 Magic": a table row as the player reads it in the book.
 String rowText(AppLocalizations l10n, BenefitFacts facts, int row) {
   final r = facts.table[row];
-  final range = r.min == r.max ? '${r.min}' : '${r.min}-${r.max}';
-  return '$range: ${resultText(l10n, facts.resultAt(row))}';
+  return '${rangeText(r.min, r.max)}: ${resultText(l10n, facts.resultAt(row))}';
 }
 
 String conflictText(

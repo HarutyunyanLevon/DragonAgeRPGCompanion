@@ -42,6 +42,14 @@ class TableResult {
   /// Take this focus instead when the class already grants the weapon group.
   final FocusRef? ifClassHasGroup;
 
+  /// True when both rows give the same thing (the fallback is not compared).
+  bool sameAs(TableResult other) =>
+      type == other.type &&
+      ability == other.ability &&
+      focus == other.focus &&
+      language == other.language &&
+      group == other.group;
+
   factory TableResult.fromJson(Map<String, dynamic> json) =>
       _$TableResultFromJson(json);
   Map<String, dynamic> toJson() => _$TableResultToJson(this);
