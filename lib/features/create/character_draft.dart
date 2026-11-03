@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../rules/models/backgrounds.dart';
 import 'ability_generation.dart';
+import 'background_benefits.dart';
 
 /// The character being built by the creation wizard. Nothing is saved until
 /// the last step. The draft is thrown away when the wizard closes.
@@ -13,6 +14,7 @@ class CharacterDraft {
     this.caste,
     this.classId,
     this.abilities = const AbilityGeneration(),
+    this.benefits = const BackgroundBenefits(),
   });
 
   final String name;
@@ -27,6 +29,10 @@ class CharacterDraft {
 
   /// Step 2: the abilities made so far.
   final AbilityGeneration abilities;
+
+  /// Step 3: the background's focus, language and table results. Depends on
+  /// the background, race and class, so changing one of those clears it.
+  final BackgroundBenefits benefits;
 
   /// Everything step 1 asks for has an answer.
   bool get isComplete =>
@@ -43,6 +49,7 @@ class CharacterDraft {
     String? caste,
     String? classId,
     AbilityGeneration? abilities,
+    BackgroundBenefits? benefits,
   }) =>
       CharacterDraft(
         name: name ?? this.name,
@@ -51,6 +58,7 @@ class CharacterDraft {
         caste: caste ?? this.caste,
         classId: classId ?? this.classId,
         abilities: abilities ?? this.abilities,
+        benefits: benefits ?? this.benefits,
       );
 }
 
@@ -59,11 +67,26 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
   CharacterDraft build() => const CharacterDraft();
 
   void setName(String name) => state = state.copyWith(name: name);
-  void setRace(String race) => state = state.copyWith(race: race);
   void setCaste(String caste) => state = state.copyWith(caste: caste);
-  void setClass(String classId) => state = state.copyWith(classId: classId);
-  void setAbilities(AbilityGeneration abilities) =>
-      state = state.copyWith(abilities: abilities);
+  void setBenefits(BackgroundBenefits benefits) =>
+      state = state.copyWith(benefits: benefits);
+
+  // Step 3 depends on the scores (highest start score), the race (which 2d6
+  // table) and the class (weapon group fallback), so changing one of them
+  // clears it. Race and class only when they really change.
+  void setAbilities(AbilityGeneration abilities) => state =
+      state.copyWith(abilities: abilities, benefits: const BackgroundBenefits());
+
+  void setRace(String race) {
+    if (race == state.race) return;
+    state = state.copyWith(race: race, benefits: const BackgroundBenefits());
+  }
+
+  void setClass(String classId) {
+    if (classId == state.classId) return;
+    state =
+        state.copyWith(classId: classId, benefits: const BackgroundBenefits());
+  }
 
   /// Choosing a background clears what depended on the previous one.
   void selectBackground(Background background) {

@@ -125,6 +125,11 @@ class Background {
   BackgroundTableRow rowForRoll(String tableKey, int roll) =>
       tables[tableKey]!.firstWhere((r) => roll >= r.min && roll <= r.max);
 
+  /// The 2d6 table a character of [race] uses: the race's own table when the
+  /// background has one per race (Apostate), else the shared "any" table.
+  List<BackgroundTableRow> tableFor(String race) =>
+      tables[race] ?? tables['any']!;
+
   factory Background.fromJson(Map<String, dynamic> json) =>
       _$BackgroundFromJson(json);
   Map<String, dynamic> toJson() => _$BackgroundToJson(this);
@@ -143,13 +148,24 @@ class ScoreRange {
   Map<String, dynamic> toJson() => _$ScoreRangeToJson(this);
 }
 
-/// The "buying" way to make abilities (the buyMethod block in backgrounds.json).
+/// The "buying" rules (the buyMethod block in backgrounds.json): for the
+/// abilities, and for the background benefits that replace the two rolls.
 @JsonSerializable()
 class BuyMethod {
-  const BuyMethod({required this.points, required this.maxPerAbility});
+  const BuyMethod({
+    required this.points,
+    required this.maxPerAbility,
+    required this.backgroundBenefitPoints,
+    required this.abilityIncreaseCost,
+    required this.otherBenefitCost,
+  });
 
   final int points; // 10 points to spend, +1 each
   final int maxPerAbility; // at most 3 on one ability
+
+  final int backgroundBenefitPoints; // 3 advancements instead of two rolls
+  final int abilityIncreaseCost; // 2: a "+1 ability" benefit
+  final int otherBenefitCost; // 1: a focus, language or weapon group
 
   factory BuyMethod.fromJson(Map<String, dynamic> json) =>
       _$BuyMethodFromJson(json);

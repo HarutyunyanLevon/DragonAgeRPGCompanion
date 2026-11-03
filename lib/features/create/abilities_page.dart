@@ -10,8 +10,8 @@ import '../../rules/models/backgrounds.dart';
 import '../../shared/confirm_dialog.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
-import '../../shared/placeholder_page.dart';
 import 'ability_generation.dart';
+import 'background_benefits_page.dart';
 import 'character_draft.dart';
 
 /// Wizard step 2 of 4: the eight abilities, made by rolling, arranging,
@@ -57,9 +57,8 @@ class _AbilitiesPageState extends ConsumerState<AbilitiesPage> {
       return;
     }
     if (!mounted) return;
-    // Step 3 (background benefits) is not built yet.
     await Navigator.of(context).push(MaterialPageRoute<void>(
-      builder: (_) => PlaceholderPage(title: l10n.stepBackgroundBenefits),
+      builder: (_) => const BackgroundBenefitsPage(),
     ));
   }
 

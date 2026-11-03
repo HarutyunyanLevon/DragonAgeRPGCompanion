@@ -24,7 +24,6 @@
       "total": {"type": "int"}
     }
   },
-  "stepBackgroundBenefits": "Background benefits",
   "methodRoll": "Roll",
   "methodArrange": "Arrange",
   "methodBuy": "Buy",
@@ -128,5 +127,94 @@
       "background": {"type": "String"},
       "className": {"type": "String"}
     }
-  }
+  },
+
+  "stepClassChoices": "Class choices",
+  "backgroundFocusTitle": "Focus (pick one)",
+  "languagesKnown": "Languages: {languages}",
+  "@languagesKnown": {
+    "placeholders": {
+      "languages": {"type": "String"}
+    }
+  },
+  "languageChoiceTitle": "Language (pick {count})",
+  "@languageChoiceTitle": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "tableResults": "Table results",
+  "rollHelp": "Two results from the 2d6 table of your background. Roll each one, or pick a row yourself. Rolling skips rows that break a rule.",
+  "buyBenefitsHelp": "Instead of rolling, spend {points} advancements on table results. An ability increase costs {abilityCost}, anything else {otherCost}.",
+  "@buyBenefitsHelp": {
+    "placeholders": {
+      "points": {"type": "int"},
+      "abilityCost": {"type": "int"},
+      "otherCost": {"type": "int"}
+    }
+  },
+  "advancementsLeft": "Advancements left: {count}",
+  "@advancementsLeft": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "resultNumber": "Result {number}",
+  "@resultNumber": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "notMadeYet": "Not made yet",
+  "rollTable": "Roll 2d6",
+  "pickFromTable": "Pick from table",
+  "pickTableRow": "Pick a table row",
+  "cost": "Cost {count}",
+  "@cost": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "focusLabel": "{ability} ({focus})",
+  "@focusLabel": {
+    "placeholders": {
+      "ability": {"type": "String"},
+      "focus": {"type": "String"}
+    }
+  },
+  "resultAbility": "+1 {ability}",
+  "@resultAbility": {
+    "placeholders": {
+      "ability": {"type": "String"}
+    }
+  },
+  "resultFocus": "Focus: {ability} ({focus})",
+  "@resultFocus": {
+    "placeholders": {
+      "ability": {"type": "String"},
+      "focus": {"type": "String"}
+    }
+  },
+  "resultLanguage": "Speak {language}",
+  "@resultLanguage": {
+    "placeholders": {
+      "language": {"type": "String"}
+    }
+  },
+  "resultWeaponGroup": "Weapon group: {group}",
+  "@resultWeaponGroup": {
+    "placeholders": {
+      "group": {"type": "String"}
+    }
+  },
+  "benefitConflictTitle": "Against the rules",
+  "conflictSameRow": "This is already your other result.",
+  "conflictAlreadyOwned": "Your character already has this.",
+  "conflictAbilityCap": "This would raise the ability above {max}.",
+  "@conflictAbilityCap": {
+    "placeholders": {
+      "max": {"type": "int"}
+    }
+  },
+  "conflictOverBudget": "Not enough advancements left."
 }
