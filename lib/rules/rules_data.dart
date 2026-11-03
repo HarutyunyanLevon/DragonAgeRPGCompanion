@@ -1,5 +1,6 @@
 import 'models/backgrounds.dart';
 import 'models/classes.dart';
+import 'models/focus_entry.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
 
@@ -11,12 +12,14 @@ class RulesData {
     required this.classes,
     required this.backgrounds,
     required this.talents,
+    required this.focuses,
     required this.spells,
   });
 
   final ClassesFile classes;
   final BackgroundsFile backgrounds;
   final TalentsFile talents;
+  final List<FocusEntry> focuses;
   final List<Spell> spells;
 
   Spell spellById(String id) => spells.firstWhere((s) => s.id == id);

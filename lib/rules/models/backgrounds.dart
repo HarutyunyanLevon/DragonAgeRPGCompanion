@@ -4,6 +4,9 @@ part 'backgrounds.g.dart';
 
 /// assets/rules/backgrounds.json
 
+/// The races a character can be (race ids used in the rules files).
+const playableRaces = ['human', 'elf', 'dwarf', 'qunari'];
+
 @JsonSerializable()
 class FocusRef {
   const FocusRef({required this.ability, required this.focus});
@@ -85,6 +88,7 @@ class Background {
     required this.casteChoices,
     required this.tables,
     required this.notes,
+    this.homebrew = false,
   });
 
   final String id;
@@ -112,6 +116,10 @@ class Background {
 
   @JsonKey(defaultValue: <String>[])
   final List<String> notes;
+
+  /// True for a background the player made up, false for book backgrounds.
+  @JsonKey(defaultValue: false)
+  final bool homebrew;
 
   /// The row that a 2d6 [roll] lands on.
   BackgroundTableRow rowForRoll(String tableKey, int roll) =>

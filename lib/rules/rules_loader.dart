@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'models/backgrounds.dart';
 import 'models/classes.dart';
+import 'models/focus_entry.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
 import 'rules_data.dart';
@@ -28,6 +29,15 @@ class RulesLoader {
   Future<TalentsFile> loadTalents() async => TalentsFile.fromJson(
       await _json('talents.json') as Map<String, dynamic>);
 
+  /// The focus list inside core.json (the rest of that file has no model yet).
+  Future<List<FocusEntry>> loadFocuses() async {
+    final core = await _json('core.json') as Map<String, dynamic>;
+    return [
+      for (final f in core['focuses'] as List<dynamic>)
+        FocusEntry.fromJson(f as Map<String, dynamic>)
+    ];
+  }
+
   Future<List<Spell>> loadSpells() async {
     final list = await _json('spells.json') as List<dynamic>;
     return [for (final s in list) Spell.fromJson(s as Map<String, dynamic>)];
@@ -37,6 +47,7 @@ class RulesLoader {
         classes: await loadClasses(),
         backgrounds: await loadBackgrounds(),
         talents: await loadTalents(),
+        focuses: await loadFocuses(),
         spells: await loadSpells(),
       );
 }

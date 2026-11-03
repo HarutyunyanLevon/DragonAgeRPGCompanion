@@ -98,6 +98,21 @@ void main() {
     });
   });
 
+  group('core.json', () {
+    test('has 80 focuses and every background focus choice exists', () async {
+      final focuses = await loader.loadFocuses();
+      expect(focuses.length, 80);
+      final known = {for (final f in focuses) '${f.ability}/${f.id}'};
+      final backgrounds = await loader.loadBackgrounds();
+      for (final b in backgrounds.backgrounds) {
+        for (final choice in b.focusChoices) {
+          expect(known, contains('${choice.ability}/${choice.focus}'),
+              reason: b.id);
+        }
+      }
+    });
+  });
+
   group('talents.json', () {
     test('class starting talents exist and belong to the class', () async {
       final classes = await loader.loadClasses();

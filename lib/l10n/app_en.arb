@@ -7,19 +7,65 @@
   "tabGlossary": "Glossary",
   "tabLore": "Lore",
   "comingSoon": "Coming soon",
-  "rulesLoaded": "Rules loaded: {classes} classes, {backgrounds} backgrounds, {talents} talents, {spells} spells",
-  "@rulesLoaded": {
-    "placeholders": {
-      "classes": {"type": "int"},
-      "backgrounds": {"type": "int"},
-      "talents": {"type": "int"},
-      "spells": {"type": "int"}
-    }
-  },
   "rulesFailed": "Could not load the rules: {error}",
   "@rulesFailed": {
     "placeholders": {
       "error": {"type": "String"}
+    }
+  },
+
+  "createFirstCharacter": "Create your first character",
+  "createCharacter": "Create character",
+  "newCharacter": "New character",
+  "stepOf": "Step {step} of {total}",
+  "@stepOf": {
+    "placeholders": {
+      "step": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "stepAbilities": "Abilities",
+  "characterName": "Character name",
+  "background": "Background",
+  "filterAll": "All",
+  "addCustomBackground": "+ Custom background",
+  "customBackground": "Custom background",
+  "backgroundName": "Background name",
+  "homebrew": "Homebrew",
+  "race": "Race",
+  "caste": "Caste",
+  "characterClass": "Class",
+  "classes": "Allowed classes",
+  "abilityBonus": "Ability bonus",
+  "trait": "Racial trait",
+  "focusChoices": "Focus choices",
+  "focusChoice": "Focus choice {number}",
+  "@focusChoice": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "focusChoicesDiffer": "Pick two different focuses",
+  "languages": "Languages",
+  "languagesPick": "Languages (pick 1-2)",
+  "languagePick": "{count} of: {options}",
+  "@languagePick": {
+    "placeholders": {
+      "count": {"type": "int"},
+      "options": {"type": "String"}
+    }
+  },
+  "copyTableFrom": "Copy 2d6 table from",
+  "next": "Next",
+  "save": "Save",
+  "cancel": "Cancel",
+  "proceedAnyway": "Proceed anyway",
+  "classNotAllowedTitle": "Class not allowed",
+  "classNotAllowedBody": "{background} does not normally allow the {className} class.",
+  "@classNotAllowedBody": {
+    "placeholders": {
+      "background": {"type": "String"},
+      "className": {"type": "String"}
     }
   }
 }
