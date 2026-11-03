@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "appTitle": "Dragon Age Companion",
+  "rulesLoaded": "Rules loaded: {classes} classes, {backgrounds} backgrounds, {talents} talents, {spells} spells",
+  "@rulesLoaded": {
+    "placeholders": {
+      "classes": {"type": "int"},
+      "backgrounds": {"type": "int"},
+      "talents": {"type": "int"},
+      "spells": {"type": "int"}
+    }
+  },
+  "rulesFailed": "Could not load the rules: {error}",
+  "@rulesFailed": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  }
+}

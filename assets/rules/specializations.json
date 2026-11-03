@@ -1,0 +1,573 @@
+{
+ "rules": {
+  "slots": [
+   {
+    "slot": 6,
+    "novice": 6,
+    "journeyman": 8,
+    "master": 10
+   },
+   {
+    "slot": 14,
+    "novice": 14,
+    "journeyman": 16,
+    "master": 18
+   }
+  ],
+  "text": [
+   "First specialization at level 6 (Novice), Journeyman at level 8, Master at level 10. Second specialization at level 14, 16, 18. This is the only way to gain degrees in specialization talents.",
+   "You may instead take a degree in a regular talent at those levels. At the next specialization slot you can start a specialization or take another regular talent.",
+   "Default: every specialization for your class is open at level 6. The GM may require unlocking it (find a trainer, go on a quest, find a tome). The app has a per-specialization 'unlocked by GM' toggle, default on.",
+   "Requirements (ability scores, other talents) apply."
+  ]
+ },
+ "specializations": [
+  {
+   "id": "arcane-warrior",
+   "name": "Arcane Warrior",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Learn a new weapon group; use Magic instead of Strength for weapon minimum Strength. Activate: Combat Magic mode: add Magic instead of Strength to melee damage; spells cast in this mode cost +2 mana. Another Activate ends it.",
+    "journeyman": "Reduce armor strain by 3; may take Armor Training.",
+    "master": "In Combat Magic mode, spend 5 MP to gain a Fade Shroud: +3 Defense; pay 3 mana at the start of each of your turns to keep it (if unpaid it ends, Combat Magic stays)."
+   },
+   "notes": [
+    "Rare; GM may require unlocking."
+   ]
+  },
+  {
+   "id": "blood-mage",
+   "name": "Blood Mage",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: Blood Magic mode. When casting, you may take 1d6 penetrating damage to gain that many mana (must be used on the spell being cast this round; excess lost). Can cast spells from any school with this mana but must be in this mode to cast Blood spells. While in the mode you can't be healed by potions or Creation spells. Activate ends it.",
+    "journeyman": "Use the blood of a willing ally within 6 yards (ally takes the damage).",
+    "master": "Minor action to use anyone's blood within 6 yards: opposed Magic (Blood) vs target's Willpower (Faith or Self-Discipline). If the target is adjacent and helpless: 2d6 penetrating damage."
+   }
+  },
+  {
+   "id": "force-mage",
+   "name": "Force Mage",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "willpower",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Learn Force Mage spell fist of the maker.",
+    "journeyman": "Learn another Force Mage spell.",
+    "master": "When an opponent uses Skirmish or Knock Prone on you, negate it by spending mana: 1 for Skirmish, 2 for Knock Prone."
+   },
+   "notes": [
+    "The Journeyman spell name is missing from the extracted text; check the Spells data."
+   ]
+  },
+  {
+   "id": "keeper",
+   "name": "Keeper",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "race",
+     "race": "dalish-elf"
+    },
+    {
+     "type": "ability",
+     "ability": "cunning",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Learn Keeper spell wrath of the elvhen.",
+    "journeyman": "Learn Keeper spell ensnare.",
+    "master": "When you kill an enemy with wrath of the elvhen and are wounded, regain 1d6 Health."
+   }
+  },
+  {
+   "id": "necromancer",
+   "name": "Necromancer",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "willpower",
+     "min": 3
+    },
+    {
+     "type": "talent",
+     "talent": "entropy-magic",
+     "degree": "novice"
+    }
+   ],
+   "degrees": {
+    "novice": "After you kill an enemy, +2 Spellpower for a number of turns equal to Willpower (killing another resets the duration, doesn't add bonus).",
+    "journeyman": "Learn spell death syphon regardless of requirements; cast it for 4 MP (instead of 7).",
+    "master": "When you drop to 0 Health in a fight, a spirit simulacrum appears for turns = Magic (or until fight ends); it takes your form, casts any spells you know at no mana cost, can't be damaged. You are not dying while it protects you, but can't be healed until it returns to the Fade."
+   }
+  },
+  {
+   "id": "shapeshifter",
+   "name": "Shapeshifter",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Spell small animal form.",
+    "journeyman": "Spell large animal form.",
+    "master": "Spell vicious beast form."
+   },
+   "notes": [
+    "While transformed: can't speak or cast; spells cast earlier continue (pay mana to maintain); keep Cunning, Magic, Health; other stats come from the spell."
+   ]
+  },
+  {
+   "id": "spirit-healer",
+   "name": "Spirit Healer",
+   "class": "mage",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Learn Spirit Healer spell group heal. To cast Spirit Healer spells enter Summoning mode: Activate + TN 14 Magic (Spirit) test; fail with triples: roll on Magical Mishaps. Activate ends it.",
+    "journeyman": "Learn revival.",
+    "master": "Learn life ward."
+   }
+  },
+  {
+   "id": "assassin",
+   "name": "Assassin",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "cunning",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: mark for death a visible target within 10 yards: all attacks against it get +1 damage until encounter ends, target dies, or you mark another. One mark at a time; a character can only be marked once per encounter.",
+    "journeyman": "Dirty Fighting TN becomes 17; once per encounter use Dirty Fighting as a free action.",
+    "master": "Backstab on a marked target does +1d6 extra damage."
+   }
+  },
+  {
+   "id": "bard",
+   "name": "Bard",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    },
+    {
+     "type": "talent",
+     "talent": "music",
+     "degree": "novice"
+    }
+   ],
+   "degrees": {
+    "novice": "Song of Valor: allies within 12 yd get +1 attack.",
+    "journeyman": "Song of Friendship: you and allies get +1 to Communication (Etiquette), (Investigation), (Persuasion), (Seduction).",
+    "master": "Song of Captivation: once per round, opposed Communication (Performance) vs target's Willpower (Self-Discipline) within 16 yd; win: target takes no actions next turn."
+   },
+   "notes": [
+    "Starting a song is a major action; maintain with a free action each round."
+   ]
+  },
+  {
+   "id": "duelist",
+   "name": "Duelist",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "perception",
+     "min": 3
+    },
+    {
+     "type": "talent",
+     "talent": "dual-weapon-style",
+     "degree": "novice"
+    }
+   ],
+   "degrees": {
+    "novice": "Learn the Dueling weapon group. In Dual Weapon Style with a Dexterity melee weapon: +1 attack AND +1 Defense vs melee (instead of choosing).",
+    "journeyman": "+1 melee damage while fighting in Dual Weapon Style.",
+    "master": "Pierce Armor makes damage penetrating."
+   }
+  },
+  {
+   "id": "legionnaire-scout",
+   "name": "Legionnaire Scout",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "willpower",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 3
+    },
+    {
+     "type": "race",
+     "race": "dwarf"
+    },
+    {
+     "type": "story",
+     "text": "Member of the Legion of the Dead."
+    }
+   ],
+   "degrees": {
+    "novice": "+2 to tests to resist pain, hunger, fear, despair.",
+    "journeyman": "Mighty Blow and Lethal Blow cost +1 SP against you.",
+    "master": "Armor Rating bonus = half Willpower (round up, min 2); stacks with armor and applies even with none."
+   }
+  },
+  {
+   "id": "marksman",
+   "name": "Marksman",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "perception",
+     "min": 3
+    },
+    {
+     "type": "talentAnyOf",
+     "options": [
+      {
+       "type": "talent",
+       "talent": "archery-style",
+       "degree": "journeyman"
+      },
+      {
+       "type": "talent",
+       "talent": "thrown-weapon-style",
+       "degree": "journeyman"
+      }
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "Knock Prone costs 1 SP on ranged attacks; may push target straight back 2 yards first.",
+    "journeyman": "Volley stunt, 5 SP: two more ranged attacks at same/other targets within 10 yards (no extra SP from those; may need Rapid Reload).",
+    "master": "Pierce Armor with ranged attacks is penetrating."
+   }
+  },
+  {
+   "id": "ranger",
+   "name": "Ranger",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "perception",
+     "min": 3
+    },
+    {
+     "type": "focus",
+     "ability": "communication",
+     "focus": "animal-handling"
+    }
+   ],
+   "degrees": {
+    "novice": "Lure nearby animals (Communication (Animal Handling) test, 2d6 minutes, base TN 13, each degree -1 min). Control the animal for the next combat or 30 minutes. Common animals only (dogs, wolves, birds of prey/falcon stats).",
+    "journeyman": "+2 damage against surprised opponents.",
+    "master": "Lure larger animals (black bears, brontos, halla, giant spiders); TN 13."
+   }
+  },
+  {
+   "id": "shadow",
+   "name": "Shadow",
+   "class": "rogue",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 4
+    },
+    {
+     "type": "focus",
+     "ability": "dexterity",
+     "focus": "legerdemain"
+    },
+    {
+     "type": "focus",
+     "ability": "dexterity",
+     "focus": "stealth"
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: Shadow mode: +1 to Stealth and Legerdemain tests; enemies suffer -1 damage vs you. Leave with a free action.",
+    "journeyman": "In Shadow mode, decoy combat stunt (2 SP): Dexterity (Stealth) test; until your next turn attackers must beat it with Perception (Seeing) or automatically miss (still use their action).",
+    "master": "Backstab in Shadow mode adds Cunning to damage."
+   }
+  },
+  {
+   "id": "berserker",
+   "name": "Berserker",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "willpower",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: Berserk mode: +2 Willpower (Courage) and (Morale), +1 melee damage; -1 Defense and -1 Perception tests. Ends at encounter end or by Activate.",
+    "journeyman": "Berserk melee damage bonus +3.",
+    "master": "While Berserk, Lethal Blow costs 4 SP."
+   }
+  },
+  {
+   "id": "champion",
+   "name": "Champion",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "When you Charge, shout a war cry: enemies within 8 yd of your final position get -1 attack on their next turn.",
+    "journeyman": "Activate: Rally mode: allies within 8 yd get +1 Defense and +1 Willpower (Morale).",
+    "master": "In Rally mode effects reach 12 yd; allies also get +1 Willpower (Courage) and +1 melee damage."
+   }
+  },
+  {
+   "id": "chevalier",
+   "name": "Chevalier",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    },
+    {
+     "type": "talent",
+     "talent": "mounted-combat-style",
+     "degree": "journeyman"
+    }
+   ],
+   "degrees": {
+    "novice": "Learn the Lances weapon group. Taunt costs 1 SP; may use Communication (Etiquette) instead of Deception.",
+    "journeyman": "Mounted charge with a Lances weapon: +1d6 damage; with other melee weapons +1 damage.",
+    "master": "While mounted, Run is a minor action and gives +1 Defense."
+   }
+  },
+  {
+   "id": "guardian",
+   "name": "Guardian",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    },
+    {
+     "type": "talent",
+     "talent": "weapon-and-shield-style",
+     "degree": "journeyman"
+    }
+   ],
+   "degrees": {
+    "novice": "Choose an ally, Activate: Guardian mode: adjacent ally gets +2 Armor Rating; each time the ally takes damage you take 2 penetrating damage. Switch ally or leave with a free action.",
+    "journeyman": "In Guardian mode, Skirmish and Knock Prone have no effect on you.",
+    "master": "When an enemy hits/damages your protected ally you may immediately attack it as a free action (move up to 2 yd), once per round, generating SP normally."
+   }
+  },
+  {
+   "id": "reaver",
+   "name": "Reaver",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 3
+    },
+    {
+     "type": "story",
+     "text": "Drink dragon (or dragon-like) blood in a ritual."
+    }
+   ],
+   "degrees": {
+    "novice": "Once per encounter, minor action: for turns = Willpower, gain Health equal to damage you deal (max = the target's Constitution) on each successful attack.",
+    "journeyman": "Activate: aura of pain: once per turn take 1d6 penetrating to deal 1d6 + Willpower penetrating to all enemies within 6 yd. Maintaining is a free action.",
+    "master": "After killing a foe, free attack on another foe in range (or a free Move to get in range); no chain from this attack."
+   }
+  },
+  {
+   "id": "spirit-warrior",
+   "name": "Spirit Warrior",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "willpower",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: Spirit Warrior mode: +1 Defense and +1 Magic tests to resist spells; end with a free action.",
+    "journeyman": "Attacks count as magical (hit incorporeal), +Willpower damage vs demons and Fade creatures.",
+    "master": "Fade burst stunt, 4 SP: 1d6 penetrating to all enemies within 4 yd (1d6 + Willpower vs demons/Fade creatures)."
+   }
+  },
+  {
+   "id": "templar",
+   "name": "Templar",
+   "class": "warrior",
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 3
+    },
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "+2 to tests to resist spells (stacks as +1 if you already have a resistance).",
+    "journeyman": "Melee damage to a mage/mana-user also drains 1d6 + your Magic mana.",
+    "master": "Major action, -2 Defense until your next turn: all ongoing spells within 6 yd end (including partial casts)."
+   }
+  }
+ ],
+ "greyWardens": {
+  "text": [
+   "Any PC can become a Grey Warden through training and the Joining (usually level 6+). Not tied to class or level; a GM-driven story event."
+  ],
+  "gains": [
+   "One ability advancement (any ability).",
+   "Novice in a new talent or a degree in an existing talent.",
+   "Taint resistance (can't be turned into a ghoul by darkspawn blood).",
+   "Right of Conscription (can recruit; needs to know the Joining ritual).",
+   "Detect darkspawn up to 5 x level yards; Perception (Detect Darkspawn) tests (Dragon Die decides detail). You don't start with the focus but can take it later."
+  ]
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "stuntRules": [
+  "Same engine as combat stunts: on a successful test with doubles, gain SP = Dragon Die, spend immediately. The same stunt only once per test. The player narrates the stunt.",
+  "Roleplaying stunts must fit the interaction as described. Stunts can target PCs.",
+  "The GM may rule any non-combat test can't generate SP, or that combat SP can't be spent on these stunts. The GM never has to invent new facts to satisfy a stunt.",
+  "'Until the time or venue changes' = until the focus of play jumps ahead in time significantly or moves elsewhere (about one encounter)."
+ ],
+ "explorationStunts": [
+  {
+   "id": "exploration-advantageous-positioning",
+   "name": "Advantageous Positioning",
+   "spCost": 1,
+   "effect": "Make the discovery from a position of your choice up to 2 yd from where it would normally happen."
+  },
+  {
+   "id": "exploration-efficient-search",
+   "name": "Efficient Search",
+   "spCost": 2,
+   "effect": "Use half the resources normally consumed."
+  },
+  {
+   "id": "exploration-speedy-search",
+   "name": "Speedy Search",
+   "spCost": 2,
+   "effect": "Finish in half the time."
+  },
+  {
+   "id": "exploration-that-makes-me-wonder",
+   "name": "That Makes Me Wonder",
+   "spCost": 3,
+   "effect": "Immediate extra Perception test (different focus, no extra time/resources; doubles give no SP)."
+  },
+  {
+   "id": "exploration-the-object-of-your-attention",
+   "name": "The Object of Your Attention",
+   "spCost": 3,
+   "effect": "+1 to further tests on that object until time/venue changes."
+  },
+  {
+   "id": "exploration-the-upper-hand",
+   "name": "The Upper Hand",
+   "spCost": 4,
+   "effect": "If the discovery leads to combat within a moment or two, +3 initiative."
+  },
+  {
+   "id": "exploration-resources-at-hand",
+   "name": "Resources at Hand",
+   "spCost": 4,
+   "effect": "Treat a focus you lack (same ability as the test) as yours until time/venue changes."
+  },
+  {
+   "id": "exploration-with-a-flourish",
+   "name": "With a Flourish",
+   "spCost": 4,
+   "effect": "+1 on opposed tests vs onlookers until time/venue changes."
+  }
+ ],
+ "roleplayingStunts": [
+  {
+   "id": "roleplaying-bon-mot",
+   "name": "Bon Mot",
+   "spCost": 1,
+   "effect": "Perfect witty remark deepens the effect on all who hear it."
+  },
+  {
+   "id": "roleplaying-and-another-thing",
+   "name": "And Another Thing",
+   "spCost": 2,
+   "effect": "Weave in a second thread; may make an additional test as part of the action."
+  },
+  {
+   "id": "roleplaying-sway-the-crowd",
+   "name": "Sway the Crowd",
+   "spCost": 2,
+   "effect": "Affect one additional person (repeatable). On opposed tests, can't extend to anyone with higher ability+focus total than the original target."
+  },
+  {
+   "id": "roleplaying-stunned-silence",
+   "name": "Stunned Silence",
+   "spCost": 3,
+   "effect": "Witnesses are dumbfounded for at least a full round."
+  },
+  {
+   "id": "roleplaying-jest",
+   "name": "Jest",
+   "spCost": 3,
+   "effect": "Nearby must pass TN 11 Willpower (Self-Discipline) or laugh (butt of joke excepted at GM's discretion)."
+  },
+  {
+   "id": "roleplaying-flirt",
+   "name": "Flirt",
+   "spCost": 4,
+   "effect": "Opposed Communication (Seduction) vs Willpower (Self-Discipline); win: target enamored (GM/player decides what that means)."
+  },
+  {
+   "id": "roleplaying-tower-of-will",
+   "name": "Tower of Will",
+   "spCost": 4,
+   "effect": "+1 on opposed tests where an opponent tries to put you at emotional disadvantage, for the rest of the exchange."
+  },
+  {
+   "id": "roleplaying-enrage",
+   "name": "Enrage",
+   "spCost": 5,
+   "effect": "Single target must attack you or storm away."
+  }
+ ],
+ "goals": {
+  "text": [
+   "Characters hold about three goals at a time (at least one or two are the character's goals; others may be the player's goals for the character). Goals may be shared with the party or hidden.",
+   "Simple goal: one sentence, active verb, in character voice.",
+   "A goal usually carries an implied reward (item, title, lands). XP may be awarded (Easy/Average/Hard; more for long goals; even for failed or abandoned goals if the character grew). Unique abilities should not duplicate talents or class powers. After completing a goal, ask: what's next?"
+  ],
+  "complexGoalFields": [
+   {
+    "field": "description",
+    "note": "3-4 sentences at most."
+   },
+   {
+    "field": "term",
+    "options": [
+     "short",
+     "long"
+    ]
+   },
+   {
+    "field": "difficulty",
+    "options": [
+     "easy",
+     "average",
+     "hard"
+    ]
+   },
+   {
+    "field": "type",
+    "options": [
+     "combat",
+     "exploration",
+     "roleplaying"
+    ],
+    "note": "In order of preference."
+   }
+  ],
+  "sampleGoalTitles": [
+   "Prove Myself Worthy",
+   "Discover My Missing Father",
+   "Avenge My Family",
+   "Avenge My Honor",
+   "Attain Great Wealth",
+   "Locate My Ancestral Sword",
+   "Slay the Monster",
+   "Make It Up To Them",
+   "Learn Forbidden Magic",
+   "A Good Death",
+   "Start a Successful Business",
+   "Delve the Deep Roads"
+  ]
+ },
+ "organizations": {
+  "abilities": [
+   "might",
+   "wealth",
+   "influence",
+   "intrigue",
+   "magic"
+  ],
+  "secondary": [
+   "structure",
+   "stability",
+   "focus",
+   "scope"
+  ],
+  "scopes": [
+   "local",
+   "regional",
+   "national",
+   "world"
+  ],
+  "troopsMultiplier": {
+   "local": 10,
+   "regional": 25,
+   "national": 50,
+   "world": 100
+  },
+  "troopsFormula": "(Might + Wealth + Influence) x multiplier for the scope",
+  "creation": [
+   {
+    "method": "freeform",
+    "text": "Assign with the GM; Stability about 25-45, Structure 2-6; pick two focuses."
+   },
+   {
+    "method": "points",
+    "text": "Assign 3, 2, 1, 1, 0 across the five abilities (may lower one by 1 to raise another by 1). Structure 3; Stability = 25 + 2d6 + highest ability; Scope Local; two focuses, one tied to the highest ability."
+   },
+   {
+    "method": "random",
+    "text": "Roll abilities as for a character (3d6 table, one swap allowed); Structure = 1d6 - 1; Stability = 25 + 2d6 + highest ability; Scope d6: 1-4 Local, 5-6 Regional; two focuses (one for highest ability)."
+   }
+  ],
+  "focusExamples": {
+   "might": [
+    "Garrison",
+    "Raiders",
+    "Siege",
+    "Specialty Troops"
+   ],
+   "wealth": [
+    "Treasury",
+    "Goods",
+    "Services"
+   ],
+   "influence": [
+    "Chantry",
+    "Commonfolk",
+    "State",
+    "Dwarves",
+    "Elves",
+    "Qunari",
+    "Foreign Power"
+   ],
+   "intrigue": [
+    "Spies",
+    "Counter-Spies",
+    "Assassins",
+    "Secrets"
+   ],
+   "magic": [
+    "Enchanters",
+    "Lore",
+    "Mages",
+    "Specialized Magic"
+   ]
+  },
+  "growthCheck": "Once per month (GM may slow), TN 10 test with the organization's highest ability. Success = steady; fail = lose 2d6 Stability, or reduce an ability, Scope or Structure by 1 (abilities not below -2, Structure not below 0, Scope not below Local) unless the PCs address it. Doubles on success: Growth stunts.",
+  "misfortunes": [
+   {
+    "roll": "2",
+    "name": "Darkspawn Difficulties"
+   },
+   {
+    "roll": "3-4",
+    "name": "New Arrivals"
+   },
+   {
+    "roll": "5-6",
+    "name": "Attacks of Opportunity"
+   },
+   {
+    "roll": "7-8",
+    "name": "Rival Maneuvering"
+   },
+   {
+    "roll": "8-9",
+    "name": "Winds of Change"
+   },
+   {
+    "roll": "10-11",
+    "name": "Crisis Abroad"
+   },
+   {
+    "roll": "12",
+    "name": "Mutiny"
+   }
+  ],
+  "misfortuneNote": "The printed table overlaps at 8; check the book.",
+  "growthStunts": [
+   {
+    "id": "growth-rebuild-expand",
+    "name": "Rebuild/Expand",
+    "spCost": 1,
+    "effect": "Add Stability.",
+    "variable": true
+   },
+   {
+    "id": "growth-equip",
+    "name": "Equip",
+    "spCost": 1,
+    "effect": "Equip the organization.",
+    "variable": true
+   },
+   {
+    "id": "growth-exciting-opportunities",
+    "name": "Exciting Opportunities",
+    "spCost": 2,
+    "effect": "+2 next action."
+   },
+   {
+    "id": "growth-useful-secrets",
+    "name": "Useful Secrets",
+    "spCost": 2,
+    "effect": "Learn useful secrets."
+   },
+   {
+    "id": "growth-bolster-infrastructure",
+    "name": "Bolster Infrastructure",
+    "spCost": 3,
+    "effect": "+1 Structure."
+   },
+   {
+    "id": "growth-new-hire",
+    "name": "New Hire",
+    "spCost": 3,
+    "effect": "-1 SP on a stunt."
+   },
+   {
+    "id": "growth-contacts",
+    "name": "Contacts",
+    "spCost": 3,
+    "effect": "Gain contacts."
+   },
+   {
+    "id": "growth-new-assets",
+    "name": "New Assets",
+    "spCost": 4,
+    "effect": "+1 to an ability of 5 or less."
+   },
+   {
+    "id": "growth-significant-growth",
+    "name": "Significant Growth",
+    "spCost": 4,
+    "effect": "Local to Regional."
+   },
+   {
+    "id": "growth-new-focus",
+    "name": "New Focus",
+    "spCost": 4,
+    "effect": "Gain a new focus."
+   },
+   {
+    "id": "growth-best-of-the-best",
+    "name": "Best of the Best",
+    "spCost": 5,
+    "effect": "Best of the best."
+   },
+   {
+    "id": "growth-major-growth",
+    "name": "Major Growth",
+    "spCost": 5,
+    "effect": "Regional to National."
+   },
+   {
+    "id": "growth-greater-assets",
+    "name": "Greater Assets",
+    "spCost": 6,
+    "effect": "+1 to an ability of 6 or more."
+   },
+   {
+    "id": "growth-rampant-growth",
+    "name": "Rampant Growth",
+    "spCost": 6,
+    "effect": "National to World."
+   }
+  ],
+  "plots": {
+   "text": "Opposed test between organizations (relevant focus +2 each). Winner deals 2d6 + ability used to the loser's Stability, reduced by the loser's Structure. If the defender wins, the attacker takes that damage instead. A larger-Scope plotter gets +2 per Scope step but stunts cost +2 SP per step. Doubles: Plot stunts.",
+   "stuntNames": [
+    "Bolster",
+    "Further Advantage",
+    "Disorganize",
+    "Embarrass",
+    "Undermine",
+    "Devastate (+1d6)",
+    "Steal Asset",
+    "Surgical Strike",
+    "Split Targets",
+    "Two-Pronged Plot",
+    "Defection",
+    "Extreme Devastation (+2d6)",
+    "Overwhelm",
+    "Power Shift",
+    "Sabotage Operation"
+   ],
+   "note": "Costs 1-6 SP; the per-stunt costs and effects (book pp. 147-150) are not transcribed yet."
+  }
+ }
+}

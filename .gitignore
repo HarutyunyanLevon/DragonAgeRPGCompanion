@@ -1,0 +1,11 @@
+# Flutter / Dart
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Generated code (recreate with: dart run build_runner build)
+*.g.dart
+lib/l10n/app_localizations*.dart

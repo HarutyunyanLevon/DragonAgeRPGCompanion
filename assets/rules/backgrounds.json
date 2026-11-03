@@ -1,0 +1,3212 @@
+{
+ "abilities": [
+  "communication",
+  "constitution",
+  "cunning",
+  "dexterity",
+  "magic",
+  "perception",
+  "strength",
+  "willpower"
+ ],
+ "abilityScoreTable": [
+  {
+   "min": 3,
+   "max": 3,
+   "score": -2
+  },
+  {
+   "min": 4,
+   "max": 5,
+   "score": -1
+  },
+  {
+   "min": 6,
+   "max": 8,
+   "score": 0
+  },
+  {
+   "min": 9,
+   "max": 11,
+   "score": 1
+  },
+  {
+   "min": 12,
+   "max": 14,
+   "score": 2
+  },
+  {
+   "min": 15,
+   "max": 17,
+   "score": 3
+  },
+  {
+   "min": 18,
+   "max": 18,
+   "score": 4
+  }
+ ],
+ "buyMethod": {
+  "points": 10,
+  "maxPerAbility": 3,
+  "backgroundBenefitPoints": 3,
+  "abilityIncreaseCost": 2,
+  "otherBenefitCost": 1
+ },
+ "focusBonus": 2,
+ "racialTraits": {
+  "magic-resistance": "+2 on ability tests to resist spells and magical effects.",
+  "magic-susceptibility": "-1 on ability tests to resist spells and magical effects."
+ },
+ "backgrounds": [
+  {
+   "id": "ander-survivor",
+   "name": "Ander Survivor",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "constitution",
+   "focusChoices": [
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    },
+    {
+     "ability": "strength",
+     "focus": "climbing"
+    }
+   ],
+   "languages": [
+    "ander",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "running"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "tracking"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "brawling"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "courage"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "apostate",
+   "name": "Apostate",
+   "races": [
+    "human",
+    "elf"
+   ],
+   "raceChoice": true,
+   "abilityBonus": "willpower",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "natural-lore"
+    },
+    {
+     "ability": "willpower",
+     "focus": "self-discipline"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "mage"
+   ],
+   "tables": {
+    "elf": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "language",
+       "language": "elven"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "magic"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "stealth"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "weaponGroup",
+       "group": "bows"
+      }
+     }
+    ],
+    "human": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "healing"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "magic"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     }
+    ]
+   },
+   "notes": [
+    "Disadvantage: must hide magic from the Circle and templars."
+   ]
+  },
+  {
+   "id": "antivan-wayfarer",
+   "name": "Antivan Wayfarer",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "communication",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "bargaining"
+    },
+    {
+     "ability": "cunning",
+     "focus": "navigation"
+    }
+   ],
+   "languages": [
+    "antivan",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "seduction"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "initiative"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "hearing"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "avvar",
+   "name": "Avvar",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "animal-handling"
+    },
+    {
+     "ability": "strength",
+     "focus": "climbing"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "gambling"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "intimidation"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "might"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "chasind-wilder",
+   "name": "Chasind Wilder",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "stealth"
+    },
+    {
+     "ability": "strength",
+     "focus": "climbing"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "natural-lore"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "tracking"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "traps"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "brawling"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "jumping"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "circle-mage",
+   "name": "Circle Mage",
+   "races": [
+    "human",
+    "elf"
+   ],
+   "raceChoice": true,
+   "abilityBonus": "magic",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "arcane-lore"
+    },
+    {
+     "ability": "cunning",
+     "focus": "historical-lore"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "mage"
+   ],
+   "tables": {
+    "elf": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "language",
+       "language": "elven"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "healing"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "seeing"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "weaponGroup",
+       "group": "bows"
+      }
+     }
+    ],
+    "human": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "religious-lore"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     }
+    ]
+   },
+   "notes": [
+    "Can read ancient tevene.",
+    "Language: + native language if different"
+   ]
+  },
+  {
+   "id": "city-elf",
+   "name": "City Elf",
+   "races": [
+    "elf"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "stealth"
+    },
+    {
+     "ability": "perception",
+     "focus": "seeing"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "searching"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "initiative"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "bows"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "dalish-elf",
+   "name": "Dalish Elf",
+   "races": [
+    "elf"
+   ],
+   "abilityBonus": "willpower",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "bows"
+    },
+    {
+     "ability": "willpower",
+     "focus": "courage"
+    }
+   ],
+   "languages": [
+    "trade-tongue",
+    "elven"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "seeing"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "hearing"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "dwarf-duster",
+   "name": "Dwarf Duster",
+   "races": [
+    "dwarf"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "deception"
+    },
+    {
+     "ability": "dexterity",
+     "focus": "legerdemain"
+    }
+   ],
+   "trait": "magic-resistance",
+   "languages": [
+    "dwarven",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "running"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "searching"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "stealth"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "bargaining"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "escaped-elven-slave",
+   "name": "Escaped Elven Slave",
+   "races": [
+    "elf"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "perception",
+     "focus": "hearing"
+    },
+    {
+     "ability": "strength",
+     "focus": "might"
+    }
+   ],
+   "languages": [
+    "tevinter",
+    "trade-tongue"
+   ],
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "ability",
+       "ability": "magic"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "brawling"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "driving"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "fereldan-craftsman",
+   "name": "Fereldan Craftsman",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "crafting"
+    },
+    {
+     "ability": "cunning",
+     "focus": "religious-lore"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "bargaining"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "faith"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "brewing"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "smithing"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "fereldan-freeman",
+   "name": "Fereldan Freeman",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "constitution",
+   "focusChoices": [
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    },
+    {
+     "ability": "willpower",
+     "focus": "courage"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "animal-handling"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "driving"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "fereldan-noble",
+   "name": "Fereldan Noble",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "military-lore"
+    },
+    {
+     "ability": "strength",
+     "focus": "intimidation"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "leadership"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "free-marcher",
+   "name": "Free Marcher",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "cunning",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "evaluation"
+    },
+    {
+     "ability": "communication",
+     "focus": "bargaining"
+    }
+   ],
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "gambling"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "legerdemain"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "high-born-dwarf",
+   "name": "High-Born Dwarf",
+   "races": [
+    "dwarf"
+   ],
+   "casteChoices": [
+    "artisan",
+    "smith",
+    "warrior"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "crafting"
+    },
+    {
+     "ability": "strength",
+     "focus": "intimidation"
+    },
+    {
+     "ability": "strength",
+     "focus": "smithing"
+    }
+   ],
+   "trait": "magic-resistance",
+   "languages": [
+    "dwarven",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "courage"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "engineering"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "low-born-dwarf",
+   "name": "Low-Born Dwarf",
+   "races": [
+    "dwarf"
+   ],
+   "casteChoices": [
+    "merchant",
+    "miner",
+    "servant"
+   ],
+   "abilityBonus": "communication",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "persuasion"
+    },
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    }
+   ],
+   "trait": "magic-resistance",
+   "languages": [
+    "dwarven",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "hearing"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "bargaining"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "drinking"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "might"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "nevarran-adventurer",
+   "name": "Nevarran Adventurer",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "willpower",
+   "focusChoices": [
+    {
+     "ability": "strength",
+     "focus": "might"
+    },
+    {
+     "ability": "willpower",
+     "focus": "courage"
+    }
+   ],
+   "languages": [
+    "orlesian",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "leadership"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "tracking"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "jumping"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "orlesian-commoner",
+   "name": "Orlesian Commoner",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "brawling"
+    },
+    {
+     "ability": "willpower",
+     "focus": "faith"
+    }
+   ],
+   "languages": [
+    "orlesian",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "religious-lore"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "crafting"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "bargaining"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "legerdemain"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "orlesian-exile",
+   "name": "Orlesian Exile",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "communication",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "persuasion"
+    },
+    {
+     "ability": "cunning",
+     "focus": "cultural-lore"
+    }
+   ],
+   "languages": [
+    "orlesian",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "empathy"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "weaponGroup",
+       "group": "light-blades",
+       "ifClassHasGroup": {
+        "ability": "dexterity",
+        "focus": "light-blades"
+       }
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "orlesian-noble",
+   "name": "Orlesian Noble",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "communication",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "etiquette"
+    },
+    {
+     "ability": "strength",
+     "focus": "intimidation"
+    }
+   ],
+   "languages": [
+    "orlesian",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "leadership"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "orlesian-student",
+   "name": "Orlesian Student",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "cunning",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "persuasion"
+    },
+    {
+     "ability": "cunning",
+     "focus": "research"
+    }
+   ],
+   "languages": [
+    "orlesian",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "calligraphy"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "self-discipline"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "dexterity"
+      }
+     }
+    ]
+   },
+   "notes": [
+    "May be a noble of another nation; add that nation's language.",
+    "Language: + home language if from another nation"
+   ]
+  },
+  {
+   "id": "qunari-beresaad",
+   "name": "Qunari Beresaad",
+   "races": [
+    "qunari"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "qun"
+    },
+    {
+     "ability": "strength",
+     "focus": "intimidation"
+    }
+   ],
+   "languages": [
+    "qunlat",
+    "trade-tongue"
+   ],
+   "trait": "magic-susceptibility",
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "leadership"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "military-lore"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "might"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   },
+   "notes": [
+    "Male only."
+   ]
+  },
+  {
+   "id": "rivaini-merchant",
+   "name": "Rivaini Merchant",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "seduction"
+    },
+    {
+     "ability": "dexterity",
+     "focus": "acrobatics"
+    }
+   ],
+   "languages": [
+    "rivaini",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "brawling"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "climbing"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "seheron-convert",
+   "name": "Seheron Convert",
+   "races": [
+    "human",
+    "elf"
+   ],
+   "raceChoice": true,
+   "abilityBonus": "willpower",
+   "focusChoices": [
+    {
+     "ability": "cunning",
+     "focus": "qun"
+    },
+    {
+     "ability": "willpower",
+     "focus": "self-discipline"
+    }
+   ],
+   "languages": [
+    "qunlat",
+    "tevinter",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "might"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "stamina"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "perception",
+       "focus": "empathy"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   },
+   "notes": [
+    "Language: + Rivaini if Rivaini convert"
+   ]
+  },
+  {
+   "id": "surface-dwarf",
+   "name": "Surface Dwarf",
+   "races": [
+    "dwarf"
+   ],
+   "abilityBonus": "constitution",
+   "focusChoices": [
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    },
+    {
+     "ability": "communication",
+     "focus": "bargaining"
+    }
+   ],
+   "trait": "magic-resistance",
+   "languages": [
+    "dwarven",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "axes"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "driving"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "engineering"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "courage"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "tal-vashoth",
+   "name": "Tal-Vashoth",
+   "races": [
+    "qunari"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    },
+    {
+     "ability": "strength",
+     "focus": "intimidation"
+    }
+   ],
+   "languages": [
+    "qunlat",
+    "trade-tongue"
+   ],
+   "trait": "magic-susceptibility",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "courage"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "running"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "might"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "climbing"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "tevinter-altus",
+   "name": "Tevinter Altus",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "magic",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "leadership"
+    },
+    {
+     "ability": "cunning",
+     "focus": "arcane-lore"
+    }
+   ],
+   "languages": [
+    "tevinter",
+    "trade-tongue"
+   ],
+   "classes": [
+    "mage"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "cunning"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "heraldry"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "magic",
+       "focus": "arcane-lance"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "historical-lore"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "etiquette"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "tevinter-laetan",
+   "name": "Tevinter Laetan",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "cunning",
+   "focusChoices": [
+    {
+     "ability": "communication",
+     "focus": "deception"
+    },
+    {
+     "ability": "cunning",
+     "focus": "arcane-lore"
+    }
+   ],
+   "languages": [
+    "tevinter",
+    "trade-tongue"
+   ],
+   "classes": [
+    "mage"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "dexterity",
+       "focus": "riding"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "magic"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "persuasion"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "cultural-lore"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "communication"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "tevinter-soporati",
+   "name": "Tevinter Soporati",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "strength",
+   "focusChoices": [
+    {
+     "ability": "constitution",
+     "focus": "stamina"
+    },
+    {
+     "ability": "dexterity",
+     "focus": "brawling"
+    }
+   ],
+   "languages": [
+    "tevinter",
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "willpower",
+       "focus": "courage"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "deception"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "driving"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "animal-handling"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "willpower"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "waking-sea-raider",
+   "name": "Waking Sea Raider",
+   "races": [
+    "human"
+   ],
+   "abilityBonus": "dexterity",
+   "focusChoices": [
+    {
+     "ability": "dexterity",
+     "focus": "acrobatics"
+    },
+    {
+     "ability": "perception",
+     "focus": "seeing"
+    }
+   ],
+   "languageChoice": {
+    "pick": 1,
+    "from": [
+     "antivan",
+     "orlesian",
+     "rivaini"
+    ]
+   },
+   "languages": [
+    "trade-tongue"
+   ],
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "tables": {
+    "any": [
+     {
+      "min": 2,
+      "max": 2,
+      "result": {
+       "type": "ability",
+       "ability": "constitution"
+      }
+     },
+     {
+      "min": 3,
+      "max": 4,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "evaluation"
+      }
+     },
+     {
+      "min": 5,
+      "max": 5,
+      "result": {
+       "type": "focus",
+       "ability": "strength",
+       "focus": "intimidation"
+      }
+     },
+     {
+      "min": 6,
+      "max": 6,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "swimming"
+      }
+     },
+     {
+      "min": 7,
+      "max": 8,
+      "result": {
+       "type": "ability",
+       "ability": "perception"
+      }
+     },
+     {
+      "min": 9,
+      "max": 9,
+      "result": {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "navigation"
+      }
+     },
+     {
+      "min": 10,
+      "max": 11,
+      "result": {
+       "type": "focus",
+       "ability": "constitution",
+       "focus": "rowing"
+      }
+     },
+     {
+      "min": 12,
+      "max": 12,
+      "result": {
+       "type": "ability",
+       "ability": "strength"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

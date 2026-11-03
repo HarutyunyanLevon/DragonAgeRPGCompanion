@@ -1,0 +1,325 @@
+{
+ "usingPoisons": [
+  "Delivered by ingestion or by coating a weapon (melee weapon from Dueling, Light Blades or Spears groups, or three arrows/bolts) with an Activate action; uses one dose. Apply no more than 1 minute before the encounter. Lasts for one combat encounter. One poison type and one dose per weapon.",
+  "Delivered by the Envenom stunt (2 SP): victim immediately suffers the poison's basic damage and additional effects. Basic poison damage is penetrating. A given enemy can suffer a given poison only once per encounter (concentrated versions are distinct).",
+  "Without Poison-Making: TN 13 Cunning (Poison Lore) to coat a weapon (-3 if battle already started). Failure: you immediately suffer the poison's basic damage and effects. Even on success Envenom costs 4 SP.",
+  "The GM decides immunities (incorporeal creatures are immune to toxins, etc.)."
+ ],
+ "usingGrenades": [
+  "Missile weapons, short range 4 yd, long range 8 yd. Poison-Making (Journeyman) is needed to make them.",
+  "Kaboom! stunt (3 SP): an attack detonates a grenade held (prepared) or carried by the target; full damage to target and everyone within 2 yd (including you in melee unless you Skirmish).",
+  "To use: Ready action, pick a target point within 8 yd (needs a path), lob (major action) with TN 11 Dexterity (Grenades); on success it explodes there; on failure it lands 1d6 yd away in a direction of the GM's choice. Everyone within 2 yd takes damage.",
+  "Grenade stunts: Defensive Stance, Knock Prone, Lethal Blow, Mighty Blow, Pierce Armor, Seize the Initiative, Skirmish, Stay Aware, Taunt, Threaten.",
+  "Grenade damage is not penetrating unless stated."
+ ],
+ "makingPoisons": {
+  "learning": "Find a teacher or written source (GM discretion). Recipe cost: Novice 50-100 sp, Journeyman and grenades 1-10 gp, Master 10 gp+. Learning = advanced TN 13 Cunning (Poison Lore) test, threshold 15, one day per test.",
+  "researchMishap": "d6 on a failure with a dangerous source: 1-3 nothing; 4-5 regular effect + basic damage; 6 regular effect + double basic damage.",
+  "harvesting": "Advanced Cunning (Natural Lore) test, threshold 10, TN 11 / 15 / 19 for Novice / Journeyman / Master, one day per test.",
+  "preparing": "Advanced Cunning (Poison Lore) test, threshold 10, TN 13 / 15 / 17; each test takes 2 / 4 / 6 hours. Success yields 3 doses (Novice), 2 doses (Journeyman) or 2 grenades, 1 dose (Master). Needs a lab (1 gp or more setup).",
+  "makingMishap": "d6, +1 for Journeyman, +2 for Master: 1-3 nothing; 4-5 regular effect + basic damage; 6 regular effect + double damage and tools damaged/destroyed; 7+ you die and tools destroyed."
+ },
+ "poisons": [
+  {
+   "id": "crow-poison",
+   "name": "Crow Poison",
+   "degree": "novice",
+   "damage": "1d6",
+   "effect": null,
+   "materialsCostCp": 2000,
+   "priceCp": 10000
+  },
+  {
+   "id": "deathroot-extract",
+   "name": "Deathroot Extract",
+   "degree": "novice",
+   "damage": null,
+   "effect": "Hallucinations",
+   "materialsCostCp": 500,
+   "priceCp": 2500,
+   "details": "TN 15 Constitution (Stamina or Drinking) or hallucination (d6): 1 rave at harmless object; 2 swat at bugs; 3 only Defend and shout at 'betrayer'; 4 drop weapons, grab something solid; 5 flee at top speed from shadows; 6 attack a nearby ally with +1 attack. Lasts the victim's next turn."
+  },
+  {
+   "id": "hale-s-dust",
+   "name": "Hale's Dust",
+   "degree": "novice",
+   "damage": null,
+   "effect": "-2 Strength (for the encounter)",
+   "materialsCostCp": 1000,
+   "priceCp": 5000
+  },
+  {
+   "id": "spider-venom",
+   "name": "Spider Venom",
+   "degree": "novice",
+   "damage": null,
+   "effect": "-2 Dexterity (for the encounter)",
+   "materialsCostCp": 1000,
+   "priceCp": 5000
+  },
+  {
+   "id": "adder-s-kiss",
+   "name": "Adder's Kiss",
+   "degree": "journeyman",
+   "damage": "2d6+4",
+   "effect": null,
+   "materialsCostCp": 10000,
+   "priceCp": 50000
+  },
+  {
+   "id": "concentrated-crow-poison",
+   "name": "Concentrated Crow Poison",
+   "degree": "journeyman",
+   "damage": "2d6",
+   "effect": "Delayed initiative, stunt restriction",
+   "materialsCostCp": 7000,
+   "priceCp": 35000,
+   "details": "Victim moves to end of initiative; TN 15 Constitution (Stamina) or can't use any stunt costing more than 2 SP for the encounter."
+  },
+  {
+   "id": "concentrated-spider-venom",
+   "name": "Concentrated Spider Venom",
+   "degree": "journeyman",
+   "damage": null,
+   "effect": "-4 Dexterity (lasts a day)",
+   "materialsCostCp": 6000,
+   "priceCp": 30000
+  },
+  {
+   "id": "fleshrot",
+   "name": "Fleshrot",
+   "degree": "journeyman",
+   "damage": "1d6",
+   "effect": "Actions lost to pain",
+   "materialsCostCp": 8000,
+   "priceCp": 40000,
+   "details": "Each round for 2d6 rounds, TN 15 Constitution (Stamina) at start of turn or only a minor action; -2 to social tests for days equal to rounds persisted."
+  },
+  {
+   "id": "magebane",
+   "name": "Magebane",
+   "degree": "journeyman",
+   "damage": null,
+   "effect": "Lose 2d6 mana",
+   "materialsCostCp": 8000,
+   "priceCp": 40000
+  },
+  {
+   "id": "concentrated-magebane",
+   "name": "Concentrated Magebane",
+   "degree": "master",
+   "damage": null,
+   "effect": "Lose 4d6 mana",
+   "materialsCostCp": 13000,
+   "priceCp": 65000
+  },
+  {
+   "id": "marrow-lock",
+   "name": "Marrow Lock",
+   "degree": "master",
+   "damage": null,
+   "effect": "Major actions difficult and damaging",
+   "materialsCostCp": 15000,
+   "priceCp": 75000,
+   "details": "Only minor actions without consequence; a major action needs TN 15 Constitution (Stamina); success = 1d6 penetrating and the action goes through; failure = 2d6 penetrating and can only howl."
+  },
+  {
+   "id": "quiet-death",
+   "name": "Quiet Death",
+   "degree": "master",
+   "damage": "2d6",
+   "effect": "Fall to 0 Health",
+   "materialsCostCp": 20000,
+   "priceCp": 100000,
+   "details": "TN 19 Constitution (Stamina) + victim's level; fail: drop to 0 Health (dying), stabilization -3."
+  },
+  {
+   "id": "wyvern-venom",
+   "name": "Wyvern Venom",
+   "degree": "master",
+   "damage": null,
+   "effect": "Fall to 0 Health in Constitution + 1d6 hours",
+   "materialsCostCp": null,
+   "priceCp": 80000,
+   "details": "TN 15 Constitution (Stamina) or drop to 0 Health after 1d6 + Constitution hours (min 1) unless antidote (TN 15 Cunning (Poison Lore) potion from Andraste's mantle, drakevein, winterberry); fever, -4 Dexterity. Harvest from a fresh wyvern with TN 17 Cunning (Poison Lore): 1d6 doses."
+  }
+ ],
+ "grenades": [
+  {
+   "id": "acid-flask",
+   "name": "Acid Flask",
+   "damage": "3d6",
+   "effect": "Armor Rating of those in blast permanently -1 (before damage) until repaired; stacks",
+   "materialsCostCp": 4000,
+   "priceCp": 20000
+  },
+  {
+   "id": "fire-bomb",
+   "name": "Fire Bomb",
+   "damage": "3d6",
+   "effect": "Ignites flammables (typically 1d6 minor / 2d6 moderate hazard)",
+   "materialsCostCp": 4000,
+   "priceCp": 20000
+  },
+  {
+   "id": "freeze-bomb",
+   "name": "Freeze Bomb",
+   "damage": "3d6",
+   "effect": "-4 Speed until end of encounter",
+   "materialsCostCp": 4000,
+   "priceCp": 20000
+  },
+  {
+   "id": "shock-bomb",
+   "name": "Shock Bomb",
+   "damage": "2d6",
+   "effect": "Penetrating damage to anyone in metal armor",
+   "materialsCostCp": 4000,
+   "priceCp": 20000
+  }
+ ],
+ "traps": {
+  "rules": [
+   "Novice: up to 2d6 base damage; Journeyman: 4d6; Master: 6d6. Setting a trap takes 1 minute; needs a trap kit (10 sp) and materials.",
+   "Test: Dexterity (Crafting) at the TN below; failure: another Dexterity (Crafting) at the same TN or the materials are ruined. Materials can be scavenged with Cunning (Natural Lore) or Perception (Searching) at the same TN (not for traps with additional effects).",
+   "Each additional effect reduces damage by the listed dice, adds +1 TN and doubles materials cost. Damage can be reduced to 0 but no more effects after that. No duplicates (can't be both hidden and shrouded).",
+   "Detecting: unprompted TN 13 Perception (Seeing); actively searching TN 11 Perception (Searching).",
+   "Understanding: Cunning (Engineering) TN 13/15/17 by maker's degree (trap-makers get a bonus).",
+   "Disarming: Dexterity (Traps) TN 13/15/17 by maker's degree (+2 if understood; +2 to salvage). Failure triggers the trap on the disarmer. You may set it off from a distance (destroys it). A maker can disarm their own trap without a test.",
+   "Passing through a known trap deliberately: half damage."
+  ],
+  "kitCostCp": 1000,
+  "damageTable": [
+   {
+    "tn": 9,
+    "baseDamage": "1d6",
+    "materialsCostCp": 100
+   },
+   {
+    "tn": 11,
+    "baseDamage": "2d6",
+    "materialsCostCp": 1000
+   },
+   {
+    "tn": 13,
+    "baseDamage": "3d6",
+    "materialsCostCp": 2000
+   },
+   {
+    "tn": 15,
+    "baseDamage": "4d6",
+    "materialsCostCp": 5000
+   },
+   {
+    "tn": 17,
+    "baseDamage": "5d6",
+    "materialsCostCp": 10000
+   },
+   {
+    "tn": 19,
+    "baseDamage": "6d6",
+    "materialsCostCp": 100000
+   }
+  ],
+  "effects": [
+   {
+    "id": "area",
+    "name": "Area",
+    "damageLostD6": 1,
+    "summary": "2-yd radius",
+    "minDegree": "novice"
+   },
+   {
+    "id": "wide",
+    "name": "Wide",
+    "damageLostD6": 2,
+    "summary": "4-yd radius",
+    "minDegree": "journeyman"
+   },
+   {
+    "id": "expansive",
+    "name": "Expansive",
+    "damageLostD6": 3,
+    "summary": "6-yd radius",
+    "minDegree": "master"
+   },
+   {
+    "id": "intricate",
+    "name": "Intricate",
+    "damageLostD6": 1,
+    "summary": "+3 TN to disarm",
+    "minDegree": "novice"
+   },
+   {
+    "id": "convoluted",
+    "name": "Convoluted",
+    "damageLostD6": 2,
+    "summary": "+6 TN to disarm",
+    "minDegree": "master"
+   },
+   {
+    "id": "alluring",
+    "name": "Alluring",
+    "damageLostD6": 4,
+    "summary": "-3 Defense, no actions until TN 13 Willpower (Self-Discipline) passed (tested each turn)",
+    "minDegree": "journeyman"
+   },
+   {
+    "id": "fascinating",
+    "name": "Fascinating",
+    "damageLostD6": 6,
+    "summary": "As Alluring, TN 17",
+    "minDegree": "master"
+   },
+   {
+    "id": "concealed",
+    "name": "Concealed",
+    "damageLostD6": 1,
+    "summary": "+2 TN to detect",
+    "minDegree": "novice"
+   },
+   {
+    "id": "hidden",
+    "name": "Hidden",
+    "damageLostD6": 2,
+    "summary": "+4 TN to detect",
+    "minDegree": "journeyman"
+   },
+   {
+    "id": "shrouded",
+    "name": "Shrouded",
+    "damageLostD6": 3,
+    "summary": "+6 TN to detect",
+    "minDegree": "master"
+   },
+   {
+    "id": "knock-prone",
+    "name": "Knock Prone",
+    "damageLostD6": 1,
+    "summary": "Prone, lose major action next turn",
+    "minDegree": "novice"
+   },
+   {
+    "id": "penetrating",
+    "name": "Penetrating",
+    "damageLostD6": 2,
+    "summary": "Damage penetrates",
+    "minDegree": "journeyman"
+   },
+   {
+    "id": "slick",
+    "name": "Slick",
+    "damageLostD6": 2,
+    "summary": "TN 15 Dexterity (Acrobatics) or fall prone; flammable grease (fire: 1d6 penetrating per turn)",
+    "minDegree": "journeyman"
+   },
+   {
+    "id": "self-igniting-slick",
+    "name": "Self-igniting Slick",
+    "damageLostD6": 3,
+    "summary": "As Slick but ignites itself",
+    "minDegree": "master"
+   }
+  ]
+ }
+}

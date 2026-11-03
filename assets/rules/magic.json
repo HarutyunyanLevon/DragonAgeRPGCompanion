@@ -1,0 +1,348 @@
+{
+ "startingSpells": {
+  "count": 3,
+  "rule": "A level-1 mage knows 3 spells, chosen from spells with no Requirement.",
+  "suggestedSets": [
+   {
+    "name": "Balanced",
+    "spells": [
+     "arcane-bolt",
+     "heal",
+     "rock-armor"
+    ]
+   },
+   {
+    "name": "Creation",
+    "spells": [
+     "glyph-of-paralysis",
+     "heal",
+     "heroic-offense"
+    ]
+   },
+   {
+    "name": "Entropy",
+    "spells": [
+     "daze",
+     "drain-life",
+     "weakness"
+    ]
+   },
+   {
+    "name": "Primal",
+    "spells": [
+     "flame-blast",
+     "rock-armor",
+     "winters-grasp"
+    ]
+   },
+   {
+    "name": "Spirit",
+    "spells": [
+     "mind-blast",
+     "spell-shield",
+     "walking-bomb"
+    ]
+   }
+  ],
+  "text": [
+   "Only mages learn spells.",
+   "New spells come from class powers and from school talents (Creation/Entropy/Primal/Spirit Magic).",
+   "A spell's Requirement (another spell, talent rank or specialization) must be met before learning it. The app blocks learning until satisfied."
+  ]
+ },
+ "mana": {
+  "start": "10 + Magic + 1d6",
+  "perLevel": "Magic + 1d6 (levels 2-10); Magic only from level 11",
+  "regainPerHour": "1d6 + Magic",
+  "fullRestHours": 8,
+  "text": "Cost is paid when the cast action is taken, whether or not the spell works."
+ },
+ "armorStrain": {
+  "light-leather": 1,
+  "heavy-leather": 2,
+  "light-mail": 3,
+  "heavy-mail": 4,
+  "light-plate": 5,
+  "heavy-plate": 6,
+  "note": "Added to every spell's mana cost."
+ },
+ "casting": {
+  "castingRoll": "3d6 + Magic + focus (the school's focus: Creation / Entropy / Primal / Spirit Magic). Meet or beat the spell's TN; otherwise it fizzles (MP still spent).",
+  "spellpower": "10 + Magic + focus. Targets that get a resisting test roll against it."
+ },
+ "stuntRules": "If the casting roll succeeds and shows doubles, you gain stunt points equal to the Dragon Die and spend them immediately. Each stunt at most once per round.",
+ "standardStunts": [
+  {
+   "id": "puissant-casting",
+   "name": "Puissant Casting",
+   "spCost": 1,
+   "effect": "+1 Spellpower per SP spent, max +3.",
+   "variable": true,
+   "maxSp": 3
+  },
+  {
+   "id": "skillful-casting",
+   "name": "Skillful Casting",
+   "spCost": 2,
+   "effect": "Spell costs 1 less MP (can be 0)."
+  },
+  {
+   "id": "mighty-spell",
+   "name": "Mighty Spell",
+   "spCost": 2,
+   "effect": "Damaging spell: one target takes +1d6."
+  },
+  {
+   "id": "mana-shield",
+   "name": "Mana Shield",
+   "spCost": 3,
+   "effect": "+2 Defense until start of your next turn."
+  },
+  {
+   "id": "fast-casting",
+   "name": "Fast Casting",
+   "spCost": 4,
+   "effect": "Immediately cast another spell (major/minor action casting time); doubles on that roll give no SP."
+  },
+  {
+   "id": "imposing-spell",
+   "name": "Imposing Spell",
+   "spCost": 4,
+   "effect": "Until your next turn, melee attackers must pass Willpower (Courage) TN 10 + Magic or take a move/defend action instead."
+  }
+ ],
+ "advancedStunts": [
+  {
+   "id": "arcane-acuity",
+   "name": "Arcane Acuity",
+   "spCost": 1,
+   "effect": "TN 11 Magic test (any focus): learn a key magical detail of the encounter or +1 to next magic-related test until end of your next turn."
+  },
+  {
+   "id": "arcane-advantage",
+   "name": "Arcane Advantage",
+   "spCost": 1,
+   "effect": "Target has -1 to resist your next spell until end of your next turn."
+  },
+  {
+   "id": "staggering-spell",
+   "name": "Staggering Spell",
+   "spCost": 1,
+   "effect": "Damaging spell: move target 2 yd per SP.",
+   "variable": true
+  },
+  {
+   "id": "arcane-armor",
+   "name": "Arcane Armor",
+   "spCost": 1,
+   "effect": "Armor Rating = SP spent until start of your next turn.",
+   "variable": true
+  },
+  {
+   "id": "lasting-spell",
+   "name": "Lasting Spell",
+   "spCost": 3,
+   "effect": "Double duration of a non-instant spell, no extra MP."
+  },
+  {
+   "id": "mana-surge",
+   "name": "Mana Surge",
+   "spCost": 4,
+   "effect": "Regain 1d6 MP right after casting."
+  },
+  {
+   "id": "masterful-casting",
+   "name": "Masterful Casting",
+   "spCost": 4,
+   "effect": "Spell costs 2 less MP (can be 0)."
+  },
+  {
+   "id": "split-spell",
+   "name": "Split Spell",
+   "spCost": 4,
+   "effect": "Single-target spell also hits a second target in range and within 6 yd of the first; no extra MP; separate tests."
+  },
+  {
+   "id": "disrupt-magic",
+   "name": "Disrupt Magic",
+   "spCost": 5,
+   "effect": "Magic (Spirit) test vs Spellpower of one effect on target; success removes it. Doubles give no SP."
+  },
+  {
+   "id": "lethal-spell",
+   "name": "Lethal Spell",
+   "spCost": 5,
+   "effect": "Damaging spell: one target +2d6, or all targets +1d6."
+  },
+  {
+   "id": "penetrating-spell",
+   "name": "Penetrating Spell",
+   "spCost": 6,
+   "effect": "All damage from the spell this round is penetrating."
+  }
+ ],
+ "schoolStunts": [
+  {
+   "id": "creation-strengthening",
+   "name": "Strengthening",
+   "spCost": 1,
+   "effect": "Ally within 2 yd +1 Strength until your next turn.",
+   "school": "creation"
+  },
+  {
+   "id": "creation-quickening",
+   "name": "Quickening",
+   "spCost": 1,
+   "effect": "Ally within 2 yd +1 Dexterity.",
+   "school": "creation"
+  },
+  {
+   "id": "creation-bolstering",
+   "name": "Bolstering",
+   "spCost": 1,
+   "effect": "You or an ally within 2 yd with Health above 0 recovers 1 Health per SP.",
+   "variable": true,
+   "school": "creation"
+  },
+  {
+   "id": "creation-sustaining",
+   "name": "Sustaining",
+   "spCost": 2,
+   "effect": "Ally within 10 yd at 0 Health doesn't count this round toward survival.",
+   "school": "creation"
+  },
+  {
+   "id": "creation-empowering",
+   "name": "Empowering",
+   "spCost": 3,
+   "effect": "+1 Spellpower on next spell before end of your next turn.",
+   "school": "creation"
+  },
+  {
+   "id": "primal-dazzling",
+   "name": "Dazzling",
+   "spCost": 2,
+   "effect": "Target -1 on vision tests incl. attacks until your next turn.",
+   "school": "primal"
+  },
+  {
+   "id": "primal-immolation",
+   "name": "Immolation",
+   "spCost": 3,
+   "effect": "Until your next turn, anyone touching or meleeing you takes 1d6+1.",
+   "school": "primal"
+  },
+  {
+   "id": "primal-thick-skin",
+   "name": "Thick Skin",
+   "spCost": 3,
+   "effect": "+1 Armor Rating until your next turn; no effect if a spell already raises AR.",
+   "school": "primal"
+  },
+  {
+   "id": "primal-lightning-arcs",
+   "name": "Lightning Arcs",
+   "spCost": 4,
+   "effect": "2 penetrating damage to foes within 2 yd.",
+   "school": "primal"
+  },
+  {
+   "id": "entropy-consuming-hunger",
+   "name": "Consuming Hunger",
+   "spCost": 1,
+   "effect": "If a character within 10 yd dies this round, regain 1d6 spent MP.",
+   "school": "entropy"
+  },
+  {
+   "id": "entropy-minor-curse",
+   "name": "Minor Curse",
+   "spCost": 2,
+   "effect": "Target -1 Defense until your next turn.",
+   "school": "entropy"
+  },
+  {
+   "id": "entropy-leaden-feet",
+   "name": "Leaden Feet",
+   "spCost": 2,
+   "effect": "Target -1 Speed until your next turn.",
+   "school": "entropy"
+  },
+  {
+   "id": "entropy-entropic-blessing",
+   "name": "Entropic Blessing",
+   "spCost": 3,
+   "effect": "Target loses 1 Health, you heal the same; repeatable twice per turn if SP allow.",
+   "variable": true,
+   "school": "entropy"
+  },
+  {
+   "id": "spirit-spirit-shield",
+   "name": "Spirit Shield",
+   "spCost": 1,
+   "effect": "Stunts costing no more than SP spent have no effect on you until your next turn.",
+   "variable": true,
+   "school": "spirit"
+  },
+  {
+   "id": "spirit-knock-prone",
+   "name": "Knock Prone",
+   "spCost": 2,
+   "effect": "Target prone; +1 to melee attacks vs it.",
+   "school": "spirit",
+   "note": "School stunt (Spirit)."
+  },
+  {
+   "id": "spirit-enervating-spell",
+   "name": "Enervating Spell",
+   "spCost": 3,
+   "effect": "Target with mana loses 1 MP; repeatable twice per turn.",
+   "variable": true,
+   "school": "spirit"
+  }
+ ],
+ "mishaps": {
+  "trigger": "Only for spells with a Requirement: casting roll fails and the Dragon Die shows 1.",
+  "save": "Caster immediately makes Willpower (Self-Discipline) vs the spell's TN. Success: caster is knocked prone (move action to stand; foes +1 to attack). The caster may avoid falling prone by spending extra MP equal to the spell's original cost.",
+  "failure": "Result is read from that test's Dragon Die.",
+  "table": [
+   {
+    "die": 1,
+    "name": "Mana Drain",
+    "effect": "Lose MP equal to 2x spell's original cost (total 3x usual)."
+   },
+   {
+    "die": 2,
+    "name": "Mana Burn",
+    "effect": "Lose Health equal to 2x spell's original cost."
+   },
+   {
+    "die": 3,
+    "name": "Backlash",
+    "effect": "Cannot cast for 1d6 rounds."
+   },
+   {
+    "die": 4,
+    "name": "Misfire",
+    "effect": "Effect hits an ally instead of enemy (or reverses); GM decides details."
+   },
+   {
+    "die": 5,
+    "name": "Lost in the Fade",
+    "effect": "Helpless trance for 2d6 minutes; vulnerable to coup de grace."
+   },
+   {
+    "die": 6,
+    "name": "Harrowing",
+    "effect": "As Lost in the Fade, plus TN 13 Willpower (Faith or Self-Discipline) every 2 minutes or possessed by a demon and becomes an abomination (PC passes to GM; make a new character)."
+   }
+  ]
+ },
+ "stacking": [
+  "A target can be affected by one casting of a given spell at a time (same or different casters). Recasting while active does nothing and does not extend duration. Applies even when the target only suffers a reduced effect after resisting.",
+  "Spells with instant, permanent results (e.g. heal) are exempt.",
+  "Effects of different spells overlap and are cumulative unless a spell says otherwise.",
+  "You may cast the same spell on different targets even if durations overlap."
+ ],
+ "bloodMagic": "A fifth school (Blood). Only characters with the Blood Mage specialization can learn Blood spells, and must be in Blood Magic mode to cast them. Practiced openly only in the Tevinter Imperium.",
+ "tranquil": "Mages severed from the Fade: they cannot cast. GM-adjudicated; not a player option in the core book."
+}

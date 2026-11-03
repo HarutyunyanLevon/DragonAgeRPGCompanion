@@ -1,0 +1,3405 @@
+{
+ "tags": [
+  {
+   "id": "character",
+   "name": "Character"
+  },
+  {
+   "id": "event",
+   "name": "Event"
+  },
+  {
+   "id": "place",
+   "name": "Place"
+  },
+  {
+   "id": "faction",
+   "name": "Faction"
+  },
+  {
+   "id": "item",
+   "name": "Item"
+  },
+  {
+   "id": "note",
+   "name": "Note"
+  }
+ ],
+ "entries": [
+  {
+   "id": "nine-ages",
+   "name": "The Nine Ages",
+   "tags": [
+    "note"
+   ],
+   "section": "Overview",
+   "summary": "Thedas counts nine ages of 100 years each, dated as age:year. Divine (Second Blight); Glory (Caedmon, first king of Ferelden; Exalted March on the Dales); Towers (Third Blight; Flemeth and the Korcari witches); Black (war that drove the werewolves extinct; first Orlesian invasion of Ferelden fails); Exalted (Fourth Blight; Calenhad; Grey Wardens settle in Ferelden); Steel (Avvar invade Ferelden); Storm (Wardens expelled from Ferelden; Exalted Marches against the Qunari); Blessed (second Orlesian invasion; civil war between Meghren and the Rebel Queen); Dragon (Maric takes the throne; a dragon appears).",
+   "links": [
+    "second-blight",
+    "caedmon",
+    "third-blight",
+    "flemeth",
+    "werewolves",
+    "fourth-blight",
+    "calenhad",
+    "grey-wardens",
+    "avvar",
+    "qunari-wars",
+    "orlesian-occupation",
+    "maric",
+    "meghren",
+    "rebel-queen",
+    "exalted-march-dales"
+   ],
+   "source_page_pdf": 152
+  },
+  {
+   "id": "thedosian-calendar",
+   "name": "The Thedosian Calendar",
+   "tags": [
+    "note"
+   ],
+   "section": "Overview",
+   "summary": "Twelve months of 30 days plus five annums (annual holidays) that mark the seasons and the first day of the year. Low month names used in Ferelden: Wintermarch, Guardian, Drakonis, Cloudreach, Bloomingtide, Justinian, Solace, August, Kingsway, Harvestmere, Firstfall, Haring. Annums: First Day, Wintersend, Summerday, Funalis, Satinalia. The calendar dates back to early Tevinter; the Divine Age began a new count in 1195 TE.",
+   "links": [
+    "justinia-i"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "canon-and-campaigns",
+   "name": "Dragon Age Canon and Campaigns",
+   "tags": [
+    "note"
+   ],
+   "section": "Overview",
+   "summary": "The chapter is a jumping-off point, not a full setting guide, and avoids spoiling other Dragon Age stories. Tables are free to deviate from canon, for example when player characters defeat figures who live on in published lore.",
+   "links": [],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "thedas",
+   "name": "Thedas (Overview)",
+   "tags": [
+    "place"
+   ],
+   "section": "Overview",
+   "summary": "A land of uneasy neighbors and shifting, locally understood borders. The chapter focuses on Orlais, Tevinter and Ferelden, with extra detail on elves and dwarves.",
+   "links": [
+    "tevinter-imperium",
+    "orlais",
+    "ferelden",
+    "dales",
+    "orzammar"
+   ],
+   "source_page_pdf": 153
+  },
+  {
+   "id": "ferelden",
+   "name": "Ferelden",
+   "tags": [
+    "place",
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Wide, barbarous country in the southeast, settled by the Alamarri's martial, honor-bound descendants. Temperate and fertile with harsh winters; capital Denerim; Orlais lies beyond the Frostbacks and the Free Marches across the Waking Sea.",
+   "links": [
+    "alamarri",
+    "denerim",
+    "frostback-mountains",
+    "orlais",
+    "free-marches",
+    "waking-sea",
+    "bannorn",
+    "ferelden-people"
+   ],
+   "source_page_pdf": 153
+  },
+  {
+   "id": "alamarri",
+   "name": "The Alamarri",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Warlike, animistic tribes led by banns who revered the wolf and paired young warriors with cubs. Ancestors of the Fereldans, and the parent people of the Avvar and Chasind. Alone in Thedas they refused Tevinter rule.",
+   "links": [
+    "avvar",
+    "chasind",
+    "werewolves",
+    "tevinter-imperium",
+    "ferelden-nobility"
+   ],
+   "source_page_pdf": 153
+  },
+  {
+   "id": "werewolves",
+   "name": "Werewolves",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Legend: the first werewolf was a wolf who betrayed his master to evil gods for a man's shape. The tribes united to slaughter them and drove the survivors into the forests. The Black Age war drove them to extinction, though some folk say a few lurk still.",
+   "links": [
+    "alamarri",
+    "brecilian-forest",
+    "nine-ages"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "avvar",
+   "name": "The Avvar",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Alamarri who split off after a civil war and live high in the Frostbacks, keeping the old nature gods, refusing kings and despising lowlanders. Winter raids on Ferelden are quick strikes, 'like fighting the weather'. They invaded Ferelden in the Steel Age.",
+   "links": [
+    "alamarri",
+    "frostback-mountains",
+    "ferelden",
+    "luthias-dwarfson",
+    "morrighannan"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "chasind",
+   "name": "The Chasind",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Wilders of the Korcari Wilds, descended from Alamarri who went south. Once invaded the north with 'white shadows' and conquered the valley tribes for a time; later produced Flemeth and her witch daughters.",
+   "links": [
+    "alamarri",
+    "korcari-wilds",
+    "flemeth",
+    "cormac"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "korcari-wilds",
+   "name": "The Korcari Wilds",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Swampy forest and tundra in the far south of Ferelden, home of the Chasind. Borders the Hinterlands and Southron Hills; what lies beyond is unknown even to the Chasind.",
+   "links": [
+    "chasind",
+    "hinterlands",
+    "southron-hills"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "flemeth",
+   "name": "Flemeth and the Witches of the Wilds",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Legendary witch who rose among the Chasind. She and her Korcari-witch daughters led armies against the north until Cormac's host burned the witches. A separate legend makes her a Highever noblewoman whose grief called a spirit of Vengeance.",
+   "links": [
+    "chasind",
+    "cormac",
+    "highever-secession",
+    "korcari-wilds"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "cormac",
+   "name": "Cormac",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Hero who led Alamarri fighters and Orzammar dwarves against Flemeth's army. The Chasind were all but destroyed and the witches burned.",
+   "links": [
+    "flemeth",
+    "alamarri",
+    "orzammar",
+    "chasind"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "tevinter-invasions-of-ferelden",
+   "name": "Tevinter Invasions of Ferelden",
+   "tags": [
+    "event"
+   ],
+   "section": "Ferelden",
+   "summary": "Tevinter tried three times to conquer Ferelden and was beaten each time by the Alamarri, Avvar and Chasind acting together. The fourth push held the western valley long enough to build fortresses and the Imperial Highway, at ruinous cost. A posting there was seen as exile or a death sentence.",
+   "links": [
+    "tevinter-imperium",
+    "alamarri",
+    "avvar",
+    "chasind",
+    "imperial-highway",
+    "ostagar",
+    "bane-of-ostagar"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "ostagar",
+   "name": "Ostagar",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Fortress at the south end of the Imperial Highway, built to watch for the Chasind, with mortar so magically reinforced that legend says nothing can fully tear it down. It fell to the Bane of Ostagar; King Cailan died here as the Fifth Blight began.",
+   "links": [
+    "imperial-highway",
+    "bane-of-ostagar",
+    "chasind",
+    "cailan",
+    "fifth-blight"
+   ],
+   "source_page_pdf": 154
+  },
+  {
+   "id": "bane-of-ostagar",
+   "name": "The Bane of Ostagar",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Nameless barbarian hero who found a way to breach Ostagar, breaking Tevinter's will to stay. Avvar, Chasind and Fereldans all claim him.",
+   "links": [
+    "ostagar",
+    "avvar",
+    "chasind",
+    "tevinter-invasions-of-ferelden"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "imperial-highway",
+   "name": "The Imperial Highway",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Tevinter road running from Minrathous to Ostagar; crumbled in places but still much used. In Ferelden it unofficially divides the Southron Hills from the Hinterlands.",
+   "links": [
+    "minrathous",
+    "ostagar",
+    "southron-hills",
+    "hinterlands",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "hafter",
+   "name": "Hafter",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "First teyrn of Ferelden. Brought some peace to the Alamarri and led them against the darkspawn in the Second Blight.",
+   "links": [
+    "caedmon",
+    "second-blight",
+    "alamarri"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "caedmon",
+   "name": "Teyrn Caedmon",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Hafter's grandson, the first warlord to try to be King of Ferelden. He failed, but made the Andrastian Chantry the official religion.",
+   "links": [
+    "hafter",
+    "andrastian-chantry"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "brandel",
+   "name": "King Brandel",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Waged a decades-long guerrilla war against the Orlesian usurpers and fell when Denerim was sacked.",
+   "links": [
+    "orlesian-occupation",
+    "denerim",
+    "rebel-queen"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "rebel-queen",
+   "name": "Moira, the Rebel Queen",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Brandel's daughter, passed over by the Orlesians. She spent her life leading the Fereldan resistance and was assassinated by arls in 8:96 Blessed; her son Maric survived.",
+   "links": [
+    "brandel",
+    "meghren",
+    "maric",
+    "orlesian-occupation"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "meghren",
+   "name": "King Meghren",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Orlesian lord Meghren Dufayel, placed on the Fereldan throne by Emperor Florian (with Grand Cleric Bronarch's blessing). Rebels flocked to Moira instead.",
+   "links": [
+    "rebel-queen",
+    "orlesian-occupation",
+    "fereldan-chantry"
+   ],
+   "source_page_pdf": 175
+  },
+  {
+   "id": "maric",
+   "name": "King Maric",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Son of the Rebel Queen. With Loghain Mac Tir and Rowan Guerrin he rallied the rebels, won at River Dane in 8:99 and began a golden age. Made peace with Empress Celene and was later lost at sea.",
+   "links": [
+    "rebel-queen",
+    "loghain",
+    "battle-of-river-dane",
+    "celene-i",
+    "cailan"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "loghain",
+   "name": "Teyrn Loghain Mac Tir",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Commoner whose tactical brilliance made him Maric's favored general and Teyrn of Gwaren. His daughter Anora married Cailan; his betrayal of Cailan tarnished his legacy.",
+   "links": [
+    "maric",
+    "anora",
+    "cailan",
+    "gwaren",
+    "fifth-blight"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "anora",
+   "name": "Queen Anora",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Loghain's daughter and Cailan's queen. She bore no heir, leaving the Theirin line without one.",
+   "links": [
+    "loghain",
+    "cailan"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "cailan",
+   "name": "King Cailan",
+   "tags": [
+    "character"
+   ],
+   "section": "Ferelden",
+   "summary": "Maric's only son and king after Maric was lost at sea. He died at Ostagar at the start of the Fifth Blight without an heir, throwing Ferelden into chaos and straining the truce with Orlais.",
+   "links": [
+    "maric",
+    "anora",
+    "ostagar",
+    "fifth-blight",
+    "loghain",
+    "celene-i"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "battle-of-river-dane",
+   "name": "Battle of River Dane",
+   "tags": [
+    "event"
+   ],
+   "section": "Ferelden",
+   "summary": "8:99 Blessed. A high dragon from the Frostbacks, which had terrorized the countryside for months, turned on the Orlesian army and broke it, handing Maric victory. The dragon heralded the Dragon Age.",
+   "links": [
+    "maric",
+    "orlesian-occupation",
+    "meghren"
+   ],
+   "source_page_pdf": 175
+  },
+  {
+   "id": "ferelden-people",
+   "name": "The Fereldan People",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Fiercely independent; respect is earned, not inherited. No serf class, selling slaves is illegal, and courage and martial skill count for more than wealth or ancestry. They prize their word and hesitate to promise what they might not deliver. Foreigners find their arts crude but powerful.",
+   "links": [
+    "ferelden",
+    "ferelden-nobility"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "ferelden-nobility",
+   "name": "Fereldan Nobility",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Nobles exist to fight for the people and do not own the land; freeholders pick their bann or arl each year. Ranks: King or Queen, teyrns, arls, banns, knights. Commoner soldiers of exceptional skill can be knighted.",
+   "links": [
+    "landsmeet",
+    "loghain",
+    "denerim"
+   ],
+   "source_page_pdf": 157
+  },
+  {
+   "id": "landsmeet",
+   "name": "The Landsmeet",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Legislative body of all Fereldan nobles; meets once a season in Denerim to vote on the King's Law and air grievances. Absent nobles send proxies.",
+   "links": [
+    "ferelden-nobility",
+    "denerim"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "crafthouses",
+   "name": "Fereldan Crafthouses",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Semi-formal guilds born of Alamarri craftsmen who swore crafthouse before tribe. No formal political power, but total control of their crafts.",
+   "links": [
+    "traders-crafthouse",
+    "ferelden"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "traders-crafthouse",
+   "name": "Traders' Crafthouse",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Created when dwarven merchants began moving other crafthouses' wares. Now handles selling across Ferelden and as far as Orlais and the Free Marches.",
+   "links": [
+    "crafthouses",
+    "surfacers",
+    "free-marches",
+    "orlais"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "fereldan-law",
+   "name": "Law in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Few laws; arms, gambling and drink are unregulated. Royal arbiters called blackhallers hear disputes and local sheriffs keep the peace, releasing suspects on a bond. Punishment is quick: whipping, fines, disfigurement or execution.",
+   "links": [
+    "denerim"
+   ],
+   "source_page_pdf": 160
+  },
+  {
+   "id": "living-in-ferelden",
+   "name": "Living in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Cities spread haphazardly from a central keep, rich inside and labyrinthine outside. Rural freeholds are communal farms run by family councils. Almost nothing but slaves is illegal to sell. Most Fereldans follow the Chantry.",
+   "links": [
+    "andrastian-chantry"
+   ],
+   "source_page_pdf": 160
+  },
+  {
+   "id": "fereldan-dogs",
+   "name": "Dogs and the Mabari",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Dogs replaced wolves in Fereldan esteem, and communities 'own' them collectively. The famous mabari is a huge mastiff-like war hound that follows complex orders.",
+   "links": [
+    "alamarri"
+   ],
+   "source_page_pdf": 160
+  },
+  {
+   "id": "fereldan-elves",
+   "name": "Elves in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Mostly servants and laborers in alienages, but paid and with rights, unlike elsewhere. Many say they would rather be poor freemen than rich slaves.",
+   "links": [
+    "alienage",
+    "dalish"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "fereldan-dwarves",
+   "name": "Dwarves in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Most are Surfacers, scorned by Orzammar but still trading with it. Their dealings with Fereldan crafters led to the Traders' Crafthouse.",
+   "links": [
+    "surfacers",
+    "traders-crafthouse",
+    "orzammar"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "fereldan-chantry",
+   "name": "The Chantry in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Honored but politically weak; priests count as part of the crafting class. Grand Cleric Bronarch's crowning of the Orlesian usurper Meghren hurt its standing.",
+   "links": [
+    "andrastian-chantry",
+    "meghren"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "fereldan-magic",
+   "name": "Magic in Ferelden",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Fereldans are superstitious and distrustful of magic. Mages must join the Circle, whose tower sits on a remote island since a mob burned the Denerim one. Templars guard every Circle.",
+   "links": [
+    "circle-of-magi",
+    "circle-tower",
+    "templars",
+    "apostates-and-maleficarum",
+    "denerim"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "apostates-and-maleficarum",
+   "name": "Apostates and Maleficarum",
+   "tags": [
+    "note"
+   ],
+   "section": "Ferelden",
+   "summary": "Mages outside the Circle are apostates, hunted by templars. Those who practice forbidden blood magic are maleficarum and feared above all.",
+   "links": [
+    "templars",
+    "blood-magic",
+    "circle-of-magi"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "circle-of-magi",
+   "name": "Circle of Magi",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Chantry institution that confines mages under templar watch. Orlais founded its Circles at the Nevarran Accord. Tevinter's Circle is far more permissive, and Circle mages helped beat the Qunari.",
+   "links": [
+    "templars",
+    "nevarran-accord",
+    "circle-tower",
+    "white-spire",
+    "imperial-chantry",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "circle-tower",
+   "name": "Circle Tower",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Seat of Ferelden's Circle of Magi, on an island in northern Lake Calenhad and visible for miles.",
+   "links": [
+    "lake-calenhad",
+    "circle-of-magi"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "templars",
+   "name": "Templar Order",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "Chantry knights who guard Circles and hunt apostates, with authority to destroy mages they judge dangerous. Born of the Inquisition at the Nevarran Accord; leadership sits in the White Spire. Retired, lyrium-dependent templars settle in Val Royeaux.",
+   "links": [
+    "circle-of-magi",
+    "nevarran-accord",
+    "white-spire",
+    "val-royeaux",
+    "lyrium",
+    "seekers-of-truth"
+   ],
+   "source_page_pdf": 159
+  },
+  {
+   "id": "nevarran-accord",
+   "name": "Nevarran Accord",
+   "tags": [
+    "event"
+   ],
+   "section": "Ferelden",
+   "summary": "1:20 Divine. Drakon I brought the Inquisition under the Chantry as the Templar Order and the Divine's own Seekers of Truth, and the Circles of Magi were founded in Orlais.",
+   "links": [
+    "drakon-i",
+    "templars",
+    "seekers-of-truth",
+    "circle-of-magi"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "seekers-of-truth",
+   "name": "Seekers of Truth",
+   "tags": [
+    "faction"
+   ],
+   "section": "Ferelden",
+   "summary": "The Divine's own arm of the Inquisition, formalized at the Nevarran Accord.",
+   "links": [
+    "nevarran-accord",
+    "templars",
+    "andrastian-chantry"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "denerim",
+   "name": "Denerim",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Capital of Ferelden, in the east; seat of the court and Landsmeet. Opened to trade by Calenhad and sacked by the Orlesians.",
+   "links": [
+    "ferelden",
+    "landsmeet",
+    "calenhad",
+    "orlesian-occupation"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "bannorn",
+   "name": "The Bannorn",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Great central valley and farming heartland. Control is split among many banns, from the Alamarri word for chieftain.",
+   "links": [
+    "ferelden",
+    "ferelden-nobility"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "brecilian-forest",
+   "name": "Brecilian Forest",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Cursed wilderness in the east and southeast, said to hold thieves, murderers, werewolves and moving trees. Only the Dalish enter regularly.",
+   "links": [
+    "dalish",
+    "werewolves",
+    "gwaren"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "gwaren",
+   "name": "Gwaren",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Port city on the Amaranthine Ocean, home to those brave enough to live by the Brecilian Forest.",
+   "links": [
+    "brecilian-forest",
+    "loghain",
+    "amaranthine-ocean"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "amaranthine-ocean",
+   "name": "Amaranthine Ocean",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Vast, uncharted ocean forming Ferelden's eastern border.",
+   "links": [
+    "gwaren"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "southron-hills",
+   "name": "Southron Hills",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Rocky highlands east of the Imperial Highway, reaching the Brecilian Forest and the Korcari Wilds.",
+   "links": [
+    "imperial-highway",
+    "brecilian-forest",
+    "korcari-wilds"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "hinterlands",
+   "name": "The Hinterlands",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Land west of the Imperial Highway, from Lake Calenhad to the Frostback foothills, bordering the Korcari Wilds.",
+   "links": [
+    "imperial-highway",
+    "lake-calenhad",
+    "frostback-mountains",
+    "korcari-wilds"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "lake-calenhad",
+   "name": "Lake Calenhad",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Huge clear-blue lake fed by Frostback runoff and said to have mystical properties. Home of the Circle Tower.",
+   "links": [
+    "circle-tower",
+    "frostback-mountains"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "frostback-mountains",
+   "name": "Frostback Mountains",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Range on Ferelden's west, home to the Avvar, with ice bridges between peaks. Orzammar lies beneath its northern end; Orlais lies beyond.",
+   "links": [
+    "avvar",
+    "orzammar",
+    "orlais",
+    "lake-calenhad"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "waking-sea",
+   "name": "The Waking Sea",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Separates Ferelden's Coastlands from the Free Marches. Val Royeaux sits on its inland coast and Kirkwall on its shore.",
+   "links": [
+    "free-marches",
+    "val-royeaux",
+    "kirkwall"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "free-marches",
+   "name": "The Free Marches",
+   "tags": [
+    "place"
+   ],
+   "section": "Ferelden",
+   "summary": "Wealthy city-states controlling the center of the continent, north of the Waking Sea.",
+   "links": [
+    "waking-sea"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "first-blight",
+   "name": "The First Blight",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Magisters who stormed the Golden City were cast out as the first darkspawn and woke the Old God Dumat as an Archdemon in 800 TE. The Blight laid Tevinter waste for nearly two centuries, until Grey Wardens killed Dumat at the Battle of the Silent Plains.",
+   "links": [
+    "golden-city",
+    "darkspawn",
+    "dumat",
+    "battle-of-silent-plains",
+    "tevinter-imperium",
+    "grey-wardens"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "darkspawn",
+   "name": "Darkspawn",
+   "tags": [
+    "faction"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Chantry teaching: twisted ex-mages who crept into the deep places. Each Blight is a horde led by an Archdemon; the land withers, rivers foul and the sky turns ashen. Dwarves see the whole span since as one endless war.",
+   "links": [
+    "golden-city",
+    "dumat",
+    "deep-roads",
+    "first-blight",
+    "orzammar",
+    "grey-wardens"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "dumat",
+   "name": "Dumat",
+   "tags": [
+    "character"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Old God, the Dragon of Silence. Taught blood magic to Archon Thalsian, was imprisoned underground by the Maker, then corrupted and woken by the first darkspawn to become the first Archdemon. Legend also blames him for erasing Barindur.",
+   "links": [
+    "old-gods",
+    "thalsian",
+    "darkspawn",
+    "barindur",
+    "first-blight",
+    "blood-magic"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "battle-of-silent-plains",
+   "name": "Battle of the Silent Plains",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Grey Wardens killed the Archdemon Dumat in southern Tevinter in -203 Ancient (992 TE), ending the First Blight about two centuries after it began.",
+   "links": [
+    "dumat",
+    "grey-wardens",
+    "first-blight"
+   ],
+   "source_page_pdf": 163
+  },
+  {
+   "id": "second-blight",
+   "name": "The Second Blight",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "The Archdemon Zazikel rose in 1:5 Divine. Drakon I marched north, won at Cumberland (1:16) and relieved the Grey Wardens at Weisshaupt (1:33); Zazikel fell at the Battle of Starkhaven. Tevinter abandoned the Anderfels and Minrathous was nearly sacked. Hafter fought darkspawn in Ferelden.",
+   "links": [
+    "drakon-i",
+    "cumberland",
+    "weisshaupt",
+    "grey-wardens",
+    "kordillus-drakon-ii",
+    "hafter",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "third-blight",
+   "name": "The Third Blight",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Arose in the Towers Age and forced the Imperial and Andrastian Chantries to turn from their feud. Afterwards Orlais and Tevinter grabbed land, and Orlais claimed the Nevarra it had saved.",
+   "links": [
+    "imperial-chantry",
+    "andrastian-chantry",
+    "orlais",
+    "tevinter-imperium",
+    "nevarra-vs-orlais"
+   ],
+   "source_page_pdf": 164
+  },
+  {
+   "id": "fourth-blight",
+   "name": "The Fourth Blight",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Struck in the Exalted Age and ended the Exalted Marches against the Imperial Chantry. In this age Calenhad united Ferelden and the Grey Wardens settled there.",
+   "links": [
+    "exalted-marches",
+    "calenhad",
+    "grey-wardens"
+   ],
+   "source_page_pdf": 191
+  },
+  {
+   "id": "fifth-blight",
+   "name": "The Fifth Blight",
+   "tags": [
+    "event"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Began at Ostagar, where King Cailan died. Warden Commander Duncan and companions defeated the Archdemon, and Ferelden was restored under a new ruler.",
+   "links": [
+    "ostagar",
+    "cailan",
+    "duncan",
+    "grey-wardens",
+    "loghain"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "grey-wardens",
+   "name": "Grey Wardens",
+   "tags": [
+    "faction"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Order that slew Dumat at the Silent Plains. They took a permanent post in Ferelden in the Exalted Age and were expelled in the Storm Age. After Drakon relieved Weisshaupt they converted en masse to the Andrastian faith. A dwarf loses no caste by joining.",
+   "links": [
+    "battle-of-silent-plains",
+    "weisshaupt",
+    "drakon-i",
+    "andrastian-chantry",
+    "moroc-the-maul",
+    "caste-system",
+    "fifth-blight"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "duncan",
+   "name": "Warden Commander Duncan",
+   "tags": [
+    "character"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Famed Warden Commander credited, with his companions, with defeating the Archdemon of the Fifth Blight.",
+   "links": [
+    "grey-wardens",
+    "fifth-blight"
+   ],
+   "source_page_pdf": 158
+  },
+  {
+   "id": "golden-city",
+   "name": "The Golden City",
+   "tags": [
+    "place"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "The Maker's city in the Fade. Chantry teaching: in 800 TE Tevinter magisters forced their way in and blackened it with their sin, and were cast out as the first darkspawn. The Maker then turned away from the world.",
+   "links": [
+    "the-fade",
+    "magisterium",
+    "darkspawn",
+    "maker"
+   ],
+   "source_page_pdf": 162
+  },
+  {
+   "id": "the-fade",
+   "name": "The Fade (the Beyond)",
+   "tags": [
+    "place"
+   ],
+   "section": "Blights and Darkspawn",
+   "summary": "Spirit realm the elves called the Beyond. Elven scholars taught Tevinter mages to enter it asleep using lyrium; magisters mapped it and eventually stormed the Golden City. Experiments at Aeonar left the Veil thin.",
+   "links": [
+    "lyrium",
+    "golden-city",
+    "aeonar",
+    "magisterium",
+    "uthenera"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "tevinter-imperium",
+   "name": "Tevinter Imperium",
+   "tags": [
+    "place",
+    "faction"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Ancient mage-ruled empire whose history touches all of Thedas. A Minrathous-based kingdom unified under Archon Darinius in 0 TE, it conquered most of the continent, then shrank through the Blights, rebellions and the Qunari wars. Today it is decaying, built on slavery and intrigue, and ruled openly by magisters again. Deceit is expected, and its politics resemble Orlais's Game without the finesse.",
+   "links": [
+    "minrathous",
+    "darinius",
+    "magisterium",
+    "first-blight",
+    "slavery-in-tevinter",
+    "imperial-chantry",
+    "qunari-wars",
+    "orlais",
+    "andraste"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "minrathous",
+   "name": "Minrathous",
+   "tags": [
+    "place"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Tevinter's capital on the Nocen Sea. Stone spires lift the magisters above the squalor, dwarven golems guard the gates, and no enemy has ever breached it. The Imperial Divine rules Chantry and Circle from the Argent Spire.",
+   "links": [
+    "tevinter-imperium",
+    "imperial-chantry",
+    "golems",
+    "imperial-highway"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "magisterium",
+   "name": "The Magisterium",
+   "tags": [
+    "faction"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Council of magisters formed by Darinius from the priesthood of the seven Old Gods. They rule cities, make law on magic, and were raised above the nobility as the Archon's court.",
+   "links": [
+    "darinius",
+    "old-gods",
+    "archon-signet"
+   ],
+   "source_page_pdf": 162
+  },
+  {
+   "id": "old-gods",
+   "name": "The Old Gods",
+   "tags": [
+    "faction"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Seven ancient dragons worshipped in Tevinter, said to have taught men magic. The Maker imprisoned them underground. Their temples were sacked when they stayed silent during the First Blight.",
+   "links": [
+    "dumat",
+    "magisterium",
+    "first-blight",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 162
+  },
+  {
+   "id": "thalsian",
+   "name": "Archon Thalsian",
+   "tags": [
+    "character"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Tevinter mage taught blood magic by Dumat. He built temples to the Old Gods and raised an army of blood mages.",
+   "links": [
+    "dumat",
+    "blood-magic",
+    "old-gods"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "darinius",
+   "name": "Archon Darinius",
+   "tags": [
+    "character"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "First official Archon (-1195 Ancient, 0 TE). Formed the Magisterium, made magisters royalty, conquered the elves, sank Arlathan and allied with the dwarves under Endrin Stonehammer. His ferryman vision became the Archons' symbol.",
+   "links": [
+    "magisterium",
+    "archon-signet",
+    "arlathan",
+    "endrin-stonehammer",
+    "kal-sharok",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 162
+  },
+  {
+   "id": "archon-signet",
+   "name": "Archon's Signet",
+   "tags": [
+    "item"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Ring stamped with a hooded ferryman whose face beneath is the Archon's own, and the Archon's name below. Crushed before the magisters when an Archon dies.",
+   "links": [
+    "darinius",
+    "magisterium"
+   ],
+   "source_page_pdf": 166
+  },
+  {
+   "id": "blood-magic",
+   "name": "Blood Magic in Tevinter",
+   "tags": [
+    "note"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Dumat taught that fresh living blood boosts a mage far beyond lyrium. Blood magic is now outlawed in Tevinter as a political measure but still practiced, notably dream-seeing to manipulate others. Even the Imperial Chantry forbids using it to control minds.",
+   "links": [
+    "dumat",
+    "thalsian",
+    "apostates-and-maleficarum",
+    "imperial-chantry"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "lyrium",
+   "name": "Lyrium",
+   "tags": [
+    "item"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Mineral elven scholars used to teach Tevinter mages to enter the Fade. Magisters infuse it into slaves, dwarves record the Memories in it, templars become dependent on it, and its trade drives Orzammar's wealth.",
+   "links": [
+    "the-fade",
+    "memories",
+    "templars",
+    "orzammar",
+    "miner-caste"
+   ],
+   "source_page_pdf": 161
+  },
+  {
+   "id": "aeonar",
+   "name": "Aeonar",
+   "tags": [
+    "place"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Prison in northern Ferelden known only to the templars. Tevinter Fade experiments there thinned the Veil; Andraste's followers massacred the sleeping mages inside. Now a Chantry prison for apostates and maleficarum.",
+   "links": [
+    "the-fade",
+    "templars",
+    "andraste",
+    "apostates-and-maleficarum"
+   ],
+   "source_page_pdf": 166
+  },
+  {
+   "id": "kirkwall",
+   "name": "Kirkwall",
+   "tags": [
+    "place"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Originally Emerius, a Tevinter slave port on the Waking Sea where over a million slaves passed through the Gallows. Its streets were laid in magical shapes for blood rituals, and carved Old God faces glower from nearby black cliffs. Sir Michel Lafaille freed it from Qunari occupation in 7:60 Storm.",
+   "links": [
+    "waking-sea",
+    "sir-michel-lafaille",
+    "old-gods",
+    "slavery-in-tevinter",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 166
+  },
+  {
+   "id": "archon-nomaran",
+   "name": "Archon Nomaran",
+   "tags": [
+    "character"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Elected from the First Enchanters in 7:34 Storm. He repealed laws keeping mages out of politics, and within a century the magisters ruled openly again.",
+   "links": [
+    "magisterium",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 166
+  },
+  {
+   "id": "slavery-in-tevinter",
+   "name": "Slavery in Tevinter",
+   "tags": [
+    "note"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "The Imperium runs on slavery. Slavers snatch travelers and elves from foreign docks while neighbors look away. Today's slaves die as fodder against the Qunari rather than in blood rituals.",
+   "links": [
+    "tevinter-imperium",
+    "qunari-wars",
+    "alienage"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "barindur",
+   "name": "Barindur",
+   "tags": [
+    "place"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Legendary city of fountains. When King Carinatus snubbed Dumat's high priest, the god erased it so completely that no stone remains.",
+   "links": [
+    "dumat",
+    "brother-genitivi",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "brother-genitivi",
+   "name": "Brother Genitivi",
+   "tags": [
+    "character"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Chantry scholar, author of 'Travels of a Chantry Scholar' and 'Stone Halls of the Dwarves', quoted in many sidebars.",
+   "links": [
+    "barindur",
+    "asha-campana",
+    "perendale",
+    "orzammar"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "imperial-chantry",
+   "name": "Imperial Chantry and the Black Divine",
+   "tags": [
+    "faction"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "Tevinter's own Chantry, separate from Val Royeaux since the 3:87 Towers schism. It allows male priests and mage priests and holds that Andraste was mortal. Led by the Black Divine in Minrathous, chosen from the Circle's First Enchanters. Mages from the south flee to its more tolerant Circle.",
+   "links": [
+    "chantry-schism",
+    "valhail",
+    "andrastian-chantry",
+    "circle-of-magi",
+    "minrathous",
+    "exalted-marches"
+   ],
+   "source_page_pdf": 164
+  },
+  {
+   "id": "chantry-schism",
+   "name": "The Chantry Schism",
+   "tags": [
+    "event"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "In 3:87 Towers Tevinter clerics reinterpreted the Second Commandment and elected their own Divine. Val Royeaux declared the Black Age; four Exalted Marches (4:40 to 5:50) failed to take Minrathous.",
+   "links": [
+    "imperial-chantry",
+    "valhail",
+    "exalted-marches",
+    "andrastian-chantry"
+   ],
+   "source_page_pdf": 191
+  },
+  {
+   "id": "valhail",
+   "name": "Divine Valhail",
+   "tags": [
+    "character"
+   ],
+   "section": "Tevinter Imperium",
+   "summary": "First Black Divine, a male magister elected in 3:87 Towers. Declared a holiday on the death of the White Divine Joyous II.",
+   "links": [
+    "imperial-chantry",
+    "chantry-schism"
+   ],
+   "source_page_pdf": 164
+  },
+  {
+   "id": "andraste",
+   "name": "Andraste",
+   "tags": [
+    "character"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "Prophet of the Maker. The Chantry says she was an Alamarri slave who escaped Tevinter; as Maferath's wife she led the revolt that toppled it. Betrayed, she was burned at Minrathous and her suffering ended by Hessarian. Her song that 'magic should serve' reached even Tevinter.",
+   "links": [
+    "maker",
+    "maferath",
+    "hessarian",
+    "andraste-betrayal",
+    "battle-of-valarian-fields",
+    "chant-of-light",
+    "shartan",
+    "minrathous"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "maferath",
+   "name": "Maferath",
+   "tags": [
+    "character"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "Alamarri warlord and Andraste's husband, who united the tribes and marched on Tevinter. The Chantry says jealousy drove him to bargain her away to Archon Hessarian; history suggests he feared Tevinter's counterattack. The lands south of the Waking Sea were granted to his people.",
+   "links": [
+    "andraste",
+    "hessarian",
+    "andraste-betrayal",
+    "battle-of-valarian-fields",
+    "free-marches",
+    "nevarra"
+   ],
+   "source_page_pdf": 155
+  },
+  {
+   "id": "battle-of-valarian-fields",
+   "name": "Battle of Valarian Fields",
+   "tags": [
+    "event"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "Tevinter's greatest army was routed after a slave revolt of mostly elves inspired by Andraste. Maferath conquered southern Tevinter, and Minrathous lay only days away.",
+   "links": [
+    "andraste",
+    "maferath",
+    "tevinter-imperium",
+    "minrathous"
+   ],
+   "source_page_pdf": 156
+  },
+  {
+   "id": "andraste-betrayal",
+   "name": "Andraste's Betrayal and Death",
+   "tags": [
+    "event"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "After Valarian Fields Maferath struck a deal with Archon Hessarian. Andraste was captured and burned alive in Minrathous before both armies. Lady Vasilia had urged the public execution to show the Maker was uncaring; instead it gave the faithful new purpose.",
+   "links": [
+    "andraste",
+    "maferath",
+    "hessarian",
+    "minrathous"
+   ],
+   "source_page_pdf": 163
+  },
+  {
+   "id": "hessarian",
+   "name": "Archon Hessarian",
+   "tags": [
+    "character"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "Tevinter ruler who bargained with Maferath, had Andraste burned, and then pierced her heart in pity. He later converted to her faith; scholars debate whether sincerely.",
+   "links": [
+    "andraste",
+    "maferath",
+    "andraste-betrayal",
+    "imperial-chantry"
+   ],
+   "source_page_pdf": 163
+  },
+  {
+   "id": "shartan",
+   "name": "Shartan",
+   "tags": [
+    "character"
+   ],
+   "section": "Andraste's Rebellion",
+   "summary": "Charismatic elven leader who allied his people with Andraste. He was killed before the Dales were founded (accounts differ on how). His Canticle was struck from the Chant after the March on the Dales.",
+   "links": [
+    "andraste",
+    "dissonant-verses",
+    "dales",
+    "battle-of-valarian-fields"
+   ],
+   "source_page_pdf": 177
+  },
+  {
+   "id": "orlais",
+   "name": "Orlais",
+   "tags": [
+    "place",
+    "faction"
+   ],
+   "section": "Orlais",
+   "summary": "Empire under a golden sun, famed for opulence and ambition and home of the Chantry. Ruled by Empress Celene I, it has lost much since Drakon's day yet held Ferelden within living memory. Nobles wear gloves and masks and play the Grand Game.",
+   "links": [
+    "celene-i",
+    "drakon-i",
+    "val-royeaux",
+    "grand-game",
+    "andrastian-chantry",
+    "orlesian-occupation",
+    "dales",
+    "nevarra-vs-orlais"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "drakon-i",
+   "name": "Emperor Kordillus Drakon I",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Prince who united the southwestern city-states, was crowned first Emperor in -3 Ancient (1192 TE) and made Andrastianism the state faith. Founded the Chantry, fought the Second Blight, relieved Weisshaupt and died in 1:45 Divine. Orlesians revere him; his statue matches Andraste's.",
+   "links": [
+    "orlais",
+    "andrastian-chantry",
+    "justinia-i",
+    "second-blight",
+    "weisshaupt",
+    "nevarran-accord",
+    "val-royeaux",
+    "grand-game"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "justinia-i",
+   "name": "Divine Justinia I",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "First Divine of the Chantry, elevated in 1195 TE, the first year of the Divine Age.",
+   "links": [
+    "drakon-i",
+    "andrastian-chantry",
+    "val-royeaux"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "kordillus-drakon-ii",
+   "name": "Emperor Kordillus Drakon II",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Drakon I's son. Led the Orlesian army beside the Grey Wardens at Starkhaven, where the Archdemon Zazikel fell.",
+   "links": [
+    "drakon-i",
+    "second-blight",
+    "grey-wardens"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "celene-i",
+   "name": "Empress Celene I",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Orlais's ruler. Ascended in 9:20 Dragon and reopened contact with Maric, and is determined to keep peace with Ferelden. Keeps a Winter Palace in Halamshiral. Nobles plot without her blessing to retake Ferelden.",
+   "links": [
+    "maric",
+    "halamshiral",
+    "orlais",
+    "cailan",
+    "grand-game"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "grand-game",
+   "name": "The Grand Game",
+   "tags": [
+    "note"
+   ],
+   "section": "Orlais",
+   "summary": "Orlais's political intrigue of wits, audacity and subtlety. Ruin or murder are acceptable if done discreetly. Drakon abolished titles to cut the deaths, so nobles invented their own. Commoners can rise by playing, and landholding is for nobles only.",
+   "links": [
+    "orlais",
+    "orlesian-bards",
+    "chevaliers",
+    "orlesian-titles",
+    "drakon-i"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "orlesian-bards",
+   "name": "Orlesian Bards",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orlais",
+   "summary": "Not just entertainers: trained spies and assassins who blend into any setting. Lords and ladies sponsor them gladly.",
+   "links": [
+    "grand-game"
+   ],
+   "source_page_pdf": 172
+  },
+  {
+   "id": "chevaliers",
+   "name": "The Chevaliers",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orlais",
+   "summary": "Elite knightly branch of the Orlesian army, famous for harsh training and valuing honor above all. They have defended Thedas against darkspawn and Qunari, but many serve dishonorable patrons in the Game.",
+   "links": [
+    "grand-game",
+    "sir-michel-lafaille",
+    "qunari-wars",
+    "orlais"
+   ],
+   "source_page_pdf": 172
+  },
+  {
+   "id": "sir-michel-lafaille",
+   "name": "Sir Michel Lafaille",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Chevalier who freed Kirkwall from Qunari occupation in 7:60 Storm and became its first Viscount. The city kept the title after Orlesians were driven out in 8:05 Blessed.",
+   "links": [
+    "kirkwall",
+    "chevaliers",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 172
+  },
+  {
+   "id": "aveline",
+   "name": "Aveline, the First Female Knight",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Human foundling raised by a Dalish clan. She won a Montsimmard tourney as a masked 'mystery knight' until Ser Kaleva unhelmed and killed her. Prince Freyan, as Emperor in 7:44 Storm, opened knighthood to women in her honor.",
+   "links": [
+    "dalish",
+    "montsimmard",
+    "chevaliers"
+   ],
+   "source_page_pdf": 172
+  },
+  {
+   "id": "orlesian-titles",
+   "name": "Orlesian Titles and Address",
+   "tags": [
+    "note"
+   ],
+   "section": "Orlais",
+   "summary": "Table of titles from Emperor down to Chevalier. Under Remille (8:29 Blessed) only Lord and Lady were official, which bred ornate honorifics. After 8:51 the old titles returned unofficially, with the Council of Heralds recognizing them.",
+   "links": [
+    "mad-emperor-remille",
+    "grand-game"
+   ],
+   "source_page_pdf": 173
+  },
+  {
+   "id": "orlesian-society",
+   "name": "Orlesian Fashion, Masks and Servants",
+   "tags": [
+    "note"
+   ],
+   "section": "Orlais",
+   "summary": "Slavery is outlawed, but nobles keep carefully treated, pleasant-looking servants, with elves especially prized. Fashion is vital to the Game, and masks announce a house's identity and are passed down as heirlooms.",
+   "links": [
+    "grand-game"
+   ],
+   "source_page_pdf": 173
+  },
+  {
+   "id": "black-fox",
+   "name": "Remi Vascal, the Black Fox",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Orlesian lord who became a commoners' folk hero in the Blessed Age, a masked trickster who humiliated the lord of Val Chevin. Sightings ceased when he and his companion Karolis went north to seek Arlathan.",
+   "links": [
+    "puzzle-rings",
+    "arlathan",
+    "orlais"
+   ],
+   "source_page_pdf": 174
+  },
+  {
+   "id": "puzzle-rings",
+   "name": "The Black Fox's Puzzle Rings",
+   "tags": [
+    "item"
+   ],
+   "section": "Orlais",
+   "summary": "Ten puzzle rings, one per finger, of unknown purpose. Many Orlesian nobles claim to own one.",
+   "links": [
+    "black-fox"
+   ],
+   "source_page_pdf": 174
+  },
+  {
+   "id": "mad-emperor-remille",
+   "name": "Emperor Remille, the Mad Emperor",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Orlesian emperor who conquered Ferelden and decreed that nobles carry only the titles Lord or Lady. The book also calls him Reville. Died 8:51 Blessed.",
+   "links": [
+    "orlesian-occupation",
+    "orlesian-titles",
+    "ferelden"
+   ],
+   "source_page_pdf": 174
+  },
+  {
+   "id": "orlesian-occupation",
+   "name": "Orlesian Occupation of Ferelden",
+   "tags": [
+    "event"
+   ],
+   "section": "Orlais",
+   "summary": "In 8:24 Blessed the Mad Emperor took Vigil's Keep, Redcliffe and Amaranthine, then ground down resistance until Denerim was sacked and Brandel died. Emperor Florian installed Meghren; Maric ended the occupation at River Dane in 8:99.",
+   "links": [
+    "mad-emperor-remille",
+    "brandel",
+    "meghren",
+    "rebel-queen",
+    "battle-of-river-dane",
+    "denerim"
+   ],
+   "source_page_pdf": 174
+  },
+  {
+   "id": "val-royeaux",
+   "name": "Val Royeaux",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Orlesian capital on the Waking Sea. Its Grand Cathedral (finished 2:99 Glory) is the only place the whole Chant is sung, over two weeks. Home to the White Spire, the Templar Order, the University of Orlais, and an elven alienage of 10,000 behind high walls.",
+   "links": [
+    "andrastian-chantry",
+    "white-spire",
+    "university-of-orlais",
+    "templars",
+    "alienage",
+    "chant-of-light",
+    "drakon-i"
+   ],
+   "source_page_pdf": 176
+  },
+  {
+   "id": "white-spire",
+   "name": "The White Spire",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Magically lit tower in Val Royeaux housing Circle mages and much of the Templar leadership in Orlais.",
+   "links": [
+    "val-royeaux",
+    "circle-of-magi",
+    "templars"
+   ],
+   "source_page_pdf": 168
+  },
+  {
+   "id": "university-of-orlais",
+   "name": "University of Orlais",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orlais",
+   "summary": "Foremost scholarly institution in Thedas. Its liberal views can put it at odds with the Chantry.",
+   "links": [
+    "val-royeaux",
+    "andrastian-chantry"
+   ],
+   "source_page_pdf": 176
+  },
+  {
+   "id": "cumberland",
+   "name": "Cumberland",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Largest city in Thedas, in Nevarra. Home to the College of Enchanters; Drakon defeated the darkspawn at its battle in 1:16 Divine.",
+   "links": [
+    "nevarra",
+    "second-blight"
+   ],
+   "source_page_pdf": 176
+  },
+  {
+   "id": "nevarra",
+   "name": "Nevarra",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Kingdom north of the old Ciriane, ruled by the Pentaghast family. Long a rival of Orlais; threw off Orlesian rule in 3:65 Towers.",
+   "links": [
+    "nevarra-vs-orlais",
+    "perendale",
+    "cumberland"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "weisshaupt",
+   "name": "Weisshaupt Fortress",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Grey Warden stronghold in the Anderfels near the Tevinter border, besieged by darkspawn in 1:33 Divine until Drakon came to its aid.",
+   "links": [
+    "grey-wardens",
+    "drakon-i"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "perendale",
+   "name": "Perendale",
+   "tags": [
+    "place",
+    "event"
+   ],
+   "section": "Orlais",
+   "summary": "City lost by Orlais to Nevarra in 8:46 Blessed. The rivalry began when Emperor Etienne Valmont set aside Princess Sotiria Pentaghast. Still decorated with Orlesian lions.",
+   "links": [
+    "nevarra",
+    "etienne-valmont",
+    "nevarra-vs-orlais"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "etienne-valmont",
+   "name": "Emperor Etienne Valmont",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Orlesian emperor who wed Princess Sotiria Pentaghast in 7:82 Storm, then cloistered her in 7:97 to wed his mistress, provoking Nevarra.",
+   "links": [
+    "perendale",
+    "nevarra"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "asha-campana",
+   "name": "Asha Campana, Queen Mother of Thedas",
+   "tags": [
+    "character"
+   ],
+   "section": "Orlais",
+   "summary": "Rivaini princess married to King Alonzo of Antiva. She wed her descendants into ruling houses across Thedas, so attacking Antiva would mean war with kin.",
+   "links": [
+    "antiva",
+    "rivain",
+    "brother-genitivi"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "antiva",
+   "name": "Antiva",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Prosperous country shielded by Asha's marriage web. Fell briefly to the Qunari in 7:52 Storm.",
+   "links": [
+    "asha-campana",
+    "antivan-crows",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "antivan-crows",
+   "name": "Antivan Crows",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orlais",
+   "summary": "Assassins who like to claim credit for Antiva's independence.",
+   "links": [
+    "antiva"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "montsimmard",
+   "name": "Montsimmard",
+   "tags": [
+    "place"
+   ],
+   "section": "Orlais",
+   "summary": "Orlesian city on the Imperial Highways at the old border of the Dales. Overrun by darkspawn in 1:25, sacked by elves in 2:9, and rebuilt in Orlesian style.",
+   "links": [
+    "montsimmard-massacre",
+    "dales",
+    "exalted-march-dales"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "dales",
+   "name": "The Dales",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "The elves' second country, granted after they helped Andraste, with Halamshiral as capital. The Exalted March destroyed it in 2:20 Glory. Now Orlais's eastern marches and the Ferelden frontier. To the elves the story is not over.",
+   "links": [
+    "halamshiral",
+    "exalted-march-dales",
+    "dalish",
+    "andraste",
+    "orlais",
+    "the-long-walk",
+    "elvhenan"
+   ],
+   "source_page_pdf": 176
+  },
+  {
+   "id": "elvhenan",
+   "name": "Elvhenan",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "'Place of our people', the ancient elven nation across Thedas where elves were said to be immortal. Contact with humans brought mortality and retreat, then Tevinter conquest.",
+   "links": [
+    "arlathan",
+    "shemlen",
+    "dales"
+   ],
+   "source_page_pdf": 176
+  },
+  {
+   "id": "arlathan",
+   "name": "Arlathan",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Elven capital. Darinius's blood mages sank it beneath the ground in a few hours. No place has been so devoted to scholarship since.",
+   "links": [
+    "darinius",
+    "elvhenan",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 162
+  },
+  {
+   "id": "shemlen",
+   "name": "Shemlen",
+   "tags": [
+    "note"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Elven word for humans, 'quick children'. Once dismissive, it became a curse as the elves began to age and die near humans.",
+   "links": [
+    "elvhenan"
+   ],
+   "source_page_pdf": 177
+  },
+  {
+   "id": "uthenera",
+   "name": "Uthenera",
+   "tags": [
+    "note"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "The 'long sleep': elders lay in a tomb-like bed so their spirits could roam the Fade. Some are said to wander there still, holding lost knowledge.",
+   "links": [
+    "the-fade",
+    "elvhenan"
+   ],
+   "source_page_pdf": 177
+  },
+  {
+   "id": "the-long-walk",
+   "name": "The Long Walk",
+   "tags": [
+    "event"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Flight of elves from the Imperium to the Dales after -170 Ancient (1025 TE). Many died; survivors founded Halamshiral.",
+   "links": [
+    "dales",
+    "halamshiral"
+   ],
+   "source_page_pdf": 177
+  },
+  {
+   "id": "halamshiral",
+   "name": "Halamshiral",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Capital of the Dales, lost in 2:20 Glory. Now rebuilt with Orlesian symbolism; the Empress keeps her Winter Palace here.",
+   "links": [
+    "dales",
+    "celene-i",
+    "exalted-march-dales"
+   ],
+   "source_page_pdf": 177
+  },
+  {
+   "id": "montsimmard-massacre",
+   "name": "The Montsimmard Massacre",
+   "tags": [
+    "event"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "In 1:25 Divine darkspawn overran Montsimmard while the elven army stood by and watched; Orlais never forgave. Some Dalish call the story a falsehood meant to turn people against the elves.",
+   "links": [
+    "montsimmard",
+    "dales",
+    "second-blight"
+   ],
+   "source_page_pdf": 169
+  },
+  {
+   "id": "exalted-march-dales",
+   "name": "The Exalted March on the Dales",
+   "tags": [
+    "event"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "After the elves killed Orlesians at Red Crossing (2:9 Glory) and sacked Montsimmard, the Chantry declared a March. The elves lost Halamshiral in 2:20. Survivors were forced into alienages and made to forsake their gods, and the Canticle of Shartan was cut.",
+   "links": [
+    "dales",
+    "montsimmard",
+    "halamshiral",
+    "alienage",
+    "dissonant-verses",
+    "exalted-marches",
+    "shartan"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "alienage",
+   "name": "Alienages",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Walled-off elf quarters in human cities, set aside after the March on the Dales. Val Royeaux's packs 10,000 into the space of Denerim's market, and its sacred vhenadahl tree sees sun only at noon.",
+   "links": [
+    "exalted-march-dales",
+    "dalish",
+    "val-royeaux"
+   ],
+   "source_page_pdf": 160
+  },
+  {
+   "id": "dalish",
+   "name": "The Dalish",
+   "tags": [
+    "faction"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Elves who kept the old gods and wander in wagons drawn by white stags. Being Dalish is an act of defiance and memory. They meet every decade at the Arlathvhen.",
+   "links": [
+    "dales",
+    "elven-pantheon",
+    "vallaslin",
+    "elven-language",
+    "brecilian-forest"
+   ],
+   "source_page_pdf": 160
+  },
+  {
+   "id": "vallaslin",
+   "name": "Vallaslin",
+   "tags": [
+    "note"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "'Blood writing': facial tattoos given at adulthood after meditation, signifying devotion to the gods. The clan Keeper can call off the ritual; lacking one is no shame.",
+   "links": [
+    "dalish",
+    "elven-pantheon"
+   ],
+   "source_page_pdf": 179
+  },
+  {
+   "id": "elven-language",
+   "name": "Elven Phrases",
+   "tags": [
+    "note"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Surviving terms: abelas (sorrow, apology), andaran atish'an (formal greeting), aneth ara (friendly greeting), arlathvhen (Dalish gathering), dareth shiral (farewell), falon (friend), hahren (elder), ma nuvenin (as you wish), ma serannas (thanks).",
+   "links": [
+    "dalish"
+   ],
+   "source_page_pdf": 179
+  },
+  {
+   "id": "arbor-wilds",
+   "name": "Arbor Wilds",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Vast haunted woods at the Dales' southern edge, rumored to hide a Dalish refuge.",
+   "links": [
+    "dales",
+    "dalish"
+   ],
+   "source_page_pdf": 179
+  },
+  {
+   "id": "jader",
+   "name": "Jader",
+   "tags": [
+    "place"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Border town growing busier with each year of peace between Orlais and Ferelden.",
+   "links": [
+    "dales",
+    "ferelden"
+   ],
+   "source_page_pdf": 179
+  },
+  {
+   "id": "dissonant-verses",
+   "name": "Dissonant Verses",
+   "tags": [
+    "note"
+   ],
+   "section": "The Dales and the Elves",
+   "summary": "Verses struck from the Chant for convenience; keeping copies with them is blasphemy. The whole Canticle of Shartan was removed after the March on the Dales.",
+   "links": [
+    "shartan",
+    "chant-of-light",
+    "exalted-march-dales"
+   ],
+   "source_page_pdf": 170
+  },
+  {
+   "id": "orzammar",
+   "name": "Orzammar",
+   "tags": [
+    "place",
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Last great dwarven kingdom, beneath the Frostbacks. Proud, caste-bound and embattled by darkspawn, ruled jointly by a king and the Assembly. The city is a tiered crescent built around a lava vent.",
+   "links": [
+    "dwarven-kingdoms-history",
+    "caste-system",
+    "assembly",
+    "paragons",
+    "memories",
+    "provings",
+    "deep-roads",
+    "frostback-mountains",
+    "diamond-quarter",
+    "commons",
+    "dust-town"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "dwarven-kingdoms-history",
+   "name": "Dwarven Kingdoms Before the Blights",
+   "tags": [
+    "event"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Thaigs and the Deep Roads linked many kingdoms, and each looked to Orzammar's high king. Stonehammer and Garal founded Orzammar; the golden years brought Paragon Heldane Zadol's folded steel and Gundaar's House of Crystalline Waters.",
+   "links": [
+    "orzammar",
+    "endrin-stonehammer",
+    "orseck-garal",
+    "kal-sharok",
+    "darinius"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "endrin-stonehammer",
+   "name": "Endrin Stonehammer",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "King who allied with Darinius and opened dwarven trade to the surface. Later king of Orzammar, he built Stonehammer Hall and was named Paragon on his deathbed.",
+   "links": [
+    "darinius",
+    "kal-sharok",
+    "orzammar",
+    "stonehammer-hall",
+    "paragons"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "orseck-garal",
+   "name": "Orseck Garal",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Dwarven king who moved the capital from Kal-Sharok to Orzammar.",
+   "links": [
+    "endrin-stonehammer",
+    "kal-sharok",
+    "orzammar"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "kal-sharok",
+   "name": "Kal-Sharok",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Old dwarven capital where Darinius treated with Stonehammer. Orzammar learned in 9:12 Dragon that it survives, and the two have yet to reconcile.",
+   "links": [
+    "orzammar",
+    "darinius",
+    "orzammar-today"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "deep-roads",
+   "name": "The Deep Roads",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Underground highways linking the thaigs. Most were abandoned to the darkspawn or sealed.",
+   "links": [
+    "darkspawn",
+    "sealing-of-the-deep-roads",
+    "orzammar"
+   ],
+   "source_page_pdf": 180
+  },
+  {
+   "id": "darkspawn-come-to-the-thaigs",
+   "name": "The Darkspawn Reach the Thaigs",
+   "tags": [
+    "event"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "The horde poured from the Deep Roads while Orzammar's houses were at war and the Assembly deadlocked, until Aeducan took command. Within fifty years only Orzammar, Kal-Sharok, Hormak and Gundaar remained.",
+   "links": [
+    "darkspawn",
+    "deep-roads",
+    "aeducan",
+    "orzammar",
+    "grey-wardens"
+   ],
+   "source_page_pdf": 181
+  },
+  {
+   "id": "aeducan",
+   "name": "Paragon Aeducan",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Warrior who took charge of Orzammar's defense in the First Blight, had miners collapse passages and ordered nobles into battle. Made Paragon; died regretting the outer thaigs.",
+   "links": [
+    "darkspawn-come-to-the-thaigs",
+    "paragons"
+   ],
+   "source_page_pdf": 181
+  },
+  {
+   "id": "moroc-the-maul",
+   "name": "Paragon Moroc the Maul",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Dwarven warrior present at the Grey Wardens' founding.",
+   "links": [
+    "grey-wardens",
+    "paragons"
+   ],
+   "source_page_pdf": 181
+  },
+  {
+   "id": "caridin",
+   "name": "Paragon Caridin",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Smith made Paragon for building Bownammar and inventing golems that drove back the darkspawn. He vanished, and the secret of golem-making vanished with him.",
+   "links": [
+    "golems",
+    "bownammar",
+    "paragons"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "golems",
+   "name": "Golems",
+   "tags": [
+    "item"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Lyrium-infused war engines of stone or steel, exported to Tevinter and some Circles. After Caridin vanished, the 126-strong Legion of Steel was lost in the Deep Roads and all-golem regiments were forbidden to fight there.",
+   "links": [
+    "caridin",
+    "lyrium",
+    "shaperate",
+    "minrathous"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "sealing-of-the-deep-roads",
+   "name": "Sealing of the Deep Roads",
+   "tags": [
+    "event"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "About 1155 by Tevinter's reckoning, with contact lost, High King Threestone ordered the roads to the other kingdoms sealed. Hormak and Gundaar fell within a decade.",
+   "links": [
+    "deep-roads",
+    "high-king-threestone",
+    "kal-sharok",
+    "orzammar"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "high-king-threestone",
+   "name": "High King Threestone",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Orzammar's king who sealed the Deep Roads with the Assembly's consent.",
+   "links": [
+    "sealing-of-the-deep-roads"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "bownammar",
+   "name": "Bownammar",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Paragon Caridin's impregnable fortress, ancestral home of the Legion of the Dead. Fell to the darkspawn in 9:13 Dragon.",
+   "links": [
+    "caridin",
+    "legion-of-the-dead",
+    "darkspawn"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "orzammar-today",
+   "name": "Orzammar Today",
+   "tags": [
+    "note"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Reduced to a central district and a few border thaigs. Respectable dwarves ignore the surface and leave casteless to handle trade. Shapers read omens of a new Archdemon, and some call these the final days.",
+   "links": [
+    "orzammar",
+    "kal-sharok",
+    "bownammar",
+    "casteless"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "dwarven-culture",
+   "name": "Dwarven Pride and Tradition",
+   "tags": [
+    "note"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Proud, tradition-bound and condescending toward outsiders, though deeds can win individual respect. Change is seen as a harbinger of sorrow, so they look to the past.",
+   "links": [
+    "orzammar",
+    "dwarven-honor"
+   ],
+   "source_page_pdf": 182
+  },
+  {
+   "id": "paragons",
+   "name": "Paragons",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Exemplars above caste whose words carry a king's weight. Elevation requires an unprecedented feat and the Assembly's agreement, and creates a new noble house.",
+   "links": [
+    "assembly",
+    "caste-system",
+    "aeducan",
+    "caridin",
+    "moroc-the-maul",
+    "astyth-the-grey",
+    "gherlen"
+   ],
+   "source_page_pdf": 183
+  },
+  {
+   "id": "caste-system",
+   "name": "The Dwarven Caste System",
+   "tags": [
+    "note"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Eight castes: Noble, Warrior, Smith, Artisan, Miner, Merchant, Servant and Surface, with the casteless below. Caste follows the same-sex parent and is almost impossible to change except by becoming casteless. 'Noble hunters' seek to bear noble sons.",
+   "links": [
+    "noble-caste",
+    "warrior-caste",
+    "smith-caste",
+    "artisan-caste",
+    "miner-caste",
+    "merchant-caste",
+    "servant-caste",
+    "casteless",
+    "surfacers",
+    "paragons"
+   ],
+   "source_page_pdf": 183
+  },
+  {
+   "id": "noble-caste",
+   "name": "Noble Caste and Noble Houses",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Houses of related families, most founded by Paragons; respect tracks age and achievement. Patrons sponsor champions and artisans, sometimes to bloodshed.",
+   "links": [
+    "caste-system",
+    "paragons",
+    "assembly",
+    "warrior-caste"
+   ],
+   "source_page_pdf": 183
+  },
+  {
+   "id": "warrior-caste",
+   "name": "Warrior Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Has paid Orzammar's blood price in the darkspawn war. Warrior houses are sworn to noble houses, and those serving the Royal House are the elite. Officer, Soldier and Guardsman sub-castes have loosened out of necessity.",
+   "links": [
+    "caste-system",
+    "noble-caste",
+    "silent-sisters"
+   ],
+   "source_page_pdf": 184
+  },
+  {
+   "id": "silent-sisters",
+   "name": "Silent Sisters",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Women warriors who follow Astyth the Grey and cut out their tongues with their own daggers.",
+   "links": [
+    "warrior-caste",
+    "astyth-the-grey"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "astyth-the-grey",
+   "name": "Astyth the Grey",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "First female Warrior Caste Paragon.",
+   "links": [
+    "silent-sisters",
+    "paragons"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "smith-caste",
+   "name": "Smith Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Makes the finished goods other castes need. Weaponsmiths and armorers are most prized, and Smith Provings rank the best.",
+   "links": [
+    "caste-system",
+    "artisan-caste",
+    "provings"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "artisan-caste",
+   "name": "Artisan Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Ornaments goods and makes art for its own sake; makes leather and cloth goods and works closely with smiths.",
+   "links": [
+    "caste-system",
+    "smith-caste"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "miner-caste",
+   "name": "Miner Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Drives Orzammar's wealth and can halt ore production if abused. Women work many of the best lyrium veins.",
+   "links": [
+    "caste-system",
+    "lyrium",
+    "orzammar"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "merchant-caste",
+   "name": "Merchant Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Sells most goods, mostly from temporary stalls. Stained by merchants who broke with Orzammar to form the first surface dwarves.",
+   "links": [
+    "caste-system",
+    "surfacers"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "servant-caste",
+   "name": "Servant Caste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Lowest respectable caste and the bulk of the population. Proud of its work and quick to disparage the casteless.",
+   "links": [
+    "caste-system",
+    "casteless"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "casteless",
+   "name": "The Casteless",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Dwarves with no legal standing, living in Dust Town and often tattooed at birth. Barred from reserved work, many turn to crime. Leaving Orzammar without permission makes one casteless.",
+   "links": [
+    "dust-town",
+    "carta",
+    "gherlen",
+    "surfacers"
+   ],
+   "source_page_pdf": 185
+  },
+  {
+   "id": "gherlen",
+   "name": "Gherlen the Blood-Risen",
+   "tags": [
+    "character"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Casteless dwarf who left, became a surface hero, and returned to claim Orzammar's kingship; a Paragon.",
+   "links": [
+    "casteless",
+    "paragons"
+   ],
+   "source_page_pdf": 186
+  },
+  {
+   "id": "surfacers",
+   "name": "Surfacers",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Casteless dwarves and descendants living on the surface, 'lost to the Stone'. Those who return to trade have no rights.",
+   "links": [
+    "casteless",
+    "merchant-caste",
+    "traders-crafthouse"
+   ],
+   "source_page_pdf": 186
+  },
+  {
+   "id": "memories",
+   "name": "The Memories",
+   "tags": [
+    "item"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Lyrium-recorded archive of all dwarven history, law, genealogy and technique. Sacred scripture to the dwarves.",
+   "links": [
+    "shaperate",
+    "lyrium"
+   ],
+   "source_page_pdf": 186
+  },
+  {
+   "id": "shaperate",
+   "name": "Shapers and the Shaperate",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Scholars who record the Memories, mostly from the Noble Caste. They advise the Assembly on procedure and precedent and once governed golems.",
+   "links": [
+    "memories",
+    "assembly",
+    "golems"
+   ],
+   "source_page_pdf": 186
+  },
+  {
+   "id": "dwarven-honor",
+   "name": "Dwarven Honor",
+   "tags": [
+    "note"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Obsession with public honor: oath-breakers suffer social death, so dwarves favor subtle insinuation over promises. Supporting one's house justifies almost anything that stays unexposed.",
+   "links": [
+    "noble-caste",
+    "legion-of-the-dead"
+   ],
+   "source_page_pdf": 184
+  },
+  {
+   "id": "assembly",
+   "name": "The Assembly and the King",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Orzammar is ruled by a lifelong king and an Assembly of deshyrs from powerful noble houses. Vacancies come mostly through assassination. The king can send laws back for another vote. Only two kings were ever removed: Felbin the Mad, and the Lost King, struck from the Memories.",
+   "links": [
+    "paragons",
+    "memories",
+    "provings",
+    "noble-caste"
+   ],
+   "source_page_pdf": 187
+  },
+  {
+   "id": "provings",
+   "name": "Provings",
+   "tags": [
+    "event"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Sacred duels in the Proving Grounds that settle house conflicts, Assembly debates and honor challenges; ancestors are believed to bless the victor. Now also public entertainment. The casteless may not watch.",
+   "links": [
+    "assembly",
+    "warrior-caste",
+    "the-stone-and-ancestors"
+   ],
+   "source_page_pdf": 187
+  },
+  {
+   "id": "stonehammer-hall",
+   "name": "Stonehammer Hall",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Main route to Gherlen's Pass, lined with statues of the Paragons. Those leaving Orzammar must pass beneath their gaze.",
+   "links": [
+    "endrin-stonehammer",
+    "paragons"
+   ],
+   "source_page_pdf": 187
+  },
+  {
+   "id": "diamond-quarter",
+   "name": "The Diamond Quarter",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Highest district, with noble halls, the Royal Palace, the Assembly Chamber and the Shaperate, patrolled by elite Warrior Caste.",
+   "links": [
+    "noble-caste",
+    "assembly",
+    "shaperate"
+   ],
+   "source_page_pdf": 188
+  },
+  {
+   "id": "commons",
+   "name": "The Commons",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Central district where most dwarves live; higher tiers house higher castes. Merchants, surfacers included, trade on the lowest tier.",
+   "links": [
+    "caste-system",
+    "merchant-caste"
+   ],
+   "source_page_pdf": 188
+  },
+  {
+   "id": "dust-town",
+   "name": "Dust Town",
+   "tags": [
+    "place"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Crumbling casteless district with no enforced law, home of the Carta.",
+   "links": [
+    "casteless",
+    "carta"
+   ],
+   "source_page_pdf": 188
+  },
+  {
+   "id": "carta",
+   "name": "The Carta",
+   "tags": [
+    "faction"
+   ],
+   "section": "Orzammar and the Dwarves",
+   "summary": "Dwarven crime syndicate in Dust Town: lyrium smuggling, slave sales, prostitution and extortion.",
+   "links": [
+    "dust-town",
+    "lyrium"
+   ],
+   "source_page_pdf": 188
+  },
+  {
+   "id": "andrastian-chantry",
+   "name": "Chantry of Andraste",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Dominant faith, built on Andraste's teachings in the Chant of Light and codified by Drakon I. Led by the Divine in Val Royeaux, it enforces limits on magic and calls Exalted Marches.",
+   "links": [
+    "andraste",
+    "chant-of-light",
+    "drakon-i",
+    "justinia-i",
+    "exalted-marches",
+    "imperial-chantry",
+    "templars"
+   ],
+   "source_page_pdf": 189
+  },
+  {
+   "id": "chant-of-light",
+   "name": "The Chant of Light",
+   "tags": [
+    "item"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Collected texts of the faith: history, moral teaching and hymns in canticles, stanzas and verses. Sung whole only at Val Royeaux. Holds that magic must serve mankind and that the Maker returns once it is sung in every corner of the world.",
+   "links": [
+    "andrastian-chantry",
+    "dissonant-verses",
+    "andraste",
+    "val-royeaux"
+   ],
+   "source_page_pdf": 190
+  },
+  {
+   "id": "maker",
+   "name": "The Maker",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "The Chantry's creator. He turned from the world after the magisters' sin, returned for Andraste, and turned away again at her death.",
+   "links": [
+    "andraste",
+    "golden-city",
+    "chant-of-light"
+   ],
+   "source_page_pdf": 189
+  },
+  {
+   "id": "exalted-marches",
+   "name": "Exalted Marches",
+   "tags": [
+    "event"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Chantry crusades. Andraste's war on Tevinter was the first, then the Dales, four against the Imperial Chantry, and three against the Qunari, ending at Llomerryn.",
+   "links": [
+    "andraste",
+    "exalted-march-dales",
+    "chantry-schism",
+    "qunari-wars",
+    "llomerryn-accords"
+   ],
+   "source_page_pdf": 190
+  },
+  {
+   "id": "the-stone-and-ancestors",
+   "name": "The Stone and the Ancestors",
+   "tags": [
+    "note"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Dwarves, the Children of the Stone, have no gods. The worthy return to the Stone as guiding ancestors; the unworthy wander the Deep Roads as spirits. Ancestors speak through Provings.",
+   "links": [
+    "provings",
+    "deep-roads",
+    "legion-of-the-dead"
+   ],
+   "source_page_pdf": 192
+  },
+  {
+   "id": "legion-of-the-dead",
+   "name": "Legion of the Dead",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Dishonored dwarves undergo a ceremonial death, are recorded as fallen heroes, and fight on the Deep Roads to restore their houses' honor.",
+   "links": [
+    "dwarven-honor",
+    "deep-roads",
+    "bownammar"
+   ],
+   "source_page_pdf": 192
+  },
+  {
+   "id": "elven-pantheon",
+   "name": "The Elven Pantheon",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Gods once revered across Thedas, with months-long rituals. After Arlathan fell they fell silent. The Dalish divide them into the Creators and the Forgotten Ones.",
+   "links": [
+    "dalish",
+    "arlathan",
+    "elgarnan",
+    "mythal",
+    "falondin",
+    "dirthamen",
+    "andruil",
+    "sylaise",
+    "june",
+    "ghilannain",
+    "fenharel",
+    "forgotten-ones"
+   ],
+   "source_page_pdf": 192
+  },
+  {
+   "id": "elgarnan",
+   "name": "Elgar'nan",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Male head of the pantheon, patron of fatherhood and vengeance. He hurled his jealous father the sun from the sky.",
+   "links": [
+    "mythal",
+    "elven-pantheon"
+   ],
+   "source_page_pdf": 192
+  },
+  {
+   "id": "mythal",
+   "name": "Mythal",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "The Great Protector, patron of motherhood and justice. Calmed Elgar'nan and crafted the moon.",
+   "links": [
+    "elgarnan",
+    "elven-pantheon"
+   ],
+   "source_page_pdf": 193
+  },
+  {
+   "id": "falondin",
+   "name": "Falon'Din",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Friend of the Dead, god of death and fortune; guides souls beyond the Veil.",
+   "links": [
+    "dirthamen",
+    "elgarnan",
+    "mythal"
+   ],
+   "source_page_pdf": 193
+  },
+  {
+   "id": "dirthamen",
+   "name": "Dirthamen",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Keeper of Secrets, god of lore and Falon'Din's twin; master of Fear and Deceit.",
+   "links": [
+    "falondin"
+   ],
+   "source_page_pdf": 193
+  },
+  {
+   "id": "andruil",
+   "name": "Andruil",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "The Huntress, goddess of the hunt. Originator of the Vir Tanadahl.",
+   "links": [
+    "vir-tanadahl",
+    "sylaise",
+    "ghilannain"
+   ],
+   "source_page_pdf": 193
+  },
+  {
+   "id": "vir-tanadahl",
+   "name": "Vir Tanadahl (Way of Three Trees)",
+   "tags": [
+    "note"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Vir Assan, fly straight and do not waver; Vir Bor'Assan, bend but never break; Vir Adahlen, together we are stronger than the one. The Dalish add: we are the last of the elvhenan, and never again shall we submit.",
+   "links": [
+    "andruil",
+    "dalish"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "sylaise",
+   "name": "Sylaise",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Hearthkeeper, goddess of the domestic arts; taught fire, herbs, weaving and healing.",
+   "links": [
+    "andruil",
+    "june"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "june",
+   "name": "June",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Master of Crafts, who taught the elves to make bows and tools.",
+   "links": [
+    "sylaise"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "ghilannain",
+   "name": "Ghilan'nain",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Mother of Halla, youngest of the gods; a mortal elf beloved of Andruil, transformed into a halla.",
+   "links": [
+    "andruil"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "fenharel",
+   "name": "Fen'Harel",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "The Dread Wolf, trickster beholden to both Creators and Forgotten Ones. His Betrayal sealed both away and left him alone with the world. The Dalish seek to appease him.",
+   "links": [
+    "forgotten-ones",
+    "elven-pantheon"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "forgotten-ones",
+   "name": "The Forgotten Ones",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Enemy gods of terror, malevolence, spite and disease (Geldauran, Daern'thal, Anaris). Some fear secret cults still serve them.",
+   "links": [
+    "elven-pantheon",
+    "fenharel"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "qunari",
+   "name": "The Qunari",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "People of the Qun; anyone who accepts it counts as Qunari. They have never abandoned their intent to bring the Qun to all, and use trade to study future foes and converts.",
+   "links": [
+    "the-qun",
+    "par-vollen",
+    "qunari-wars",
+    "koslun",
+    "tamassrans",
+    "ben-hassrath",
+    "tal-vashoth",
+    "saarebas"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "the-qun",
+   "name": "The Qun",
+   "tags": [
+    "note"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Philosophy and writings of Koslun that define everyone's role in Qunari society. Children are raised communally and assigned roles. Qunari find invisible gods absurd.",
+   "links": [
+    "koslun",
+    "qunari",
+    "tamassrans",
+    "ben-hassrath"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "koslun",
+   "name": "Koslun",
+   "tags": [
+    "character"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Ashkaari ('one who seeks') who wrote the Qun long ago.",
+   "links": [
+    "the-qun"
+   ],
+   "source_page_pdf": 194
+  },
+  {
+   "id": "tamassrans",
+   "name": "Tamassrans",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Priestess-teachers who raise Qunari children and decide their roles.",
+   "links": [
+    "the-qun"
+   ],
+   "source_page_pdf": 195
+  },
+  {
+   "id": "ben-hassrath",
+   "name": "Ben-Hassrath",
+   "tags": [
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Enforcers of Qunari religious law, infamously brutal.",
+   "links": [
+    "the-qun",
+    "tal-vashoth"
+   ],
+   "source_page_pdf": 195
+  },
+  {
+   "id": "tal-vashoth",
+   "name": "Tal-Vashoth",
+   "tags": [
+    "note"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Qunari who disavow the Qun and are exiled.",
+   "links": [
+    "ben-hassrath"
+   ],
+   "source_page_pdf": 195
+  },
+  {
+   "id": "saarebas",
+   "name": "Saarebas",
+   "tags": [
+    "note"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Qunari mages, kept under strict control and little used.",
+   "links": [
+    "qunari",
+    "circle-of-magi"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "par-vollen",
+   "name": "Par Vollen",
+   "tags": [
+    "place"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Qunari homeland island, site of the First Qunari War and the last Qunari holding after the Chantry pushes.",
+   "links": [
+    "qunari",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "rivain",
+   "name": "Rivain and the Rivaini",
+   "tags": [
+    "place",
+    "faction"
+   ],
+   "section": "Religion and Belief",
+   "summary": "Dark-skinned people forcibly converted to the Qun in the past, who keep a tribal faith of seers and hedge mages possessed by spirits. The Chant has never taken root there.",
+   "links": [
+    "the-qun",
+    "antiva",
+    "qunari-wars"
+   ],
+   "source_page_pdf": 195
+  },
+  {
+   "id": "highever-secession",
+   "name": "Highever's Secession",
+   "tags": [
+    "event"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Bann Conobar's wife Flemeth fled with the poet Osen; Osen was slain and a vengeance spirit possessed her to kill Conobar. His captain Sarin Cousland then fought thirty years to secede Highever from Amaranthine.",
+   "links": [
+    "flemeth",
+    "sarin-cousland",
+    "highever",
+    "chasind",
+    "korcari-wilds"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "sarin-cousland",
+   "name": "Sarin Cousland",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Conobar's captain who became Bann of Highever. The Couslands rule there still.",
+   "links": [
+    "highever-secession",
+    "highever"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "highever",
+   "name": "Highever",
+   "tags": [
+    "place"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Fereldan territory that won independence from Amaranthine, now ruled by the Couslands.",
+   "links": [
+    "highever-secession",
+    "sarin-cousland"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "calenhad",
+   "name": "King Calenhad",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "The Silver Knight, a commoner's son backed by Arl Myrddin. He united Ferelden, defeating Teyrn Simeon of Denerim in 5:42 Exalted with Circle mages and Ash Warriors, and was crowned by the Landsmeet. After a potion-aided seduction and Myrddin's death in a duel, he named his unborn son heir and vanished.",
+   "links": [
+    "arl-myrddin",
+    "mairyn",
+    "lady-shayna",
+    "denerim",
+    "landsmeet",
+    "circle-of-magi",
+    "drakon-i"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "arl-myrddin",
+   "name": "Arl Myrddin",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Powerful arl who backed Calenhad; his daughter Mairyn became queen. Killed by Calenhad in an honor duel.",
+   "links": [
+    "calenhad",
+    "mairyn"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "mairyn",
+   "name": "Queen Mairyn",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Calenhad's queen and Myrddin's daughter. Ruled until her son Weylan came of age.",
+   "links": [
+    "calenhad",
+    "arl-myrddin"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "lady-shayna",
+   "name": "Lady Shayna",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Calenhad's closest friend, who secretly loved him; a witch persuaded her to seduce him with a potion.",
+   "links": [
+    "calenhad",
+    "mairyn"
+   ],
+   "source_page_pdf": 196
+  },
+  {
+   "id": "luthias-dwarfson",
+   "name": "Luthias Dwarfson",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Small-born Alamarri chieftain who wed Scaea, the Orzammar king's daughter. Seduced by Morrighan'nan, he fought her for fifteen years and died in their final battle.",
+   "links": [
+    "morrighannan",
+    "scaea",
+    "avvar",
+    "orzammar"
+   ],
+   "source_page_pdf": 197
+  },
+  {
+   "id": "morrighannan",
+   "name": "Morrighan'nan",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Head of the Avvar who seduced Luthias; his refusal of her hand sparked a decade-long war. Revealed a warrior he killed was their son.",
+   "links": [
+    "luthias-dwarfson",
+    "avvar"
+   ],
+   "source_page_pdf": 197
+  },
+  {
+   "id": "scaea",
+   "name": "Scaea",
+   "tags": [
+    "character"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Orzammar king's daughter and Luthias's bride. Left him when he betrayed her, but gifted him enchanted armor on the eve of the final battle.",
+   "links": [
+    "luthias-dwarfson",
+    "orzammar"
+   ],
+   "source_page_pdf": 197
+  },
+  {
+   "id": "qunari-wars",
+   "name": "The Qunari Wars",
+   "tags": [
+    "event"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "In 6:30 Steel the Qunari landed, swept the north and reached Minrathous with cannon and blackpowder. Tevinter revolts and Circle mages drove them back; Exalted Marches followed in 7:25, 7:52 and 7:84. The Llomerryn Accords ended the war for everyone but Tevinter, which still fights on Seheron.",
+   "links": [
+    "par-vollen",
+    "minrathous",
+    "circle-of-magi",
+    "exalted-marches",
+    "llomerryn-accords",
+    "seheron",
+    "saarebas",
+    "raiders-of-the-waking-sea",
+    "antiva"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "llomerryn-accords",
+   "name": "Llomerryn Accords",
+   "tags": [
+    "event"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Cease-fire signed on neutral Llomerryn off Rivain in 7:84 Storm. Tevinter's ambassadors refused to attend or sign.",
+   "links": [
+    "qunari-wars",
+    "rivain",
+    "tevinter-imperium"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "seheron",
+   "name": "Seheron",
+   "tags": [
+    "place"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Island a day's sail from Minrathous that the beresaad conquered in three years during the Blessed Age. The war there still rages.",
+   "links": [
+    "qunari-wars",
+    "minrathous"
+   ],
+   "source_page_pdf": 165
+  },
+  {
+   "id": "raiders-of-the-waking-sea",
+   "name": "Raiders of the Waking Sea",
+   "tags": [
+    "faction"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Llomerryn pirates who united as the Felicisima Armada against the Qunari and stayed together afterward, raiding the eastern coasts.",
+   "links": [
+    "qunari-wars",
+    "waking-sea"
+   ],
+   "source_page_pdf": 197
+  },
+  {
+   "id": "nevarra-vs-orlais",
+   "name": "Nevarra vs. Orlais",
+   "tags": [
+    "event"
+   ],
+   "section": "Wars of Thedas",
+   "summary": "Frequent border skirmishes. Nevarra threw off Orlesian rule in 3:65 Towers, King Tylus held off Orlais in the Exalted Age, and they clashed over the Blasted Hills in 8:70 Blessed. Open war might have to be set off by the player characters.",
+   "links": [
+    "nevarra",
+    "orlais",
+    "perendale",
+    "chevaliers"
+   ],
+   "source_page_pdf": 197
+  }
+ ]
+}

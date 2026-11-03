@@ -1,0 +1,765 @@
+{
+ "degrees": [
+  "novice",
+  "journeyman",
+  "master"
+ ],
+ "talents": [
+  {
+   "id": "animal-training",
+   "name": "Animal Training",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [],
+   "degrees": {
+    "novice": "Teach an animal simple one-word commands (a week of training); number of commands = your Communication.",
+    "journeyman": "Complex commands (2 weeks each); commands = Communication + 2.",
+    "master": "A month of training raises an animal's Dexterity or Strength by 1 and gives it Willpower (Morale); only once per animal."
+   }
+  },
+  {
+   "id": "armor-training",
+   "name": "Armor Training",
+   "classes": [
+    "warrior"
+   ],
+   "requirements": [],
+   "degrees": {
+    "novice": "Leather and mail armor with no Dexterity penalty.",
+    "journeyman": "Plate armor with no Dexterity penalty.",
+    "master": "Gain half the armor's Armor Rating (rounded down) against penetrating damage."
+   },
+   "notes": [
+    "Granted at level 1.",
+    "Without it, armor penalty applies to all Dexterity tests and calculations; with it only to Speed."
+   ]
+  },
+  {
+   "id": "archery-style",
+   "name": "Archery Style",
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "weaponGroup",
+     "anyOf": [
+      "bows"
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "Aim action gives +2 (instead of +1) with bow/crossbow.",
+    "journeyman": "Reload a bow as a free action, a crossbow as a minor action.",
+    "master": "Lightning Attack costs 2 SP with bow/crossbow (crossbow also needs Rapid Reload)."
+   }
+  },
+  {
+   "id": "carousing",
+   "name": "Carousing",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 1
+    },
+    {
+     "type": "ability",
+     "ability": "constitution",
+     "min": 1
+    }
+   ],
+   "degrees": {
+    "novice": "+1 to each Dragon Die result when making Constitution (Drinking) tests in an advanced test.",
+    "journeyman": "Choose Gambling or Seduction; if you fail a Communication test with it, re-roll (keep second).",
+    "master": "Choose roleplaying stunt Flirt or Tower of Will; costs 3 SP (instead of 4) and +1 to the opposed roll."
+   }
+  },
+  {
+   "id": "chirurgy",
+   "name": "Chirurgy",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "cunning",
+     "focus": "healing"
+    }
+   ],
+   "degrees": {
+    "novice": "Heal is a minor action.",
+    "journeyman": "Heal action restores (Dragon Die x 2) + Cunning.",
+    "master": "Heal action restores (Dragon Die x 3) + Cunning."
+   }
+  },
+  {
+   "id": "command",
+   "name": "Command",
+   "classes": [
+    "mage",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Major action heroic gesture: allies get +1 to Willpower (Courage) for the encounter.",
+    "journeyman": "NPCs you lead get +1 initiative.",
+    "master": "NPCs you lead don't test Morale until more than two-thirds of your side is out."
+   }
+  },
+  {
+   "id": "contacts",
+   "name": "Contacts",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 1
+    }
+   ],
+   "degrees": {
+    "novice": "Make a contact with a Communication (Persuasion) test (TN by GM).",
+    "journeyman": "Ask a favor from a contact with another Persuasion test.",
+    "master": "A significant favor turns a contact into an ally who will take risks for you."
+   }
+  },
+  {
+   "id": "creation-magic",
+   "name": "Creation Magic",
+   "classes": [
+    "mage"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "magic",
+     "focus": "creation"
+    }
+   ],
+   "degrees": {
+    "novice": "Free light wisp (10-yard radius); summon/dismiss are free actions.",
+    "journeyman": "Creation spells cost 1 less mana (min 1); gain one new Creation spell.",
+    "master": "+1 Defense; one new Creation spell."
+   }
+  },
+  {
+   "id": "dual-weapon-style",
+   "name": "Dual Weapon Style",
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Activate for +1 melee attack or +1 Defense vs melee until end of encounter (switchable with another Activate).",
+    "journeyman": "Lightning Attack costs 2 SP (extra attack from the secondary weapon).",
+    "master": "If you melee with the primary (not charging), a bonus attack with the secondary as a minor action; no stunt points, add half Strength to damage."
+   },
+   "notes": [
+    "Two one-handed weapons; the secondary weapon has Minimum Strength +2."
+   ]
+  },
+  {
+   "id": "entropy-magic",
+   "name": "Entropy Magic",
+   "classes": [
+    "mage"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "magic",
+     "focus": "entropy"
+    }
+   ],
+   "degrees": {
+    "novice": "Deathsight: see how many rounds until a creature you see at 0 Health dies.",
+    "journeyman": "Entropy spells cost 1 less (min 1); one new Entropy spell.",
+    "master": "Melee attackers suffer -1 Strength against you; one new Entropy spell."
+   }
+  },
+  {
+   "id": "horsemanship",
+   "name": "Horsemanship",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "dexterity",
+     "focus": "riding"
+    }
+   ],
+   "degrees": {
+    "novice": "Mounting is a free action.",
+    "journeyman": "Your mount gets +2 Speed.",
+    "master": "+1 Defense while mounted; re-roll a failed Dexterity (Riding) test (keep second)."
+   }
+  },
+  {
+   "id": "intrigue",
+   "name": "Intrigue",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "communication",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Choose Etiquette, Deception, or Seduction; re-roll a failed Communication test with it (keep second).",
+    "journeyman": "And Another Thing roleplaying stunt costs 1 SP (instead of 2); +1 on further tests it allows.",
+    "master": "Stunned Silence costs 2 SP (instead of 3); may convert to combat with you and one ally per extra SP acting in round one while others are surprised."
+   }
+  },
+  {
+   "id": "linguistics",
+   "name": "Linguistics",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "cunning",
+     "min": 1
+    }
+   ],
+   "degrees": {
+    "novice": "One additional language.",
+    "journeyman": "Another language; imitate dialects with Communication (Performance).",
+    "master": "Two more languages; speak one known language without an accent."
+   },
+   "notes": [
+    "Languages: Ancient Tevene, Ander, Antivan, Arcanum, Dwarven, Elven, Orlesian, Qunlat, Rivaini, Trade Tongue (learn to speak and read; Ancient Tevene is rarely spoken, Elven spoken only through Keepers)."
+   ]
+  },
+  {
+   "id": "lore",
+   "name": "Lore",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "cunning",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Successful Cunning tests with a lore focus give an extra piece of information.",
+    "journeyman": "+1 to each Dragon Die for Cunning (Research) in advanced tests.",
+    "master": "Pick two lore focuses; re-roll a failed test with them (keep second)."
+   }
+  },
+  {
+   "id": "mounted-combat-style",
+   "name": "Mounted Combat Style",
+   "classes": [
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "dexterity",
+     "focus": "riding"
+    }
+   ],
+   "degrees": {
+    "novice": "Move part, attack, move the rest (total at most mount's Speed).",
+    "journeyman": "Full mount Speed on a Charge and +1 damage on hit.",
+    "master": "Knock Prone cannot dismount you."
+   },
+   "notes": [
+    "Two-handed weapons and long bows can't be used mounted."
+   ]
+  },
+  {
+   "id": "music",
+   "name": "Music",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focusAnyOf",
+     "options": [
+      {
+       "type": "focus",
+       "ability": "communication",
+       "focus": "performance"
+      },
+      {
+       "type": "focus",
+       "ability": "cunning",
+       "focus": "musical-lore"
+      }
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "Play an instrument, sing, read/write music.",
+    "journeyman": "Know instruments equal to Communication.",
+    "master": "All common instruments; exotic ones in 1d6 weeks."
+   }
+  },
+  {
+   "id": "observation",
+   "name": "Observation",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "perception",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Choose Empathy or Seeing; re-roll a failed Perception test with it (keep second).",
+    "journeyman": "That Makes Me Wonder costs 2 SP (instead of 3).",
+    "master": "The 'object of your attention' exploration stunt costs 2 SP (instead of 3) and gives +2 (instead of +1)."
+   }
+  },
+  {
+   "id": "oratory",
+   "name": "Oratory",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "communication",
+     "focus": "persuasion"
+    }
+   ],
+   "degrees": {
+    "novice": "Re-roll failed Persuasion when convincing a group (keep second; not individuals).",
+    "journeyman": "'Sway the crowd' stunt affects three additional people.",
+    "master": "Persuasion to a group with Dragon Die 5-6 rouses them to immediate action."
+   }
+  },
+  {
+   "id": "poison-making",
+   "name": "Poison-Making",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "cunning",
+     "focus": "poison-lore"
+    }
+   ],
+   "degrees": {
+    "novice": "Choose 2 Novice poisons known from memory; brew others as you learn recipes.",
+    "journeyman": "1 Journeyman poison or grenade from memory; can make grenades.",
+    "master": "1 Master poison from memory."
+   },
+   "notes": [
+    "Details in Chapter 4: The Art of Poisoning."
+   ]
+  },
+  {
+   "id": "pole-weapon-style",
+   "name": "Pole Weapon Style",
+   "classes": [
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "weaponGroup",
+     "anyOf": [
+      "polearms",
+      "spears"
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "Treat enemies up to 4 yards away as adjacent (they can't do the same).",
+    "journeyman": "Activate to 'set'; opponents must win an opposed attack roll to Skirmish you or use Two-Hander Novice move on you.",
+    "master": "Military fork / two-handed spear: Pierce Armor costs 1 SP; glaive/halberd: Knock Prone costs 1 SP; mounted foes don't get the +1 vs foot."
+   }
+  },
+  {
+   "id": "primal-magic",
+   "name": "Primal Magic",
+   "classes": [
+    "mage"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "magic",
+     "focus": "primal"
+    }
+   ],
+   "degrees": {
+    "novice": "Free small flame in hand (not for combat); free actions to create/dismiss.",
+    "journeyman": "Primal spells cost 1 less (min 1); one new Primal spell.",
+    "master": "Mighty Spell stunt damage can hit additional targets (+1 SP each); one new Primal spell."
+   }
+  },
+  {
+   "id": "quick-reflexes",
+   "name": "Quick Reflexes",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Once per round, Ready is a free action.",
+    "journeyman": "Go prone or stand as a free action.",
+    "master": "Re-roll initiative at the start of combat (keep second)."
+   }
+  },
+  {
+   "id": "runecrafting",
+   "name": "Runecrafting",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "race",
+     "anyOf": [
+      "dwarf",
+      "tranquil"
+     ]
+    },
+    {
+     "type": "ability",
+     "ability": "cunning",
+     "min": 3
+    },
+    {
+     "type": "focus",
+     "ability": "cunning",
+     "focus": "enchantment"
+    }
+   ],
+   "degrees": {
+    "novice": "Inscribe Novice runes (2 hours; TN 13 Cunning (Enchantment) test speeds it up 15 min per Dragon Die degree).",
+    "journeyman": "Journeyman runes (3 hours; TN 15).",
+    "master": "Master runes (4 hours; TN 17)."
+   },
+   "notes": [
+    "Mages: Tranquil only."
+   ]
+  },
+  {
+   "id": "scouting",
+   "name": "Scouting",
+   "classes": [
+    "rogue"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Re-roll a failed Dexterity (Stealth) test (keep second).",
+    "journeyman": "Seize the Initiative costs 2 SP (instead of 4).",
+    "master": "Re-roll a failed Perception (Seeing) test (keep second)."
+   }
+  },
+  {
+   "id": "single-weapon-style",
+   "name": "Single Weapon Style",
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "perception",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Activate: +1 Defense until end of encounter while fighting in this style.",
+    "journeyman": "Defense bonus becomes +2.",
+    "master": "Attackers never gain outnumbering bonuses against you."
+   },
+   "notes": [
+    "One single-handed melee weapon."
+   ]
+  },
+  {
+   "id": "spirit-magic",
+   "name": "Spirit Magic",
+   "classes": [
+    "mage"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "magic",
+     "focus": "spirit"
+    }
+   ],
+   "degrees": {
+    "novice": "Sense the mood of a creature within 6 yards as a minor action.",
+    "journeyman": "Spirit spells cost 1 less (min 1); one new Spirit spell.",
+    "master": "Re-roll mana regain dice (keep second); one new Spirit spell."
+   }
+  },
+  {
+   "id": "thievery",
+   "name": "Thievery",
+   "classes": [
+    "rogue"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "dexterity",
+     "min": 3
+    }
+   ],
+   "degrees": {
+    "novice": "Re-roll failed Dexterity (Lock Picking) (keep second).",
+    "journeyman": "Re-roll failed Dexterity (Traps).",
+    "master": "Re-roll failed Perception (Searching)."
+   }
+  },
+  {
+   "id": "thrown-weapon-style",
+   "name": "Thrown Weapon Style",
+   "classes": [
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "weaponGroup",
+     "anyOf": [
+      "axes",
+      "light-blades",
+      "spears"
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "+1 attack with throwing weapons.",
+    "journeyman": "Reload throwing weapons as a free action.",
+    "master": "Pierce Armor makes damage penetrating."
+   },
+   "notes": [
+    "Called 'Throwing Weapon Style' in the warrior class description."
+   ]
+  },
+  {
+   "id": "trap-making",
+   "name": "Trap-Making",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "focus",
+     "ability": "dexterity",
+     "focus": "crafting"
+    }
+   ],
+   "degrees": {
+    "novice": "Traps up to 2d6 base damage and 1 extra effect; +1 to understand/disarm.",
+    "journeyman": "Up to 4d6 and 2 effects; +2.",
+    "master": "Up to 6d6 and any number of effects; +3."
+   },
+   "notes": [
+    "Details in Chapter 4: The Technique of Traps."
+   ]
+  },
+  {
+   "id": "two-hander-style",
+   "name": "Two-Hander Style",
+   "classes": [
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 3
+    },
+    {
+     "type": "weaponGroup",
+     "anyOf": [
+      "axes",
+      "bludgeons",
+      "heavy-blades",
+      "spears"
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "On a hit with a two-handed melee weapon, move the target 2 yards.",
+    "journeyman": "Mighty Blow costs 1 SP with a two-handed weapon.",
+    "master": "Re-roll damage with a two-handed weapon (keep second)."
+   }
+  },
+  {
+   "id": "unarmed-style",
+   "name": "Unarmed Style",
+   "classes": [
+    "mage",
+    "rogue",
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "weaponGroup",
+     "anyOf": [
+      "brawling"
+     ]
+    }
+   ],
+   "degrees": {
+    "novice": "Fists do 1d6 (instead of 1d3).",
+    "journeyman": "Knock Prone costs 1 SP with fist or gauntlet.",
+    "master": "Disarm gets +2 on your attack roll in the opposed test."
+   }
+  },
+  {
+   "id": "weapon-and-shield-style",
+   "name": "Weapon and Shield Style",
+   "classes": [
+    "warrior"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "strength",
+     "min": 2
+    }
+   ],
+   "degrees": {
+    "novice": "Full shield Defense bonus.",
+    "journeyman": "Defensive Stance costs 1 SP.",
+    "master": "Shield bonus +1."
+   }
+  },
+  {
+   "id": "spell-expertise",
+   "name": "Spell Expertise",
+   "optional": true,
+   "classes": [
+    "mage"
+   ],
+   "requirements": [
+    {
+     "type": "ability",
+     "ability": "magic",
+     "min": 4
+    },
+    {
+     "type": "focusInAbility",
+     "ability": "magic"
+    },
+    {
+     "type": "talentAnyOf",
+     "options": [
+      {
+       "type": "talent",
+       "talent": "creation-magic",
+       "degree": "novice"
+      },
+      {
+       "type": "talent",
+       "talent": "entropy-magic",
+       "degree": "novice"
+      },
+      {
+       "type": "talent",
+       "talent": "primal-magic",
+       "degree": "novice"
+      },
+      {
+       "type": "talent",
+       "talent": "spirit-magic",
+       "degree": "novice"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Optional talent: unlocks the advanced spell stunts (see magic.json). The GM may allow all advanced stunts without it."
+   ],
+   "degrees": {
+    "novice": "Use the school stunt lists for each school talent you have, when casting that school.",
+    "journeyman": "Also use the core advanced stunt list (non-school).",
+    "master": "Use school stunt lists for every school you have a focus in."
+   }
+  }
+ ]
+}

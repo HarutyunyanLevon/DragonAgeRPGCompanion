@@ -1,0 +1,738 @@
+{
+ "dice": [
+  "Only d6s. 3d6 for ability tests; one die is a different color: the Dragon Die.",
+  "1d3 = roll a d6 and halve (1-2: 1, 3-4: 2, 5-6: 3).",
+  "The Dragon Die is used for degrees of success, tie-breaks and stunt points."
+ ],
+ "abilityTest": {
+  "formula": "3d6 + ability + focus (+2). Only one focus can apply to a test.",
+  "notation": [
+   "Ability (Focus), e.g. Cunning (Arcane Lore).",
+   "Ability (Focus required): without the focus you automatically fail."
+  ],
+  "opposed": "Both roll; higher result wins. Tie: higher Dragon Die. Still tied: higher ability. With more than two, highest wins (same tiebreak).",
+  "degreesOfSuccess": "Only on success. Read the Dragon Die; at level 6+ you may add the test's focus bonus to the Dragon Die. 1 = barely, 6+ = spectacular.",
+  "reaction": "Resisting something (a spell, being pushed) is a reaction test on someone else's turn and takes no time.",
+  "stacking": "Different effects stack. Multiple instances of the same talent/power/spell do not stack unless stated."
+ },
+ "difficulties": [
+  {
+   "name": "Routine",
+   "tn": 7
+  },
+  {
+   "name": "Easy",
+   "tn": 9
+  },
+  {
+   "name": "Average",
+   "tn": 11
+  },
+  {
+   "name": "Challenging",
+   "tn": 13
+  },
+  {
+   "name": "Hard",
+   "tn": 15
+  },
+  {
+   "name": "Formidable",
+   "tn": 17
+  },
+  {
+   "name": "Imposing",
+   "tn": 19
+  },
+  {
+   "name": "Nigh Impossible",
+   "tn": 21
+  }
+ ],
+ "advancedThresholds": [
+  {
+   "name": "Easy",
+   "threshold": 5
+  },
+  {
+   "name": "Average",
+   "threshold": 10
+  },
+  {
+   "name": "Challenging",
+   "threshold": 15
+  },
+  {
+   "name": "Hard",
+   "threshold": 20
+  },
+  {
+   "name": "Formidable",
+   "threshold": 25
+  }
+ ],
+ "advancedNote": "Repeated tests accumulate toward a success threshold; the first to meet it wins. Thresholds above 25 are discouraged.",
+ "stuntRules": [
+  "Generated when you roll doubles on an attack roll (that hits) or on certain tests. SP = Dragon Die value. Use them immediately.",
+  "Each stunt can be performed once per round, except Skirmish.",
+  "Class powers can reduce the cost of some stunts.",
+  "There are also spell stunts and exploration/roleplaying stunts.",
+  "Lightning Attack's second attack never generates more SP."
+ ],
+ "combatStunts": [
+  {
+   "id": "skirmish",
+   "name": "Skirmish",
+   "spCost": 1,
+   "effect": "Move yourself or the target 2 yards in any direction per 1 SP. May be used repeatedly.",
+   "variable": true
+  },
+  {
+   "id": "rapid-reload",
+   "name": "Rapid Reload",
+   "spCost": 1,
+   "effect": "Immediately reload a missile weapon."
+  },
+  {
+   "id": "stay-aware",
+   "name": "Stay Aware",
+   "spCost": 1,
+   "effect": "TN 11 Perception test (any focus). Success: GM shows you something you missed, or +1 to your next test (doesn't stack with other bonuses except focus; expires at end of your next turn)."
+  },
+  {
+   "id": "knock-prone",
+   "name": "Knock Prone",
+   "spCost": 2,
+   "effect": "Target falls prone. Melee attacks vs prone get +1. Prone can't Run, needs a Move action to stand."
+  },
+  {
+   "id": "defensive-stance",
+   "name": "Defensive Stance",
+   "spCost": 2,
+   "effect": "+2 Defense until the start of your next turn."
+  },
+  {
+   "id": "disarm",
+   "name": "Disarm",
+   "spCost": 2,
+   "effect": "Opposed attack rolls (no SP). Win: weapon flies 1d6 + Strength yards."
+  },
+  {
+   "id": "mighty-blow",
+   "name": "Mighty Blow",
+   "spCost": 2,
+   "effect": "+1d6 damage."
+  },
+  {
+   "id": "pierce-armor",
+   "name": "Pierce Armor",
+   "spCost": 2,
+   "effect": "Target's armor rating halved (round down) vs this attack."
+  },
+  {
+   "id": "taunt",
+   "name": "Taunt",
+   "spCost": 2,
+   "effect": "Opposed Communication (Deception) vs Willpower (Self-Discipline), target within 10 yd. Win: -1 to attack and casting rolls on its next turn."
+  },
+  {
+   "id": "threaten",
+   "name": "Threaten",
+   "spCost": 2,
+   "effect": "Opposed Strength (Intimidation) vs Willpower (Self-Discipline), target within 10 yd. Win: it must attack you on its next turn."
+  },
+  {
+   "id": "lightning-attack",
+   "name": "Lightning Attack",
+   "spCost": 3,
+   "effect": "Second attack on same or other enemy in range/sight (needs loaded missile weapon for ranged)."
+  },
+  {
+   "id": "dual-strike",
+   "name": "Dual Strike",
+   "spCost": 4,
+   "effect": "Apply the same attack roll to a second target (adjacent for melee, within 6 yd of primary for missile). Hit: normal damage."
+  },
+  {
+   "id": "seize-the-initiative",
+   "name": "Seize the Initiative",
+   "spCost": 4,
+   "effect": "Move to top of initiative order until someone else seizes it."
+  },
+  {
+   "id": "lethal-blow",
+   "name": "Lethal Blow",
+   "spCost": 5,
+   "effect": "+2d6 damage."
+  }
+ ],
+ "time": {
+  "roundSeconds": 15,
+  "text": [
+   "Narrative time is loose. Action time starts with 'Roll for initiative'. A round = 15 seconds (4 per minute).",
+   "Initiative: Dexterity (Initiative) test; major NPCs individually, minor NPCs as groups. Order is fixed for the encounter; newcomers roll at the start of the round they appear. Ties: Dragon Die, then higher ability.",
+   "On your turn: one major action + one minor action, or two minor actions (any order; fewer is OK). Free actions don't count."
+  ]
+ },
+ "majorActions": [
+  {
+   "id": "all-out-attack",
+   "name": "All-Out Attack",
+   "effect": "Melee vs adjacent. +1 damage on a hit; -1 Defense until your next turn (hit or miss)."
+  },
+  {
+   "id": "charge",
+   "name": "Charge",
+   "effect": "Move up to half Speed (round down), then melee attack with +1 attack."
+  },
+  {
+   "id": "defend",
+   "name": "Defend",
+   "effect": "+2 Defense until the start of your next turn."
+  },
+  {
+   "id": "heal",
+   "name": "Heal",
+   "effect": "Adjacent ally, needs bandages. TN 11 Cunning (Healing). Success: ally regains Dragon Die + your Cunning Health. Can't benefit again until damaged again."
+  },
+  {
+   "id": "melee-attack",
+   "name": "Melee Attack",
+   "effect": "Attack an adjacent enemy (within 2 yards counts as adjacent)."
+  },
+  {
+   "id": "ranged-attack",
+   "name": "Ranged Attack",
+   "effect": "Fire/throw at a visible enemy in range."
+  },
+  {
+   "id": "run",
+   "name": "Run",
+   "effect": "Move up to double Speed. Not allowed when prone."
+  }
+ ],
+ "minorActions": [
+  {
+   "id": "activate",
+   "name": "Activate",
+   "effect": "Start using a power or item (fighting style, potion...)."
+  },
+  {
+   "id": "aim",
+   "name": "Aim",
+   "effect": "+1 to the attack roll of your next melee/ranged attack."
+  },
+  {
+   "id": "guard-up",
+   "name": "Guard Up",
+   "effect": "+1 or +2 Defense until end of round, but same penalty to all your tests (even opposed) for the rest of the round. Must be done before any major action this turn."
+  },
+  {
+   "id": "move",
+   "name": "Move",
+   "effect": "Up to Speed in yards. Going prone, standing, or mounting = half Speed (round down)."
+  },
+  {
+   "id": "prepare",
+   "name": "Prepare",
+   "effect": "Choose a major action to execute as an interrupt before your next turn; end your turn. Can't use if you already took a major action."
+  },
+  {
+   "id": "press-the-attack",
+   "name": "Press the Attack",
+   "effect": "Pursue an enemy you already struck this turn if it moves away: move up to Speed immediately after its movement."
+  },
+  {
+   "id": "ready",
+   "name": "Ready",
+   "effect": "Draw/stow weapons or items."
+  },
+  {
+   "id": "stand-firm",
+   "name": "Stand Firm",
+   "effect": "Until your next turn, enemies using Skirmish/Knock Prone on you must win Strength (Might) vs your Strength (Might) or Dexterity (Acrobatics)."
+  }
+ ],
+ "combat": {
+  "attackRoll": "Ability test based on weapon group + focus + modifiers. TN = target's Defense. Hit if result >= Defense.",
+  "damage": "Weapon damage + Strength (Bows add Perception instead of Strength) + modifiers - target's Armor Rating (skip subtraction for penetrating damage). Minimum 0.",
+  "map": "2 yards = 1 square/hex; 3D terrain: 2 yd = 1 inch.",
+  "dying": [
+   "A PC at 0 Health is dying: dies at the start of their turn after 2 + Constitution rounds unless healed. Can talk, no other actions. Health never goes below 0.",
+   "Most NPCs simply die at 0.",
+   "Pulling a killing blow: attacker may leave target unconscious at 1 Health; wakes in 2d6 minutes.",
+   "Coup de grace: adjacent enemy, major action, automatic kill on dying/unconscious. Ranged: needs an attack roll vs Defense 10."
+  ],
+  "mounts": [
+   "Mount as part of a Move action (half Speed). Then use the mount's Speed for move/run.",
+   "+1 melee attack vs foes on foot (GM may deny vs large monsters).",
+   "Enemies may attack you or the mount; track the mount's Health.",
+   "Knock Prone vs rider: Dexterity (Riding) TN 10 + attacker's Strength to stay mounted; fail: 1d6 penetrating damage and prone.",
+   "Vehicles: Strength (Driving). Passengers resist Knock Prone with Dexterity (Acrobatics)."
+  ]
+ },
+ "attackModifiers": [
+  {
+   "mod": -3,
+   "circumstance": "Defender in heavy cover (building, stone wall); melee attacker in heavy snow"
+  },
+  {
+   "mod": -2,
+   "circumstance": "Defender in light cover (hedge, woods); melee attacker in mud; ranged attack vs defender engaged in melee; combat at night"
+  },
+  {
+   "mod": -1,
+   "circumstance": "Rain, mist or smoke obscures defender; low light"
+  },
+  {
+   "mod": 1,
+   "circumstance": "Attacker on higher ground; defender prone; melee attacker and allies outnumber defender 2:1"
+  },
+  {
+   "mod": 2,
+   "circumstance": "Allies outnumber defender 3:1; defender drunk"
+  },
+  {
+   "mod": 3,
+   "circumstance": "Defender unaware of the attack"
+  }
+ ],
+ "healing": [
+  {
+   "id": "heal-action",
+   "method": "Heal action (ally)",
+   "amount": "Dragon Die + healer's Cunning (once per damage event)"
+  },
+  {
+   "id": "breather",
+   "method": "Breather (5 min, once per encounter; not allowed if you ended combat at 0)",
+   "amount": "5 + Constitution + Level"
+  },
+  {
+   "id": "sleep",
+   "method": "6 hours restful sleep",
+   "amount": "10 + Constitution + Level"
+  },
+  {
+   "id": "magic",
+   "method": "Magic",
+   "amount": "e.g. the Heal spell"
+  }
+ ],
+ "focuses": [
+  {
+   "id": "animal-handling",
+   "ability": "communication",
+   "name": "Animal Handling"
+  },
+  {
+   "id": "bargaining",
+   "ability": "communication",
+   "name": "Bargaining"
+  },
+  {
+   "id": "deception",
+   "ability": "communication",
+   "name": "Deception"
+  },
+  {
+   "id": "disguise",
+   "ability": "communication",
+   "name": "Disguise"
+  },
+  {
+   "id": "etiquette",
+   "ability": "communication",
+   "name": "Etiquette"
+  },
+  {
+   "id": "gambling",
+   "ability": "communication",
+   "name": "Gambling"
+  },
+  {
+   "id": "investigation",
+   "ability": "communication",
+   "name": "Investigation"
+  },
+  {
+   "id": "leadership",
+   "ability": "communication",
+   "name": "Leadership"
+  },
+  {
+   "id": "performance",
+   "ability": "communication",
+   "name": "Performance"
+  },
+  {
+   "id": "persuasion",
+   "ability": "communication",
+   "name": "Persuasion"
+  },
+  {
+   "id": "seduction",
+   "ability": "communication",
+   "name": "Seduction"
+  },
+  {
+   "id": "drinking",
+   "ability": "constitution",
+   "name": "Drinking"
+  },
+  {
+   "id": "rowing",
+   "ability": "constitution",
+   "name": "Rowing"
+  },
+  {
+   "id": "running",
+   "ability": "constitution",
+   "name": "Running"
+  },
+  {
+   "id": "stamina",
+   "ability": "constitution",
+   "name": "Stamina"
+  },
+  {
+   "id": "swimming",
+   "ability": "constitution",
+   "name": "Swimming"
+  },
+  {
+   "id": "arcane-lore",
+   "ability": "cunning",
+   "name": "Arcane Lore"
+  },
+  {
+   "id": "brewing",
+   "ability": "cunning",
+   "name": "Brewing"
+  },
+  {
+   "id": "cartography",
+   "ability": "cunning",
+   "name": "Cartography"
+  },
+  {
+   "id": "cryptography",
+   "ability": "cunning",
+   "name": "Cryptography"
+  },
+  {
+   "id": "cultural-lore",
+   "ability": "cunning",
+   "name": "Cultural Lore"
+  },
+  {
+   "id": "enchantment",
+   "ability": "cunning",
+   "name": "Enchantment",
+   "note": "Only dwarves and Tranquil can enchant."
+  },
+  {
+   "id": "engineering",
+   "ability": "cunning",
+   "name": "Engineering"
+  },
+  {
+   "id": "evaluation",
+   "ability": "cunning",
+   "name": "Evaluation"
+  },
+  {
+   "id": "healing",
+   "ability": "cunning",
+   "name": "Healing"
+  },
+  {
+   "id": "heraldry",
+   "ability": "cunning",
+   "name": "Heraldry"
+  },
+  {
+   "id": "historical-lore",
+   "ability": "cunning",
+   "name": "Historical Lore"
+  },
+  {
+   "id": "military-lore",
+   "ability": "cunning",
+   "name": "Military Lore"
+  },
+  {
+   "id": "musical-lore",
+   "ability": "cunning",
+   "name": "Musical Lore"
+  },
+  {
+   "id": "natural-lore",
+   "ability": "cunning",
+   "name": "Natural Lore"
+  },
+  {
+   "id": "navigation",
+   "ability": "cunning",
+   "name": "Navigation"
+  },
+  {
+   "id": "poison-lore",
+   "ability": "cunning",
+   "name": "Poison Lore"
+  },
+  {
+   "id": "qun",
+   "ability": "cunning",
+   "name": "Qun"
+  },
+  {
+   "id": "research",
+   "ability": "cunning",
+   "name": "Research"
+  },
+  {
+   "id": "religious-lore",
+   "ability": "cunning",
+   "name": "Religious Lore"
+  },
+  {
+   "id": "writing",
+   "ability": "cunning",
+   "name": "Writing"
+  },
+  {
+   "id": "acrobatics",
+   "ability": "dexterity",
+   "name": "Acrobatics"
+  },
+  {
+   "id": "bows",
+   "ability": "dexterity",
+   "name": "Bows",
+   "weaponGroup": "bows"
+  },
+  {
+   "id": "brawling",
+   "ability": "dexterity",
+   "name": "Brawling",
+   "weaponGroup": "brawling"
+  },
+  {
+   "id": "calligraphy",
+   "ability": "dexterity",
+   "name": "Calligraphy"
+  },
+  {
+   "id": "crafting",
+   "ability": "dexterity",
+   "name": "Crafting"
+  },
+  {
+   "id": "dueling",
+   "ability": "dexterity",
+   "name": "Dueling",
+   "note": "Weapon-group focus.",
+   "weaponGroup": "dueling"
+  },
+  {
+   "id": "grenades",
+   "ability": "dexterity",
+   "name": "Grenades"
+  },
+  {
+   "id": "initiative",
+   "ability": "dexterity",
+   "name": "Initiative"
+  },
+  {
+   "id": "legerdemain",
+   "ability": "dexterity",
+   "name": "Legerdemain"
+  },
+  {
+   "id": "light-blades",
+   "ability": "dexterity",
+   "name": "Light Blades",
+   "weaponGroup": "light-blades"
+  },
+  {
+   "id": "lock-picking",
+   "ability": "dexterity",
+   "name": "Lock Picking"
+  },
+  {
+   "id": "riding",
+   "ability": "dexterity",
+   "name": "Riding"
+  },
+  {
+   "id": "staves",
+   "ability": "dexterity",
+   "name": "Staves",
+   "weaponGroup": "staves"
+  },
+  {
+   "id": "stealth",
+   "ability": "dexterity",
+   "name": "Stealth"
+  },
+  {
+   "id": "traps",
+   "ability": "dexterity",
+   "name": "Traps"
+  },
+  {
+   "id": "arcane-lance",
+   "ability": "magic",
+   "name": "Arcane Lance"
+  },
+  {
+   "id": "blood",
+   "ability": "magic",
+   "name": "Blood"
+  },
+  {
+   "id": "creation",
+   "ability": "magic",
+   "name": "Creation"
+  },
+  {
+   "id": "entropy",
+   "ability": "magic",
+   "name": "Entropy"
+  },
+  {
+   "id": "primal",
+   "ability": "magic",
+   "name": "Primal"
+  },
+  {
+   "id": "spirit",
+   "ability": "magic",
+   "name": "Spirit"
+  },
+  {
+   "id": "empathy",
+   "ability": "perception",
+   "name": "Empathy"
+  },
+  {
+   "id": "detect-darkspawn",
+   "ability": "perception",
+   "name": "Detect Darkspawn",
+   "note": "Grey Wardens only."
+  },
+  {
+   "id": "hearing",
+   "ability": "perception",
+   "name": "Hearing"
+  },
+  {
+   "id": "searching",
+   "ability": "perception",
+   "name": "Searching"
+  },
+  {
+   "id": "seeing",
+   "ability": "perception",
+   "name": "Seeing"
+  },
+  {
+   "id": "smelling",
+   "ability": "perception",
+   "name": "Smelling"
+  },
+  {
+   "id": "tracking",
+   "ability": "perception",
+   "name": "Tracking"
+  },
+  {
+   "id": "axes",
+   "ability": "strength",
+   "name": "Axes",
+   "weaponGroup": "axes"
+  },
+  {
+   "id": "bludgeons",
+   "ability": "strength",
+   "name": "Bludgeons",
+   "weaponGroup": "bludgeons"
+  },
+  {
+   "id": "climbing",
+   "ability": "strength",
+   "name": "Climbing"
+  },
+  {
+   "id": "driving",
+   "ability": "strength",
+   "name": "Driving"
+  },
+  {
+   "id": "heavy-blades",
+   "ability": "strength",
+   "name": "Heavy Blades",
+   "weaponGroup": "heavy-blades"
+  },
+  {
+   "id": "intimidation",
+   "ability": "strength",
+   "name": "Intimidation"
+  },
+  {
+   "id": "jumping",
+   "ability": "strength",
+   "name": "Jumping"
+  },
+  {
+   "id": "lances",
+   "ability": "strength",
+   "name": "Lances",
+   "weaponGroup": "lances"
+  },
+  {
+   "id": "might",
+   "ability": "strength",
+   "name": "Might"
+  },
+  {
+   "id": "polearms",
+   "ability": "strength",
+   "name": "Polearms",
+   "weaponGroup": "polearms"
+  },
+  {
+   "id": "smithing",
+   "ability": "strength",
+   "name": "Smithing"
+  },
+  {
+   "id": "spears",
+   "ability": "strength",
+   "name": "Spears",
+   "weaponGroup": "spears"
+  },
+  {
+   "id": "courage",
+   "ability": "willpower",
+   "name": "Courage"
+  },
+  {
+   "id": "faith",
+   "ability": "willpower",
+   "name": "Faith"
+  },
+  {
+   "id": "morale",
+   "ability": "willpower",
+   "name": "Morale"
+  },
+  {
+   "id": "self-discipline",
+   "ability": "willpower",
+   "name": "Self-Discipline"
+  }
+ ]
+}

@@ -1,0 +1,767 @@
+{
+  "xpByLevel": [
+    0,
+    2000,
+    4000,
+    6000,
+    8000,
+    10000,
+    13000,
+    16000,
+    19000,
+    22000,
+    25000,
+    28000,
+    32000,
+    36000,
+    40000,
+    44000,
+    48000,
+    52000,
+    56000,
+    60000
+  ],
+  "advancementCost": [
+    {
+      "minRating": -1,
+      "maxRating": 5,
+      "cost": 1
+    },
+    {
+      "minRating": 6,
+      "maxRating": 8,
+      "cost": 2
+    },
+    {
+      "minRating": 9,
+      "maxRating": 12,
+      "cost": 3
+    }
+  ],
+  "healthPerLevel": {
+    "levels1to10": "1d6+Constitution",
+    "levels11to20": "Constitution"
+  },
+  "classes": [
+    {
+      "id": "mage",
+      "name": "Mage",
+      "primaryAbilities": [
+        "cunning",
+        "magic",
+        "willpower"
+      ],
+      "secondaryAbilities": [
+        "communication",
+        "constitution",
+        "dexterity",
+        "perception",
+        "strength"
+      ],
+      "startingHealth": {
+        "base": 20,
+        "dice": "1d6",
+        "plus": "constitution"
+      },
+      "mana": {
+        "startBase": 10,
+        "plus": "magic",
+        "dice": "1d6",
+        "dropDiceAtLevel": 11
+      },
+      "weaponGroups": {
+        "fixed": [
+          "brawling",
+          "staves"
+        ],
+        "pick": 0,
+        "pickFrom": []
+      },
+      "startingTalents": {
+        "fixed": [],
+        "pick": 1,
+        "pickFrom": [
+          "chirurgy",
+          "linguistics",
+          "lore"
+        ]
+      },
+      "startingSpells": 3,
+      "startingEquipment": "One weapon and a staff (for Arcane Lance).",
+      "levels": [
+        {
+          "level": 1,
+          "gains": [
+            "spell",
+            "spell",
+            "spell"
+          ],
+          "powers": [
+            {
+              "name": "Arcane Lance",
+              "text": "Needs a quarterstaff. Ranged attack, Magic (Arcane Lance) test, range 16 yd, damage 1d6 + Magic, no mana cost."
+            },
+            {
+              "name": "Magic Training",
+              "text": "Cast spells; start with 3 spells."
+            },
+            {
+              "name": "Mana Points",
+              "text": "Start with 10 + Magic + 1d6. On each level-up gain Magic + 1d6 (levels 2-10); from level 11 gain only Magic."
+            },
+            {
+              "name": "Starting Talent",
+              "text": "Novice in one of Chirurgy, Linguistics, Lore."
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "gains": [
+            "spell"
+          ]
+        },
+        {
+          "level": 3,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 4,
+          "gains": [
+            "spell"
+          ],
+          "powers": [
+            {
+              "name": "Spell Lance",
+              "text": "After hitting with Arcane Lance, cast a spell with mana cost 3 or less as a stunt for 3 SP (casting roll required)."
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 6,
+          "specialization": {
+            "slot": 6,
+            "degree": "novice"
+          }
+        },
+        {
+          "level": 7,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Long Lance",
+              "text": "Arcane Lance range 24 yd."
+            }
+          ]
+        },
+        {
+          "level": 8,
+          "gains": [
+            "spell"
+          ],
+          "specialization": {
+            "slot": 6,
+            "degree": "journeyman"
+          }
+        },
+        {
+          "level": 9,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Power Lance",
+              "text": "Spend 2 mana before the attack roll for +1d6 Arcane Lance damage (once per attack)."
+            }
+          ]
+        },
+        {
+          "level": 10,
+          "gains": [
+            "spell"
+          ],
+          "specialization": {
+            "slot": 6,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 11,
+          "gains": [
+            "spell",
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Mana Gain",
+              "text": "Mana gain on level-up becomes Magic only."
+            }
+          ]
+        },
+        {
+          "level": 12,
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "Lightning Attack stunt costs 2 SP with Arcane Lance (instead of 3)."
+            }
+          ]
+        },
+        {
+          "level": 13,
+          "gains": [
+            "spell",
+            "talent"
+          ]
+        },
+        {
+          "level": 14,
+          "specialization": {
+            "slot": 14,
+            "degree": "novice"
+          }
+        },
+        {
+          "level": 15,
+          "gains": [
+            "spell",
+            "talent"
+          ]
+        },
+        {
+          "level": 16,
+          "specialization": {
+            "slot": 14,
+            "degree": "journeyman"
+          }
+        },
+        {
+          "level": 17,
+          "gains": [
+            "spell",
+            "talent"
+          ]
+        },
+        {
+          "level": 18,
+          "specialization": {
+            "slot": 14,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 19,
+          "gains": [
+            "spell",
+            "talent"
+          ]
+        },
+        {
+          "level": 20,
+          "powers": [
+            {
+              "name": "Epic Mage",
+              "text": "Pick one stunt type (combat, exploration, roleplaying, or spell); +1 when generating that type of stunt points."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rogue",
+      "name": "Rogue",
+      "primaryAbilities": [
+        "communication",
+        "dexterity",
+        "perception"
+      ],
+      "secondaryAbilities": [
+        "constitution",
+        "cunning",
+        "magic",
+        "strength",
+        "willpower"
+      ],
+      "startingHealth": {
+        "base": 25,
+        "dice": "1d6",
+        "plus": "constitution"
+      },
+      "weaponGroups": {
+        "fixed": [
+          "bows",
+          "brawling",
+          "light-blades",
+          "staves"
+        ],
+        "pick": 0,
+        "pickFrom": []
+      },
+      "startingTalents": {
+        "fixed": [],
+        "pick": 1,
+        "pickFrom": [
+          "contacts",
+          "scouting",
+          "thievery"
+        ]
+      },
+      "startingEquipment": "Light leather armor and two weapons.",
+      "levels": [
+        {
+          "level": 1,
+          "powers": [
+            {
+              "name": "Backstab",
+              "text": "Approach with a move action (if melee), win opposed Dexterity (Stealth) vs target's Perception (Seeing); then use a major action to attack with +2 attack and +1d6 damage. Cannot Backstab an enemy you started your turn adjacent to (until Bluff)."
+            },
+            {
+              "name": "Rogue's Armor",
+              "text": "Ignore Armor Penalty of leather armor (affects neither Speed nor Dexterity)."
+            },
+            {
+              "name": "Starting Talent",
+              "text": "Novice in one of Contacts, Scouting, Thievery."
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "Pierce Armor stunt costs 1 SP (instead of 2)."
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 4,
+          "powers": [
+            {
+              "name": "Bluff",
+              "text": "Can Backstab an adjacent opponent after a minor action opposed test Communication (Deception) vs Willpower (Self-Discipline)."
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 6,
+          "specialization": {
+            "slot": 6,
+            "degree": "novice"
+          },
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "That Makes Me Wonder (exploration) costs 2 SP (instead of 3)."
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "powers": [
+            {
+              "name": "Dirty Fighting",
+              "text": "On a successful melee hit, deal no damage but target must pass TN 15 Constitution (Stamina) or be stunned (retest each turn start; only a move action while stunned). Attacks vs a stunned target from rogues count as Backstabs."
+            }
+          ]
+        },
+        {
+          "level": 8,
+          "specialization": {
+            "slot": 6,
+            "degree": "journeyman"
+          }
+        },
+        {
+          "level": 9,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Lethality",
+              "text": "Add Cunning to damage with ranged attacks."
+            }
+          ]
+        },
+        {
+          "level": 10,
+          "specialization": {
+            "slot": 6,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 11,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 12,
+          "powers": [
+            {
+              "name": "Slippery",
+              "text": "Opponents gain no attack bonus for outnumbering you (normally up to +2). If you have Master degree in Single Weapon Style, your Defense bonus there rises to +3."
+            }
+          ]
+        },
+        {
+          "level": 13,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "With a Flourish (exploration) costs 3 SP (instead of 4)."
+            }
+          ]
+        },
+        {
+          "level": 14,
+          "specialization": {
+            "slot": 14,
+            "degree": "novice"
+          }
+        },
+        {
+          "level": 15,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Perforate",
+              "text": "Stunt for 2 SP after a Backstab hit: second Backstab on the same target (no stunt points from it)."
+            }
+          ]
+        },
+        {
+          "level": 16,
+          "specialization": {
+            "slot": 14,
+            "degree": "journeyman"
+          }
+        },
+        {
+          "level": 17,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Quick Shot",
+              "text": "Ranged attack on a visible target in range as a minor action, -2 attack and damage; cannot combine with Dirty Fighting or Backstab."
+            }
+          ]
+        },
+        {
+          "level": 18,
+          "specialization": {
+            "slot": 14,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 19,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 20,
+          "powers": [
+            {
+              "name": "Epic Rogue",
+              "text": "Pick one stunt type (combat, exploration, roleplaying); +1 when generating that type of SP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warrior",
+      "name": "Warrior",
+      "primaryAbilities": [
+        "constitution",
+        "dexterity",
+        "strength"
+      ],
+      "secondaryAbilities": [
+        "communication",
+        "cunning",
+        "magic",
+        "perception",
+        "willpower"
+      ],
+      "startingHealth": {
+        "base": 30,
+        "dice": "1d6",
+        "plus": "constitution"
+      },
+      "weaponGroups": {
+        "fixed": [
+          "brawling"
+        ],
+        "pick": 3,
+        "pickFrom": [
+          "axes",
+          "bludgeons",
+          "bows",
+          "heavy-blades",
+          "lances",
+          "light-blades",
+          "polearms",
+          "spears",
+          "staves"
+        ]
+      },
+      "startingTalents": {
+        "fixed": [
+          "armor-training"
+        ],
+        "pick": 2,
+        "pickFrom": [
+          "archery-style",
+          "dual-weapon-style",
+          "single-weapon-style",
+          "thrown-weapon-style",
+          "two-hander-style",
+          "weapon-and-shield-style"
+        ]
+      },
+      "startingEquipment": "Heavy leather armor and three weapons.",
+      "levels": [
+        {
+          "level": 1,
+          "powers": [
+            {
+              "name": "Starting Talents",
+              "text": "Novice in two of Archery Style, Dual Weapon Style, Single Weapon Style, Throwing Weapon Style, Two-Hander Style, Weapon and Shield Style. Also Novice in Armor Training."
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "gains": [
+            "focus"
+          ],
+          "powers": [
+            {
+              "name": "New Ability Focus",
+              "text": "One of Cunning (Military Lore), Dexterity (Riding), Strength (Climbing)."
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 4,
+          "gains": [
+            "weaponGroup"
+          ],
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "Dual Strike costs 3 SP (instead of 4)."
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "gains": [
+            "weaponGroup"
+          ]
+        },
+        {
+          "level": 6,
+          "specialization": {
+            "slot": 6,
+            "degree": "novice"
+          }
+        },
+        {
+          "level": 7,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "Threaten costs 1 SP (instead of 2)."
+            }
+          ]
+        },
+        {
+          "level": 8,
+          "specialization": {
+            "slot": 6,
+            "degree": "journeyman"
+          },
+          "powers": [
+            {
+              "name": "Expert Strike",
+              "text": "With a weapon from a group you possess, trade up to -3 attack for the same bonus to damage, or up to +3 attack for the same penalty to damage."
+            }
+          ]
+        },
+        {
+          "level": 9,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 10,
+          "specialization": {
+            "slot": 6,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 11,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 12,
+          "powers": [
+            {
+              "name": "Veteran",
+              "text": "Add your weapon-group focus bonus to damage when attacking with a weapon of that group (e.g. Strength (Axes) with an axe: +2; +3 if you have the focus twice)."
+            }
+          ]
+        },
+        {
+          "level": 13,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 14,
+          "specialization": {
+            "slot": 14,
+            "degree": "novice"
+          }
+        },
+        {
+          "level": 15,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Quick Strike",
+              "text": "Melee attack vs adjacent foe as a minor action, -2 attack and damage; cannot combine with Expert Strike."
+            }
+          ]
+        },
+        {
+          "level": 16,
+          "specialization": {
+            "slot": 14,
+            "degree": "journeyman"
+          }
+        },
+        {
+          "level": 17,
+          "gains": [
+            "talent"
+          ],
+          "powers": [
+            {
+              "name": "Stunt Bonus",
+              "text": "Dual Strike with a melee attack can hit two secondary targets (all three must be adjacent when attacking or after a Skirmish move)."
+            }
+          ]
+        },
+        {
+          "level": 18,
+          "specialization": {
+            "slot": 14,
+            "degree": "master"
+          }
+        },
+        {
+          "level": 19,
+          "gains": [
+            "talent"
+          ]
+        },
+        {
+          "level": 20,
+          "powers": [
+            {
+              "name": "Epic Warrior",
+              "text": "Pick one stunt type (combat, exploration, roleplaying); +1 when generating that type of SP."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "startingGear": {
+    "everyone": [
+      "backpack",
+      "traveler's garb",
+      "waterskin"
+    ],
+    "ranged": "Bow or crossbow: quiver + 20 arrows/bolts.",
+    "weaponAndShieldTalent": "A medium shield.",
+    "silver": {
+      "base": 50,
+      "dice": "3d6"
+    }
+  },
+  "defense": {
+    "base": 10,
+    "plus": "dexterity",
+    "shield": {
+      "light": 1,
+      "medium": 2
+    }
+  },
+  "speed": {
+    "baseByRace": {
+      "dwarf": 8,
+      "elf": 12,
+      "human": 10,
+      "qunari": 10
+    },
+    "plus": "dexterity",
+    "armorPenalty": {
+      "light-leather": 0,
+      "heavy-leather": 1
+    }
+  }
+}

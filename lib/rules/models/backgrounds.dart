@@ -1,0 +1,163 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'backgrounds.g.dart';
+
+/// assets/rules/backgrounds.json
+
+@JsonSerializable()
+class FocusRef {
+  const FocusRef({required this.ability, required this.focus});
+
+  final String ability;
+  final String focus;
+
+  factory FocusRef.fromJson(Map<String, dynamic> json) =>
+      _$FocusRefFromJson(json);
+  Map<String, dynamic> toJson() => _$FocusRefToJson(this);
+}
+
+/// What a background table row gives. Look at [type] to know which fields are set:
+///   ability -> [ability]      focus -> [ability] + [focus]
+///   language -> [language]    weaponGroup -> [group] (+ [ifClassHasGroup])
+@JsonSerializable()
+class TableResult {
+  const TableResult({
+    required this.type,
+    this.ability,
+    this.focus,
+    this.language,
+    this.group,
+    this.ifClassHasGroup,
+  });
+
+  final String type;
+  final String? ability;
+  final String? focus;
+  final String? language;
+  final String? group;
+
+  /// Take this focus instead when the class already grants the weapon group.
+  final FocusRef? ifClassHasGroup;
+
+  factory TableResult.fromJson(Map<String, dynamic> json) =>
+      _$TableResultFromJson(json);
+  Map<String, dynamic> toJson() => _$TableResultToJson(this);
+}
+
+@JsonSerializable()
+class BackgroundTableRow {
+  const BackgroundTableRow({required this.min, required this.max, required this.result});
+
+  final int min;
+  final int max;
+  final TableResult result;
+
+  factory BackgroundTableRow.fromJson(Map<String, dynamic> json) =>
+      _$BackgroundTableRowFromJson(json);
+  Map<String, dynamic> toJson() => _$BackgroundTableRowToJson(this);
+}
+
+@JsonSerializable()
+class LanguageChoice {
+  const LanguageChoice({required this.pick, required this.from});
+
+  final int pick;
+  final List<String> from;
+
+  factory LanguageChoice.fromJson(Map<String, dynamic> json) =>
+      _$LanguageChoiceFromJson(json);
+  Map<String, dynamic> toJson() => _$LanguageChoiceToJson(this);
+}
+
+@JsonSerializable()
+class Background {
+  const Background({
+    required this.id,
+    required this.name,
+    required this.races,
+    this.raceChoice = false,
+    required this.abilityBonus,
+    required this.focusChoices,
+    required this.languages,
+    this.languageChoice,
+    required this.classes,
+    this.trait,
+    this.casteChoices = const [],
+    required this.tables,
+    this.notes = const [],
+  });
+
+  final String id;
+  final String name;
+  final List<String> races;
+
+  /// True when the player picks one of [races] (e.g. Apostate: human or elf).
+  @JsonKey(defaultValue: false)
+  final bool raceChoice;
+
+  final String abilityBonus;
+  final List<FocusRef> focusChoices;
+  final List<String> languages;
+  final LanguageChoice? languageChoice;
+  final List<String> classes;
+
+  /// "magic-resistance" or "magic-susceptibility", if the race has one.
+  final String? trait;
+
+  @JsonKey(defaultValue: <String>[])
+  final List<String> casteChoices;
+
+  /// 2d6 tables. Key "any", or "elf" / "human" when the background has one each.
+  final Map<String, List<BackgroundTableRow>> tables;
+
+  @JsonKey(defaultValue: <String>[])
+  final List<String> notes;
+
+  /// The row that a 2d6 [roll] lands on.
+  BackgroundTableRow rowForRoll(String tableKey, int roll) =>
+      tables[tableKey]!.firstWhere((r) => roll >= r.min && roll <= r.max);
+
+  factory Background.fromJson(Map<String, dynamic> json) =>
+      _$BackgroundFromJson(json);
+  Map<String, dynamic> toJson() => _$BackgroundToJson(this);
+}
+
+@JsonSerializable()
+class ScoreRange {
+  const ScoreRange({required this.min, required this.max, required this.score});
+
+  final int min;
+  final int max;
+  final int score;
+
+  factory ScoreRange.fromJson(Map<String, dynamic> json) =>
+      _$ScoreRangeFromJson(json);
+  Map<String, dynamic> toJson() => _$ScoreRangeToJson(this);
+}
+
+@JsonSerializable()
+class BackgroundsFile {
+  const BackgroundsFile({
+    required this.abilities,
+    required this.abilityScoreTable,
+    required this.focusBonus,
+    required this.backgrounds,
+  });
+
+  final List<String> abilities;
+  final List<ScoreRange> abilityScoreTable;
+  final int focusBonus;
+  final List<Background> backgrounds;
+
+  Background backgroundById(String id) =>
+      backgrounds.firstWhere((b) => b.id == id);
+
+  /// Starting ability score for a 3d6 [total] (3 -> -2, 18 -> 4).
+  int scoreForRoll(int total) => abilityScoreTable
+      .firstWhere((r) => total >= r.min && total <= r.max)
+      .score;
+
+  factory BackgroundsFile.fromJson(Map<String, dynamic> json) =>
+      _$BackgroundsFileFromJson(json);
+  Map<String, dynamic> toJson() => _$BackgroundsFileToJson(this);
+}

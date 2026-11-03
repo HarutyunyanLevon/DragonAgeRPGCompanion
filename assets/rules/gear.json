@@ -1,0 +1,1610 @@
+{
+ "currency": {
+  "cpPerSp": 100,
+  "spPerGp": 100,
+  "note": "All costs are stored in copper (costCp). 1 gp = 100 sp = 10,000 cp."
+ },
+ "armorPenaltyNote": "armorPenalty is subtracted from Speed (and from Dexterity if untrained in the armor).",
+ "armor": [
+  {
+   "id": "light-leather",
+   "name": "Light Leather",
+   "armorRating": 3,
+   "armorPenalty": 0,
+   "costCp": 1500
+  },
+  {
+   "id": "heavy-leather",
+   "name": "Heavy Leather",
+   "armorRating": 4,
+   "armorPenalty": 1,
+   "costCp": 3000
+  },
+  {
+   "id": "light-mail",
+   "name": "Light Mail",
+   "armorRating": 5,
+   "armorPenalty": 2,
+   "costCp": 5000
+  },
+  {
+   "id": "heavy-mail",
+   "name": "Heavy Mail",
+   "armorRating": 7,
+   "armorPenalty": 3,
+   "costCp": 7500
+  },
+  {
+   "id": "light-plate",
+   "name": "Light Plate",
+   "armorRating": 8,
+   "armorPenalty": 4,
+   "costCp": 10000
+  },
+  {
+   "id": "heavy-plate",
+   "name": "Heavy Plate",
+   "armorRating": 10,
+   "armorPenalty": 5,
+   "costCp": 15000
+  },
+  {
+   "id": "light-leather-duster",
+   "name": "Light Leather Duster",
+   "armorRating": 3,
+   "armorPenalty": 0,
+   "costCp": 1500
+  },
+  {
+   "id": "tailored-leather-duster",
+   "name": "Tailored Leather Duster",
+   "armorRating": 4,
+   "armorPenalty": 0,
+   "costCp": 4500,
+   "note": "Cost is an extra 45 sp over the light leather duster."
+  },
+  {
+   "id": "concealed-pockets-lining",
+   "name": "Lining with Concealed Pockets",
+   "armorRating": 0,
+   "armorPenalty": 0,
+   "costCp": 2500,
+   "note": "+1 to Dexterity (Legerdemain) tests."
+  }
+ ],
+ "shields": [
+  {
+   "id": "light-shield",
+   "name": "Light Shield",
+   "defenseBonus": 1,
+   "costCp": 1500
+  },
+  {
+   "id": "medium-shield",
+   "name": "Medium Shield",
+   "defenseBonus": 2,
+   "costCp": 3000
+  },
+  {
+   "id": "heavy-shield",
+   "name": "Heavy Shield",
+   "defenseBonus": 3,
+   "costCp": 6000
+  }
+ ],
+ "shieldRule": "Without the Weapon and Shield Style talent the maximum shield Defense bonus is +1.",
+ "weaponGroups": [
+  {
+   "id": "axes",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "bludgeons",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "bows",
+   "attackAbility": "dexterity",
+   "damageAbility": "perception"
+  },
+  {
+   "id": "brawling",
+   "attackAbility": "dexterity",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "dueling",
+   "attackAbility": "dexterity",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "heavy-blades",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "lances",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "light-blades",
+   "attackAbility": "dexterity",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "polearms",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "spears",
+   "attackAbility": "strength",
+   "damageAbility": "strength"
+  },
+  {
+   "id": "staves",
+   "attackAbility": "dexterity",
+   "damageAbility": "strength"
+  }
+ ],
+ "weapons": [
+  {
+   "id": "battle-axe",
+   "name": "Battle Axe",
+   "group": "axes",
+   "damage": "2d6",
+   "minStrength": 1,
+   "costCp": 1400
+  },
+  {
+   "id": "throwing-axe",
+   "name": "Throwing Axe",
+   "group": "axes",
+   "damage": "1d6+2",
+   "minStrength": 1,
+   "costCp": 1000,
+   "range": {
+    "short": 4,
+    "long": 8,
+    "reload": "minor"
+   }
+  },
+  {
+   "id": "two-handed-axe",
+   "name": "Two-handed Axe",
+   "group": "axes",
+   "damage": "3d6",
+   "minStrength": 3,
+   "costCp": 2000,
+   "twoHanded": true
+  },
+  {
+   "id": "mace",
+   "name": "Mace",
+   "group": "bludgeons",
+   "damage": "2d6",
+   "minStrength": 1,
+   "costCp": 1200
+  },
+  {
+   "id": "maul",
+   "name": "Maul",
+   "group": "bludgeons",
+   "damage": "1d6+3",
+   "minStrength": 1,
+   "costCp": 1400
+  },
+  {
+   "id": "two-handed-maul",
+   "name": "Two-handed Maul",
+   "group": "bludgeons",
+   "damage": "2d6+3",
+   "minStrength": 3,
+   "costCp": 1900,
+   "twoHanded": true
+  },
+  {
+   "id": "crossbow",
+   "name": "Crossbow",
+   "group": "bows",
+   "damage": "2d6+1",
+   "minStrength": 1,
+   "costCp": 2000,
+   "range": {
+    "short": 30,
+    "long": 60,
+    "reload": "major"
+   }
+  },
+  {
+   "id": "short-bow",
+   "name": "Short Bow",
+   "group": "bows",
+   "damage": "1d6+1",
+   "minStrength": -1,
+   "costCp": 900,
+   "range": {
+    "short": 16,
+    "long": 32,
+    "reload": "minor"
+   }
+  },
+  {
+   "id": "long-bow",
+   "name": "Long Bow",
+   "group": "bows",
+   "damage": "1d6+3",
+   "minStrength": 1,
+   "costCp": 1500,
+   "range": {
+    "short": 26,
+    "long": 52,
+    "reload": "minor"
+   }
+  },
+  {
+   "id": "fist",
+   "name": "Fist",
+   "group": "brawling",
+   "damage": "1d3",
+   "minStrength": null,
+   "costCp": null
+  },
+  {
+   "id": "gauntlet",
+   "name": "Gauntlet",
+   "group": "brawling",
+   "damage": "1d3+1",
+   "minStrength": null,
+   "costCp": 400
+  },
+  {
+   "id": "improvised-weapon",
+   "name": "Improvised Weapon",
+   "group": "brawling",
+   "damage": "1d6-1",
+   "minStrength": null,
+   "costCp": null
+  },
+  {
+   "id": "main-gauche",
+   "name": "Main Gauche",
+   "group": "dueling",
+   "damage": "1d6+1",
+   "minStrength": null,
+   "costCp": 1100
+  },
+  {
+   "id": "rapier",
+   "name": "Rapier",
+   "group": "dueling",
+   "damage": "1d6+3",
+   "minStrength": 0,
+   "costCp": 1800
+  },
+  {
+   "id": "spiked-buckler",
+   "name": "Spiked Buckler",
+   "group": "dueling",
+   "damage": "1d6",
+   "minStrength": -1,
+   "costCp": 1500
+  },
+  {
+   "id": "bastard-sword",
+   "name": "Bastard Sword",
+   "group": "heavy-blades",
+   "damage": "2d6+1",
+   "minStrength": 2,
+   "costCp": 2000
+  },
+  {
+   "id": "longsword",
+   "name": "Longsword",
+   "group": "heavy-blades",
+   "damage": "2d6",
+   "minStrength": 1,
+   "costCp": 1800
+  },
+  {
+   "id": "two-handed-sword",
+   "name": "Two-handed Sword",
+   "group": "heavy-blades",
+   "damage": "3d6",
+   "minStrength": 3,
+   "costCp": 2300,
+   "twoHanded": true
+  },
+  {
+   "id": "heavy-lance",
+   "name": "Heavy Lance",
+   "group": "lances",
+   "damage": "2d6+1",
+   "minStrength": 3,
+   "costCp": 2000
+  },
+  {
+   "id": "jousting-lance",
+   "name": "Jousting Lance",
+   "group": "lances",
+   "damage": "1d6+1",
+   "minStrength": 0,
+   "costCp": 600
+  },
+  {
+   "id": "light-lance",
+   "name": "Light Lance",
+   "group": "lances",
+   "damage": "1d6+3",
+   "minStrength": 1,
+   "costCp": 1200
+  },
+  {
+   "id": "dagger",
+   "name": "Dagger",
+   "group": "light-blades",
+   "damage": "1d6+1",
+   "minStrength": null,
+   "costCp": 900
+  },
+  {
+   "id": "shortsword",
+   "name": "Shortsword",
+   "group": "light-blades",
+   "damage": "1d6+2",
+   "minStrength": -1,
+   "costCp": 1400
+  },
+  {
+   "id": "throwing-knife",
+   "name": "Throwing Knife",
+   "group": "light-blades",
+   "damage": "1d6",
+   "minStrength": null,
+   "costCp": 1000,
+   "range": {
+    "short": 6,
+    "long": 12,
+    "reload": "minor"
+   }
+  },
+  {
+   "id": "glaive",
+   "name": "Glaive",
+   "group": "polearms",
+   "damage": "2d6+1",
+   "minStrength": 1,
+   "costCp": 2300,
+   "twoHanded": true
+  },
+  {
+   "id": "halberd",
+   "name": "Halberd",
+   "group": "polearms",
+   "damage": "2d6+3",
+   "minStrength": 3,
+   "costCp": 2500,
+   "twoHanded": true
+  },
+  {
+   "id": "military-fork",
+   "name": "Military Fork",
+   "group": "polearms",
+   "damage": "2d6",
+   "minStrength": 2,
+   "costCp": 1800,
+   "twoHanded": true
+  },
+  {
+   "id": "spear",
+   "name": "Spear",
+   "group": "spears",
+   "damage": "1d6+3",
+   "minStrength": 0,
+   "costCp": 1200
+  },
+  {
+   "id": "throwing-spear",
+   "name": "Throwing Spear",
+   "group": "spears",
+   "damage": "1d6+3",
+   "minStrength": 0,
+   "costCp": 1200,
+   "range": {
+    "short": 8,
+    "long": 16,
+    "reload": "minor"
+   }
+  },
+  {
+   "id": "two-handed-spear",
+   "name": "Two-handed Spear",
+   "group": "spears",
+   "damage": "2d6",
+   "minStrength": 1,
+   "costCp": 2000,
+   "twoHanded": true
+  },
+  {
+   "id": "club",
+   "name": "Club",
+   "group": "staves",
+   "damage": "1d6",
+   "minStrength": null,
+   "costCp": 100
+  },
+  {
+   "id": "morningstar",
+   "name": "Morningstar",
+   "group": "staves",
+   "damage": "1d6+3",
+   "minStrength": 1,
+   "costCp": 1100
+  },
+  {
+   "id": "quarterstaff",
+   "name": "Quarterstaff",
+   "group": "staves",
+   "damage": "1d6+1",
+   "minStrength": null,
+   "costCp": 300
+  }
+ ],
+ "weaponRules": {
+  "untrainedAttackPenalty": -2,
+  "untrainedDamage": "half (add Strength first, then halve, round down); missile range halved",
+  "belowMinStrengthDamage": "1d6-1",
+  "longRangeAttackPenalty": -2
+ },
+ "ammunition": [
+  {
+   "id": "arrows-20",
+   "name": "Arrows (20)",
+   "costCp": 200
+  },
+  {
+   "id": "bolts-20",
+   "name": "Bolts (20)",
+   "costCp": 300
+  }
+ ],
+ "gear": {
+  "traveling": [
+   {
+    "id": "traveling-bedroll",
+    "name": "Bedroll",
+    "costCp": 1000
+   },
+   {
+    "id": "traveling-blanket-wool",
+    "name": "Blanket (wool)",
+    "costCp": 600
+   },
+   {
+    "id": "traveling-candle-2",
+    "name": "Candle (2)",
+    "costCp": 5
+   },
+   {
+    "id": "traveling-candle-clock",
+    "name": "Candle clock",
+    "costCp": 1000
+   },
+   {
+    "id": "traveling-chain-5-yd",
+    "name": "Chain (5 yd)",
+    "costCp": 10000
+   },
+   {
+    "id": "traveling-chalk",
+    "name": "Chalk",
+    "costCp": 2
+   },
+   {
+    "id": "traveling-compass",
+    "name": "Compass",
+    "costCp": 50000
+   },
+   {
+    "id": "traveling-cord-fishing-50-yd",
+    "name": "Cord (fishing, 50 yd)",
+    "costCp": 200
+   },
+   {
+    "id": "traveling-cord-twine-50-yd",
+    "name": "Cord (twine, 50 yd)",
+    "costCp": 100
+   },
+   {
+    "id": "traveling-cup-tin",
+    "name": "Cup (tin)",
+    "costCp": 10
+   },
+   {
+    "id": "traveling-dice",
+    "name": "Dice",
+    "costCp": 2000
+   },
+   {
+    "id": "traveling-dining-utensils",
+    "name": "Dining utensils",
+    "costCp": 200
+   },
+   {
+    "id": "traveling-fishing-tackle",
+    "name": "Fishing tackle",
+    "costCp": 1000
+   },
+   {
+    "id": "traveling-flint-steel",
+    "name": "Flint & steel",
+    "costCp": 10
+   },
+   {
+    "id": "traveling-floater-cork",
+    "name": "Floater (cork)",
+    "costCp": 3000
+   },
+   {
+    "id": "traveling-hook-climbing",
+    "name": "Hook (climbing)",
+    "costCp": 2500
+   },
+   {
+    "id": "traveling-hook-grapnel",
+    "name": "Hook (grapnel)",
+    "costCp": 40000
+   },
+   {
+    "id": "traveling-hunter-s-snare",
+    "name": "Hunter's snare",
+    "costCp": 800
+   },
+   {
+    "id": "traveling-incense",
+    "name": "Incense",
+    "costCp": 200
+   },
+   {
+    "id": "traveling-lantern",
+    "name": "Lantern",
+    "costCp": 500
+   },
+   {
+    "id": "traveling-lockpicks",
+    "name": "Lockpicks",
+    "costCp": 1200
+   },
+   {
+    "id": "traveling-mirror-hand-metal",
+    "name": "Mirror (hand, metal)",
+    "costCp": 300
+   },
+   {
+    "id": "traveling-pan-frying-iron",
+    "name": "Pan (frying, iron)",
+    "costCp": 500
+   },
+   {
+    "id": "traveling-plate-tin",
+    "name": "Plate (tin)",
+    "costCp": 7
+   },
+   {
+    "id": "traveling-playing-cards",
+    "name": "Playing cards",
+    "costCp": 3500
+   },
+   {
+    "id": "traveling-pole-10-ft",
+    "name": "Pole (10 ft)",
+    "costCp": 3
+   },
+   {
+    "id": "traveling-pot-iron",
+    "name": "Pot (iron)",
+    "costCp": 1000
+   },
+   {
+    "id": "traveling-rope-20-yd",
+    "name": "Rope (20 yd)",
+    "costCp": 200
+   },
+   {
+    "id": "traveling-rope-silk-20-yd",
+    "name": "Rope (silk, 20 yd)",
+    "costCp": 10000
+   },
+   {
+    "id": "traveling-shackles",
+    "name": "Shackles",
+    "costCp": 30000
+   },
+   {
+    "id": "traveling-smoke-bomb",
+    "name": "Smoke bomb",
+    "costCp": 1500
+   },
+   {
+    "id": "traveling-spark-tube",
+    "name": "Spark tube",
+    "costCp": 800
+   },
+   {
+    "id": "traveling-spike",
+    "name": "Spike",
+    "costCp": 5
+   },
+   {
+    "id": "traveling-spyglass",
+    "name": "Spyglass",
+    "costCp": 150000
+   },
+   {
+    "id": "traveling-stinker",
+    "name": "Stinker",
+    "costCp": 600
+   },
+   {
+    "id": "traveling-tarp-canvas",
+    "name": "Tarp (canvas)",
+    "costCp": 2000
+   },
+   {
+    "id": "traveling-tarp-waxed",
+    "name": "Tarp (waxed)",
+    "costCp": 3500
+   },
+   {
+    "id": "traveling-tent-small",
+    "name": "Tent, small",
+    "costCp": 1000
+   },
+   {
+    "id": "traveling-tent-large",
+    "name": "Tent, large",
+    "costCp": 3500
+   },
+   {
+    "id": "traveling-torch",
+    "name": "Torch",
+    "costCp": 10
+   },
+   {
+    "id": "traveling-whetstone",
+    "name": "Whetstone",
+    "costCp": 10
+   },
+   {
+    "id": "traveling-whistle",
+    "name": "Whistle",
+    "costCp": 2200
+   }
+  ],
+  "carrying": [
+   {
+    "id": "carrying-backpack",
+    "name": "Backpack",
+    "costCp": 900,
+    "note": "25 lb"
+   },
+   {
+    "id": "carrying-backpack-traveler-s",
+    "name": "Backpack, traveler's",
+    "costCp": 1500,
+    "note": "75 lb"
+   },
+   {
+    "id": "carrying-barrel",
+    "name": "Barrel",
+    "costCp": 900,
+    "note": "35 gal / 175 lb"
+   },
+   {
+    "id": "carrying-basket-reed",
+    "name": "Basket (reed)",
+    "costCp": 7
+   },
+   {
+    "id": "carrying-bottle-clay",
+    "name": "Bottle, clay",
+    "costCp": 3
+   },
+   {
+    "id": "carrying-bottle-glass",
+    "name": "Bottle, glass",
+    "costCp": 8
+   },
+   {
+    "id": "carrying-bucket",
+    "name": "Bucket",
+    "costCp": 11
+   },
+   {
+    "id": "carrying-cask",
+    "name": "Cask",
+    "costCp": 300
+   },
+   {
+    "id": "carrying-chest-large",
+    "name": "Chest, large",
+    "costCp": 50000,
+    "note": "12 cu ft"
+   },
+   {
+    "id": "carrying-chest-small",
+    "name": "Chest, small",
+    "costCp": 10000,
+    "note": "3 cu ft"
+   },
+   {
+    "id": "carrying-crate",
+    "name": "Crate",
+    "costCp": 20
+   },
+   {
+    "id": "carrying-flask-metal-1-pint",
+    "name": "Flask (metal, 1 pint)",
+    "costCp": 50
+   },
+   {
+    "id": "carrying-hasp",
+    "name": "Hasp",
+    "costCp": 400
+   },
+   {
+    "id": "carrying-hinge",
+    "name": "Hinge",
+    "costCp": 100
+   },
+   {
+    "id": "carrying-lock-cylinder",
+    "name": "Lock, cylinder",
+    "costCp": 20000
+   },
+   {
+    "id": "carrying-lock-keyed",
+    "name": "Lock, keyed",
+    "costCp": 60000
+   },
+   {
+    "id": "carrying-pouch",
+    "name": "Pouch",
+    "costCp": 8
+   },
+   {
+    "id": "carrying-pouch-belt",
+    "name": "Pouch (belt)",
+    "costCp": 100
+   },
+   {
+    "id": "carrying-sack",
+    "name": "Sack",
+    "costCp": 5,
+    "note": "40 lb"
+   },
+   {
+    "id": "carrying-sawdust",
+    "name": "Sawdust",
+    "costCp": 1
+   },
+   {
+    "id": "carrying-skin-water-wine",
+    "name": "Skin (water/wine)",
+    "costCp": 40
+   }
+  ],
+  "tools": [
+   {
+    "id": "tools-anvil-portable-40-lb",
+    "name": "Anvil (portable, 40 lb)",
+    "costCp": 4000
+   },
+   {
+    "id": "tools-awl",
+    "name": "Awl",
+    "costCp": 300
+   },
+   {
+    "id": "tools-axe-woods",
+    "name": "Axe (woods)",
+    "costCp": 800
+   },
+   {
+    "id": "tools-bellows",
+    "name": "Bellows",
+    "costCp": 12
+   },
+   {
+    "id": "tools-chisel",
+    "name": "Chisel",
+    "costCp": 100
+   },
+   {
+    "id": "tools-crowbar",
+    "name": "Crowbar",
+    "costCp": 300
+   },
+   {
+    "id": "tools-drill",
+    "name": "Drill",
+    "costCp": 500
+   },
+   {
+    "id": "tools-glue",
+    "name": "Glue",
+    "costCp": 7
+   },
+   {
+    "id": "tools-hammer-forge",
+    "name": "Hammer, forge",
+    "costCp": 800
+   },
+   {
+    "id": "tools-hammer-iron",
+    "name": "Hammer, iron",
+    "costCp": 500
+   },
+   {
+    "id": "tools-hammer-sledge",
+    "name": "Hammer, sledge",
+    "costCp": 2000
+   },
+   {
+    "id": "tools-hatchet",
+    "name": "Hatchet",
+    "costCp": 500
+   },
+   {
+    "id": "tools-hoe",
+    "name": "Hoe",
+    "costCp": 200
+   },
+   {
+    "id": "tools-knife-skinning",
+    "name": "Knife (skinning)",
+    "costCp": 500
+   },
+   {
+    "id": "tools-ladder-4-yd-rope-or-wooden",
+    "name": "Ladder 4 yd rope or wooden",
+    "costCp": 300
+   },
+   {
+    "id": "tools-mallet",
+    "name": "Mallet",
+    "costCp": 6
+   },
+   {
+    "id": "tools-nails-25",
+    "name": "Nails (25)",
+    "costCp": 20
+   },
+   {
+    "id": "tools-pitchfork",
+    "name": "Pitchfork",
+    "costCp": 500
+   },
+   {
+    "id": "tools-rake",
+    "name": "Rake",
+    "costCp": 300
+   },
+   {
+    "id": "tools-saw",
+    "name": "Saw",
+    "costCp": 400
+   },
+   {
+    "id": "tools-scythe",
+    "name": "Scythe",
+    "costCp": 35
+   },
+   {
+    "id": "tools-shovel",
+    "name": "Shovel",
+    "costCp": 300
+   },
+   {
+    "id": "tools-sickle",
+    "name": "Sickle",
+    "costCp": 500
+   },
+   {
+    "id": "tools-spade",
+    "name": "Spade",
+    "costCp": 400
+   },
+   {
+    "id": "tools-tongs-forge",
+    "name": "Tongs, forge",
+    "costCp": 400
+   },
+   {
+    "id": "tools-tongs-hand",
+    "name": "Tongs, hand",
+    "costCp": 100
+   }
+  ],
+  "clothes": [
+   {
+    "id": "clothes-breeches",
+    "name": "Breeches",
+    "costCp": 8
+   },
+   {
+    "id": "clothes-belt",
+    "name": "Belt",
+    "costCp": 7
+   },
+   {
+    "id": "clothes-boots",
+    "name": "Boots",
+    "costCp": 500
+   },
+   {
+    "id": "clothes-cloak",
+    "name": "Cloak",
+    "costCp": 300
+   },
+   {
+    "id": "clothes-dress",
+    "name": "Dress",
+    "costCp": 12
+   },
+   {
+    "id": "clothes-gloves",
+    "name": "Gloves",
+    "costCp": 400
+   },
+   {
+    "id": "clothes-gown",
+    "name": "Gown",
+    "costCp": 4000
+   },
+   {
+    "id": "clothes-hat",
+    "name": "Hat",
+    "costCp": 100
+   },
+   {
+    "id": "clothes-hood",
+    "name": "Hood",
+    "costCp": 5
+   },
+   {
+    "id": "clothes-jacket",
+    "name": "Jacket",
+    "costCp": 200
+   },
+   {
+    "id": "clothes-jerkin",
+    "name": "Jerkin",
+    "costCp": 9
+   },
+   {
+    "id": "clothes-loincloth",
+    "name": "Loincloth",
+    "costCp": 1
+   },
+   {
+    "id": "clothes-mask-cloth",
+    "name": "Mask, cloth",
+    "costCp": 8
+   },
+   {
+    "id": "clothes-mask-plaster",
+    "name": "Mask, plaster",
+    "costCp": 300
+   },
+   {
+    "id": "clothes-pants",
+    "name": "Pants",
+    "costCp": 100
+   },
+   {
+    "id": "clothes-robe-dressing",
+    "name": "Robe, dressing",
+    "costCp": 11
+   },
+   {
+    "id": "clothes-robe-mage-s",
+    "name": "Robe, mage's",
+    "costCp": 600
+   },
+   {
+    "id": "clothes-sandals",
+    "name": "Sandals",
+    "costCp": 6
+   },
+   {
+    "id": "clothes-sash",
+    "name": "Sash",
+    "costCp": 5
+   },
+   {
+    "id": "clothes-shirt",
+    "name": "Shirt",
+    "costCp": 100
+   },
+   {
+    "id": "clothes-shoes",
+    "name": "Shoes",
+    "costCp": 100
+   },
+   {
+    "id": "clothes-skirt",
+    "name": "Skirt",
+    "costCp": 7
+   },
+   {
+    "id": "clothes-slippers",
+    "name": "Slippers",
+    "costCp": 8
+   },
+   {
+    "id": "clothes-stockings",
+    "name": "Stockings",
+    "costCp": 16
+   },
+   {
+    "id": "clothes-tabard",
+    "name": "Tabard",
+    "costCp": 7
+   },
+   {
+    "id": "clothes-underclothes",
+    "name": "Underclothes",
+    "costCp": 3
+   },
+   {
+    "id": "clothes-vest",
+    "name": "Vest",
+    "costCp": 6
+   }
+  ],
+  "trade-goods": [
+   {
+    "id": "trade-goods-beads-10",
+    "name": "Beads (10)",
+    "costCp": 15
+   },
+   {
+    "id": "trade-goods-beeswax-1-lb",
+    "name": "Beeswax (1 lb)",
+    "costCp": 1000
+   },
+   {
+    "id": "trade-goods-cotton-10-yd-bolt",
+    "name": "Cotton (10-yd bolt)",
+    "costCp": 2000
+   },
+   {
+    "id": "trade-goods-dye-1-pint",
+    "name": "Dye (1 pint)",
+    "costCp": 2500
+   },
+   {
+    "id": "trade-goods-feathers-1-lb",
+    "name": "Feathers (1 lb)",
+    "costCp": 4500
+   },
+   {
+    "id": "trade-goods-flour-1-lb",
+    "name": "Flour (1 lb)",
+    "costCp": 200
+   },
+   {
+    "id": "trade-goods-food-dried",
+    "name": "Food, dried",
+    "costCp": 400,
+    "note": "1 lb"
+   },
+   {
+    "id": "trade-goods-food-fresh",
+    "name": "Food, fresh",
+    "costCp": 300,
+    "note": "1 lb"
+   },
+   {
+    "id": "trade-goods-honey-1-oz",
+    "name": "Honey (1 oz)",
+    "costCp": 200
+   },
+   {
+    "id": "trade-goods-leather-1-lb",
+    "name": "Leather (1 lb)",
+    "costCp": 800
+   },
+   {
+    "id": "trade-goods-linen-10-yd-bolt",
+    "name": "Linen (10-yd bolt)",
+    "costCp": 1500
+   },
+   {
+    "id": "trade-goods-pelt-small",
+    "name": "Pelt, small",
+    "costCp": 1500
+   },
+   {
+    "id": "trade-goods-pelt-large",
+    "name": "Pelt, large",
+    "costCp": 4000
+   },
+   {
+    "id": "trade-goods-salt-1-lb",
+    "name": "Salt (1 lb)",
+    "costCp": 2500
+   },
+   {
+    "id": "trade-goods-silk-1-sq-yd",
+    "name": "Silk (1 sq yd)",
+    "costCp": 3500
+   },
+   {
+    "id": "trade-goods-spices-1-oz",
+    "name": "Spices (1 oz)",
+    "costCp": 50000
+   },
+   {
+    "id": "trade-goods-wool-1-lb",
+    "name": "Wool (1 lb)",
+    "costCp": 35
+   }
+  ],
+  "professional": [
+   {
+    "id": "professional-book-blank-30-pp",
+    "name": "Book (blank, 30 pp)",
+    "costCp": 100000
+   },
+   {
+    "id": "professional-book-lock",
+    "name": "Book lock",
+    "costCp": 20000
+   },
+   {
+    "id": "professional-canvas",
+    "name": "Canvas",
+    "costCp": 500
+   },
+   {
+    "id": "professional-healer-s-kit",
+    "name": "Healer's kit",
+    "costCp": 2500
+   },
+   {
+    "id": "professional-horn-hunting",
+    "name": "Horn (hunting)",
+    "costCp": 800
+   },
+   {
+    "id": "professional-illuminating-kit",
+    "name": "Illuminating kit",
+    "costCp": 50000
+   },
+   {
+    "id": "professional-ink-black",
+    "name": "Ink, black",
+    "costCp": 20
+   },
+   {
+    "id": "professional-ink-red",
+    "name": "Ink, red",
+    "costCp": 25
+   },
+   {
+    "id": "professional-instrument-horn",
+    "name": "Instrument, horn",
+    "costCp": 1500
+   },
+   {
+    "id": "professional-instrument-drum",
+    "name": "Instrument, drum",
+    "costCp": 800
+   },
+   {
+    "id": "professional-instrument-stringed",
+    "name": "Instrument, stringed",
+    "costCp": 2000
+   },
+   {
+    "id": "professional-instrument-wind",
+    "name": "Instrument, wind",
+    "costCp": 1000
+   },
+   {
+    "id": "professional-paint-pot",
+    "name": "Paint (pot)",
+    "costCp": 300
+   },
+   {
+    "id": "professional-painter-s-kit",
+    "name": "Painter's kit",
+    "costCp": 10000
+   },
+   {
+    "id": "professional-paper-mapsheet",
+    "name": "Paper, mapsheet",
+    "costCp": 100
+   },
+   {
+    "id": "professional-paper-page",
+    "name": "Paper, page",
+    "costCp": 3
+   },
+   {
+    "id": "professional-pencil",
+    "name": "Pencil",
+    "costCp": 1
+   },
+   {
+    "id": "professional-quill",
+    "name": "Quill",
+    "costCp": 3
+   },
+   {
+    "id": "professional-scroll",
+    "name": "Scroll",
+    "costCp": 10000
+   },
+   {
+    "id": "professional-sealing-ring-custom",
+    "name": "Sealing ring, custom",
+    "costCp": 60000
+   },
+   {
+    "id": "professional-sealing-ring-standard",
+    "name": "Sealing ring, standard",
+    "costCp": 500
+   },
+   {
+    "id": "professional-sealing-wax",
+    "name": "Sealing wax",
+    "costCp": 5
+   }
+  ],
+  "home": [
+   {
+    "id": "home-bed-frame",
+    "name": "Bed frame",
+    "costCp": 3000
+   },
+   {
+    "id": "home-blanket-cotton",
+    "name": "Blanket (cotton)",
+    "costCp": 400
+   },
+   {
+    "id": "home-bowl-clay",
+    "name": "Bowl, clay",
+    "costCp": 3
+   },
+   {
+    "id": "home-bowl-metal",
+    "name": "Bowl, metal",
+    "costCp": 20
+   },
+   {
+    "id": "home-bowl-wooden",
+    "name": "Bowl, wooden",
+    "costCp": 6
+   },
+   {
+    "id": "home-broom",
+    "name": "Broom",
+    "costCp": 7
+   },
+   {
+    "id": "home-brush",
+    "name": "Brush",
+    "costCp": 12
+   },
+   {
+    "id": "home-cauldron",
+    "name": "Cauldron",
+    "costCp": 3500
+   },
+   {
+    "id": "home-chair-upholstered",
+    "name": "Chair, upholstered",
+    "costCp": 2500
+   },
+   {
+    "id": "home-chair-wooden",
+    "name": "Chair, wooden",
+    "costCp": 1000
+   },
+   {
+    "id": "home-comb",
+    "name": "Comb",
+    "costCp": 6
+   },
+   {
+    "id": "home-cup-clay",
+    "name": "Cup, clay",
+    "costCp": 5
+   },
+   {
+    "id": "home-cup-tin",
+    "name": "Cup, tin",
+    "costCp": 10
+   },
+   {
+    "id": "home-cup-wooden",
+    "name": "Cup, wooden",
+    "costCp": 8
+   },
+   {
+    "id": "home-lamp",
+    "name": "Lamp",
+    "costCp": 200
+   },
+   {
+    "id": "home-looking-glass-full",
+    "name": "Looking glass, full",
+    "costCp": 70000
+   },
+   {
+    "id": "home-looking-glass-small",
+    "name": "Looking glass, small",
+    "costCp": 50000
+   },
+   {
+    "id": "home-mattress-feather",
+    "name": "Mattress, feather",
+    "costCp": 4500
+   },
+   {
+    "id": "home-mattress-straw",
+    "name": "Mattress, straw",
+    "costCp": 2000
+   },
+   {
+    "id": "home-mug-clay",
+    "name": "Mug, clay",
+    "costCp": 8
+   },
+   {
+    "id": "home-mug-metal",
+    "name": "Mug, metal",
+    "costCp": 15
+   },
+   {
+    "id": "home-oil-pint",
+    "name": "Oil (pint)",
+    "costCp": 8
+   },
+   {
+    "id": "home-pillow",
+    "name": "Pillow",
+    "costCp": 300
+   },
+   {
+    "id": "home-quilt",
+    "name": "Quilt",
+    "costCp": 1000
+   },
+   {
+    "id": "home-soap-1-lb",
+    "name": "Soap (1 lb)",
+    "costCp": 15
+   },
+   {
+    "id": "home-stool",
+    "name": "Stool",
+    "costCp": 25
+   },
+   {
+    "id": "home-table-large",
+    "name": "Table, large",
+    "costCp": 4500
+   },
+   {
+    "id": "home-table-small",
+    "name": "Table, small",
+    "costCp": 1000
+   },
+   {
+    "id": "home-wineglass",
+    "name": "Wineglass",
+    "costCp": 30000
+   }
+  ],
+  "food-lodging": [
+   {
+    "id": "food-lodging-ale-pint",
+    "name": "Ale, pint",
+    "costCp": 10
+   },
+   {
+    "id": "food-lodging-ale-pitcher",
+    "name": "Ale, pitcher",
+    "costCp": 25
+   },
+   {
+    "id": "food-lodging-bath",
+    "name": "Bath",
+    "costCp": 100
+   },
+   {
+    "id": "food-lodging-bread",
+    "name": "Bread",
+    "costCp": 5
+   },
+   {
+    "id": "food-lodging-candy-1-lb",
+    "name": "Candy (1 lb)",
+    "costCp": 800
+   },
+   {
+    "id": "food-lodging-cheese-1-lb",
+    "name": "Cheese (1 lb)",
+    "costCp": 25
+   },
+   {
+    "id": "food-lodging-dried-meat-1-lb",
+    "name": "Dried meat (1 lb)",
+    "costCp": 35
+   },
+   {
+    "id": "food-lodging-fruit-basket",
+    "name": "Fruit basket",
+    "costCp": 2000
+   },
+   {
+    "id": "food-lodging-lodging-private-apartment-1-week",
+    "name": "Lodging, private apartment (1 week)",
+    "costCp": 50000
+   },
+   {
+    "id": "food-lodging-lodging-private-house-1-week",
+    "name": "Lodging, private house (1 week)",
+    "costCp": 200000
+   },
+   {
+    "id": "food-lodging-lodging-inn-common-room-1-night",
+    "name": "Lodging, inn common room (1 night)",
+    "costCp": 5
+   },
+   {
+    "id": "food-lodging-lodging-inn-private-room-1-night",
+    "name": "Lodging, inn private room (1 night)",
+    "costCp": 200
+   },
+   {
+    "id": "food-lodging-mead-pint",
+    "name": "Mead (pint)",
+    "costCp": 15
+   },
+   {
+    "id": "food-lodging-meal-inn-full",
+    "name": "Meal, inn full",
+    "costCp": 25
+   },
+   {
+    "id": "food-lodging-meal-inn-bowl-of-stew",
+    "name": "Meal, inn bowl of stew",
+    "costCp": 5
+   },
+   {
+    "id": "food-lodging-pickled-vegetables",
+    "name": "Pickled vegetables",
+    "costCp": 3
+   },
+   {
+    "id": "food-lodging-rations-1-week-travel",
+    "name": "Rations (1 week, travel)",
+    "costCp": 200
+   },
+   {
+    "id": "food-lodging-tea-1-lb",
+    "name": "Tea (1 lb)",
+    "costCp": 600
+   },
+   {
+    "id": "food-lodging-vegetables-basket",
+    "name": "Vegetables basket",
+    "costCp": 25
+   },
+   {
+    "id": "food-lodging-wash",
+    "name": "Wash",
+    "costCp": 2
+   },
+   {
+    "id": "food-lodging-wine-bottle-cheap",
+    "name": "Wine bottle, cheap",
+    "costCp": 20
+   },
+   {
+    "id": "food-lodging-wine-bottle-fine",
+    "name": "Wine bottle, fine",
+    "costCp": 300
+   }
+  ],
+  "animals-vehicles": [
+   {
+    "id": "animals-vehicles-cart",
+    "name": "Cart",
+    "costCp": 2000
+   },
+   {
+    "id": "animals-vehicles-dog",
+    "name": "Dog",
+    "costCp": 1500
+   },
+   {
+    "id": "animals-vehicles-draft-horse",
+    "name": "Draft Horse",
+    "costCp": 5000
+   },
+   {
+    "id": "animals-vehicles-falcon",
+    "name": "Falcon",
+    "costCp": 7500
+   },
+   {
+    "id": "animals-vehicles-feed-per-day",
+    "name": "Feed (per day)",
+    "costCp": 5
+   },
+   {
+    "id": "animals-vehicles-mule",
+    "name": "Mule",
+    "costCp": 2000
+   },
+   {
+    "id": "animals-vehicles-riding-horse",
+    "name": "Riding Horse",
+    "costCp": 12000
+   },
+   {
+    "id": "animals-vehicles-saddle",
+    "name": "Saddle",
+    "costCp": 2000
+   },
+   {
+    "id": "animals-vehicles-saddlebags",
+    "name": "Saddlebags",
+    "costCp": 1000
+   },
+   {
+    "id": "animals-vehicles-stabling-per-day",
+    "name": "Stabling (per day)",
+    "costCp": 10
+   },
+   {
+    "id": "animals-vehicles-wagon",
+    "name": "Wagon",
+    "costCp": 15000
+   }
+  ]
+ },
+ "lightSources": [
+  {
+   "item": "candle",
+   "radiusYd": 2,
+   "hours": 1
+  },
+  {
+   "item": "torch",
+   "radiusYd": 6,
+   "hours": 1
+  },
+  {
+   "item": "lantern",
+   "radiusYd": 10,
+   "hours": 6
+  },
+  {
+   "item": "lamp",
+   "radiusYd": 6,
+   "hours": 6,
+   "note": "6 hours per pint of oil."
+  }
+ ]
+}
