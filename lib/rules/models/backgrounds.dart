@@ -82,9 +82,9 @@ class Background {
     this.languageChoice,
     required this.classes,
     this.trait,
-    this.casteChoices = const [],
+    required this.casteChoices,
     required this.tables,
-    this.notes = const [],
+    required this.notes,
   });
 
   final String id;

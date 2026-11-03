@@ -4,7 +4,7 @@ publish_to: none
 version: 0.1.0+1
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ^3.8.0
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   intl: any
   flutter_riverpod: ^2.5.1
-  json_annotation: ^4.9.0
+  json_annotation: ^4.12.0
   path: ^1.9.0
   path_provider: ^2.1.4
 

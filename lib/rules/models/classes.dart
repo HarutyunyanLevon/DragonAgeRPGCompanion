@@ -85,9 +85,9 @@ class SpecializationStep {
 class ClassLevel {
   const ClassLevel({
     required this.level,
-    this.gains = const [],
+    required this.gains,
     this.specialization,
-    this.powers = const [],
+    required this.powers,
   });
 
   final int level;

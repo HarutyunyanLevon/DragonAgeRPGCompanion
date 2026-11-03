@@ -17,12 +17,16 @@ Character sample({String id = 'c1', String name = 'Aveline'}) => Character(
         CharacterFocus(ability: 'strength', focus: 'axes', doubled: true)
       ],
       talents: const [DegreeEntry(id: 'single-weapon-style', degree: 2)],
+      specializations: const [],
       spellIds: const [],
+      weaponGroups: const ['axes'],
+      languages: const ['trade-tongue'],
       maxHealth: 38,
       health: 30,
       copper: 5200,
       inventory: const [InventoryItem(name: 'Battle Axe', itemId: 'axes-battle-axe')],
       goals: const ['Prove myself worthy'],
+      ties: const [],
     );
 
 void main() {

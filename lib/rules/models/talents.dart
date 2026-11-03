@@ -70,7 +70,7 @@ class Talent {
     required this.classes,
     required this.requirements,
     required this.degrees,
-    this.notes = const [],
+    required this.notes,
   });
 
   final String id;

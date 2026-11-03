@@ -9,3 +9,6 @@ pubspec.lock
 # Generated code (recreate with: dart run build_runner build)
 *.g.dart
 lib/l10n/app_localizations*.dart
+# Widget Preview related
+.widget_preview/
+Dragonage Core Rulebook.pdf
