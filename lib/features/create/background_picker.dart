@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../character/providers.dart';
 import '../../l10n/app_localizations.dart';
 import '../../rules/models/backgrounds.dart';
+import '../../shared/confirm_dialog.dart';
 import '../../shared/display_name.dart';
 import 'character_draft.dart';
 import 'custom_background_page.dart';
@@ -98,23 +99,12 @@ class _BackgroundPickerState extends ConsumerState<BackgroundPicker> {
 
   Future<void> _delete(Background background) async {
     final l10n = AppLocalizations.of(context);
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(l10n.deleteBackgroundTitle(background.name)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text(l10n.cancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(dialogContext, true),
-            child: Text(l10n.delete),
-          ),
-        ],
-      ),
+    final confirmed = await confirm(
+      context,
+      title: l10n.deleteBackgroundTitle(background.name),
+      confirmLabel: l10n.delete,
     );
-    if (confirmed != true) return;
+    if (!confirmed) return;
     await ref.read(customBackgroundsProvider.notifier).remove(background.id);
     if (mounted && ref.read(characterDraftProvider).background?.id == background.id) {
       ref.read(characterDraftProvider.notifier).clearBackground();

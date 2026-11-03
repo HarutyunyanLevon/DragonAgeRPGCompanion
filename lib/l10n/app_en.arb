@@ -24,7 +24,60 @@
       "total": {"type": "int"}
     }
   },
-  "stepAbilities": "Abilities",
+  "stepBackgroundBenefits": "Background benefits",
+  "methodRoll": "Roll",
+  "methodArrange": "Arrange",
+  "methodBuy": "Buy",
+  "methodManual": "Manual",
+  "methodManualHelp": "Type the scores you rolled elsewhere. The rules allow {min} to {max} for each ability.",
+  "@methodManualHelp": {
+    "placeholders": {
+      "min": {"type": "int"},
+      "max": {"type": "int"}
+    }
+  },
+  "rolledScores": "Rolled scores",
+  "scoresOutOfRangeWarning": "{count} outside the rules ({min} to {max})",
+  "@scoresOutOfRangeWarning": {
+    "placeholders": {
+      "count": {"type": "int"},
+      "min": {"type": "int"},
+      "max": {"type": "int"}
+    }
+  },
+  "scoresOutOfRangeTitle": "Scores outside the rules",
+  "scoresOutOfRangeBody": "Some scores are outside {min} to {max}. Continue anyway?",
+  "@scoresOutOfRangeBody": {
+    "placeholders": {
+      "min": {"type": "int"},
+      "max": {"type": "int"}
+    }
+  },
+  "methodRollHelp": "Roll 3d6 for each ability in order. Then you may swap any two scores, once.",
+  "methodArrangeHelp": "Roll eight scores, then give each one to the ability you want.",
+  "methodBuyHelp": "Spend {points} points, +1 each, at most {maximum} on one ability. All points must be spent.",
+  "@methodBuyHelp": {
+    "placeholders": {
+      "points": {"type": "int"},
+      "maximum": {"type": "int"}
+    }
+  },
+  "rollAbilities": "Roll abilities",
+  "rollAgain": "Roll again",
+  "swapHint": "Tap two abilities to swap their scores (once).",
+  "pointsLeft": "Points left: {count}",
+  "@pointsLeft": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "backgroundBonus": "+1 from background",
+  "backgroundBonusTotal": "+1 from background = {total}",
+  "@backgroundBonusTotal": {
+    "placeholders": {
+      "total": {"type": "int"}
+    }
+  },
   "characterName": "Character name",
   "background": "Background",
   "filterAll": "All",

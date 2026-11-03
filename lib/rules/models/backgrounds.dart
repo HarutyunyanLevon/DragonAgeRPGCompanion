@@ -143,19 +143,40 @@ class ScoreRange {
   Map<String, dynamic> toJson() => _$ScoreRangeToJson(this);
 }
 
+/// The "buying" way to make abilities (the buyMethod block in backgrounds.json).
+@JsonSerializable()
+class BuyMethod {
+  const BuyMethod({required this.points, required this.maxPerAbility});
+
+  final int points; // 10 points to spend, +1 each
+  final int maxPerAbility; // at most 3 on one ability
+
+  factory BuyMethod.fromJson(Map<String, dynamic> json) =>
+      _$BuyMethodFromJson(json);
+  Map<String, dynamic> toJson() => _$BuyMethodToJson(this);
+}
+
 @JsonSerializable()
 class BackgroundsFile {
   const BackgroundsFile({
     required this.abilities,
     required this.abilityScoreTable,
+    required this.buyMethod,
     required this.focusBonus,
     required this.backgrounds,
   });
 
   final List<String> abilities;
   final List<ScoreRange> abilityScoreTable;
+  final BuyMethod buyMethod;
   final int focusBonus;
   final List<Background> backgrounds;
+
+  /// Lowest and highest start score the rules allow (-2 and 4).
+  int get minScore =>
+      abilityScoreTable.map((r) => r.score).reduce((a, b) => a < b ? a : b);
+  int get maxScore =>
+      abilityScoreTable.map((r) => r.score).reduce((a, b) => a > b ? a : b);
 
   Background backgroundById(String id) =>
       backgrounds.firstWhere((b) => b.id == id);

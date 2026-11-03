@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../rules/models/backgrounds.dart';
+import 'ability_generation.dart';
 
 /// The character being built by the creation wizard. Nothing is saved until
 /// the last step. The draft is thrown away when the wizard closes.
@@ -11,6 +12,7 @@ class CharacterDraft {
     this.race,
     this.caste,
     this.classId,
+    this.abilities = const AbilityGeneration(),
   });
 
   final String name;
@@ -22,6 +24,9 @@ class CharacterDraft {
   final String? race;
   final String? caste;
   final String? classId;
+
+  /// Step 2: the abilities made so far.
+  final AbilityGeneration abilities;
 
   /// Everything step 1 asks for has an answer.
   bool get isComplete =>
@@ -37,6 +42,7 @@ class CharacterDraft {
     String? race,
     String? caste,
     String? classId,
+    AbilityGeneration? abilities,
   }) =>
       CharacterDraft(
         name: name ?? this.name,
@@ -44,6 +50,7 @@ class CharacterDraft {
         race: race ?? this.race,
         caste: caste ?? this.caste,
         classId: classId ?? this.classId,
+        abilities: abilities ?? this.abilities,
       );
 }
 
@@ -55,6 +62,8 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
   void setRace(String race) => state = state.copyWith(race: race);
   void setCaste(String caste) => state = state.copyWith(caste: caste);
   void setClass(String classId) => state = state.copyWith(classId: classId);
+  void setAbilities(AbilityGeneration abilities) =>
+      state = state.copyWith(abilities: abilities);
 
   /// Choosing a background clears what depended on the previous one.
   void selectBackground(Background background) {
@@ -63,11 +72,13 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
       background: background,
       race: background.raceChoice ? null : background.races.first,
       classId: background.classes.contains(state.classId) ? state.classId : null,
+      abilities: state.abilities,
     );
   }
 
   /// Back to "no background chosen" (used when the chosen one is deleted).
-  void clearBackground() => state = CharacterDraft(name: state.name);
+  void clearBackground() =>
+      state = CharacterDraft(name: state.name, abilities: state.abilities);
 }
 
 final characterDraftProvider =

@@ -5,6 +5,7 @@ import '../../character/providers.dart';
 import '../../l10n/app_localizations.dart';
 import '../../rules/models/backgrounds.dart';
 import '../../rules/models/classes.dart';
+import '../../shared/confirm_dialog.dart';
 import 'character_draft.dart';
 
 /// Class choice. Classes the background does not allow are dimmed; tapping one
@@ -37,31 +38,16 @@ class ClassPicker extends ConsumerWidget {
   }
 
   Future<void> _pick(BuildContext context, WidgetRef ref, ClassRules c) async {
+    final l10n = AppLocalizations.of(context);
     final notifier = ref.read(characterDraftProvider.notifier);
-    if (background.classes.contains(c.id) || await _confirm(context, c)) {
+    if (background.classes.contains(c.id) ||
+        await confirm(
+          context,
+          title: l10n.classNotAllowedTitle,
+          body: l10n.classNotAllowedBody(background.name, c.name),
+          confirmLabel: l10n.proceedAnyway,
+        )) {
       notifier.setClass(c.id);
     }
-  }
-
-  Future<bool> _confirm(BuildContext context, ClassRules c) async {
-    final l10n = AppLocalizations.of(context);
-    final proceed = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(l10n.classNotAllowedTitle),
-        content: Text(l10n.classNotAllowedBody(background.name, c.name)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text(l10n.cancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(dialogContext, true),
-            child: Text(l10n.proceedAnyway),
-          ),
-        ],
-      ),
-    );
-    return proceed ?? false;
   }
 }

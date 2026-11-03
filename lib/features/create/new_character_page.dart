@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
-import '../../shared/placeholder_page.dart';
+import 'abilities_page.dart';
 import 'background_picker.dart';
 import 'character_draft.dart';
 import 'class_picker.dart';
@@ -68,10 +68,9 @@ class NewCharacterPage extends ConsumerWidget {
         ],
         const SizedBox(height: 32),
         FilledButton(
-          // Step 2 (abilities) is not built yet.
           onPressed: draft.isComplete
               ? () => Navigator.of(context).push(MaterialPageRoute<void>(
-                    builder: (_) => PlaceholderPage(title: l10n.stepAbilities),
+                    builder: (_) => const AbilitiesPage(),
                   ))
               : null,
           child: Text(l10n.next),
