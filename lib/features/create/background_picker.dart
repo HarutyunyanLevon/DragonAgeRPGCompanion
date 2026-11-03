@@ -7,8 +7,9 @@ import '../../rules/models/backgrounds.dart';
 import '../../shared/display_name.dart';
 import 'character_draft.dart';
 import 'custom_background_page.dart';
+import 'custom_backgrounds.dart';
 
-/// Race filter chips, the list of backgrounds (the player's custom one first),
+/// Race filter chips, the list of backgrounds (the player's custom ones first),
 /// and the details of the selected one right under it.
 class BackgroundPicker extends ConsumerStatefulWidget {
   const BackgroundPicker({super.key});
@@ -27,9 +28,11 @@ class _BackgroundPickerState extends ConsumerState<BackgroundPicker> {
     final draft = ref.watch(characterDraftProvider);
     final notifier = ref.read(characterDraftProvider.notifier);
 
+    final custom = ref.watch(customBackgroundsProvider).valueOrNull ?? [];
+
+    // Custom ones first, then the book's. The race filter applies to both.
     final shown = [
-      if (draft.customBackground != null) draft.customBackground!,
-      for (final b in book)
+      for (final b in [...custom, ...book])
         if (_raceFilter == null || b.races.contains(_raceFilter)) b,
     ];
 
@@ -57,8 +60,17 @@ class _BackgroundPickerState extends ConsumerState<BackgroundPicker> {
         for (final b in shown) ...[
           ListTile(
             title: Text(b.name),
-            subtitle: Text(b.races.map(displayName).join(' / ')),
-            trailing: b.homebrew ? Text(l10n.homebrew) : null,
+            subtitle: Text([
+              b.races.map(displayName).join(' / '),
+              if (b.homebrew) l10n.homebrew,
+            ].join(' · ')),
+            trailing: b.homebrew
+                ? IconButton(
+                    icon: const Icon(Icons.delete_outline),
+                    tooltip: l10n.delete,
+                    onPressed: () => _delete(b),
+                  )
+                : null,
             selected: draft.background?.id == b.id,
             onTap: () => notifier.selectBackground(b),
           ),
@@ -77,10 +89,35 @@ class _BackgroundPickerState extends ConsumerState<BackgroundPicker> {
     final custom = await Navigator.of(context).push<Background>(
       MaterialPageRoute(builder: (_) => const CustomBackgroundPage()),
     );
-    if (custom != null && mounted) {
-      ref
-          .read(characterDraftProvider.notifier)
-          .selectBackground(custom, custom: custom);
+    if (custom == null) return;
+    await ref.read(customBackgroundsProvider.notifier).add(custom);
+    if (mounted) {
+      ref.read(characterDraftProvider.notifier).selectBackground(custom);
+    }
+  }
+
+  Future<void> _delete(Background background) async {
+    final l10n = AppLocalizations.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.deleteBackgroundTitle(background.name)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            child: Text(l10n.delete),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    await ref.read(customBackgroundsProvider.notifier).remove(background.id);
+    if (mounted && ref.read(characterDraftProvider).background?.id == background.id) {
+      ref.read(characterDraftProvider.notifier).clearBackground();
     }
   }
 }

@@ -9,6 +9,7 @@ import '../../rules/rules_data.dart';
 import '../../rules/slug.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
+import 'custom_backgrounds.dart';
 
 /// Same shape as a book background (strictly enforced): one ability bonus,
 /// two focus choices, 1-2 languages, at least one class. The 2d6 table is
@@ -41,8 +42,16 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
 
   bool get _focusesClash => _focus1 != null && _focus1 == _focus2;
 
+  /// Custom backgrounds are saved under an id made from their name.
+  String get _id => 'custom-${slug(_name.text.trim())}';
+
+  bool get _nameTaken =>
+      (ref.read(customBackgroundsProvider).valueOrNull ?? [])
+          .any((b) => b.id == _id);
+
   bool get _isValid =>
       _name.text.trim().isNotEmpty &&
+      !_nameTaken &&
       _race != null &&
       _ability != null &&
       _focus1 != null &&
@@ -84,7 +93,10 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
       body: FormBody(children: [
         TextField(
           controller: _name,
-          decoration: InputDecoration(labelText: l10n.backgroundName),
+          decoration: InputDecoration(
+            labelText: l10n.backgroundName,
+            errorText: _nameTaken ? l10n.backgroundNameTaken : null,
+          ),
           textCapitalization: TextCapitalization.words,
           onChanged: (_) => setState(() {}),
         ),
@@ -162,7 +174,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
     final table = _tableSource!.tables;
     final name = _name.text.trim();
     return Background(
-      id: 'custom-${slug(name)}',
+      id: _id,
       name: name,
       races: [_race!],
       abilityBonus: _ability!,

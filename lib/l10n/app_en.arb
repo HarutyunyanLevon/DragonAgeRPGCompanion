@@ -32,6 +32,14 @@
   "customBackground": "Custom background",
   "backgroundName": "Background name",
   "homebrew": "Homebrew",
+  "backgroundNameTaken": "A custom background with this name already exists",
+  "delete": "Delete",
+  "deleteBackgroundTitle": "Delete {name}?",
+  "@deleteBackgroundTitle": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
   "race": "Race",
   "caste": "Caste",
   "characterClass": "Class",

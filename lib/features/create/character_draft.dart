@@ -8,7 +8,6 @@ class CharacterDraft {
   const CharacterDraft({
     this.name = '',
     this.background,
-    this.customBackground,
     this.race,
     this.caste,
     this.classId,
@@ -16,11 +15,8 @@ class CharacterDraft {
 
   final String name;
 
-  /// The chosen background: from the book, or [customBackground].
+  /// The chosen background: from the book or a saved custom one.
   final Background? background;
-
-  /// The background the player made up in this wizard, if any.
-  final Background? customBackground;
 
   /// Fixed by the background, or picked when the background allows a choice.
   final String? race;
@@ -45,7 +41,6 @@ class CharacterDraft {
       CharacterDraft(
         name: name ?? this.name,
         background: background,
-        customBackground: customBackground,
         race: race ?? this.race,
         caste: caste ?? this.caste,
         classId: classId ?? this.classId,
@@ -62,16 +57,17 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
   void setClass(String classId) => state = state.copyWith(classId: classId);
 
   /// Choosing a background clears what depended on the previous one.
-  /// Pass [custom] when the player has just made a new custom background.
-  void selectBackground(Background background, {Background? custom}) {
+  void selectBackground(Background background) {
     state = CharacterDraft(
       name: state.name,
       background: background,
-      customBackground: custom ?? state.customBackground,
       race: background.raceChoice ? null : background.races.first,
       classId: background.classes.contains(state.classId) ? state.classId : null,
     );
   }
+
+  /// Back to "no background chosen" (used when the chosen one is deleted).
+  void clearBackground() => state = CharacterDraft(name: state.name);
 }
 
 final characterDraftProvider =
