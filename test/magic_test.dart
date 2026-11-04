@@ -41,6 +41,7 @@ Character mage({
       owedGains: const [],
       goals: const [],
       ties: const [],
+      playLayouts: const {},
     );
 
 Spell spell({

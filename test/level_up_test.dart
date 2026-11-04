@@ -55,6 +55,7 @@ void main() {
         inventory: const [],
         goals: const [],
         ties: const [],
+        playLayouts: const {},
       );
 
   const dexterityFocus = FocusRef(ability: 'dexterity', focus: 'acrobatics');

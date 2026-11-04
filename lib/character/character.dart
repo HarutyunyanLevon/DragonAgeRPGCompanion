@@ -88,6 +88,158 @@ class InventoryItem {
   Map<String, dynamic> toJson() => _$InventoryItemToJson(this);
 }
 
+/// Where one Play widget sits on the grid of one device class: its cell
+/// (column [x], row [y]) and its size in cells. [widget] is a
+/// [PlayWidgetData.id].
+@JsonSerializable()
+class PlayTile {
+  const PlayTile({
+    required this.widget,
+    this.x = 0,
+    this.y = 0,
+    required this.width,
+    required this.height,
+  });
+
+  final String widget;
+
+  @JsonKey(defaultValue: 0)
+  final int x;
+  @JsonKey(defaultValue: 0)
+  final int y;
+  final int width;
+  final int height;
+
+  PlayTile copyWith({int? x, int? y, int? width, int? height}) => PlayTile(
+        widget: widget,
+        x: x ?? this.x,
+        y: y ?? this.y,
+        width: width ?? this.width,
+        height: height ?? this.height,
+      );
+
+  factory PlayTile.fromJson(Map<String, dynamic> json) =>
+      _$PlayTileFromJson(json);
+  Map<String, dynamic> toJson() => _$PlayTileToJson(this);
+}
+
+/// One thing in a Play widget. [type] says what it is and which of the other
+/// fields it uses:
+/// - a reference to the character: "ability" (ref = ability id), "focus"
+///   (ref = "ability/focus"), "weapon" (ref = gear id), "spell" (spell id),
+///   "stat" (see play_items.dart), "talent", "specialization", "language",
+///   "trait", "gear" (ref = gear id);
+/// - free items: "text" (name, text), "checkbox" (name, checked), "counter"
+///   (name, value), "resource" (name, value = current, max), "roll" (name, value = bonus, damage = dice such as "1d6+2").
+/// In a default widget template a [ref] of "*" means "all of this type".
+@JsonSerializable()
+class PlayItem {
+  const PlayItem({
+    required this.type,
+    this.ref = '',
+    this.name = '',
+    this.text = '',
+    this.value = 0,
+    this.checked = false,
+    this.damage = '',
+    this.max = 0,
+  });
+
+  final String type;
+
+  @JsonKey(defaultValue: '')
+  final String ref;
+  @JsonKey(defaultValue: '')
+  final String name;
+  @JsonKey(defaultValue: '')
+  final String text;
+  @JsonKey(defaultValue: 0)
+  final int value;
+  @JsonKey(defaultValue: false)
+  final bool checked;
+  @JsonKey(defaultValue: '')
+  final String damage;
+
+  /// "resource" only: the most it can hold (value is 0..max).
+  @JsonKey(defaultValue: 0)
+  final int max;
+
+  PlayItem copyWith({int? value, bool? checked}) => PlayItem(
+        type: type,
+        ref: ref,
+        name: name,
+        text: text,
+        value: value ?? this.value,
+        checked: checked ?? this.checked,
+        damage: damage,
+        max: max,
+      );
+
+  factory PlayItem.fromJson(Map<String, dynamic> json) =>
+      _$PlayItemFromJson(json);
+  Map<String, dynamic> toJson() => _$PlayItemToJson(this);
+}
+
+/// One widget of the Play tab: a titled box of items. The same widgets show
+/// on every device class; only their place and size differ ([PlayTile]).
+@JsonSerializable()
+class PlayWidgetData {
+  const PlayWidgetData({
+    required this.id,
+    required this.title,
+    this.style = 'list',
+    required this.items,
+  });
+
+  final String id;
+  final String title;
+
+  /// "list" (one row per item) or "tiles" (small boxes side by side).
+  @JsonKey(defaultValue: 'list')
+  final String style;
+
+  @JsonKey(defaultValue: <PlayItem>[])
+  final List<PlayItem> items;
+
+  PlayWidgetData copyWith({String? title, String? style, List<PlayItem>? items}) =>
+      PlayWidgetData(
+        id: id,
+        title: title ?? this.title,
+        style: style ?? this.style,
+        items: items ?? this.items,
+      );
+
+  factory PlayWidgetData.fromJson(Map<String, dynamic> json) =>
+      _$PlayWidgetDataFromJson(json);
+  Map<String, dynamic> toJson() => _$PlayWidgetDataToJson(this);
+}
+
+/// A saved Play layout: a named copy of all widgets (with items) and of
+/// their places on every device class.
+@JsonSerializable()
+class PlayPreset {
+  const PlayPreset({
+    required this.name,
+    required this.widgets,
+    required this.layouts,
+  });
+
+  final String name;
+
+  @JsonKey(defaultValue: <PlayWidgetData>[])
+  final List<PlayWidgetData> widgets;
+
+  @JsonKey(defaultValue: <String, List<PlayTile>>{})
+  final Map<String, List<PlayTile>> layouts;
+
+  PlayPreset copyWith({String? name}) =>
+      PlayPreset(name: name ?? this.name, widgets: widgets, layouts: layouts);
+
+  factory PlayPreset.fromJson(Map<String, dynamic> json) =>
+      _$PlayPresetFromJson(json);
+  Map<String, dynamic> toJson() => _$PlayPresetToJson(this);
+}
+
 /// What the last level-up changed, so it can be undone. Only the fields a
 /// level-up touches are kept: money, items and current health / mana are not.
 @JsonSerializable()
@@ -185,6 +337,9 @@ class Character {
     this.levelUpUndo,
     required this.goals,
     required this.ties,
+    required this.playLayouts,
+    this.playWidgets,
+    this.playPresets,
   });
 
   final String id;
@@ -259,6 +414,19 @@ class Character {
   @JsonKey(defaultValue: <String>[])
   final List<String> ties;
 
+  /// Where the Play widgets sit, per device class ("phone", "tablet",
+  /// "desktop"). A widget without a place on a device gets the default place
+  /// or goes below the others.
+  @JsonKey(defaultValue: <String, List<PlayTile>>{})
+  final Map<String, List<PlayTile>> playLayouts;
+
+  /// The Play widgets and their items. Null until the Play tab first fills
+  /// them from the default templates.
+  final List<PlayWidgetData>? playWidgets;
+
+  /// Saved layouts (null = none).
+  final List<PlayPreset>? playPresets;
+
   int ability(String abilityId) => abilities[abilityId] ?? 0;
 
   /// A copy with something changed. Add more parameters when another screen
@@ -281,6 +449,9 @@ class Character {
     int? copper,
     List<InventoryItem>? inventory,
     List<String>? owedGains,
+    Map<String, List<PlayTile>>? playLayouts,
+    List<PlayWidgetData>? playWidgets,
+    List<PlayPreset>? playPresets,
     LevelUpUndo? levelUpUndo,
     bool clearLevelUpUndo = false,
   }) =>
@@ -313,6 +484,9 @@ class Character {
             clearLevelUpUndo ? null : (levelUpUndo ?? this.levelUpUndo),
         goals: goals,
         ties: ties,
+        playLayouts: playLayouts ?? this.playLayouts,
+        playWidgets: playWidgets ?? this.playWidgets,
+        playPresets: playPresets ?? this.playPresets,
       );
 
   factory Character.fromJson(Map<String, dynamic> json) =>

@@ -1,0 +1,433 @@
+{
+  "templates": [
+    {
+      "id": "class-xp",
+      "title": "Class and experience",
+      "style": "list",
+      "items": [
+        {
+          "type": "stat",
+          "ref": "class"
+        },
+        {
+          "type": "stat",
+          "ref": "level"
+        },
+        {
+          "type": "stat",
+          "ref": "xp"
+        }
+      ]
+    },
+    {
+      "id": "health-mana",
+      "title": "Health and mana",
+      "style": "list",
+      "items": [
+        {
+          "type": "stat",
+          "ref": "health"
+        },
+        {
+          "type": "stat",
+          "ref": "mana"
+        }
+      ]
+    },
+    {
+      "id": "combat",
+      "title": "Combat",
+      "style": "tiles",
+      "items": [
+        {
+          "type": "stat",
+          "ref": "speed"
+        },
+        {
+          "type": "stat",
+          "ref": "defense"
+        },
+        {
+          "type": "stat",
+          "ref": "armor"
+        },
+        {
+          "type": "stat",
+          "ref": "penalty"
+        }
+      ]
+    },
+    {
+      "id": "move",
+      "title": "Move",
+      "style": "tiles",
+      "items": [
+        {
+          "type": "stat",
+          "ref": "move"
+        },
+        {
+          "type": "stat",
+          "ref": "charge"
+        },
+        {
+          "type": "stat",
+          "ref": "run"
+        }
+      ]
+    },
+    {
+      "id": "talents",
+      "title": "Class abilities and specializations",
+      "style": "list",
+      "items": [
+        {
+          "type": "trait",
+          "ref": "*"
+        },
+        {
+          "type": "talent",
+          "ref": "*"
+        },
+        {
+          "type": "specialization",
+          "ref": "*"
+        }
+      ]
+    },
+    {
+      "id": "weapons",
+      "title": "Weapons",
+      "style": "list",
+      "items": [
+        {
+          "type": "weapon",
+          "ref": "*"
+        }
+      ]
+    },
+    {
+      "id": "spells",
+      "title": "Spells",
+      "style": "list",
+      "items": [
+        {
+          "type": "spell",
+          "ref": "*"
+        }
+      ]
+    },
+    {
+      "id": "money",
+      "title": "Money",
+      "style": "list",
+      "items": [
+        {
+          "type": "stat",
+          "ref": "money"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "title": "Notes",
+      "style": "list",
+      "items": [
+        {
+          "type": "text",
+          "name": "Notes",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "abilities",
+      "title": "Abilities and focuses",
+      "style": "list",
+      "items": [
+        {
+          "type": "ability",
+          "ref": "communication"
+        },
+        {
+          "type": "focus",
+          "ref": "communication/*"
+        },
+        {
+          "type": "ability",
+          "ref": "constitution"
+        },
+        {
+          "type": "focus",
+          "ref": "constitution/*"
+        },
+        {
+          "type": "ability",
+          "ref": "cunning"
+        },
+        {
+          "type": "focus",
+          "ref": "cunning/*"
+        },
+        {
+          "type": "ability",
+          "ref": "dexterity"
+        },
+        {
+          "type": "focus",
+          "ref": "dexterity/*"
+        },
+        {
+          "type": "ability",
+          "ref": "magic"
+        },
+        {
+          "type": "focus",
+          "ref": "magic/*"
+        },
+        {
+          "type": "ability",
+          "ref": "perception"
+        },
+        {
+          "type": "focus",
+          "ref": "perception/*"
+        },
+        {
+          "type": "ability",
+          "ref": "strength"
+        },
+        {
+          "type": "focus",
+          "ref": "strength/*"
+        },
+        {
+          "type": "ability",
+          "ref": "willpower"
+        },
+        {
+          "type": "focus",
+          "ref": "willpower/*"
+        }
+      ]
+    }
+  ],
+  "layouts": {
+    "phone": [
+      {
+        "widget": "health-mana",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 7
+      },
+      {
+        "widget": "combat",
+        "x": 0,
+        "y": 7,
+        "width": 10,
+        "height": 6
+      },
+      {
+        "widget": "class-xp",
+        "x": 0,
+        "y": 13,
+        "width": 10,
+        "height": 6
+      },
+      {
+        "widget": "move",
+        "x": 0,
+        "y": 19,
+        "width": 10,
+        "height": 5
+      },
+      {
+        "widget": "weapons",
+        "x": 0,
+        "y": 24,
+        "width": 10,
+        "height": 9
+      },
+      {
+        "widget": "talents",
+        "x": 0,
+        "y": 129,
+        "width": 10,
+        "height": 11
+      },
+      {
+        "widget": "spells",
+        "x": 0,
+        "y": 140,
+        "width": 10,
+        "height": 9
+      },
+      {
+        "widget": "money",
+        "x": 0,
+        "y": 149,
+        "width": 10,
+        "height": 4
+      },
+      {
+        "widget": "notes",
+        "x": 0,
+        "y": 153,
+        "width": 10,
+        "height": 7
+      },
+      {
+        "widget": "abilities",
+        "x": 0,
+        "y": 33,
+        "width": 10,
+        "height": 24
+      }
+    ],
+    "tablet": [
+      {
+        "widget": "class-xp",
+        "x": 9,
+        "y": 0,
+        "width": 11,
+        "height": 6
+      },
+      {
+        "widget": "health-mana",
+        "x": 9,
+        "y": 6,
+        "width": 11,
+        "height": 7
+      },
+      {
+        "widget": "combat",
+        "x": 9,
+        "y": 13,
+        "width": 11,
+        "height": 6
+      },
+      {
+        "widget": "move",
+        "x": 9,
+        "y": 19,
+        "width": 11,
+        "height": 5
+      },
+      {
+        "widget": "talents",
+        "x": 9,
+        "y": 24,
+        "width": 11,
+        "height": 13
+      },
+      {
+        "widget": "weapons",
+        "x": 9,
+        "y": 37,
+        "width": 11,
+        "height": 11
+      },
+      {
+        "widget": "spells",
+        "x": 9,
+        "y": 48,
+        "width": 11,
+        "height": 10
+      },
+      {
+        "widget": "money",
+        "x": 9,
+        "y": 58,
+        "width": 11,
+        "height": 4
+      },
+      {
+        "widget": "notes",
+        "x": 9,
+        "y": 62,
+        "width": 11,
+        "height": 7
+      },
+      {
+        "widget": "abilities",
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 24
+      }
+    ],
+    "desktop": [
+      {
+        "widget": "class-xp",
+        "x": 10,
+        "y": 0,
+        "width": 12,
+        "height": 6
+      },
+      {
+        "widget": "health-mana",
+        "x": 22,
+        "y": 0,
+        "width": 10,
+        "height": 6
+      },
+      {
+        "widget": "combat",
+        "x": 10,
+        "y": 6,
+        "width": 22,
+        "height": 5
+      },
+      {
+        "widget": "move",
+        "x": 10,
+        "y": 11,
+        "width": 22,
+        "height": 5
+      },
+      {
+        "widget": "talents",
+        "x": 10,
+        "y": 16,
+        "width": 22,
+        "height": 12
+      },
+      {
+        "widget": "weapons",
+        "x": 10,
+        "y": 28,
+        "width": 14,
+        "height": 10
+      },
+      {
+        "widget": "spells",
+        "x": 24,
+        "y": 28,
+        "width": 8,
+        "height": 10
+      },
+      {
+        "widget": "money",
+        "x": 10,
+        "y": 38,
+        "width": 8,
+        "height": 4
+      },
+      {
+        "widget": "notes",
+        "x": 18,
+        "y": 38,
+        "width": 14,
+        "height": 8
+      },
+      {
+        "widget": "abilities",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 24
+      }
+    ]
+  }
+}

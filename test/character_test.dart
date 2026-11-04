@@ -29,6 +29,7 @@ Character sample({String id = 'c1', String name = 'Aveline'}) => Character(
       owedGains: const [],
       goals: const ['Prove myself worthy'],
       ties: const [],
+      playLayouts: const {},
     );
 
 void main() {
@@ -46,6 +47,24 @@ void main() {
       expect(copy.traitIds, ['magic-resistance']);
       expect(copy.inventory.single.itemId, 'axes-battle-axe');
       expect(jsonEncode(copy.toJson()), text);
+    });
+
+    test('play widgets and layouts survive a round trip', () {
+      final original = sample().copyWith(
+        playWidgets: const [
+          PlayWidgetData(id: 'notes', title: 'Notes', items: [
+            PlayItem(type: 'text', name: 'Poisoned'),
+          ]),
+        ],
+        playLayouts: {
+          'phone': [const PlayTile(widget: 'notes', width: 4, height: 2)],
+        },
+      );
+      final copy = Character.fromJson(
+          jsonDecode(jsonEncode(original.toJson())) as Map<String, dynamic>);
+
+      expect(copy.playWidgets!.single.items.single.name, 'Poisoned');
+      expect(copy.playLayouts['phone']!.single.widget, 'notes');
     });
 
     test('older saves with missing optional fields still load', () {

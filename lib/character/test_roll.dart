@@ -11,6 +11,10 @@ class TestRoll {
 
   final List<int> dice;
 
+  /// The same roll with one die changed (the player typed the real value).
+  TestRoll withDie(int index, int value) =>
+      TestRoll([for (var i = 0; i < dice.length; i++) i == index ? value : dice[i]]);
+
   int get dragonDie => dice[2];
   int get sum => dice[0] + dice[1] + dice[2];
 

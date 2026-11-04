@@ -1,9 +1,11 @@
+import '../character/character.dart';
 import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
 import 'models/magic.dart';
 import 'models/specializations.dart';
+import 'models/stunt.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
 
@@ -26,6 +28,11 @@ class RulesData {
     required this.shields,
     required this.catalog,
     required this.magic,
+    required this.combatStunts,
+    required this.explorationStunts,
+    required this.roleplayingStunts,
+    required this.widgetTemplates,
+    required this.defaultLayouts,
   });
 
   final ClassesFile classes;
@@ -48,6 +55,18 @@ class RulesData {
 
   /// Armor strain, spell stunts and mishaps (magic.json).
   final MagicFile magic;
+
+  /// Stunts for attack rolls and for other tests (core.json, exploration.json).
+  final List<Stunt> combatStunts;
+  final List<Stunt> explorationStunts;
+  final List<Stunt> roleplayingStunts;
+
+  /// The default Play widgets (default_layouts.json "templates"): what
+  /// "Add widget" offers, and what a new character starts with.
+  final List<PlayWidgetData> widgetTemplates;
+
+  /// Where the default widgets sit, per device class.
+  final Map<String, List<PlayTile>> defaultLayouts;
 
   WeaponGroup weaponGroupById(String id) =>
       weaponGroups.firstWhere((g) => g.id == id);

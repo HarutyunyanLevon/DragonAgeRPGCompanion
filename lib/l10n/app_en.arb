@@ -8,75 +8,36 @@
   "tabLore": "Lore",
   "comingSoon": "Coming soon",
   "rulesFailed": "Could not load the rules: {error}",
-  "@rulesFailed": {
-    "placeholders": {
-      "error": {"type": "String"}
-    }
-  },
-
+  "@rulesFailed": {"placeholders": {"error": {"type": "String"}}},
   "createFirstCharacter": "Create your first character",
   "createCharacter": "Create character",
   "newCharacter": "New character",
   "stepOf": "Step {step} of {total}",
-  "@stepOf": {
-    "placeholders": {
-      "step": {"type": "int"},
-      "total": {"type": "int"}
-    }
-  },
+  "@stepOf": {"placeholders": {"step": {"type": "int"}, "total": {"type": "int"}}},
   "methodRoll": "Roll",
   "methodArrange": "Arrange",
   "methodBuy": "Buy",
   "methodManual": "Manual",
   "methodManualHelp": "Type the scores you rolled elsewhere. The rules allow {min} to {max} for each ability.",
-  "@methodManualHelp": {
-    "placeholders": {
-      "min": {"type": "int"},
-      "max": {"type": "int"}
-    }
-  },
+  "@methodManualHelp": {"placeholders": {"min": {"type": "int"}, "max": {"type": "int"}}},
   "rolledScores": "Rolled scores",
   "scoresOutOfRangeWarning": "{count} outside the rules ({min} to {max})",
-  "@scoresOutOfRangeWarning": {
-    "placeholders": {
-      "count": {"type": "int"},
-      "min": {"type": "int"},
-      "max": {"type": "int"}
-    }
-  },
+  "@scoresOutOfRangeWarning": {"placeholders": {"count": {"type": "int"}, "min": {"type": "int"}, "max": {"type": "int"}}},
   "scoresOutOfRangeTitle": "Scores outside the rules",
   "scoresOutOfRangeBody": "Some scores are outside {min} to {max}. Continue anyway?",
-  "@scoresOutOfRangeBody": {
-    "placeholders": {
-      "min": {"type": "int"},
-      "max": {"type": "int"}
-    }
-  },
+  "@scoresOutOfRangeBody": {"placeholders": {"min": {"type": "int"}, "max": {"type": "int"}}},
   "methodRollHelp": "Roll 3d6 for each ability in order. Then you may swap any two scores, once.",
   "methodArrangeHelp": "Roll eight scores, then give each one to the ability you want.",
   "methodBuyHelp": "Spend {points} points, +1 each, at most {maximum} on one ability. All points must be spent.",
-  "@methodBuyHelp": {
-    "placeholders": {
-      "points": {"type": "int"},
-      "maximum": {"type": "int"}
-    }
-  },
+  "@methodBuyHelp": {"placeholders": {"points": {"type": "int"}, "maximum": {"type": "int"}}},
   "rollAbilities": "Roll abilities",
   "rollAgain": "Roll again",
   "swapHint": "Tap two abilities to swap their scores (once).",
   "pointsLeft": "Points left: {count}",
-  "@pointsLeft": {
-    "placeholders": {
-      "count": {"type": "int"}
-    }
-  },
+  "@pointsLeft": {"placeholders": {"count": {"type": "int"}}},
   "backgroundBonus": "+1 from background",
   "backgroundBonusTotal": "+1 from background = {total}",
-  "@backgroundBonusTotal": {
-    "placeholders": {
-      "total": {"type": "int"}
-    }
-  },
+  "@backgroundBonusTotal": {"placeholders": {"total": {"type": "int"}}},
   "characterName": "Character name",
   "background": "Background",
   "filterAll": "All",
@@ -87,11 +48,7 @@
   "backgroundNameTaken": "A custom background with this name already exists",
   "delete": "Delete",
   "deleteBackgroundTitle": "Delete {name}?",
-  "@deleteBackgroundTitle": {
-    "placeholders": {
-      "name": {"type": "String"}
-    }
-  },
+  "@deleteBackgroundTitle": {"placeholders": {"name": {"type": "String"}}},
   "race": "Race",
   "caste": "Caste",
   "characterClass": "Class",
@@ -101,37 +58,20 @@
   "racialTraits": "Racial traits",
   "focusChoices": "Focus choices",
   "focusChoice": "Focus choice {number}",
-  "@focusChoice": {
-    "placeholders": {
-      "number": {"type": "int"}
-    }
-  },
+  "@focusChoice": {"placeholders": {"number": {"type": "int"}}},
   "focusChoicesDiffer": "Pick two different focuses",
   "languages": "Languages",
   "languagesPick": "Languages (pick 1-2)",
   "languagePick": "{count} of: {options}",
-  "@languagePick": {
-    "placeholders": {
-      "count": {"type": "int"},
-      "options": {"type": "String"}
-    }
-  },
+  "@languagePick": {"placeholders": {"count": {"type": "int"}, "options": {"type": "String"}}},
   "tableRowsTitle": "2d6 table",
   "tableRowsHelp": "Tap a row to set what it gives. All 8 rows are needed.",
   "startTableFrom": "Start the table from (optional)",
   "notSet": "Not set",
   "sameAsRow": "Same as row {range}",
-  "@sameAsRow": {
-    "placeholders": {
-      "range": {"type": "String"}
-    }
-  },
+  "@sameAsRow": {"placeholders": {"range": {"type": "String"}}},
   "rowTitle": "Row {range}",
-  "@rowTitle": {
-    "placeholders": {
-      "range": {"type": "String"}
-    }
-  },
+  "@rowTitle": {"placeholders": {"range": {"type": "String"}}},
   "typeAbility": "Ability +1",
   "typeFocus": "Focus",
   "typeLanguage": "Language",
@@ -143,100 +83,42 @@
   "proceedAnyway": "Proceed anyway",
   "classNotAllowedTitle": "Class not allowed",
   "classNotAllowedBody": "{background} does not normally allow the {className} class.",
-  "@classNotAllowedBody": {
-    "placeholders": {
-      "background": {"type": "String"},
-      "className": {"type": "String"}
-    }
-  },
-
+  "@classNotAllowedBody": {"placeholders": {"background": {"type": "String"}, "className": {"type": "String"}}},
   "stepClassChoices": "Class choices",
   "backgroundFocusTitle": "Focus (pick one)",
   "languagesKnown": "Languages: {languages}",
-  "@languagesKnown": {
-    "placeholders": {
-      "languages": {"type": "String"}
-    }
-  },
+  "@languagesKnown": {"placeholders": {"languages": {"type": "String"}}},
   "languageChoiceTitle": "Language (pick {count})",
-  "@languageChoiceTitle": {
-    "placeholders": {
-      "count": {"type": "int"}
-    }
-  },
+  "@languageChoiceTitle": {"placeholders": {"count": {"type": "int"}}},
   "tableResults": "Table results",
   "rollHelp": "Two results from the 2d6 table of your background. Roll each one, or pick a row yourself. Rolling skips rows that break a rule.",
   "buyBenefitsHelp": "Instead of rolling, spend {points} advancements on table results. An ability increase costs {abilityCost}, anything else {otherCost}.",
-  "@buyBenefitsHelp": {
-    "placeholders": {
-      "points": {"type": "int"},
-      "abilityCost": {"type": "int"},
-      "otherCost": {"type": "int"}
-    }
-  },
+  "@buyBenefitsHelp": {"placeholders": {"points": {"type": "int"}, "abilityCost": {"type": "int"}, "otherCost": {"type": "int"}}},
   "advancementsLeft": "Advancements left: {count}",
-  "@advancementsLeft": {
-    "placeholders": {
-      "count": {"type": "int"}
-    }
-  },
+  "@advancementsLeft": {"placeholders": {"count": {"type": "int"}}},
   "resultNumber": "Result {number}",
-  "@resultNumber": {
-    "placeholders": {
-      "number": {"type": "int"}
-    }
-  },
+  "@resultNumber": {"placeholders": {"number": {"type": "int"}}},
   "notMadeYet": "Not made yet",
   "rollTable": "Roll 2d6",
   "pickFromTable": "Pick from table",
   "pickTableRow": "Pick a table row",
   "cost": "Cost {count}",
-  "@cost": {
-    "placeholders": {
-      "count": {"type": "int"}
-    }
-  },
+  "@cost": {"placeholders": {"count": {"type": "int"}}},
   "focusLabel": "{ability} ({focus})",
-  "@focusLabel": {
-    "placeholders": {
-      "ability": {"type": "String"},
-      "focus": {"type": "String"}
-    }
-  },
+  "@focusLabel": {"placeholders": {"ability": {"type": "String"}, "focus": {"type": "String"}}},
   "resultAbility": "+1 {ability}",
-  "@resultAbility": {
-    "placeholders": {
-      "ability": {"type": "String"}
-    }
-  },
+  "@resultAbility": {"placeholders": {"ability": {"type": "String"}}},
   "resultFocus": "Focus: {ability} ({focus})",
-  "@resultFocus": {
-    "placeholders": {
-      "ability": {"type": "String"},
-      "focus": {"type": "String"}
-    }
-  },
+  "@resultFocus": {"placeholders": {"ability": {"type": "String"}, "focus": {"type": "String"}}},
   "resultLanguage": "Speak {language}",
-  "@resultLanguage": {
-    "placeholders": {
-      "language": {"type": "String"}
-    }
-  },
+  "@resultLanguage": {"placeholders": {"language": {"type": "String"}}},
   "resultWeaponGroup": "Weapon group: {group}",
-  "@resultWeaponGroup": {
-    "placeholders": {
-      "group": {"type": "String"}
-    }
-  },
+  "@resultWeaponGroup": {"placeholders": {"group": {"type": "String"}}},
   "benefitConflictTitle": "Against the rules",
   "conflictSameRow": "This is already your other result.",
   "conflictAlreadyOwned": "Your character already has this.",
   "conflictAbilityCap": "This would raise the ability above {max}.",
-  "@conflictAbilityCap": {
-    "placeholders": {
-      "max": {"type": "int"}
-    }
-  },
+  "@conflictAbilityCap": {"placeholders": {"max": {"type": "int"}}},
   "conflictOverBudget": "Not enough advancements left.",
   "weaponGroupsTitle": "Weapon groups (pick {count})",
   "@weaponGroupsTitle": {"placeholders": {"count": {"type": "int"}}},
@@ -305,7 +187,6 @@
   "castingTime": "Casting time",
   "targetNumber": "Target number",
   "spellTest": "Test",
-
   "charactersTitle": "Characters",
   "noCharacter": "No character",
   "deleteCharacterTitle": "Delete {name}?",
@@ -355,10 +236,8 @@
   "rollSilver": "Roll {dice}",
   "@rollSilver": {"placeholders": {"dice": {"type": "String"}}},
   "diceTotal": "Total rolled",
-
   "navGear": "Gear",
   "navTop": "Top",
-
   "armorPenalty": "Armor penalty",
   "armorPenaltyRule": "The armor penalty lowers your Speed, and your Dexterity for Defense unless you have the Armor Training talent.",
   "shieldRule": "A shield adds to Defense. Without Weapon and Shield Style the bonus counts for at most +1.",
@@ -372,7 +251,6 @@
   "money": "Money",
   "moneyRule": "1 silver = {copper} copper, 1 gold = {silver} silver.",
   "@moneyRule": {"placeholders": {"copper": {"type": "int"}, "silver": {"type": "int"}}},
-
   "price": "Price",
   "customItem": "Not in the price list.",
   "weaponGroup": "Weapon group",
@@ -385,7 +263,6 @@
   "range": "Range",
   "rangeLine": "{short} yards, {long} yards at -2 (reload: {reload} action)",
   "@rangeLine": {"placeholders": {"short": {"type": "int"}, "long": {"type": "int"}, "reload": {"type": "String"}}},
-
   "startingGearTitle": "Starting gear",
   "startingWeaponsTitle": "Starting weapons (pick {count})",
   "@startingWeaponsTitle": {"placeholders": {"count": {"type": "int"}}},
@@ -399,7 +276,6 @@
   "boughtTitle": "Bought ({count})",
   "@boughtTitle": {"placeholders": {"count": {"type": "int"}}},
   "refund": "Give back",
-
   "searchSheet": "Search your character",
   "searchNoMatches": "Nothing on your character matches.",
   "experience": "Experience: {xp}",
@@ -413,7 +289,6 @@
   "moveRule": "Move (a minor action): up to your Speed in yards. Going prone, standing up or mounting costs half.",
   "chargeRule": "Charge (a major action): move up to half your Speed in yards, then make a melee attack with +1 to the attack roll.",
   "runRule": "Run (a major action): move up to double your Speed in yards. You cannot run while prone.",
-
   "mySpells": "My spells",
   "allSpells": "All spells",
   "newSpell": "New spell",
@@ -448,18 +323,8 @@
   "@manaSpentStrain": {"placeholders": {"cost": {"type": "int"}, "base": {"type": "int"}, "strain": {"type": "int"}}},
   "diceLine": "Dice: {a} + {b} + Dragon Die {dragon}",
   "@diceLine": {"placeholders": {"a": {"type": "int"}, "b": {"type": "int"}, "dragon": {"type": "int"}}},
-  "castTotal": "Roll: {sum} + {bonus} = {total}",
-  "@castTotal": {"placeholders": {"sum": {"type": "int"}, "bonus": {"type": "int"}, "total": {"type": "int"}}},
-  "castSuccess": "Spell cast (TN {tn})",
-  "@castSuccess": {"placeholders": {"tn": {"type": "int"}}},
-  "castFail": "The spell fizzles (TN {tn})",
-  "@castFail": {"placeholders": {"tn": {"type": "int"}}},
   "spellpowerLine": "Spellpower: {value}",
   "@spellpowerLine": {"placeholders": {"value": {"type": "int"}}},
-  "stuntPoints": "Stunt points: {sp}",
-  "@stuntPoints": {"placeholders": {"sp": {"type": "int"}}},
-  "stuntLine": "{name} ({cost} SP): {effect}",
-  "@stuntLine": {"placeholders": {"name": {"type": "String"}, "cost": {"type": "String"}, "effect": {"type": "String"}}},
   "undo": "Undo",
   "reroll": "Re-roll",
   "mishapTitle": "Magical mishap!",
@@ -527,5 +392,75 @@
   "addGain": "Add",
   "startingLevel": "Starting level",
   "levelOf": "Level {level} of {total}",
-  "@levelOf": {"placeholders": {"level": {"type": "int"}, "total": {"type": "int"}}}
+  "@levelOf": {"placeholders": {"level": {"type": "int"}, "total": {"type": "int"}}},
+  "dieValue": "Die value",
+  "tapDieHint": "Tap a die to enter the number you rolled at the table.",
+  "modifier": "Modifier",
+  "rollTotal": "Roll: {sum} + {bonus} = {total}",
+  "@rollTotal": {"placeholders": {"sum": {"type": "int"}, "bonus": {"type": "int"}, "total": {"type": "int"}}},
+  "rollSuccess": "Success (TN {tn})",
+  "@rollSuccess": {"placeholders": {"tn": {"type": "int"}}},
+  "rollFail": "Failure (TN {tn})",
+  "@rollFail": {"placeholders": {"tn": {"type": "int"}}},
+  "damageLine": "Damage {total} ({formula})",
+  "@damageLine": {"placeholders": {"total": {"type": "int"}, "formula": {"type": "String"}}},
+  "stuntPointsLeft": "Stunt points left: {left} of {total}",
+  "@stuntPointsLeft": {"placeholders": {"left": {"type": "int"}, "total": {"type": "int"}}},
+  "stuntsCombat": "Combat",
+  "stuntsExploration": "Exploration",
+  "stuntsRoleplaying": "Roleplaying",
+  "amount": "Amount",
+  "lose": "Lose",
+  "gain": "Gain",
+  "noWeaponsEquipped": "No weapon equipped. Equip one on the Sheet.",
+  "notAMage": "Only mages cast spells.",
+  "addWidget": "Add widget",
+  "resetLayout": "Reset layout",
+  "resetLayoutBody": "Everything on the Play tab goes back to the default: widgets, items, titles, styles and places on all screen sizes. Saved layouts are kept.",
+  "done": "Done",
+  "itemMissing": "{name} (no longer on the character)",
+  "@itemMissing": {"placeholders": {"name": {"type": "String"}}},
+  "statLevel": "Level",
+  "statExperience": "Experience",
+  "itemGroupStats": "Stats",
+  "itemGroupTraits": "Traits",
+  "itemGroupGear": "Gear",
+  "itemGroupFree": "Free items",
+  "freeText": "Text note",
+  "freeCheckbox": "Checkbox",
+  "freeCounter": "Counter",
+  "freeRoll": "Dice roller",
+  "itemLabel": "Label",
+  "itemText": "Text",
+  "itemValue": "Value",
+  "itemBonus": "Bonus",
+  "itemDamageDice": "Damage dice (for example 2d6+1)",
+  "editItem": "Edit",
+  "moveTo": "Move to...",
+  "styleList": "Show as list",
+  "styleTiles": "Show as tiles",
+  "deleteWidgetTitle": "Delete {name}?",
+  "@deleteWidgetTitle": {"placeholders": {"name": {"type": "String"}}},
+  "deleteWidgetBody": "The widget and its items are removed. Your character is not changed.",
+  "blankWidget": "Blank widget",
+  "newWidgetTitle": "New widget",
+  "editWidgets": "Edit widgets",
+  "rollAction": "Roll",
+  "allItems": "All",
+  "savedLayouts": "Saved layouts",
+  "saveLayoutAs": "Save current layout as...",
+  "noSavedLayouts": "No saved layouts yet.",
+  "loadLayout": "Load",
+  "loadLayoutBody": "Your current widgets and layout are replaced. Save them first if you want to keep them.",
+  "layoutName": "Name",
+  "layoutNameHelp": "A layout with the same name is replaced.",
+  "rename": "Rename",
+  "loadLayoutTitle": "Load {name}?",
+  "@loadLayoutTitle": {"placeholders": {"name": {"type": "String"}}},
+  "deleteLayoutTitle": "Delete {name}?",
+  "@deleteLayoutTitle": {"placeholders": {"name": {"type": "String"}}},
+  "statClass": "Class",
+  "freeResource": "Resource (n / m)",
+  "itemCurrent": "Current",
+  "itemMax": "Maximum"
 }

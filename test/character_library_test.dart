@@ -26,6 +26,7 @@ Character sample(String id, String name) => Character(
       owedGains: const [],
       goals: const [],
       ties: const [],
+      playLayouts: const {},
     );
 
 void main() {

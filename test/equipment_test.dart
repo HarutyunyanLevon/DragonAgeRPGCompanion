@@ -38,6 +38,7 @@ Character makeCharacter({
       owedGains: const [],
       goals: const [],
       ties: const [],
+      playLayouts: const {},
     );
 
 InventoryItem item(String id, {bool equipped = false}) =>

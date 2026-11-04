@@ -19,11 +19,15 @@ class TalentsSection extends StatelessWidget {
     required this.character,
     required this.rules,
     required this.filter,
+    this.showTitle = true,
   });
 
   final Character character;
   final RulesData rules;
   final SheetFilter filter;
+
+  /// The Play tab's widget has its own title.
+  final bool showTitle;
 
   static List<String> _traits(
           Character character, RulesData rules, SheetFilter filter) =>
@@ -65,7 +69,7 @@ class TalentsSection extends StatelessWidget {
     }
 
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      SectionTitle(l10n.sectionTalents),
+      if (showTitle) SectionTitle(l10n.sectionTalents),
       if (traits.isNotEmpty || talents.isNotEmpty)
         SheetBox(children: [
           for (final id in traits)

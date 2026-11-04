@@ -31,8 +31,8 @@ class CombatSection extends StatelessWidget {
   /// False when the search hides everything in this section.
   static bool hasMatches(AppLocalizations l10n, Character character,
           RulesData rules, SheetFilter filter) =>
-      _statTiles(l10n, character, rules, filter).isNotEmpty ||
-      _moveTiles(l10n, character, rules, filter).isNotEmpty ||
+      combatStatTiles(l10n, character, rules, filter).isNotEmpty ||
+      moveTiles(l10n, character, rules, filter).isNotEmpty ||
       _weapons(character, rules, filter).isNotEmpty ||
       _groups(character, filter).isNotEmpty ||
       _languages(character, filter).isNotEmpty;
@@ -40,8 +40,8 @@ class CombatSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final stats = _statTiles(l10n, character, rules, filter);
-    final moves = _moveTiles(l10n, character, rules, filter);
+    final stats = combatStatTiles(l10n, character, rules, filter);
+    final moves = moveTiles(l10n, character, rules, filter);
     final weapons = _weapons(character, rules, filter);
     final groups = _groups(character, filter);
     final languages = _languages(character, filter);
@@ -104,9 +104,10 @@ class CombatSection extends StatelessWidget {
   }
 }
 
-// What the section shows, after the search. Used by build and hasMatches.
+// What the section shows, after the search. Used by build, hasMatches and the
+// Play tab's combat widget.
 
-List<StatTile> _statTiles(AppLocalizations l10n, Character character,
+List<StatTile> combatStatTiles(AppLocalizations l10n, Character character,
     RulesData rules, SheetFilter filter) {
   final n = combatNumbers(character, rules);
   final tiles = [
@@ -135,7 +136,7 @@ List<StatTile> _statTiles(AppLocalizations l10n, Character character,
 }
 
 /// Move, Charge and Run in yards, from Speed.
-List<StatTile> _moveTiles(AppLocalizations l10n, Character character,
+List<StatTile> moveTiles(AppLocalizations l10n, Character character,
     RulesData rules, SheetFilter filter) {
   final speed = combatNumbers(character, rules).speed;
   final tiles = [

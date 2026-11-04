@@ -10,7 +10,9 @@ import '../../l10n/app_localizations.dart';
 import '../../rules/models/spell.dart';
 import '../../rules/rules_data.dart';
 import '../../shared/confirm_dialog.dart';
-import 'cast_result_dialog.dart';
+import '../roll/roll_request.dart';
+import '../roll/roll_sheet.dart';
+import 'mishap_helper.dart';
 
 /// Casts [spell]: asks how much mana to spend when the cost can vary, adds
 /// the armor strain, takes the mana (strict rules: with too little mana it
@@ -41,14 +43,30 @@ Future<void> castSpell(BuildContext context, WidgetRef ref, Character character,
       .save(character.copyWith(mana: character.mana - spent));
   if (!context.mounted) return;
 
-  await showDialog<void>(
-    context: context,
-    builder: (_) => CastResultDialog(
-      spell: spell,
-      rules: rules,
-      base: base,
-      strain: strain,
-      spent: spent,
+  await showRoll(
+    context,
+    rules,
+    RollRequest(
+      title: spell.name,
+      bonus: castingBonus(character, spell),
+      tn: spellTn(spell),
+      stunts: StuntSet.magic,
+      info: [
+        strain == 0
+            ? l10n.manaSpent(spent)
+            : l10n.manaSpentStrain(spent, base, strain),
+        l10n.spellpowerLine(spellpower(character, spell)),
+      ],
+      // A failed roll with Dragon Die 1 may be a mishap.
+      extras: (_, outcome) =>
+          causesMishap(spell, outcome.roll, success: outcome.success)
+              ? MishapHelper(rules: rules, cost: cost, tn: spellTn(spell))
+              : const SizedBox.shrink(),
+      onUndo: () async {
+        final now = ref.read(selectedCharacterProvider).requireValue!;
+        await ref.read(charactersProvider.notifier).save(
+            now.copyWith(mana: min(now.maxMana, now.mana + spent)));
+      },
     ),
   );
 }

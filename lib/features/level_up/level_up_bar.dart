@@ -10,15 +10,16 @@ import '../../shared/confirm_dialog.dart';
 import 'level_up_page.dart';
 import 'owed_gains.dart';
 
-/// Under the Sheet's header: experience (tap to edit), the Level up and Undo
-/// buttons, and the gains that are still owed.
+/// Under the Sheet's header: experience and the gains that are still owed.
+/// The pencil opens a dialog with the experience field and the Level up and
+/// Undo buttons.
 class LevelUpBar extends ConsumerWidget {
   const LevelUpBar({super.key, required this.character, required this.rules});
 
   final Character character;
   final RulesData rules;
 
-  Future<void> _levelUp(BuildContext context, WidgetRef ref) async {
+  Future<void> _levelUp(BuildContext context, WidgetRef ref, Character character) async {
     final l10n = AppLocalizations.of(context);
     final needed = rules.classes.xpForLevel(character.level + 1);
 
@@ -57,20 +58,37 @@ class LevelUpBar extends ConsumerWidget {
     await ref.read(charactersProvider.notifier).save(undoLevelUp(character));
   }
 
-  Future<void> _editXp(BuildContext context, WidgetRef ref) async {
-    final xp = await showDialog<int>(
+  Future<void> _edit(BuildContext context, WidgetRef ref) async {
+    final result = await showDialog<_XpResult>(
       context: context,
-      builder: (_) => _XpDialog(xp: character.xp),
+      builder: (_) => _XpDialog(
+        xp: character.xp,
+        nextLevel: character.level >= maxLevel ? null : character.level + 1,
+        enoughXp: hasXpForNextLevel(character, rules.classes),
+        canUndo: character.levelUpUndo != null,
+      ),
     );
-    if (xp == null) return;
-    await ref.read(charactersProvider.notifier).save(character.copyWith(xp: xp));
+    if (result == null || !context.mounted) return;
+
+    final changed = character.copyWith(xp: result.xp);
+    if (result.action == _XpAction.save || result.xp != character.xp) {
+      await ref.read(charactersProvider.notifier).save(changed);
+    }
+    if (!context.mounted) return;
+    switch (result.action) {
+      case _XpAction.levelUp:
+        await _levelUp(context, ref, changed);
+      case _XpAction.undo:
+        await _undo(context, ref);
+      case _XpAction.save:
+        break;
+    }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final atCap = character.level >= maxLevel;
-    final enoughXp = hasXpForNextLevel(character, rules.classes);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
@@ -85,30 +103,8 @@ class LevelUpBar extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.edit_outlined),
             tooltip: l10n.editExperience,
-            onPressed: () => _editXp(context, ref),
+            onPressed: () => _edit(context, ref),
           ),
-        ]),
-        Wrap(spacing: 8, runSpacing: 8, children: [
-          if (atCap)
-            Text(l10n.levelCapNote)
-          else if (enoughXp)
-            FilledButton.icon(
-              icon: const Icon(Icons.arrow_upward),
-              label: Text(l10n.levelUpTo(character.level + 1)),
-              onPressed: () => _levelUp(context, ref),
-            )
-          else
-            FilledButton.tonalIcon(
-              icon: const Icon(Icons.arrow_upward),
-              label: Text(l10n.levelUpTo(character.level + 1)),
-              onPressed: () => _levelUp(context, ref),
-            ),
-          if (character.levelUpUndo != null)
-            OutlinedButton.icon(
-              icon: const Icon(Icons.undo),
-              label: Text(l10n.undoLevelUp),
-              onPressed: () => _undo(context, ref),
-            ),
         ]),
         OwedGains(character: character, rules: rules),
       ]),
@@ -116,11 +112,30 @@ class LevelUpBar extends ConsumerWidget {
   }
 }
 
-/// Edit the total experience.
-class _XpDialog extends StatefulWidget {
-  const _XpDialog({required this.xp});
+enum _XpAction { save, levelUp, undo }
+
+class _XpResult {
+  const _XpResult(this.xp, this.action);
 
   final int xp;
+  final _XpAction action;
+}
+
+/// Edit the total experience, level up, or undo the last level-up.
+class _XpDialog extends StatefulWidget {
+  const _XpDialog({
+    required this.xp,
+    required this.nextLevel,
+    required this.enoughXp,
+    required this.canUndo,
+  });
+
+  final int xp;
+
+  /// Null at the level cap.
+  final int? nextLevel;
+  final bool enoughXp;
+  final bool canUndo;
 
   @override
   State<_XpDialog> createState() => _XpDialogState();
@@ -139,23 +154,56 @@ class _XpDialogState extends State<_XpDialog> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final xp = int.tryParse(_controller.text.trim());
+    final valid = xp != null && xp >= 0;
+    final next = widget.nextLevel;
+
+    void close(_XpAction action) => Navigator.pop(context, _XpResult(xp!, action));
 
     return AlertDialog(
       title: Text(l10n.editExperience),
-      content: TextField(
-        controller: _controller,
-        autofocus: true,
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(labelText: l10n.totalExperience),
-        onChanged: (_) => setState(() {}),
-      ),
+      content: Column(mainAxisSize: MainAxisSize.min, children: [
+        TextField(
+          controller: _controller,
+          autofocus: true,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(labelText: l10n.totalExperience),
+          onChanged: (_) => setState(() {}),
+        ),
+        const SizedBox(height: 12),
+        if (next == null)
+          Text(l10n.levelCapNote)
+        else
+          SizedBox(
+            width: double.infinity,
+            child: widget.enoughXp
+                ? FilledButton.icon(
+                    icon: const Icon(Icons.arrow_upward),
+                    label: Text(l10n.levelUpTo(next)),
+                    onPressed: valid ? () => close(_XpAction.levelUp) : null,
+                  )
+                : FilledButton.tonalIcon(
+                    icon: const Icon(Icons.arrow_upward),
+                    label: Text(l10n.levelUpTo(next)),
+                    onPressed: valid ? () => close(_XpAction.levelUp) : null,
+                  ),
+          ),
+        if (widget.canUndo)
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              icon: const Icon(Icons.undo),
+              label: Text(l10n.undoLevelUp),
+              onPressed: valid ? () => close(_XpAction.undo) : null,
+            ),
+          ),
+      ]),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
           child: Text(l10n.cancel),
         ),
         FilledButton(
-          onPressed: xp == null || xp < 0 ? null : () => Navigator.pop(context, xp),
+          onPressed: valid ? () => close(_XpAction.save) : null,
           child: Text(l10n.save),
         ),
       ],

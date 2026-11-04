@@ -1,36 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../characters/character_button.dart';
 import '../characters/character_view.dart';
-import 'character_summary.dart';
+import 'play_grid.dart';
+import 'play_info_card.dart';
 
-/// Play tab. For now: a summary of the selected character. The widget grid
-/// replaces it later.
-class PlayPage extends StatelessWidget {
+/// Play tab: the character's widget grid. Edit mode is switched on by a long
+/// press on a widget or by the pencil, and off by Done. Tapping an item opens
+/// a card at the bottom.
+class PlayPage extends ConsumerStatefulWidget {
   const PlayPage({super.key});
+
+  @override
+  ConsumerState<PlayPage> createState() => _PlayPageState();
+}
+
+class _PlayPageState extends ConsumerState<PlayPage> {
+  bool _editing = false;
+
+  void _setEditing(bool editing) {
+    ref.read(playInfoProvider.notifier).state = null;
+    setState(() => _editing = editing);
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final info = ref.watch(playInfoProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.tabPlay),
-        actions: const [CharacterButton()],
+        actions: [
+          IconButton(
+            tooltip: l10n.editWidgets,
+            icon: Icon(_editing ? Icons.check : Icons.edit),
+            onPressed: () => _setEditing(!_editing),
+          ),
+          const CharacterButton(),
+        ],
       ),
-      body: CharacterView(
-        builder: (character, rules) => Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 640),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              child: CharacterSummary(character: character, rules: rules),
-            ),
+      body: Stack(children: [
+        CharacterView(
+          builder: (character, rules) => PlayGrid(
+            key: ValueKey(character.id),
+            character: character,
+            rules: rules,
+            editing: _editing,
+            onEditingChanged: _setEditing,
           ),
         ),
-      ),
+        if (info != null) PlayInfoCard(info: info),
+      ]),
     );
   }
 }

@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import '../character/character.dart';
 import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
 import 'models/magic.dart';
 import 'models/specializations.dart';
+import 'models/stunt.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
 import 'rules_data.dart';
@@ -69,8 +71,33 @@ class RulesLoader {
   Future<MagicFile> loadMagic() async =>
       MagicFile.fromJson(await _json('magic.json') as Map<String, dynamic>);
 
+  /// One stunt list of a rules file, e.g. ('core.json', 'combatStunts').
+  Future<List<Stunt>> loadStunts(String file, String key) async =>
+      stuntsFromJson((await _json(file) as Map<String, dynamic>)[key]);
+
+  /// The default Play widgets and where they sit per device class.
+  Future<({List<PlayWidgetData> templates, Map<String, List<PlayTile>> layouts})>
+      loadPlayDefaults() async {
+    final json = await _json('default_layouts.json') as Map<String, dynamic>;
+    final layouts = json['layouts'] as Map<String, dynamic>;
+    return (
+      templates: [
+        for (final t in json['templates'] as List<dynamic>)
+          PlayWidgetData.fromJson(t as Map<String, dynamic>)
+      ],
+      layouts: {
+        for (final e in layouts.entries)
+          e.key: [
+            for (final t in e.value as List<dynamic>)
+              PlayTile.fromJson(t as Map<String, dynamic>)
+          ],
+      },
+    );
+  }
+
   Future<RulesData> load() async {
     final gear = await loadGear();
+    final play = await loadPlayDefaults();
     return RulesData(
       classes: await loadClasses(),
       backgrounds: await loadBackgrounds(),
@@ -86,6 +113,11 @@ class RulesLoader {
       shields: gear.shields,
       catalog: gear.catalog,
       magic: await loadMagic(),
+      combatStunts: await loadStunts('core.json', 'combatStunts'),
+      explorationStunts: await loadStunts('exploration.json', 'explorationStunts'),
+      roleplayingStunts: await loadStunts('exploration.json', 'roleplayingStunts'),
+      widgetTemplates: play.templates,
+      defaultLayouts: play.layouts,
     );
   }
 }

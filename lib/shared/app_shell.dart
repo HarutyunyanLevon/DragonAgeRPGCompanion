@@ -4,11 +4,8 @@ import '../features/play/play_page.dart';
 import '../features/sheet/sheet_page.dart';
 import '../features/spells/spells_page.dart';
 import '../l10n/app_localizations.dart';
+import 'device_class.dart';
 import 'placeholder_page.dart';
-
-/// Window widths (in logical pixels) where the navigation changes shape.
-const _railFromWidth = 600.0; // tablet: icon rail on the left
-const _sidebarFromWidth = 1000.0; // desktop: rail with labels
 
 /// One tab: its icon, its name and the page it shows.
 class _AppTab {
@@ -51,9 +48,9 @@ class _AppShellState extends State<AppShell> {
       children: [for (final tab in tabs) tab.page],
     );
 
-    final width = MediaQuery.sizeOf(context).width;
+    final device = deviceClassFor(MediaQuery.sizeOf(context).width);
 
-    if (width < _railFromWidth) {
+    if (device == DeviceClass.phone) {
       return Scaffold(
         body: pages,
         bottomNavigationBar: NavigationBar(
@@ -73,7 +70,7 @@ class _AppShellState extends State<AppShell> {
           NavigationRail(
             selectedIndex: _selected,
             onDestinationSelected: _select,
-            extended: width >= _sidebarFromWidth,
+            extended: device == DeviceClass.desktop,
             destinations: [
               for (final tab in tabs)
                 NavigationRailDestination(
