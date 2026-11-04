@@ -87,6 +87,15 @@ void main() {
       }
     });
 
+    test('every racial trait used by a background has a description', () async {
+      final file = await loader.loadBackgrounds();
+      for (final b in file.backgrounds) {
+        if (b.trait != null) {
+          expect(file.racialTraits[b.trait], isNotEmpty, reason: b.id);
+        }
+      }
+    });
+
     test('references to classes and abilities are valid', () async {
       final classes = await loader.loadClasses();
       final file = await loader.loadBackgrounds();

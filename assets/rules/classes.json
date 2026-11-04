@@ -576,6 +576,11 @@
           "gains": [
             "focus"
           ],
+          "focusChoices": [
+            { "ability": "cunning", "focus": "military-lore" },
+            { "ability": "dexterity", "focus": "riding" },
+            { "ability": "strength", "focus": "climbing" }
+          ],
           "powers": [
             {
               "name": "New Ability Focus",

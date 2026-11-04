@@ -33,10 +33,17 @@ class CharacterFocus {
 /// A talent or specialization with the degree reached.
 @JsonSerializable()
 class DegreeEntry {
-  const DegreeEntry({required this.id, required this.degree});
+  const DegreeEntry({required this.id, required this.degree, this.slot});
 
   final String id; // talent id or specialization id
   final int degree; // 1 novice, 2 journeyman, 3 master
+
+  /// Specializations only: the level (6 or 14) of the class slot it fills.
+  /// The class table raises its degree at the later levels of that slot.
+  final int? slot;
+
+  DegreeEntry withDegree(int newDegree) =>
+      DegreeEntry(id: id, degree: newDegree, slot: slot);
 
   factory DegreeEntry.fromJson(Map<String, dynamic> json) =>
       _$DegreeEntryFromJson(json);
@@ -81,6 +88,73 @@ class InventoryItem {
   Map<String, dynamic> toJson() => _$InventoryItemToJson(this);
 }
 
+/// What the last level-up changed, so it can be undone. Only the fields a
+/// level-up touches are kept: money, items and current health / mana are not.
+@JsonSerializable()
+class LevelUpUndo {
+  const LevelUpUndo({
+    required this.level,
+    required this.abilities,
+    required this.bankedAdvancements,
+    required this.focuses,
+    required this.talents,
+    required this.specializations,
+    required this.weaponGroups,
+    required this.maxHealth,
+    required this.maxMana,
+    required this.owedGains,
+    required this.learnedSpellIds,
+  });
+
+  /// The character as it was before the level-up.
+  factory LevelUpUndo.before(Character before, {required List<String> learnedSpellIds}) =>
+      LevelUpUndo(
+        level: before.level,
+        abilities: before.abilities,
+        bankedAdvancements: before.bankedAdvancements,
+        focuses: before.focuses,
+        talents: before.talents,
+        specializations: before.specializations,
+        weaponGroups: before.weaponGroups,
+        maxHealth: before.maxHealth,
+        maxMana: before.maxMana,
+        owedGains: before.owedGains,
+        learnedSpellIds: learnedSpellIds,
+      );
+
+  final int level;
+  final Map<String, int> abilities;
+
+  @JsonKey(defaultValue: <String, int>{})
+  final Map<String, int> bankedAdvancements;
+
+  @JsonKey(defaultValue: <CharacterFocus>[])
+  final List<CharacterFocus> focuses;
+
+  @JsonKey(defaultValue: <DegreeEntry>[])
+  final List<DegreeEntry> talents;
+
+  @JsonKey(defaultValue: <DegreeEntry>[])
+  final List<DegreeEntry> specializations;
+
+  @JsonKey(defaultValue: <String>[])
+  final List<String> weaponGroups;
+
+  final int maxHealth;
+  final int maxMana;
+
+  @JsonKey(defaultValue: <String>[])
+  final List<String> owedGains;
+
+  /// Spells the level-up itself taught (Undo forgets only these).
+  @JsonKey(defaultValue: <String>[])
+  final List<String> learnedSpellIds;
+
+  factory LevelUpUndo.fromJson(Map<String, dynamic> json) =>
+      _$LevelUpUndoFromJson(json);
+  Map<String, dynamic> toJson() => _$LevelUpUndoToJson(this);
+}
+
 @JsonSerializable()
 class Character {
   const Character({
@@ -98,6 +172,7 @@ class Character {
     required this.talents,
     required this.specializations,
     required this.spellIds,
+    required this.traitIds,
     required this.weaponGroups,
     required this.languages,
     required this.maxHealth,
@@ -106,6 +181,8 @@ class Character {
     this.mana = 0,
     this.copper = 0,
     required this.inventory,
+    required this.owedGains,
+    this.levelUpUndo,
     required this.goals,
     required this.ties,
   });
@@ -142,6 +219,11 @@ class Character {
   @JsonKey(defaultValue: <String>[])
   final List<String> spellIds;
 
+  /// Racial trait ids (see BackgroundsFile.racialTraits). Filled when the
+  /// character is created; older saves have none.
+  @JsonKey(defaultValue: <String>[])
+  final List<String> traitIds;
+
   @JsonKey(defaultValue: <String>[])
   final List<String> weaponGroups;
 
@@ -163,6 +245,14 @@ class Character {
   @JsonKey(defaultValue: <InventoryItem>[])
   final List<InventoryItem> inventory;
 
+  /// Gains skipped at level-up ("talent", "focus:primary", ...), taken later
+  /// from the Sheet. The ids are listed in character/level_up.dart.
+  @JsonKey(defaultValue: <String>[])
+  final List<String> owedGains;
+
+  /// Set by the last level-up; null when there is nothing to undo.
+  final LevelUpUndo? levelUpUndo;
+
   @JsonKey(defaultValue: <String>[])
   final List<String> goals;
 
@@ -171,11 +261,28 @@ class Character {
 
   int ability(String abilityId) => abilities[abilityId] ?? 0;
 
-  /// A copy with a different inventory or money. Add more parameters when
-  /// another screen needs to change something else.
+  /// A copy with something changed. Add more parameters when another screen
+  /// needs to change something else. [clearLevelUpUndo] drops the undo data
+  /// (passing null would mean "keep it").
   Character copyWith({
-    List<InventoryItem>? inventory,
+    int? level,
+    int? xp,
+    Map<String, int>? abilities,
+    Map<String, int>? bankedAdvancements,
+    List<CharacterFocus>? focuses,
+    List<DegreeEntry>? talents,
+    List<DegreeEntry>? specializations,
+    List<String>? spellIds,
+    List<String>? weaponGroups,
+    int? maxHealth,
+    int? health,
+    int? maxMana,
+    int? mana,
     int? copper,
+    List<InventoryItem>? inventory,
+    List<String>? owedGains,
+    LevelUpUndo? levelUpUndo,
+    bool clearLevelUpUndo = false,
   }) =>
       Character(
         id: id,
@@ -184,22 +291,26 @@ class Character {
         race: race,
         caste: caste,
         classId: classId,
-        level: level,
-        xp: xp,
-        abilities: abilities,
-        bankedAdvancements: bankedAdvancements,
-        focuses: focuses,
-        talents: talents,
-        specializations: specializations,
-        spellIds: spellIds,
-        weaponGroups: weaponGroups,
+        level: level ?? this.level,
+        xp: xp ?? this.xp,
+        abilities: abilities ?? this.abilities,
+        bankedAdvancements: bankedAdvancements ?? this.bankedAdvancements,
+        focuses: focuses ?? this.focuses,
+        talents: talents ?? this.talents,
+        specializations: specializations ?? this.specializations,
+        spellIds: spellIds ?? this.spellIds,
+        traitIds: traitIds,
+        weaponGroups: weaponGroups ?? this.weaponGroups,
         languages: languages,
-        maxHealth: maxHealth,
-        health: health,
-        maxMana: maxMana,
-        mana: mana,
+        maxHealth: maxHealth ?? this.maxHealth,
+        health: health ?? this.health,
+        maxMana: maxMana ?? this.maxMana,
+        mana: mana ?? this.mana,
         copper: copper ?? this.copper,
         inventory: inventory ?? this.inventory,
+        owedGains: owedGains ?? this.owedGains,
+        levelUpUndo:
+            clearLevelUpUndo ? null : (levelUpUndo ?? this.levelUpUndo),
         goals: goals,
         ties: ties,
       );

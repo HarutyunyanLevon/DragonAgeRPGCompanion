@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../character/level_up.dart' show maxLevel;
 import '../../l10n/app_localizations.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
@@ -70,6 +71,16 @@ class NewCharacterPage extends ConsumerWidget {
           SectionTitle(l10n.characterClass),
           ClassPicker(background: background),
         ],
+        const SizedBox(height: 24),
+        SectionTitle(l10n.startingLevel),
+        Wrap(spacing: 8, runSpacing: 4, children: [
+          for (var level = 1; level <= maxLevel; level++)
+            ChoiceChip(
+              label: Text('$level'),
+              selected: draft.startLevel == level,
+              onSelected: (_) => notifier.setStartLevel(level),
+            ),
+        ]),
         const SizedBox(height: 32),
         FilledButton(
           onPressed: draft.isComplete

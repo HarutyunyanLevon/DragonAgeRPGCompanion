@@ -1,12 +1,14 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../character/character.dart';
 import '../../character/providers.dart';
 import '../../l10n/app_localizations.dart';
+import '../../rules/rules_data.dart';
+import '../../shared/die_row.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
+import '../level_up/level_up_page.dart';
 import '../play/character_summary.dart';
 import 'character_builder.dart';
 import 'character_draft.dart';
@@ -27,6 +29,7 @@ class _HealthManaPageState extends ConsumerState<HealthManaPage> {
   int? _healthDie;
   int? _manaDie;
 
+  /// Level 1: save. Higher start level: the level-up pages come next.
   Future<void> _create() async {
     final draft = ref.read(characterDraftProvider);
     final rules = ref.read(rulesProvider).requireValue;
@@ -38,9 +41,35 @@ class _HealthManaPageState extends ConsumerState<HealthManaPage> {
       manaDie: _manaDie ?? 0,
     );
 
-    await ref.read(charactersProvider.notifier).add(character);
-    if (!mounted) return;
-    Navigator.of(context).popUntil((route) => route.isFirst);
+    await _nextLevel(character, draft.startLevel, rules);
+  }
+
+  /// Opens the level-up page for the level after [character]'s, or saves the
+  /// character when [targetLevel] is reached. Each finished page calls this
+  /// again with the leveled-up character.
+  Future<void> _nextLevel(
+      Character character, int targetLevel, RulesData rules) async {
+    if (character.level >= targetLevel) {
+      // Higher levels start with the XP of their level; the wizard's
+      // level-ups cannot be undone.
+      await ref.read(charactersProvider.notifier).add(character.copyWith(
+            xp: rules.classes.xpForLevel(targetLevel),
+            clearLevelUpUndo: true,
+          ));
+      if (!mounted) return;
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      return;
+    }
+
+    final l10n = AppLocalizations.of(context);
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => LevelUpPage(
+        character: character,
+        rules: rules,
+        stepLabel: l10n.levelOf(character.level + 1, targetLevel),
+        onFinish: (leveledUp) => _nextLevel(leveledUp, targetLevel, rules),
+      ),
+    ));
   }
 
   @override
@@ -63,7 +92,7 @@ class _HealthManaPageState extends ConsumerState<HealthManaPage> {
         Text(l10n.healthManaTitle,
             style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(height: 16),
-        _DieRow(
+        DieRow(
           label: l10n.health,
           base: health.base,
           ability: displayName(health.plus),
@@ -72,7 +101,7 @@ class _HealthManaPageState extends ConsumerState<HealthManaPage> {
           onChanged: (die) => setState(() => _healthDie = die),
         ),
         if (mana != null)
-          _DieRow(
+          DieRow(
             label: l10n.mana,
             base: mana.startBase,
             ability: displayName(mana.plus),
@@ -96,65 +125,9 @@ class _HealthManaPageState extends ConsumerState<HealthManaPage> {
         const SizedBox(height: 16),
         FilledButton(
           onPressed: ready ? _create : null,
-          child: Text(l10n.createCharacter),
+          child: Text(draft.startLevel == 1 ? l10n.createCharacter : l10n.next),
         ),
       ]),
-    );
-  }
-}
-
-/// "25 + Constitution 2 + d6", a Roll button, and 1-6 chips to enter a d6
-/// that was rolled at the table.
-class _DieRow extends StatelessWidget {
-  const _DieRow({
-    required this.label,
-    required this.base,
-    required this.ability,
-    required this.score,
-    required this.die,
-    required this.onChanged,
-  });
-
-  final String label;
-  final int base;
-  final String ability;
-  final int score;
-  final int? die;
-  final ValueChanged<int> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final formula = l10n.formula(base, ability, score, '${die ?? 'd6'}');
-
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(label, style: Theme.of(context).textTheme.titleMedium),
-          Text(die == null
-              ? formula
-              : l10n.formulaTotal(formula, base + score + die!)),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              FilledButton.tonalIcon(
-                icon: const Icon(Icons.casino_outlined),
-                label: Text(l10n.rollDie),
-                onPressed: () => onChanged(Random().nextInt(6) + 1),
-              ),
-              for (var value = 1; value <= 6; value++)
-                ChoiceChip(
-                  label: Text('$value'),
-                  selected: die == value,
-                  onSelected: (_) => onChanged(value),
-                ),
-            ],
-          ),
-        ]),
-      ),
     );
   }
 }

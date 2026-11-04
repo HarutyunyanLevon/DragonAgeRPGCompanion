@@ -2,6 +2,7 @@ import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
+import 'models/magic.dart';
 import 'models/specializations.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
@@ -24,6 +25,7 @@ class RulesData {
     required this.armor,
     required this.shields,
     required this.catalog,
+    required this.magic,
   });
 
   final ClassesFile classes;
@@ -43,6 +45,9 @@ class RulesData {
 
   /// Everything buyable, for the "Add item" sheet.
   final List<CatalogEntry> catalog;
+
+  /// Armor strain, spell stunts and mishaps (magic.json).
+  final MagicFile magic;
 
   WeaponGroup weaponGroupById(String id) =>
       weaponGroups.firstWhere((g) => g.id == id);

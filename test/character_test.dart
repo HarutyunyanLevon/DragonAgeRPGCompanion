@@ -19,12 +19,14 @@ Character sample({String id = 'c1', String name = 'Aveline'}) => Character(
       talents: const [DegreeEntry(id: 'single-weapon-style', degree: 2)],
       specializations: const [],
       spellIds: const [],
+      traitIds: const ['magic-resistance'],
       weaponGroups: const ['axes'],
       languages: const ['trade-tongue'],
       maxHealth: 38,
       health: 30,
       copper: 5200,
       inventory: const [InventoryItem(name: 'Battle Axe', itemId: 'axes-battle-axe')],
+      owedGains: const [],
       goals: const ['Prove myself worthy'],
       ties: const [],
     );
@@ -41,6 +43,7 @@ void main() {
       expect(copy.bankedAdvancements['strength'], 1);
       expect(copy.focuses.single.bonus, 3);
       expect(copy.talents.single.degree, 2);
+      expect(copy.traitIds, ['magic-resistance']);
       expect(copy.inventory.single.itemId, 'axes-battle-axe');
       expect(jsonEncode(copy.toJson()), text);
     });
@@ -59,6 +62,7 @@ void main() {
       final c = Character.fromJson(minimal);
       expect(c.level, 1);
       expect(c.focuses, isEmpty);
+      expect(c.traitIds, isEmpty);
       expect(c.ability('magic'), 0);
     });
   });

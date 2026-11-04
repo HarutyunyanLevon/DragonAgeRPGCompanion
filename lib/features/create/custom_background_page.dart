@@ -9,6 +9,7 @@ import '../../rules/rules_data.dart';
 import '../../rules/slug.dart';
 import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
+import '../../shared/picker.dart';
 import 'custom_backgrounds.dart';
 import 'table_row_editor.dart';
 
@@ -115,7 +116,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
           onChanged: (_) => setState(() {}),
         ),
         const SizedBox(height: 16),
-        _Picker<String>(
+        Picker<String>(
           label: l10n.race,
           entries: [
             for (final r in playableRaces)
@@ -123,7 +124,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
           ],
           onSelected: (v) => setState(() => _race = v),
         ),
-        _Picker<String>(
+        Picker<String>(
           label: l10n.abilityBonus,
           entries: [
             for (final a in rules.backgrounds.abilities)
@@ -131,12 +132,12 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
           ],
           onSelected: (v) => setState(() => _ability = v),
         ),
-        _Picker<FocusEntry>(
+        Picker<FocusEntry>(
           label: l10n.focusChoice(1),
           entries: focusEntries,
           onSelected: (v) => setState(() => _focus1 = v),
         ),
-        _Picker<FocusEntry>(
+        Picker<FocusEntry>(
           label: l10n.focusChoice(2),
           entries: focusEntries,
           errorText: _focusesClash ? l10n.focusChoicesDiffer : null,
@@ -166,7 +167,7 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
             ),
         ]),
         const SizedBox(height: 16),
-        _Picker<Background>(
+        Picker<Background>(
           label: l10n.startTableFrom,
           entries: [
             for (final b in book) DropdownMenuEntry(value: b, label: b.name),
@@ -231,36 +232,6 @@ class _CustomBackgroundPageState extends ConsumerState<CustomBackgroundPage> {
       },
       notes: const [],
       homebrew: true,
-    );
-  }
-}
-
-/// A dropdown with type-to-filter, full width.
-class _Picker<T> extends StatelessWidget {
-  const _Picker({
-    required this.label,
-    required this.entries,
-    required this.onSelected,
-    this.errorText,
-  });
-
-  final String label;
-  final List<DropdownMenuEntry<T>> entries;
-  final ValueChanged<T?> onSelected;
-  final String? errorText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: DropdownMenu<T>(
-        label: Text(label),
-        errorText: errorText,
-        expandedInsets: EdgeInsets.zero,
-        enableFilter: true,
-        dropdownMenuEntries: entries,
-        onSelected: onSelected,
-      ),
     );
   }
 }

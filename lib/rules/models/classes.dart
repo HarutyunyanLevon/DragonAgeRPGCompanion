@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'backgrounds.dart' show FocusRef;
+
 part 'classes.g.dart';
 
 /// assets/rules/classes.json
@@ -86,6 +88,7 @@ class ClassLevel {
   const ClassLevel({
     required this.level,
     required this.gains,
+    required this.focusChoices,
     this.specialization,
     required this.powers,
   });
@@ -95,6 +98,10 @@ class ClassLevel {
   /// What the level-up screen has to offer: spell, talent, focus, weaponGroup.
   @JsonKey(defaultValue: <String>[])
   final List<String> gains;
+
+  /// The "focus" gain only: the focuses to pick from (warrior level 2).
+  @JsonKey(defaultValue: <FocusRef>[])
+  final List<FocusRef> focusChoices;
 
   final SpecializationStep? specialization;
 

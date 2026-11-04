@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import '../../character/character.dart';
 import '../../l10n/app_localizations.dart';
 import '../../rules/rules_data.dart';
+import '../../shared/display_name.dart';
 import '../../shared/form_widgets.dart';
 import '../../shared/info_row.dart';
 import '../../shared/sheet_box.dart';
 import '../create/rule_info.dart';
 import 'sheet_filter.dart';
 
-/// Talents and specializations with the degree reached. Tap a row to read
-/// all three degrees.
+/// Racial traits, talents and specializations. Talents show the degree
+/// reached (tap a row to read all three degrees); traits show "Racial trait".
+/// Traits and talents share one box.
 class TalentsSection extends StatelessWidget {
   const TalentsSection({
     super.key,
@@ -22,6 +24,13 @@ class TalentsSection extends StatelessWidget {
   final Character character;
   final RulesData rules;
   final SheetFilter filter;
+
+  static List<String> _traits(
+          Character character, RulesData rules, SheetFilter filter) =>
+      [
+        for (final id in character.traitIds)
+          if (filter.matches(traitTexts(rules, id))) id
+      ];
 
   static List<DegreeEntry> _talents(
           Character character, RulesData rules, SheetFilter filter) =>
@@ -41,32 +50,34 @@ class TalentsSection extends StatelessWidget {
 
   static bool hasMatches(
           Character character, RulesData rules, SheetFilter filter) =>
+      _traits(character, rules, filter).isNotEmpty ||
       _talents(character, rules, filter).isNotEmpty ||
       _specializations(character, rules, filter).isNotEmpty;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final traits = _traits(character, rules, filter);
     final talents = _talents(character, rules, filter);
     final specializations = _specializations(character, rules, filter);
-    if (talents.isEmpty && specializations.isEmpty) {
+    if (traits.isEmpty && talents.isEmpty && specializations.isEmpty) {
       return const SizedBox.shrink();
     }
 
-    String degreeName(int degree) => [
-          l10n.degreeNameNovice,
-          l10n.degreeNameJourneyman,
-          l10n.degreeNameMaster,
-        ][degree - 1];
-
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       SectionTitle(l10n.sectionTalents),
-      if (talents.isNotEmpty)
+      if (traits.isNotEmpty || talents.isNotEmpty)
         SheetBox(children: [
+          for (final id in traits)
+            InfoRow(
+              title: displayName(id),
+              value: l10n.trait,
+              child: Text(rules.backgrounds.racialTraits[id] ?? ''),
+            ),
           for (final entry in talents)
             InfoRow(
               title: rules.talents.talentById(entry.id).name,
-              value: degreeName(entry.degree),
+              value: degreeName(l10n, entry.degree),
               child: TalentInfo(
                 rules: rules,
                 talent: rules.talents.talentById(entry.id),
@@ -80,7 +91,7 @@ class TalentsSection extends StatelessWidget {
           for (final entry in specializations)
             InfoRow(
               title: rules.specializations.specializationById(entry.id).name,
-              value: degreeName(entry.degree),
+              value: degreeName(l10n, entry.degree),
               child: SpecializationInfo(
                 rules: rules,
                 specialization:

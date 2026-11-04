@@ -56,6 +56,35 @@ void main() {
       expect(c.maxMana, 0);
     });
 
+    test('the background\'s racial trait is stored on the character', () {
+      CharacterDraft draftFor(String background, String race) => CharacterDraft(
+            name: 'Test',
+            background: rules.backgrounds.backgroundById(background),
+            race: race,
+            classId: 'warrior',
+            abilities: scores({}),
+            benefits: const BackgroundBenefits(focusIndex: 0, rolled: [0, 1]),
+            classChoices: const ClassChoices(
+              weaponGroups: ['axes', 'bludgeons', 'polearms'],
+              talents: ['single-weapon-style', 'two-hander-style'],
+            ),
+          );
+
+      final dwarf = buildCharacter(
+          draft: draftFor('surface-dwarf', 'dwarf'),
+          rules: rules,
+          id: '1',
+          healthDie: 1);
+      final human = buildCharacter(
+          draft: draftFor('fereldan-noble', 'human'),
+          rules: rules,
+          id: '2',
+          healthDie: 1);
+
+      expect(dwarf.traitIds, ['magic-resistance']);
+      expect(human.traitIds, isEmpty);
+    });
+
     test('starting gear, purchases and leftover money', () {
       final draft = CharacterDraft(
         name: 'Aveline',

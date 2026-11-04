@@ -17,11 +17,13 @@ Character sample(String id, String name) => Character(
       talents: const [],
       specializations: const [],
       spellIds: const [],
+      traitIds: const [],
       weaponGroups: const [],
       languages: const [],
       maxHealth: 30,
       health: 30,
       inventory: const [],
+      owedGains: const [],
       goals: const [],
       ties: const [],
     );

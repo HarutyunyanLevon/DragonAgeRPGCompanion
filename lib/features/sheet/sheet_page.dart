@@ -161,7 +161,7 @@ class _SheetBodyState extends State<_SheetBody> {
                 // Room on the right so the buttons never cover the text.
                 padding: const EdgeInsets.fromLTRB(16, 16, 88, 16),
                 children: [
-                  HeaderBlock(character: character),
+                  HeaderBlock(character: character, rules: rules),
                   if (nothingFound)
                     Padding(
                       padding: const EdgeInsets.all(24),

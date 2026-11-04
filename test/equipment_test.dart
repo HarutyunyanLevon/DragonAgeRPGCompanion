@@ -29,11 +29,13 @@ Character makeCharacter({
       talents: talents,
       specializations: const [],
       spellIds: const [],
+      traitIds: const [],
       weaponGroups: weaponGroups,
       languages: const [],
       maxHealth: 30,
       health: 30,
       inventory: inventory,
+      owedGains: const [],
       goals: const [],
       ties: const [],
     );

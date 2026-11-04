@@ -101,6 +101,7 @@ Character buildCharacter({
     ],
     specializations: const [],
     spellIds: choices.spells,
+    traitIds: [if (background.trait != null) background.trait!],
     weaponGroups: finalWeaponGroups(draft, rules),
     languages: {
       ...background.languages,
@@ -114,6 +115,7 @@ Character buildCharacter({
     mana: maxMana,
     inventory: inventory,
     copper: gear.leftCopper(rules),
+    owedGains: const [],
     goals: const [],
     ties: const [],
   );

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../character/character.dart';
 import '../../l10n/app_localizations.dart';
 import '../../rules/rules_data.dart';
 import '../../shared/display_name.dart';
 import '../../shared/money.dart';
+import '../spells/custom_spells.dart';
 
 /// A plain overview of a character. Temporary: the Play tab's widgets will
 /// replace it, but the creation wizard also uses it for its last look.
-class CharacterSummary extends StatelessWidget {
+class CharacterSummary extends ConsumerWidget {
   const CharacterSummary({
     super.key,
     required this.character,
@@ -19,9 +21,10 @@ class CharacterSummary extends StatelessWidget {
   final RulesData rules;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final c = character;
+    final spells = ref.watch(allSpellsProvider);
 
     return Card(
       child: Padding(
@@ -46,6 +49,8 @@ class CharacterSummary extends StatelessWidget {
                     displayName(f.ability), displayName(f.focus)))
                 .join(', '),
           ),
+          if (c.traitIds.isNotEmpty)
+            _Line(l10n.racialTraits, c.traitIds.map(displayName).join(', ')),
           _Line(
             l10n.talents,
             c.talents.map((t) => rules.talents.talentById(t.id).name).join(', '),
@@ -53,7 +58,12 @@ class CharacterSummary extends StatelessWidget {
           if (c.spellIds.isNotEmpty)
             _Line(
               l10n.spells,
-              c.spellIds.map((id) => rules.spellById(id).name).join(', '),
+              // A homebrew spell that was deleted since is shown by its id.
+              c.spellIds
+                  .map((id) =>
+                      spells.where((s) => s.id == id).firstOrNull?.name ??
+                      displayName(id))
+                  .join(', '),
             ),
           _Line(l10n.weaponGroups, c.weaponGroups.map(displayName).join(', ')),
           _Line(l10n.languages, c.languages.map(displayName).join(', ')),

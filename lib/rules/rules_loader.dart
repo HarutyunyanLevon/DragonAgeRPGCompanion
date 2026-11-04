@@ -4,6 +4,7 @@ import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
+import 'models/magic.dart';
 import 'models/specializations.dart';
 import 'models/spell.dart';
 import 'models/talents.dart';
@@ -64,6 +65,10 @@ class RulesLoader {
   Future<GearFile> loadGear() async =>
       GearFile.fromJson(await _json('gear.json') as Map<String, dynamic>);
 
+  /// Armor strain, spell stunts and the mishap table (magic.json).
+  Future<MagicFile> loadMagic() async =>
+      MagicFile.fromJson(await _json('magic.json') as Map<String, dynamic>);
+
   Future<RulesData> load() async {
     final gear = await loadGear();
     return RulesData(
@@ -80,6 +85,7 @@ class RulesLoader {
       armor: gear.armor,
       shields: gear.shields,
       catalog: gear.catalog,
+      magic: await loadMagic(),
     );
   }
 }

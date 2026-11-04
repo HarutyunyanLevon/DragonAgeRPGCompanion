@@ -187,6 +187,7 @@ class BackgroundsFile {
     required this.abilityScoreTable,
     required this.buyMethod,
     required this.focusBonus,
+    required this.racialTraits,
     required this.backgrounds,
   });
 
@@ -194,6 +195,11 @@ class BackgroundsFile {
   final List<ScoreRange> abilityScoreTable;
   final BuyMethod buyMethod;
   final int focusBonus;
+
+  /// Racial trait id -> rules text ("magic-resistance").
+  @JsonKey(defaultValue: <String, String>{})
+  final Map<String, String> racialTraits;
+
   final List<Background> backgrounds;
 
   /// Lowest and highest start score the rules allow (-2 and 4).

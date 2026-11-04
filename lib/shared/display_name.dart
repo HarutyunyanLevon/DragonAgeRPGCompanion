@@ -1,3 +1,5 @@
+import '../l10n/app_localizations.dart';
+
 /// Small text helpers for the screen.
 
 /// Turns a rules id into text: "trade-tongue" -> "Trade Tongue".
@@ -13,3 +15,10 @@ String capitalize(String text) =>
 
 /// A bonus with its sign: 3 -> "+3", -1 -> "-1".
 String signed(int value) => value >= 0 ? '+$value' : '$value';
+
+/// 1 -> "Novice", 2 -> "Journeyman", 3 -> "Master".
+String degreeName(AppLocalizations l10n, int degree) => [
+      l10n.degreeNameNovice,
+      l10n.degreeNameJourneyman,
+      l10n.degreeNameMaster,
+    ][degree - 1];

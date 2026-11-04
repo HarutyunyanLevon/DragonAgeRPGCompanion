@@ -20,6 +20,7 @@ class CharacterDraft {
     this.benefits = const BackgroundBenefits(),
     this.classChoices = const ClassChoices(),
     this.gearChoices = const GearChoices(),
+    this.startLevel = 1,
   });
 
   final String name;
@@ -46,6 +47,10 @@ class CharacterDraft {
   /// Steps 4b and 4c: starting weapons, the silver roll and the shop. Depends
   /// on everything before it, so changing steps 1-4a clears it.
   final GearChoices gearChoices;
+
+  /// The level the character starts at. Steps 2-4 build a level 1 character;
+  /// the level-up pages after step 4 raise it to this level.
+  final int startLevel;
 
   /// What the benefit rules need to know. Steps 1 and 2 must be done.
   BenefitFacts benefitFacts(RulesData rules) => BenefitFacts(
@@ -75,6 +80,7 @@ class CharacterDraft {
     BackgroundBenefits? benefits,
     ClassChoices? classChoices,
     GearChoices? gearChoices,
+    int? startLevel,
   }) =>
       CharacterDraft(
         name: name ?? this.name,
@@ -86,6 +92,7 @@ class CharacterDraft {
         benefits: benefits ?? this.benefits,
         classChoices: classChoices ?? this.classChoices,
         gearChoices: gearChoices ?? this.gearChoices,
+        startLevel: startLevel ?? this.startLevel,
       );
 }
 
@@ -95,6 +102,7 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
 
   void setName(String name) => state = state.copyWith(name: name);
   void setCaste(String caste) => state = state.copyWith(caste: caste);
+  void setStartLevel(int level) => state = state.copyWith(startLevel: level);
   void setGearChoices(GearChoices choices) =>
       state = state.copyWith(gearChoices: choices);
   void setClassChoices(ClassChoices choices) => state = state.copyWith(
@@ -147,12 +155,17 @@ class CharacterDraftNotifier extends AutoDisposeNotifier<CharacterDraft> {
       race: background.raceChoice ? null : background.races.first,
       classId: background.classes.contains(state.classId) ? state.classId : null,
       abilities: state.abilities,
+      startLevel: state.startLevel,
     );
   }
 
   /// Back to "no background chosen" (used when the chosen one is deleted).
   void clearBackground() =>
-      state = CharacterDraft(name: state.name, abilities: state.abilities);
+      state = CharacterDraft(
+        name: state.name,
+        abilities: state.abilities,
+        startLevel: state.startLevel,
+      );
 }
 
 final characterDraftProvider =

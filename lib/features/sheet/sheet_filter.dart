@@ -38,6 +38,9 @@ List<String> specializationTexts(Specialization specialization) => [
       ...specialization.notes,
     ];
 
+List<String> traitTexts(RulesData rules, String traitId) =>
+    [displayName(traitId), rules.backgrounds.racialTraits[traitId] ?? ''];
+
 List<String> abilityTexts(RulesData rules, String ability) =>
     [displayName(ability), rules.abilityDescriptions[ability] ?? ''];
 
