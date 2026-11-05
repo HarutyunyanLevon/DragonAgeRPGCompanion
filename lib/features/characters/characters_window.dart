@@ -7,6 +7,7 @@ import '../../l10n/app_localizations.dart';
 import '../../shared/confirm_dialog.dart';
 import '../../shared/display_name.dart';
 import '../create/new_character_page.dart';
+import '../settings/theme_picker.dart';
 
 /// Opens the characters window: a bottom sheet (centered and narrow on wide
 /// screens) with the list of saved characters.
@@ -84,14 +85,26 @@ class CharactersWindow extends ConsumerWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: FilledButton.icon(
-              icon: const Icon(Icons.add),
-              label: Text(l10n.newCharacter),
-              onPressed: () {
-                final navigator = Navigator.of(context);
-                navigator.pop(); // close this window, then open the wizard
-                navigator.push(newCharacterRoute());
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: FilledButton.icon(
+                    icon: const Icon(Icons.add),
+                    label: Text(l10n.newCharacter),
+                    onPressed: () {
+                      final navigator = Navigator.of(context);
+                      navigator.pop(); // close this window, then open the wizard
+                      navigator.push(newCharacterRoute());
+                    },
+                  ),
+                ),
+                const SizedBox(width: 8),
+                IconButton.outlined(
+                  icon: const Icon(Icons.palette_outlined),
+                  tooltip: l10n.themeButton,
+                  onPressed: () => showThemePicker(context),
+                ),
+              ],
             ),
           ),
         ],

@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'lore_data.dart';
+
 part 'character.g.dart';
 
 /// A player character, saved as one JSON file. Everything about the
@@ -340,6 +342,7 @@ class Character {
     required this.playLayouts,
     this.playWidgets,
     this.playPresets,
+    this.lore,
   });
 
   final String id;
@@ -427,6 +430,9 @@ class Character {
   /// Saved layouts (null = none).
   final List<PlayPreset>? playPresets;
 
+  /// The Lore tab's data: own entries, tags, graph (null = nothing yet).
+  final LoreData? lore;
+
   int ability(String abilityId) => abilities[abilityId] ?? 0;
 
   /// A copy with something changed. Add more parameters when another screen
@@ -452,6 +458,7 @@ class Character {
     Map<String, List<PlayTile>>? playLayouts,
     List<PlayWidgetData>? playWidgets,
     List<PlayPreset>? playPresets,
+    LoreData? lore,
     LevelUpUndo? levelUpUndo,
     bool clearLevelUpUndo = false,
   }) =>
@@ -487,6 +494,7 @@ class Character {
         playLayouts: playLayouts ?? this.playLayouts,
         playWidgets: playWidgets ?? this.playWidgets,
         playPresets: playPresets ?? this.playPresets,
+        lore: lore ?? this.lore,
       );
 
   factory Character.fromJson(Map<String, dynamic> json) =>

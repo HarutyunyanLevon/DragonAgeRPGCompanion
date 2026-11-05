@@ -16,6 +16,8 @@ dependencies:
   json_annotation: ^4.12.0
   path: ^1.9.0
   path_provider: ^2.1.4
+  file_picker: ^13.3.0 # lore export / import (only used in lib/shared/file_dialogs.dart)
+  google_fonts: ^6.2.1 # theme fonts (only used in lib/shared/theme.dart)
 
 dev_dependencies:
   flutter_test:

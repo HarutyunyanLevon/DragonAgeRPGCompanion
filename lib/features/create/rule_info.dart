@@ -9,12 +9,14 @@ import '../../rules/models/spell.dart';
 import '../../rules/models/talents.dart';
 import '../../rules/rules_data.dart';
 import '../../shared/display_name.dart';
+import '../../shared/linked_text.dart';
 import '../../shared/money.dart';
 
 // Descriptions of the things the wizard lets you choose. Each widget is the
 // text inside a description box: a title line and a few facts.
 
-/// "Name" in bold, or "Label: text" with the label in bold.
+/// "Label: text" with the label in bold (just the text without a label).
+/// In the Glossary the words that name another entry are links.
 class _Line extends StatelessWidget {
   const _Line(this.text, {this.label});
 
@@ -25,13 +27,7 @@ class _Line extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
-      child: Text.rich(TextSpan(children: [
-        if (label != null)
-          TextSpan(
-              text: '$label: ',
-              style: const TextStyle(fontWeight: FontWeight.bold)),
-        TextSpan(text: text),
-      ])),
+      child: LinkedText(text, label: label),
     );
   }
 }

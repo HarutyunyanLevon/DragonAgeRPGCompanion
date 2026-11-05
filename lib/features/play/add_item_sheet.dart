@@ -23,6 +23,27 @@ Future<PlayItem?> pickItem(
   );
 }
 
+/// Asks which free item to add (text, checkbox, ...) and its fields. Returns
+/// the item, or null when cancelled. For places that take only free items.
+Future<PlayItem?> pickFreeItem(BuildContext context) async {
+  final l10n = AppLocalizations.of(context);
+  final type = await showDialog<String>(
+    context: context,
+    builder: (dialogContext) => SimpleDialog(
+      title: Text(l10n.itemGroupFree),
+      children: [
+        for (final type in freeItemTypes)
+          SimpleDialogOption(
+            onPressed: () => Navigator.pop(dialogContext, type),
+            child: Text(freeItemName(l10n, type)),
+          ),
+      ],
+    ),
+  );
+  if (type == null || !context.mounted) return null;
+  return editFreeItem(context, type: type);
+}
+
 String _groupName(AppLocalizations l10n, ItemGroup group) => switch (group) {
       ItemGroup.abilities => l10n.abilities,
       ItemGroup.focuses => l10n.focuses,

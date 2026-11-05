@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../features/glossary/glossary_page.dart';
+import '../features/lore/lore_page.dart';
 import '../features/play/play_page.dart';
 import '../features/sheet/sheet_page.dart';
 import '../features/spells/spells_page.dart';
 import '../l10n/app_localizations.dart';
 import 'device_class.dart';
-import 'placeholder_page.dart';
 
 /// One tab: its icon, its name and the page it shows.
 class _AppTab {
@@ -36,10 +37,8 @@ class _AppShellState extends State<AppShell> {
       _AppTab(Icons.shield_outlined, l10n.tabPlay, const PlayPage()),
       _AppTab(Icons.assignment_ind_outlined, l10n.tabSheet, const SheetPage()),
       _AppTab(Icons.auto_awesome, l10n.tabSpells, const SpellsPage()),
-      _AppTab(Icons.menu_book_outlined, l10n.tabGlossary,
-          PlaceholderPage(title: l10n.tabGlossary)),
-      _AppTab(Icons.hub_outlined, l10n.tabLore,
-          PlaceholderPage(title: l10n.tabLore)),
+      _AppTab(Icons.menu_book_outlined, l10n.tabGlossary, const GlossaryPage()),
+      _AppTab(Icons.hub_outlined, l10n.tabLore, const LorePage()),
     ];
 
     // IndexedStack keeps every tab alive, so switching tabs keeps scroll positions.

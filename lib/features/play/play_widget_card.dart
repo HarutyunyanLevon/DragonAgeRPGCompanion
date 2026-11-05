@@ -20,7 +20,7 @@ class ItemDrag {
   final int index;
 }
 
-/// One Play widget: a title and its items, in a box. Items scroll when they
+/// One Play widget: a title and its items, in a box. (Lore tiles use it too.) Items scroll when they
 /// do not fit. In edit mode the title can be changed, and items can be
 /// dragged (also to other widgets), edited, moved and deleted.
 class PlayWidgetCard extends ConsumerWidget {
@@ -35,6 +35,10 @@ class PlayWidgetCard extends ConsumerWidget {
     required this.onDelete,
     required this.onItemDrag,
     this.moveHandle,
+    this.renamable = true,
+    this.onTitleTap,
+    this.freeOnly = false,
+    this.footer,
   });
 
   final PlayWidgetData data;
@@ -53,6 +57,19 @@ class PlayWidgetCard extends ConsumerWidget {
 
   /// Dragging this moves the whole widget on the grid (edit mode only).
   final Widget? moveHandle;
+
+  /// False when the title is not the widget's own (a Lore tile shows the name
+  /// of its entry): edit mode then shows it as plain text.
+  final bool renamable;
+
+  /// Called when the title is tapped.
+  final VoidCallback? onTitleTap;
+
+  /// Only free items (text, checkbox, ...) can be added.
+  final bool freeOnly;
+
+  /// Shown under the items.
+  final Widget? footer;
 
   static const _gap = 6.0;
   static const _tileMinWidth = 96.0;
@@ -74,6 +91,7 @@ class PlayWidgetCard extends ConsumerWidget {
       child: Column(children: [
         _header(context),
         Expanded(child: _body(context, ref)),
+        if (footer != null) footer!,
       ]),
     );
   }
@@ -92,12 +110,14 @@ class PlayWidgetCard extends ConsumerWidget {
             ? Row(children: [
                 if (moveHandle != null) moveHandle!,
                 Expanded(
-                  child: _TitleField(
-                    key: ValueKey(data.id),
-                    title: data.title,
-                    onSaved: (title) =>
-                        onChanged(renameWidget(widgets, data.id, title)),
-                  ),
+                  child: renamable
+                      ? _TitleField(
+                          key: ValueKey(data.id),
+                          title: data.title,
+                          onSaved: (title) =>
+                              onChanged(renameWidget(widgets, data.id, title)),
+                        )
+                      : _titleText(text),
                 ),
                 IconButton(
                   tooltip: _tiles ? l10n.styleList : l10n.styleTiles,
@@ -115,15 +135,20 @@ class PlayWidgetCard extends ConsumerWidget {
               ])
             : Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Text(data.title,
-                      style: text.titleSmall, overflow: TextOverflow.ellipsis),
-                ),
+                child: _titleText(text),
               ),
       ),
     );
   }
+
+  Widget _titleText(TextTheme text) => InkWell(
+        onTap: onTitleTap,
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(data.title,
+              style: text.titleSmall, overflow: TextOverflow.ellipsis),
+        ),
+      );
 
   // ---- Items ----
 
@@ -291,7 +316,9 @@ class PlayWidgetCard extends ConsumerWidget {
           icon: const Icon(Icons.add),
           label: Text(l10n.addItem),
           onPressed: () async {
-            final item = await pickItem(context, ref, character, rules);
+            final item = freeOnly
+                ? await pickFreeItem(context)
+                : await pickItem(context, ref, character, rules);
             if (item != null) onChanged(addItem(widgets, data.id, item));
           },
         ),

@@ -1,0 +1,497 @@
+[
+  {
+    "topic": "Dice and tests",
+    "name": "Dragon Die",
+    "text": "One of your three d6 is a different color. It decides degrees of success, tie-breaks, stunt points and some spell effects."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "1d3",
+    "text": "Roll a d6 and halve it: 1-2 is 1, 3-4 is 2, 5-6 is 3."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Ability test",
+    "text": "3d6 + ability + focus (+2 if you have the focus). Only one focus can apply to a test. Compare the result with a Target Number (TN); equal or higher succeeds."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Target Number (TN)",
+    "text": "The number a test result must reach. Routine 7, Easy 9, Average 11, Challenging 13, Hard 15, Formidable 17, Imposing 19, Nigh Impossible 21. An attack roll uses the target's Defense as its TN.",
+    "aliases": [
+      "Target Number",
+      "TN"
+    ],
+    "extra": "difficulties"
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Focus",
+    "text": "A specialty inside an ability, written Ability (Focus), e.g. Cunning (Arcane Lore). It gives +2 to a test it applies to (+3 when doubled). 'Focus required' means you fail automatically without it.",
+    "aliases": [
+      "focuses"
+    ]
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Opposed test",
+    "text": "Both sides roll and the higher result wins. Ties go to the higher Dragon Die, then to the higher ability. With more than two sides the highest wins, with the same tie-breaks."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Advanced test",
+    "text": "Repeated tests add up toward a success threshold (Easy 5, Average 10, Challenging 15, Hard 20, Formidable 25). The first side to reach it wins.",
+    "extra": "thresholds"
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Degrees of success",
+    "text": "Only when a test succeeds: read the Dragon Die. 1 is a narrow success, 6 or more is spectacular. From level 6 you may add the test's focus bonus to the Dragon Die."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Reaction test",
+    "text": "Resisting something (a spell, a shove) is a test made on someone else's turn. It takes no time."
+  },
+  {
+    "topic": "Dice and tests",
+    "name": "Stacking",
+    "text": "Different effects add up. Several copies of the same talent, power or spell do not, unless the text says so."
+  },
+  {
+    "topic": "Stunts",
+    "name": "Stunt points (SP)",
+    "text": "Roll doubles on a successful attack, spell or certain tests and you get stunt points equal to the Dragon Die. Spend them at once; each stunt can be done once per round (Skirmish excepted).",
+    "aliases": [
+      "SP",
+      "stunt points",
+      "stunt point"
+    ]
+  },
+  {
+    "topic": "Stunts",
+    "name": "Doubles",
+    "text": "Two of your three dice showing the same number. On a successful roll that allows stunts, doubles give stunt points.",
+    "aliases": [
+      "double"
+    ]
+  },
+  {
+    "topic": "Stunts",
+    "name": "Spell stunt",
+    "text": "A stunt bought with stunt points after a successful casting roll with doubles, such as Puissant Casting or Mighty Spell.",
+    "aliases": [
+      "spell stunts"
+    ],
+    "extra": "spell-stunts"
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Round",
+    "text": "15 seconds of action time, four to the minute. Narrative time outside combat is loose.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Initiative",
+    "text": "A Dexterity (Initiative) test at the start of a fight. The order stays fixed for the whole encounter; latecomers roll at the start of the round they arrive. Ties: higher Dragon Die, then higher ability."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Turn",
+    "text": "One major action and one minor action, or two minor actions, in any order. Doing less is fine. Free actions do not count.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Major action",
+    "text": "All-Out Attack, Charge, Defend, Heal, Melee Attack, Ranged Attack or Run. Casting and reloading can also be major actions.",
+    "aliases": [
+      "major actions"
+    ],
+    "extra": "major-actions"
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Minor action",
+    "text": "Activate, Aim, Guard Up, Move, Prepare, Press the Attack, Ready or Stand Firm. Casting and reloading can also be minor actions.",
+    "aliases": [
+      "minor actions"
+    ],
+    "extra": "minor-actions"
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Free action",
+    "text": "A trivial act such as speaking a few words. It does not use up your actions.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "All-Out Attack",
+    "text": "Major action: melee attack on an adjacent enemy. +1 damage on a hit, but -1 Defense until your next turn, hit or miss."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Charge",
+    "text": "Major action: move up to half your Speed (round down), then make a melee attack with +1 to the attack roll.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Defend",
+    "text": "Major action: +2 Defense until the start of your next turn.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Heal (action)",
+    "text": "Major action: an adjacent ally, bandages needed. TN 11 Cunning (Healing). On a success the ally regains the Dragon Die + your Cunning in Health, and cannot benefit again until hurt again.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Melee Attack",
+    "text": "Major action: attack an adjacent enemy. Anything within 2 yards counts as adjacent."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Ranged Attack",
+    "text": "Major action: shoot or throw at a visible enemy within range."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Run",
+    "text": "Major action: move up to double your Speed. Not possible while prone.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Activate",
+    "text": "Minor action: start using a power or item, such as a fighting style or a potion.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Aim",
+    "text": "Minor action: +1 to the attack roll of your next melee or ranged attack.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Guard Up",
+    "text": "Minor action, before any major action this turn: +1 or +2 Defense until the end of the round, with the same penalty to all your tests for the rest of the round."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Move",
+    "text": "Minor action: up to your Speed in yards. Going prone, standing up or mounting costs half your Speed (round down).",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Prepare",
+    "text": "Minor action: pick a major action to carry out as an interrupt before your next turn, then end your turn. Not possible after a major action."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Press the Attack",
+    "text": "Minor action: if an enemy you struck this turn moves away, follow it up to your Speed right after its movement."
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Ready",
+    "text": "Minor action: draw or stow a weapon or an item.",
+    "autoLink": false
+  },
+  {
+    "topic": "Time and actions",
+    "name": "Stand Firm",
+    "text": "Minor action: until your next turn, enemies using Skirmish or Knock Prone on you must win Strength (Might) against your Strength (Might) or Dexterity (Acrobatics)."
+  },
+  {
+    "topic": "Combat",
+    "name": "Attack roll",
+    "text": "3d6 + the ability of the weapon group + a matching focus + modifiers, against the target's Defense. Equal or higher is a hit.",
+    "aliases": [
+      "attack rolls"
+    ],
+    "extra": "attack-modifiers"
+  },
+  {
+    "topic": "Combat",
+    "name": "Defense",
+    "text": "10 + Dexterity + shield bonus. It is the TN to hit you."
+  },
+  {
+    "topic": "Combat",
+    "name": "Damage",
+    "text": "Weapon dice + Strength (bows add Perception instead) + modifiers - the target's Armor Rating. Never below 0; a hit can do no damage."
+  },
+  {
+    "topic": "Combat",
+    "name": "Armor Rating",
+    "text": "Damage that armor soaks up from every hit. Penetrating damage ignores it."
+  },
+  {
+    "topic": "Combat",
+    "name": "Armor penalty",
+    "text": "Heavier armor lowers your Speed, and also your Dexterity for Defense unless you have Armor Training."
+  },
+  {
+    "topic": "Combat",
+    "name": "Penetrating damage",
+    "text": "Damage that ignores Armor Rating."
+  },
+  {
+    "topic": "Combat",
+    "name": "Speed",
+    "text": "How many yards you move with a Move action. Depends on race and Dexterity, and is lowered by the armor penalty."
+  },
+  {
+    "topic": "Combat",
+    "name": "Prone",
+    "text": "Lying down. Melee attacks against a prone target get +1. A prone character cannot Run and needs a Move action to stand."
+  },
+  {
+    "topic": "Combat",
+    "name": "Cover",
+    "text": "Light cover gives the defender -2 to be hit by attacks (-3 for heavy cover).",
+    "autoLink": false
+  },
+  {
+    "topic": "Combat",
+    "name": "Higher ground",
+    "text": "An attacker on higher ground gets +1 to the attack roll.",
+    "autoLink": false
+  },
+  {
+    "topic": "Combat",
+    "name": "Outnumbering",
+    "text": "Melee attackers and allies who outnumber the defender 2:1 get +1 to attack, 3:1 get +2."
+  },
+  {
+    "topic": "Combat",
+    "name": "Unaware defender",
+    "text": "An attack against a defender who does not know it is coming gets +3."
+  },
+  {
+    "topic": "Combat",
+    "name": "Mounted combat",
+    "text": "Mounting is part of a Move action (half Speed). The mount's Speed is used afterward. Melee attacks from the saddle get +1 against foes on foot. Knock Prone against a rider: Dexterity (Riding) against TN 10 + attacker's Strength."
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Health",
+    "text": "Class base + Constitution + 1d6 at level 1, increased each level. At 0 a player character is dying.",
+    "extra": "healing"
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Dying",
+    "text": "A character at 0 Health dies at the start of their turn after 2 + Constitution rounds unless healed. They can talk but take no other actions. Health never goes below 0."
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Pulling a killing blow",
+    "text": "The attacker may leave the target unconscious at 1 Health instead. It wakes after 2d6 minutes."
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Coup de grace",
+    "text": "A major action against an adjacent dying or unconscious target: automatic kill. At range it needs an attack roll against Defense 10."
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Breather",
+    "text": "5 minutes of rest, once per encounter (not if you ended the fight at 0 Health). Heals 5 + Constitution + level."
+  },
+  {
+    "topic": "Health and healing",
+    "name": "Restful sleep",
+    "text": "6 hours of sleep heal 10 + Constitution + level Health."
+  },
+  {
+    "topic": "Magic",
+    "name": "Mana points (MP)",
+    "text": "The fuel for spells. 10 + Magic + 1d6 at level 1, more each level. The cost is paid when you take the casting action, whether or not the spell works.",
+    "aliases": [
+      "MP",
+      "mana points",
+      "mana"
+    ]
+  },
+  {
+    "topic": "Magic",
+    "name": "Regaining mana",
+    "text": "Each full hour of rest or meditation restores 1d6 + Magic MP. Eight hours of uninterrupted rest restore all of it."
+  },
+  {
+    "topic": "Magic",
+    "name": "School of magic",
+    "text": "Every spell belongs to a school: Creation, Entropy, Primal or Spirit (Blood is a fifth school for Blood Mages). The casting roll uses the focus of the spell's school.",
+    "aliases": [
+      "schools",
+      "school"
+    ],
+    "extra": "schools"
+  },
+  {
+    "topic": "Magic",
+    "name": "Casting roll",
+    "text": "3d6 + Magic + the focus of the spell's school. Meet or beat the spell's TN or it fizzles; the mana is still spent."
+  },
+  {
+    "topic": "Magic",
+    "name": "Spellpower",
+    "text": "10 + Magic + the school focus. Targets that get a resisting test roll against it."
+  },
+  {
+    "topic": "Magic",
+    "name": "Armor strain",
+    "text": "Extra mana added to the cost of every spell while you wear armor: light leather 1, heavy leather 2, light mail 3, heavy mail 4, light plate 5, heavy plate 6.",
+    "extra": "armor-strain"
+  },
+  {
+    "topic": "Magic",
+    "name": "Spell requirement",
+    "text": "Some spells need another spell, a talent rank or a specialization before they can be learned."
+  },
+  {
+    "topic": "Magic",
+    "name": "Magical mishap",
+    "text": "Only for spells that have a requirement: the casting roll fails and the Dragon Die shows 1. The caster tests Willpower (Self-Discipline) against the spell TN. Success: prone (or pay the spell's cost again to stay up). Failure: a mishap read from that test's Dragon Die.",
+    "aliases": [
+      "mishap",
+      "mishaps"
+    ],
+    "extra": "mishaps"
+  },
+  {
+    "topic": "Magic",
+    "name": "Mana Drain",
+    "text": "Mishap: lose mana equal to twice the spell's original cost."
+  },
+  {
+    "topic": "Magic",
+    "name": "Mana Burn",
+    "text": "Mishap: lose Health equal to twice the spell's original cost."
+  },
+  {
+    "topic": "Magic",
+    "name": "Backlash",
+    "text": "Mishap: you cannot cast for 1d6 rounds."
+  },
+  {
+    "topic": "Magic",
+    "name": "Misfire",
+    "text": "Mishap: the effect hits an ally instead of an enemy, or is reversed. The GM decides the details."
+  },
+  {
+    "topic": "Magic",
+    "name": "Lost in the Fade",
+    "text": "Mishap: helpless trance for 2d6 minutes, open to a coup de grace."
+  },
+  {
+    "topic": "Magic",
+    "name": "Harrowing (mishap)",
+    "text": "Mishap: as Lost in the Fade, plus TN 13 Willpower (Faith or Self-Discipline) every 2 minutes or a demon possesses the caster."
+  },
+  {
+    "topic": "Magic",
+    "name": "Stacked spells",
+    "text": "A target can be under one casting of a given spell at a time. Casting it again does nothing and does not extend the duration. Instant, permanent effects such as healing are exempt. Different spells add up."
+  },
+  {
+    "topic": "Magic",
+    "name": "Blood magic",
+    "text": "A fifth school, only for characters with the Blood Mage specialization, cast in Blood Magic mode. Stigmatized almost everywhere outside Tevinter."
+  },
+  {
+    "topic": "Magic",
+    "name": "Tranquil",
+    "text": "Mages cut off from the Fade. They cannot cast. Not a player option in the core book."
+  },
+  {
+    "topic": "Characters",
+    "name": "Ability",
+    "text": "One of eight scores, -2 to 4 at the start: Communication, Constitution, Cunning, Dexterity, Magic, Perception, Strength, Willpower.",
+    "aliases": [
+      "abilities"
+    ],
+    "extra": "abilities"
+  },
+  {
+    "topic": "Characters",
+    "name": "Background",
+    "text": "Where your character comes from. It gives an ability bonus, a focus, languages and two results from a 2d6 table.",
+    "aliases": [
+      "backgrounds"
+    ]
+  },
+  {
+    "topic": "Characters",
+    "name": "Class",
+    "text": "Warrior, Rogue or Mage. It sets your health, your powers at each level, starting talents and weapon groups.",
+    "aliases": [
+      "classes"
+    ],
+    "extra": "classes"
+  },
+  {
+    "topic": "Characters",
+    "name": "Talent",
+    "text": "A special training with three degrees: Novice, Journeyman and Master. Most have requirements.",
+    "aliases": [
+      "talents"
+    ]
+  },
+  {
+    "topic": "Characters",
+    "name": "Specialization",
+    "text": "An advanced path a class can take, usually from level 6. It has Novice, Journeyman and Master degrees.",
+    "aliases": [
+      "specializations"
+    ]
+  },
+  {
+    "topic": "Characters",
+    "name": "Weapon group",
+    "text": "A family of weapons that share an attack ability and focus (axes, bows, heavy blades...). Without the group you attack at -2 and do half damage.",
+    "aliases": [
+      "weapon groups"
+    ],
+    "extra": "weapon-groups"
+  },
+  {
+    "topic": "Characters",
+    "name": "Level and XP",
+    "text": "Experience points rise as you play. Reaching the next threshold lets you level up: an ability advancement, a focus, a talent or similar, plus health and mana.",
+    "aliases": [
+      "XP",
+      "experience points",
+      "experience"
+    ],
+    "extra": "xp-table"
+  },
+  {
+    "topic": "Characters",
+    "name": "Ability advancement",
+    "text": "Raising an ability at level-up. Even levels use the class's primary ability, odd levels the secondary. The cost is 1, 2 or 3 advancements depending on the rating.",
+    "aliases": [
+      "advancement",
+      "advancements"
+    ],
+    "extra": "advancement-cost"
+  },
+  {
+    "topic": "Money",
+    "name": "Coins",
+    "text": "1 gold = 100 silver, 1 silver = 100 copper. The app stores copper and shows gold, silver and copper.",
+    "aliases": [
+      "gold",
+      "silver",
+      "copper"
+    ]
+  }
+]

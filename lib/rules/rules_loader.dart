@@ -5,7 +5,10 @@ import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
+import 'models/glossary.dart';
+import 'models/lore.dart';
 import 'models/magic.dart';
+import 'models/rule_tables.dart';
 import 'models/specializations.dart';
 import 'models/stunt.dart';
 import 'models/spell.dart';
@@ -95,9 +98,23 @@ class RulesLoader {
     );
   }
 
+  Future<RuleTables> loadRuleTables() async =>
+      RuleTables.fromJson(await _json('core.json') as Map<String, dynamic>);
+
+  Future<List<GlossaryTerm>> loadGlossary() async {
+    final list = await _json('glossary.json') as List<dynamic>;
+    return [
+      for (final t in list) GlossaryTerm.fromJson(t as Map<String, dynamic>)
+    ];
+  }
+
+  Future<LoreFile> loadLore() async =>
+      LoreFile.fromJson(await _json('lore.json') as Map<String, dynamic>);
+
   Future<RulesData> load() async {
     final gear = await loadGear();
     final play = await loadPlayDefaults();
+    final lore = await loadLore();
     return RulesData(
       classes: await loadClasses(),
       backgrounds: await loadBackgrounds(),
@@ -118,6 +135,10 @@ class RulesLoader {
       roleplayingStunts: await loadStunts('exploration.json', 'roleplayingStunts'),
       widgetTemplates: play.templates,
       defaultLayouts: play.layouts,
+      glossaryTerms: await loadGlossary(),
+      ruleTables: await loadRuleTables(),
+      loreTags: lore.tags,
+      loreEntries: lore.entries,
     );
   }
 }

@@ -28,7 +28,8 @@ final characterStorageProvider = FutureProvider<CharacterStorage>((ref) async {
   return CharacterStorage(Directory(p.join(documents.path, 'characters')));
 });
 
-final _settingsStorageProvider = FutureProvider<SettingsStorage>((ref) async {
+/// The settings file (selected character, theme).
+final settingsStorageProvider = FutureProvider<SettingsStorage>((ref) async {
   final documents = await ref.watch(_documentsProvider.future);
   return SettingsStorage(File(p.join(documents.path, 'settings.json')));
 });
@@ -42,7 +43,7 @@ class CharactersNotifier extends AsyncNotifier<CharacterLibrary> {
   @override
   Future<CharacterLibrary> build() async {
     _characters = await ref.watch(characterStorageProvider.future);
-    _settings = await ref.watch(_settingsStorageProvider.future);
+    _settings = await ref.watch(settingsStorageProvider.future);
     return CharacterLibrary(
       await _characters.loadAll(),
       preferredId: await _settings.loadSelectedId(),

@@ -3,7 +3,10 @@ import 'models/backgrounds.dart';
 import 'models/classes.dart';
 import 'models/focus_entry.dart';
 import 'models/gear.dart';
+import 'models/glossary.dart';
+import 'models/lore.dart';
 import 'models/magic.dart';
+import 'models/rule_tables.dart';
 import 'models/specializations.dart';
 import 'models/stunt.dart';
 import 'models/spell.dart';
@@ -33,6 +36,10 @@ class RulesData {
     required this.roleplayingStunts,
     required this.widgetTemplates,
     required this.defaultLayouts,
+    required this.glossaryTerms,
+    required this.ruleTables,
+    required this.loreTags,
+    required this.loreEntries,
   });
 
   final ClassesFile classes;
@@ -67,6 +74,16 @@ class RulesData {
 
   /// Where the default widgets sit, per device class.
   final Map<String, List<PlayTile>> defaultLayouts;
+
+  /// The hand-written rulebook terms of the Glossary (glossary.json).
+  final List<GlossaryTerm> glossaryTerms;
+
+  /// Difficulties, attack modifiers, healing and actions (core.json).
+  final RuleTables ruleTables;
+
+  /// The book's lore (lore.json): the six tags and 217 entries.
+  final List<LoreTag> loreTags;
+  final List<LoreEntry> loreEntries;
 
   WeaponGroup weaponGroupById(String id) =>
       weaponGroups.firstWhere((g) => g.id == id);
