@@ -31,7 +31,8 @@ Future<String?> askTagName(BuildContext context) async {
       ],
     ),
   );
-  field.dispose();
+  // Not disposed here: the dialog is still fading out and its text field
+  // uses the controller (disposing it crashed when Esc closed the dialog).
   return (name == null || name.isEmpty) ? null : name;
 }
 

@@ -7,6 +7,7 @@ import '../features/sheet/sheet_page.dart';
 import '../features/spells/spells_page.dart';
 import '../l10n/app_localizations.dart';
 import 'device_class.dart';
+import 'theme_look.dart';
 
 /// One tab: its icon, its name and the page it shows.
 class _AppTab {
@@ -50,17 +51,26 @@ class _AppShellState extends State<AppShell> {
     final device = deviceClassFor(MediaQuery.sizeOf(context).width);
 
     if (device == DeviceClass.phone) {
-      return Scaffold(
-        body: pages,
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: _selected,
-          onDestinationSelected: _select,
-          destinations: [
-            for (final tab in tabs)
-              NavigationDestination(icon: Icon(tab.icon), label: tab.label),
-          ],
-        ),
+      Widget bar = NavigationBar(
+        selectedIndex: _selected,
+        onDestinationSelected: _select,
+        destinations: [
+          for (final tab in tabs)
+            NavigationDestination(icon: Icon(tab.icon), label: tab.label),
+        ],
       );
+      // Themes with a frame line draw it above the tab bar too.
+      final frame = ThemeLook.of(context).frameWidth;
+      if (frame > 0) {
+        final line = Theme.of(context).colorScheme.primary;
+        bar = DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: line, width: frame)),
+          ),
+          child: bar,
+        );
+      }
+      return Scaffold(body: pages, bottomNavigationBar: bar);
     }
 
     return Scaffold(

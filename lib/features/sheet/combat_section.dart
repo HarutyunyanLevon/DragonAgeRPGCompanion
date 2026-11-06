@@ -6,11 +6,14 @@ import '../../l10n/app_localizations.dart';
 import '../../rules/models/gear.dart';
 import '../../rules/rules_data.dart';
 import '../../shared/display_name.dart';
+import '../../shared/action_button.dart';
 import '../../shared/form_widgets.dart';
 import '../../shared/info_row.dart';
 import '../../shared/sheet_box.dart';
 import '../../shared/stat_tiles.dart';
 import '../create/rule_info.dart';
+import '../roll/roll_sheet.dart';
+import '../roll/weapon_roll.dart';
 import 'sheet_filter.dart';
 
 /// Speed, Defense, Armor and Penalty, Move / Charge / Run, the equipped
@@ -60,7 +63,7 @@ class CombatSection extends StatelessWidget {
       if (weapons.isNotEmpty) ...[
         SubsectionTitle(l10n.weapons),
         SheetBox(children: [
-          for (final weapon in weapons) _weaponRow(l10n, weapon),
+          for (final weapon in weapons) _weaponRow(context, l10n, weapon),
         ]),
       ],
       if (groups.isNotEmpty) ...[
@@ -87,7 +90,8 @@ class CombatSection extends StatelessWidget {
   }
 
   /// An equipped weapon: attack and damage (and range for missile weapons).
-  Widget _weaponRow(AppLocalizations l10n, Weapon weapon) {
+  /// An equipped weapon with a Roll button for attack and damage together.
+  Widget _weaponRow(BuildContext context, AppLocalizations l10n, Weapon weapon) {
     final numbers = weaponNumbers(character, weapon, rules);
     final range = weapon.range;
     final lines = [
@@ -99,6 +103,14 @@ class CombatSection extends StatelessWidget {
     return InfoRow(
       title: weapon.name,
       subtitle: lines.join('\n'),
+      actions: Align(
+        alignment: Alignment.centerLeft,
+        child: ActionButton(
+          label: l10n.rollAction,
+          onPressed: () =>
+              showRoll(context, rules, weaponRoll(weapon.name, numbers)),
+        ),
+      ),
       child: ItemInfo(rules: rules, itemId: weapon.id, name: weapon.name),
     );
   }
@@ -115,16 +127,19 @@ List<StatTile> combatStatTiles(AppLocalizations l10n, Character character,
       label: l10n.speed,
       value: '${n.speed}',
       info: CombatStatInfo(stat: CombatStat.speed, numbers: n),
+      shield: true,
     ),
     StatTile(
       label: l10n.defense,
       value: '${n.defense}',
       info: CombatStatInfo(stat: CombatStat.defense, numbers: n),
+      shield: true,
     ),
     StatTile(
       label: l10n.armorShort,
       value: '${n.armorRating}',
       info: CombatStatInfo(stat: CombatStat.armorRating, numbers: n),
+      shield: true,
     ),
     StatTile(
       label: l10n.penaltyShort,

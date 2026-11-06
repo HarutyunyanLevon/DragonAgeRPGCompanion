@@ -2,6 +2,7 @@ import '../rules/models/spell.dart';
 import '../rules/rules_data.dart';
 import '../rules/slug.dart';
 import 'character.dart';
+import 'damage_roll.dart';
 import 'test_roll.dart';
 
 /// Spellcasting rules (book, file 08) as pure functions: who can cast, what a
@@ -83,3 +84,30 @@ List<SpellRequirement> unmetRequirements(Character character, Spell spell) => [
 /// roll fails and its Dragon Die shows 1.
 bool causesMishap(Spell spell, TestRoll roll, {required bool success}) =>
     !success && roll.dragonDie == 1 && !spell.hasNoRequirement;
+
+/// The dice formula of one spell effect for a cast that spent [mana] (without
+/// armor strain), or null when the mana is too low to roll any die.
+/// [bonus] is the value of the effect's `plus` ability. Example: Heal with 3
+/// mana = "3d6", Lightning with Magic 4 = "2d6+4".
+String? effectFormula(SpellEffect effect, {required int mana, int bonus = 0}) {
+  final match = RegExp(r'^(\d+)d6([+-]\d+)?$').firstMatch(effect.dice);
+  if (match == null) return null;
+
+  final step = effect.perMana;
+  final dice = int.parse(match.group(1)!) * (step == null ? 1 : mana ~/ step);
+  if (dice == 0) return null;
+
+  final flat = int.parse(match.group(2) ?? '0') + bonus;
+  final sign = flat > 0 ? '+$flat' : (flat < 0 ? '$flat' : '');
+  return '${dice}d6$sign';
+}
+
+/// All the dice lines of a cast of [spell] for the roll sheet.
+List<DiceLine> spellDiceLines(Character character, Spell spell, int mana) => [
+      for (final effect in spell.effects)
+        if (effectFormula(effect,
+                mana: mana,
+                bonus: effect.plus == null ? 0 : character.ability(effect.plus!))
+            case final formula?)
+          DiceLine(effect.label, formula),
+    ];

@@ -5,9 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../character/character.dart';
 import '../../character/providers.dart';
-import '../../l10n/app_localizations.dart';
 import '../../rules/rules_data.dart';
+import '../../shared/action_button.dart';
 import '../../shared/amount_dialog.dart';
+import '../../shared/glass_vial.dart';
+import '../../shared/shield_plate.dart';
+import '../../shared/theme_look.dart';
+import '../../shared/vital_plate.dart';
 import '../sheet/money_dialog.dart';
 import 'play_info_card.dart';
 import 'shown_item.dart';
@@ -37,13 +41,17 @@ class PlayItemView extends ConsumerWidget {
 
   static const _stepper = {'health', 'mana'};
 
+  /// Stats a shield-shaped theme draws as shields (in tiles style).
+  static const _shields = {'defense', 'armor', 'speed'};
+
   void _saveCharacter(WidgetRef ref, Character changed) =>
       ref.read(charactersProvider.notifier).save(changed);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
     final c = character;
+    final look = ThemeLook.of(context);
+    final colors = Theme.of(context).colorScheme;
     final shown = showItem(context, ref, item, c, rules);
 
     // A tap opens the bottom card (description, Roll / Cast button).
@@ -65,6 +73,8 @@ class PlayItemView extends ConsumerWidget {
             control: control,
             onTap: onTap ?? openCard,
             dim: shown.missing,
+            radius: look.radius,
+            arch: look.archTiles,
           )
         : _Row(
             title: shown.title,
@@ -130,19 +140,60 @@ class PlayItemView extends ConsumerWidget {
               isHealth ? c.copyWith(health: next) : c.copyWith(mana: next));
         }
 
-        return box(
-          control: _Stepper(onMinus: () => change(-1), onPlus: () => change(1)),
-          onTap: () async {
-            final amount = await askAmount(context, shown.title);
-            if (amount != null) change(amount);
-          },
-        );
+        final stepper =
+            _Stepper(onMinus: () => change(-1), onPlus: () => change(1));
+        Future<void> askAndChange() async {
+          final amount = await askAmount(context, shown.title);
+          if (amount != null) change(amount);
+        }
+
+        if (look.vitalStyle == VitalStyle.glass) {
+          return GlassVial(
+            label: shown.title,
+            current: current,
+            max: maxValue,
+            color: isHealth ? colors.primary : colors.secondary,
+            control: stepper,
+            onTap: askAndChange,
+          );
+        }
+        if (look.vitalStyle == VitalStyle.plate) {
+          return VitalPlate(
+            label: shown.title,
+            current: current,
+            max: maxValue,
+            color: isHealth ? colors.primary : colors.secondary,
+            control: stepper,
+            onTap: askAndChange,
+          );
+        }
+        return box(control: stepper, onTap: askAndChange);
+
+      case 'stat'
+          when tiles &&
+              look.statShape != StatShape.box &&
+              _shields.contains(item.ref):
+        return ShieldPlate(
+            shape: look.statShape,
+            label: shown.title,
+            value: shown.value ?? '',
+            onTap: openCard);
 
       case 'stat' when item.ref == 'money':
         return box(onTap: () async {
           final copper = await showMoneyDialog(context, c.copper);
           if (copper != null) _saveCharacter(ref, c.copyWith(copper: copper));
         });
+
+      // Weapons (Roll) and spells (Cast) have their button on the item itself.
+      case 'weapon' || 'spell' when shown.onAction != null:
+        return box(
+          control: ActionButton(
+            label: shown.actionLabel ?? '',
+            onPressed: shown.onAction!,
+            expand: tiles,
+          ),
+        );
 
       default:
         return box();
@@ -205,6 +256,8 @@ class _Tile extends StatelessWidget {
   const _Tile({
     required this.width,
     required this.title,
+    required this.radius,
+    this.arch = false,
     this.value,
     this.subtitle,
     this.control,
@@ -213,6 +266,10 @@ class _Tile extends StatelessWidget {
   });
 
   final double width;
+  final double radius;
+
+  /// A round arch on top instead of rounded corners.
+  final bool arch;
   final String title;
   final String? value;
   final String? subtitle;
@@ -224,19 +281,24 @@ class _Tile extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     final colors = Theme.of(context).colorScheme;
+    final corners = arch
+        ? BorderRadius.vertical(
+            top: Radius.circular(min(width / 2, 28)),
+            bottom: Radius.circular(radius))
+        : BorderRadius.circular(radius);
 
     return Opacity(
       opacity: dim ? 0.5 : 1,
       child: SizedBox(
         width: width,
         child: InkWell(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: corners,
           onTap: onTap,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+            padding: EdgeInsets.fromLTRB(6, arch ? 12 : 6, 6, 6),
             decoration: BoxDecoration(
               border: Border.all(color: colors.outline),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: corners,
             ),
             child: Column(children: [
               _Scaled(child: Text(title, style: text.labelSmall)),

@@ -190,11 +190,17 @@ class PlayWidgetData {
     required this.id,
     required this.title,
     this.style = 'list',
+    this.showTitle = true,
     required this.items,
   });
 
   final String id;
   final String title;
+
+  /// False: the header is hidden while playing and the widget shows only its
+  /// items (a blank title hides it too). Edit mode always shows the header.
+  @JsonKey(defaultValue: true)
+  final bool showTitle;
 
   /// "list" (one row per item) or "tiles" (small boxes side by side).
   @JsonKey(defaultValue: 'list')
@@ -203,11 +209,20 @@ class PlayWidgetData {
   @JsonKey(defaultValue: <PlayItem>[])
   final List<PlayItem> items;
 
-  PlayWidgetData copyWith({String? title, String? style, List<PlayItem>? items}) =>
+  /// The header is drawn when there is a title and it is not hidden.
+  bool get hasHeader => showTitle && title.trim().isNotEmpty;
+
+  PlayWidgetData copyWith({
+    String? title,
+    String? style,
+    bool? showTitle,
+    List<PlayItem>? items,
+  }) =>
       PlayWidgetData(
         id: id,
         title: title ?? this.title,
         style: style ?? this.style,
+        showTitle: showTitle ?? this.showTitle,
         items: items ?? this.items,
       );
 

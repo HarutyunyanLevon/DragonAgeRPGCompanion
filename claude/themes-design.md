@@ -1,6 +1,6 @@
-# Themes (session 14: Part 1 written; Part 2 planned)
+# Themes (session 14: Part 1; session 15: Part 2 for Warrior)
 
-The app has six selectable themes. Part 1 (colors, fonts, picker, saving) is written. Part 2 (the signature shapes from the sketches) is not started.
+The app has six selectable themes. Part 1 (colors, fonts, picker, saving) is built. Part 2 (the signature shapes from the sketches) is written for **Warrior** (session 15, not yet compiled); the other four are still planned.
 
 ## Sketches
 Design artifact "Dragon Age Companion: 10 Fantasy Themes" (15 boards, the Play tab at phone size, a note under each board). The user chose these five, plus the old look:
@@ -39,7 +39,22 @@ Not chosen (kept in the artifact for later): 03 Silverwood, 04 Dwarven Forge, 05
 2. Add `themeX` and `themeXAbout` to `app_en.arb`, and the two cases in `theme_picker.dart` (`_name`, `_about`).
 3. `python build.py -g -t`. The contrast test tells you if the colors are unreadable.
 
-## Part 2 plan (not started)
+## Part 2: shapes, Warrior first (session 15; written, not yet compiled)
+Decisions (grill-me): build all four parts of sketch 11 for Warrior; shapes are switched by **`ThemeLook` tokens** (not by `if (warrior)`); Attack and Damage are **separate rolls**; buttons on Play **list and tiles** and on the **Sheet** weapons; shields for **Defense / Armor / Speed** on Play and Sheet.
+
+- `lib/shared/theme_look.dart`: `ThemeLook` (a `ThemeExtension`, read with `ThemeLook.of(context)`): `flat` (square corners), `statShape` (`box` / `shield`), `vitalStyle` (`box` / `plate`). `radius` = 0 when flat, else 8. Each theme sets its `look:` in `themeSpecs` (**edit a theme's shapes there**). Only Warrior sets any so far; `buildTheme` adds the look to the ThemeData.
+- `theme.dart` (flat only): square filled / elevated / outlined / text buttons and bottom sheet, thick primary line under the app bar, solid selected tab (bar and rail), `app_shell.dart` adds the thick line above the phone tab bar.
+- `shield_plate.dart` (`ShieldPlate`): steel shield (ClipPath), number over label, accent fill while its description is open. `StatTile.shield` marks the three tiles on the Sheet (`combat_section.dart`); `PlayItemView` uses it for stat items `defense` / `armor` / `speed` **in tiles style** (list style stays a row).
+- `vital_plate.dart` (`VitalPlate`): Health and Mana (stat items, both styles) as a plate: colored left edge (Health = primary, Mana = secondary), big number "46 / 54", thin bar, - / + under it, tap = Lose / Gain dialog as before.
+- Boxes use `look.radius`: `PlayWidgetCard`, `_Tile` in `play_item_view.dart`, `StatTiles`, `SheetBox`.
+- Strings: `attackButton`, `damageRollTitle` in `app_en.arb`.
+- Tests: `test/theme_look_test.dart` (only Warrior has shapes, radius, the weapon roll).
+- **Not built**: the diagonal stripe page background (Scaffolds are opaque; a transparent Scaffold would show black behind routes / dialogs), the stunt counter (use a free "counter" or "resource" item named Stunt points), a red edge on widget headers, per-class automatic switching.
+
+### How to give another theme a shape
+Add a value to `StatShape` / `VitalStyle` (or a new token), draw it in a small widget in `lib/shared/`, read the token where the box is drawn, set it in that theme's `look:`. Keep the widget count low: one file per shape.
+
+## Part 2 plan for the other themes (not started)
 The sketches get their character from shapes, not colors. Plan: a `ThemeExtension` (say `ThemeLook`) per theme with a few tokens, and themed versions of the few widgets that draw the Play tab:
 - **Health / mana bar**: plain, ribbon (manuscript), heart and star pips (tavern), medallion circle (antivan), big number with plate (warrior), stained-glass vial (chantry).
 - **Ability tile**: arch top (chantry), gold-leaf roundel (manuscript), pill (tavern), arch with gold border (antivan), flat with bottom line (warrior).
@@ -48,4 +63,4 @@ The sketches get their character from shapes, not colors. Plan: a `ThemeExtensio
 - Cormorant looks small: tune `fontScale` after seeing it on a phone.
 - Bundle the fonts (google_fonts supports font files in an assets folder: no download, works offline).
 - Maybe: a real Settings page; theme per character.
-- Do one theme at a time, show it, then the next. Suggested order: warrior (flattest), chantry, antivan, manuscript, tavern.
+- Do one theme at a time, show it, then the next. Suggested order: ~~warrior~~ (done, session 15), chantry, antivan, manuscript, tavern. The `ThemeLook` tokens above replace the "ThemeExtension per theme" idea.

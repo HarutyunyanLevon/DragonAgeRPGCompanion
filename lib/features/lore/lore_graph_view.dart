@@ -159,7 +159,9 @@ class _LoreGraphViewState extends ConsumerState<LoreGraphView> {
         ],
       ),
     );
-    field.dispose();
+    // Not disposed here: the dialog is still fading out and its text field
+    // uses the controller (an Esc press crashed with a disposed controller).
+    // A controller without listeners needs no dispose.
     return result;
   }
 
@@ -254,8 +256,7 @@ class _LoreGraphViewState extends ConsumerState<LoreGraphView> {
         ],
       ),
     );
-    final label = field.text.trim();
-    field.dispose();
+    final label = field.text.trim(); // controller not disposed: see _askText
 
     if (action == 'delete') {
       await saveLore(ref, removeString(_lore.data, string.id));

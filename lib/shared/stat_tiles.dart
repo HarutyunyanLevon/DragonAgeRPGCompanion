@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'shield_plate.dart';
+import 'theme_look.dart';
+
 /// One number of the character sheet: a small label over a big value. A tile
-/// with an [info] can be tapped to read it.
+/// with an [info] can be tapped to read it. A [shield] tile is drawn as a
+/// shield in themes that have shields (Defense, Armor, Speed).
 class StatTile {
-  const StatTile({required this.label, required this.value, this.info});
+  const StatTile({
+    required this.label,
+    required this.value,
+    this.info,
+    this.shield = false,
+  });
 
   final String label;
   final String value;
   final Widget? info;
+  final bool shield;
 }
 
 /// A row of tiles like the circles on the paper sheet. Tapping a tile shows
@@ -26,8 +36,6 @@ class _StatTilesState extends State<StatTiles> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-    final text = Theme.of(context).textTheme;
     final open = widget.tiles.where((t) => t.label == _openLabel).firstOrNull;
 
     return Padding(
@@ -38,33 +46,7 @@ class _StatTilesState extends State<StatTiles> {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(8),
-                  onTap: tile.info == null
-                      ? null
-                      : () => setState(() =>
-                          _openLabel = tile == open ? null : tile.label),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    decoration: BoxDecoration(
-                      color: tile == open
-                          ? colors.primary.withValues(alpha: 0.2)
-                          : null,
-                      border: Border.all(
-                          color: tile.info == null
-                              ? colors.outlineVariant
-                              : colors.outline),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(children: [
-                      Text(tile.label,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: text.labelSmall),
-                      Text(tile.value, style: text.titleLarge),
-                    ]),
-                  ),
-                ),
+                child: _tile(context, tile, tile == open),
               ),
             ),
         ]),
@@ -74,6 +56,44 @@ class _StatTilesState extends State<StatTiles> {
             child: open!.info!,
           ),
       ]),
+    );
+  }
+
+  Widget _tile(BuildContext context, StatTile tile, bool isOpen) {
+    final colors = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+    final look = ThemeLook.of(context);
+
+    final onTap = tile.info == null
+        ? null
+        : () => setState(() => _openLabel = isOpen ? null : tile.label);
+
+    if (tile.shield && look.statShape != StatShape.box) {
+      return ShieldPlate(
+          shape: look.statShape,
+          label: tile.label,
+          value: tile.value,
+          selected: isOpen,
+          onTap: onTap);
+    }
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(look.radius),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: isOpen ? colors.primary.withValues(alpha: 0.2) : null,
+          border: Border.all(
+              color: tile.info == null ? colors.outlineVariant : colors.outline),
+          borderRadius: BorderRadius.circular(look.radius),
+        ),
+        child: Column(children: [
+          Text(tile.label,
+              maxLines: 1, overflow: TextOverflow.ellipsis, style: text.labelSmall),
+          Text(tile.value, style: text.titleLarge),
+        ]),
+      ),
     );
   }
 }

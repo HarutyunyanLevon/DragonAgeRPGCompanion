@@ -51,6 +51,8 @@ Future<void> castSpell(BuildContext context, WidgetRef ref, Character character,
       bonus: castingBonus(character, spell),
       tn: spellTn(spell),
       stunts: StuntSet.magic,
+      effects: spellDiceLines(character, spell, base),
+      effectsNeedSuccess: true,
       info: [
         strain == 0
             ? l10n.manaSpent(spent)

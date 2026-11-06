@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'theme_look.dart';
+
 /// The themes a player can pick. The [name] of each value is saved in
 /// settings.json, so do not rename a value once it is released.
 enum AppThemeId {
@@ -24,6 +26,7 @@ enum AppThemeId {
 /// - Fonts are Google Font names. null = the system serif / default font.
 /// - [fontScale]: some fonts look small at the same size (Cormorant), so
 ///   all text of that theme is scaled up a little.
+/// - [look]: the shapes (flat corners, shield plates ...), see theme_look.dart.
 class ThemeSpec {
   const ThemeSpec({
     required this.brightness,
@@ -37,6 +40,7 @@ class ThemeSpec {
     this.headingFont,
     this.bodyFont,
     this.fontScale = 1,
+    this.look = const ThemeLook(),
   });
 
   final Brightness brightness;
@@ -50,6 +54,7 @@ class ThemeSpec {
   final String? headingFont;
   final String? bodyFont;
   final double fontScale;
+  final ThemeLook look;
 }
 
 const themeSpecs = <AppThemeId, ThemeSpec>{
@@ -77,6 +82,13 @@ const themeSpecs = <AppThemeId, ThemeSpec>{
     headingFont: 'Cinzel',
     bodyFont: 'Crimson Pro',
     fontScale: 1.05,
+    look: ThemeLook(
+      frameWidth: 1.5,
+      ornaments: true,
+      archTiles: true,
+      statShape: StatShape.arch,
+      vitalStyle: VitalStyle.glass,
+    ),
   ),
   // Sketch 02: the only light theme. Parchment, ink, lapis, rubric red.
   AppThemeId.manuscript: ThemeSpec(
@@ -132,6 +144,12 @@ const themeSpecs = <AppThemeId, ThemeSpec>{
     outline: Color(0xFF6B7482),
     headingFont: 'Oswald',
     bodyFont: 'Source Serif 4',
+    look: ThemeLook(
+      flat: true,
+      frameWidth: 3,
+      statShape: StatShape.shield,
+      vitalStyle: VitalStyle.plate,
+    ),
   ),
 };
 

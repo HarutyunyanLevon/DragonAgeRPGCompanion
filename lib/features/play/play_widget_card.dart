@@ -7,6 +7,8 @@ import '../../character/character.dart';
 import '../../character/play_items.dart';
 import '../../l10n/app_localizations.dart';
 import '../../rules/rules_data.dart';
+import '../../shared/corner_ornaments.dart';
+import '../../shared/theme_look.dart';
 import 'add_item_sheet.dart';
 import 'free_item_dialog.dart';
 import 'play_item_view.dart';
@@ -79,20 +81,25 @@ class PlayWidgetCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = Theme.of(context).colorScheme;
+    // No header while playing when the title is hidden or blank: the widget
+    // is then only its items. Edit mode always has the header (its controls).
+    final header = editing || data.hasHeader;
 
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: colors.surface,
-        border: Border.all(
-            color: editing ? colors.primary : colors.outlineVariant),
-        borderRadius: BorderRadius.circular(8),
+    return CornerOrnaments(
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: colors.surface,
+          border: Border.all(
+              color: editing ? colors.primary : colors.outlineVariant),
+          borderRadius: BorderRadius.circular(ThemeLook.of(context).radius),
+        ),
+        child: Column(children: [
+          if (header) _header(context),
+          Expanded(child: _body(context, ref, hasHeader: header)),
+          if (footer != null) footer!,
+        ]),
       ),
-      child: Column(children: [
-        _header(context),
-        Expanded(child: _body(context, ref)),
-        if (footer != null) footer!,
-      ]),
     );
   }
 
@@ -119,6 +126,17 @@ class PlayWidgetCard extends ConsumerWidget {
                         )
                       : _titleText(text),
                 ),
+                if (renamable)
+                  IconButton(
+                    tooltip:
+                        data.showTitle ? l10n.hideWidgetTitle : l10n.showWidgetTitle,
+                    visualDensity: VisualDensity.compact,
+                    icon: Icon(data.showTitle
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined),
+                    onPressed: () => onChanged(
+                        setWidgetTitleShown(widgets, data.id, !data.showTitle)),
+                  ),
                 IconButton(
                   tooltip: _tiles ? l10n.styleList : l10n.styleTiles,
                   visualDensity: VisualDensity.compact,
@@ -152,7 +170,7 @@ class PlayWidgetCard extends ConsumerWidget {
 
   // ---- Items ----
 
-  Widget _body(BuildContext context, WidgetRef ref) {
+  Widget _body(BuildContext context, WidgetRef ref, {required bool hasHeader}) {
     return LayoutBuilder(builder: (context, constraints) {
       final inner = constraints.maxWidth - 16;
       final perLine = max(1, ((inner + _gap) / (_tileMinWidth + _gap)).floor());
@@ -164,7 +182,8 @@ class PlayWidgetCard extends ConsumerWidget {
       ];
 
       return SingleChildScrollView(
-        padding: const EdgeInsets.all(8),
+        // Without a header the tiles start close to the top edge.
+        padding: EdgeInsets.fromLTRB(8, hasHeader ? 8 : 4, 8, 8),
         child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           if (_tiles)
             ..._tileRows(items, perLine)
@@ -399,7 +418,7 @@ class _TitleFieldState extends State<_TitleField> {
 
   void _save() {
     final title = _controller.text.trim();
-    if (title.isNotEmpty && title != widget.title) widget.onSaved(title);
+    if (title != widget.title) widget.onSaved(title); // blank hides the header
   }
 
   @override
@@ -408,9 +427,10 @@ class _TitleFieldState extends State<_TitleField> {
       controller: _controller,
       focusNode: _focus,
       style: Theme.of(context).textTheme.titleSmall,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         isDense: true,
         border: InputBorder.none,
+        hintText: AppLocalizations.of(context).widgetTitleHint,
       ),
       onSubmitted: (_) => _save(),
       onTapOutside: (_) => _focus.unfocus(),

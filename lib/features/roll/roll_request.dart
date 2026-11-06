@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import '../../character/damage_roll.dart';
 import '../../character/test_roll.dart';
 
 /// Which stunts the roll sheet offers when the roll has doubles.
@@ -23,7 +24,7 @@ class RollOutcome {
 }
 
 /// Everything the roll sheet needs to roll one test (and, for a weapon, its
-/// damage). Build one wherever something can be rolled and pass it to
+/// damage; for a spell, its effects). Build one wherever something can be rolled and pass it to
 /// `showRoll`.
 class RollRequest {
   const RollRequest({
@@ -32,6 +33,8 @@ class RollRequest {
     this.tn = 11,
     this.stunts = StuntSet.test,
     this.damage,
+    this.effects = const [],
+    this.effectsNeedSuccess = false,
     this.info = const [],
     this.extras,
     this.onUndo,
@@ -49,6 +52,13 @@ class RollRequest {
 
   /// Weapons: damage dice such as "2d6+3", rolled together with the attack.
   final String? damage;
+
+  /// More dice rolled with the test (a spell's damage or healing).
+  final List<DiceLine> effects;
+
+  /// The [effects] only count when the test succeeds: on a failure they are
+  /// shown dimmed (spells).
+  final bool effectsNeedSuccess;
 
   /// Lines shown under the title.
   final List<String> info;

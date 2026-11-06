@@ -64,7 +64,7 @@ class RollSheet extends StatefulWidget {
 class _RollSheetState extends State<RollSheet> {
   final _random = Random();
   late TestRoll _roll = TestRoll.roll(_random);
-  late DamageRoll? _damage = _rollDamage();
+  late List<DamageRoll?> _dice = _rollDice();
   late int _tn = widget.request.tn;
   int _modifier = 0;
   int _rollNumber = 0; // changes with every new roll; restarts the extras
@@ -73,10 +73,21 @@ class _RollSheetState extends State<RollSheet> {
 
   RollRequest get _request => widget.request;
 
-  DamageRoll? _rollDamage() {
-    final formula = widget.request.damage;
-    return formula == null ? null : DamageRoll.tryRoll(formula, _random);
-  }
+  /// The dice formulas under the test: the weapon's damage, then the effects.
+  List<String> get _formulas => [
+        if (_request.damage != null) _request.damage!,
+        for (final effect in _request.effects) effect.formula,
+      ];
+
+  /// The same, with the text shown over each.
+  List<DiceLine> _lines(AppLocalizations l10n) => [
+        if (_request.damage != null) DiceLine(l10n.damage, _request.damage!),
+        ..._request.effects,
+      ];
+
+  /// One roll for every formula (null when a formula is not dice text).
+  List<DamageRoll?> _rollDice() =>
+      [for (final f in _formulas) DamageRoll.tryRoll(f, _random)];
 
   /// The dice changed: stunts picked for the old roll no longer count.
   void _changeRoll(void Function() change) => setState(() {
@@ -110,7 +121,9 @@ class _RollSheetState extends State<RollSheet> {
     final total = _roll.total(bonus);
     final success = total >= _tn;
     final stuntPoints = success && _roll.hasDoubles ? _roll.dragonDie : 0;
-    final damage = _damage;
+    final lines = _lines(l10n);
+    // A failed spell: its dice are shown dimmed.
+    final failed = _request.effectsNeedSuccess && !success;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -121,7 +134,8 @@ class _RollSheetState extends State<RollSheet> {
         DiceRow(
           dice: _roll.dice,
           dragonLast: true,
-          onChanged: (i, value) => _changeRoll(() => _roll = _roll.withDie(i, value)),
+          onChanged: (i, value) =>
+              _changeRoll(() => _roll = _roll.withDie(i, value)),
         ),
         Text(l10n.tapDieHint, style: text.bodySmall),
         const SizedBox(height: 8),
@@ -143,15 +157,9 @@ class _RollSheetState extends State<RollSheet> {
             color: success ? null : Theme.of(context).colorScheme.error,
           ),
         ),
-        if (damage != null) ...[
-          const SizedBox(height: 12),
-          Text(l10n.damageLine(damage.total, _request.damage!), style: text.titleMedium),
-          const SizedBox(height: 4),
-          DiceRow(
-            dice: damage.dice,
-            onChanged: (i, value) => setState(() => _damage = damage.withDie(i, value)),
-          ),
-        ],
+        for (var i = 0; i < lines.length; i++)
+          if (_dice[i] != null) _diceBlock(l10n, text, lines[i], i, dim: failed),
+        if (failed && lines.isNotEmpty) Text(l10n.effectsFailed, style: text.bodySmall),
         if (stuntPoints > 0) ...[
           const SizedBox(height: 12),
           if (_request.stunts == StuntSet.test) _categoryChooser(l10n),
@@ -181,7 +189,7 @@ class _RollSheetState extends State<RollSheet> {
           TextButton(
             onPressed: () => _changeRoll(() {
               _roll = TestRoll.roll(_random);
-              _damage = _rollDamage();
+              _dice = _rollDice();
             }),
             child: Text(l10n.reroll),
           ),
@@ -190,6 +198,27 @@ class _RollSheetState extends State<RollSheet> {
             child: Text(l10n.close),
           ),
         ]),
+      ]),
+    );
+  }
+
+  /// A line of dice: "Damage 9 (2d6+3)" and the dice (tap one to type it).
+  Widget _diceBlock(AppLocalizations l10n, TextTheme text, DiceLine line,
+      int index, {required bool dim}) {
+    final roll = _dice[index]!;
+
+    return Opacity(
+      opacity: dim ? 0.4 : 1,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const SizedBox(height: 12),
+        Text(l10n.effectLine(line.label, roll.total, line.formula),
+            style: text.titleMedium),
+        const SizedBox(height: 4),
+        DiceRow(
+          dice: roll.dice,
+          onChanged: (i, value) =>
+              setState(() => _dice[index] = roll.withDie(i, value)),
+        ),
       ]),
     );
   }

@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../character/damage_roll.dart';
 import '../../character/magic.dart';
 import '../../character/providers.dart';
 import '../../l10n/app_localizations.dart';
@@ -31,6 +34,8 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
   final _mana = TextEditingController();
   final _tn = TextEditingController();
   final _description = TextEditingController();
+  final _effectName = TextEditingController();
+  final _effectDice = TextEditingController();
 
   late String _school;
   late String _type;
@@ -53,6 +58,8 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
     _mana.dispose();
     _tn.dispose();
     _description.dispose();
+    _effectName.dispose();
+    _effectDice.dispose();
     super.dispose();
   }
 
@@ -77,7 +84,13 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
     return id.isNotEmpty && ref.read(allSpellsProvider).any((s) => s.id == id);
   }
 
+  /// The optional effect dice are empty or look like "2d6" / "1d6+2".
+  bool get _diceValid =>
+      _effectDice.text.trim().isEmpty ||
+      DamageRoll.tryRoll(_effectDice.text, Random()) != null;
+
   bool get _valid =>
+      _diceValid &&
       slug(_name.text).isNotEmpty &&
       !_nameTaken &&
       parseManaCost(_manaText) != null &&
@@ -90,7 +103,16 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
           .firstWhere((s) => s.requirement.trim() == _requirement)
           .requires;
 
+  /// The one optional effect line, as data.
+  List<SpellEffect> _effects(AppLocalizations l10n) {
+    final dice = _effectDice.text.trim();
+    if (dice.isEmpty) return const [];
+    final name = _effectName.text.trim();
+    return [SpellEffect(label: name.isEmpty ? l10n.damage : name, dice: dice)];
+  }
+
   Future<void> _save() async {
+    final l10n = AppLocalizations.of(context);
     final spell = Spell(
       name: _name.text.trim(),
       school: _school,
@@ -102,6 +124,7 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
       requirement: _requirement,
       requires: _requires,
       description: _description.text.trim(),
+      effects: _effects(l10n),
       homebrew: true,
     );
     await ref.read(customSpellsProvider.notifier).add(spell);
@@ -190,6 +213,20 @@ class _CustomSpellPageState extends ConsumerState<CustomSpellPage> {
           minLines: 3,
           maxLines: 8,
           textCapitalization: TextCapitalization.sentences,
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _effectName,
+          decoration: InputDecoration(labelText: l10n.spellEffectName),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _effectDice,
+          decoration: InputDecoration(
+            labelText: l10n.spellEffectDice,
+            errorText: _diceValid ? null : l10n.diceFormatHelp,
+          ),
+          onChanged: (_) => setState(() {}),
         ),
         const SizedBox(height: 24),
         FilledButton(

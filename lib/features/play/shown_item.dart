@@ -13,6 +13,7 @@ import '../create/rule_info.dart';
 import '../roll/ability_roll.dart';
 import '../roll/roll_request.dart';
 import '../roll/roll_sheet.dart';
+import '../roll/weapon_roll.dart';
 import '../spells/cast_spell.dart';
 import '../spells/custom_spells.dart';
 
@@ -151,12 +152,7 @@ ShownItem showItem(BuildContext context, WidgetRef ref, PlayItem item,
         subtitle: numbers.damage,
         details: ItemInfo(rules: rules, itemId: item.ref, name: weapon.name),
         actionLabel: l10n.rollAction,
-        onAction: () => roll(RollRequest(
-          title: weapon.name,
-          bonus: numbers.attack,
-          stunts: StuntSet.combat,
-          damage: numbers.damage,
-        )),
+        onAction: () => roll(weaponRoll(weapon.name, numbers)),
       );
 
     case 'spell':

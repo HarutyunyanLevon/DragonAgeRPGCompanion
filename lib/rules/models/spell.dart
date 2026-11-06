@@ -27,6 +27,33 @@ class SpellRequirement {
   Map<String, dynamic> toJson() => _$SpellRequirementToJson(this);
 }
 
+/// Dice a spell rolls when it is cast (spells.json "effects"): damage,
+/// healing, drained mana ... A spell can have several (one per turn, ...).
+///
+/// - [label]: what the dice are ("Damage", "Healing each turn").
+/// - [dice]: such as "2d6" or "1d6+1".
+/// - [perMana]: the dice count again for every this many mana spent
+///   (Heal: 1 = 1d6 per mana point; Group Heal: 3 = 1d6 per 3 MP). Null: once.
+/// - [plus]: an ability added to the roll ("magic", "willpower"). Null: none.
+@JsonSerializable()
+class SpellEffect {
+  const SpellEffect({
+    required this.label,
+    required this.dice,
+    this.perMana,
+    this.plus,
+  });
+
+  final String label;
+  final String dice;
+  final int? perMana;
+  final String? plus;
+
+  factory SpellEffect.fromJson(Map<String, dynamic> json) =>
+      _$SpellEffectFromJson(json);
+  Map<String, dynamic> toJson() => _$SpellEffectToJson(this);
+}
+
 /// One entry of assets/rules/spells.json (a plain list of spells), or a
 /// homebrew spell of the player (custom_spells.json, same shape).
 @JsonSerializable()
@@ -42,6 +69,7 @@ class Spell {
     required this.requirement,
     required this.requires,
     required this.description,
+    this.effects = const [],
     this.sourcePagePdf = 0,
     this.homebrew = false,
   });
@@ -62,6 +90,10 @@ class Spell {
   final List<SpellRequirement> requires;
 
   final String description;
+
+  /// The dice rolled with the cast. Empty: the spell rolls only the test.
+  @JsonKey(defaultValue: <SpellEffect>[])
+  final List<SpellEffect> effects;
 
   @JsonKey(name: 'source_page_pdf', defaultValue: 0)
   final int sourcePagePdf;

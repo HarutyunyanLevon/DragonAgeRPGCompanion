@@ -53,8 +53,7 @@ Future<void> showNoteDialog(
 
   final newTitle = title.text.trim();
   final newText = text.text.trim();
-  title.dispose();
-  text.dispose();
+  // The controllers are not disposed here: the closing dialog still uses them.
 
   // A note needs a title; an empty one is dropped silently.
   if (saved != true || newTitle.isEmpty) return;

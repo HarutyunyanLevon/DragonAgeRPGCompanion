@@ -1,5 +1,14 @@
 import 'dart:math';
 
+/// One line of dice shown under a roll: a [label] ("Damage", "Healing") and
+/// the dice [formula] ("2d6+3").
+class DiceLine {
+  const DiceLine(this.label, this.formula);
+
+  final String label;
+  final String formula;
+}
+
 /// A damage roll such as "2d6+3": the dice and the flat bonus.
 class DamageRoll {
   const DamageRoll(this.dice, this.flat);

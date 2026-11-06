@@ -152,6 +152,10 @@ List<PlayWidgetData> renameWidget(
         List<PlayWidgetData> widgets, String id, String title) =>
     _changeWidget(widgets, id, (w) => w.copyWith(title: title));
 
+List<PlayWidgetData> setWidgetTitleShown(
+        List<PlayWidgetData> widgets, String id, bool shown) =>
+    _changeWidget(widgets, id, (w) => w.copyWith(showTitle: shown));
+
 List<PlayWidgetData> setWidgetStyle(
         List<PlayWidgetData> widgets, String id, String style) =>
     _changeWidget(widgets, id, (w) => w.copyWith(style: style));
